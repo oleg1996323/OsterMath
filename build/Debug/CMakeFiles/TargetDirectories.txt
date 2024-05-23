@@ -1,0 +1,4 @@
+/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath.dir
+/home/oster/OsterMath/build/Debug/CMakeFiles/edit_cache.dir
+/home/oster/OsterMath/build/Debug/CMakeFiles/rebuild_cache.dir
+/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir
