@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include "settings.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class BookMath; }
@@ -11,9 +12,10 @@ class BookMath : public QMainWindow
     Q_OBJECT
 
 public:
-    BookMath(QWidget *parent = nullptr);
+    BookMath(QObject *parent = nullptr);
     ~BookMath();
 
 private:
     Ui::BookMath *ui;
+    GlobalSettings sets_;
 };
