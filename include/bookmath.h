@@ -1,5 +1,4 @@
-#ifndef BOOKMATH_H
-#define BOOKMATH_H
+#pragma once
 
 #include <QMainWindow>
 
@@ -18,4 +17,3 @@ public:
 private:
     Ui::BookMath *ui;
 };
-#endif // BOOKMATH_H

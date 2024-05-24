@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-3a7529e28ffcdf54570625724d82bd60 /home/oster/OsterMath/OsterMath/OsterMath_ru_RU.ts
-9f69539ed8727aab43f42db264c05bbe CMakeFiles/OsterMath_autogen
