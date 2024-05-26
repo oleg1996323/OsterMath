@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+6b130ae746378877dd32c480fb8f0c88 CMakeFiles/OsterMath_autogen
+8187a27af1cc6fd3461194a5e9789fe8 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp

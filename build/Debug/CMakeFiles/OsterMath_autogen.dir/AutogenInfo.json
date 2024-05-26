@@ -72,7 +72,8 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsConfig.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake",
-		"/usr/share/cmake-3.22/Modules/CMakeParseArguments.cmake"
+		"/usr/share/cmake-3.22/Modules/CMakeParseArguments.cmake",
+		"/home/oster/OsterMath/res/toolicons.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/oster/OsterMath",
 	"DEP_FILE" : "",
@@ -86,9 +87,39 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/booktoolbar.h",
+			"MU",
+			"6YEA5652QU/moc_booktoolbar.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/def.h",
+			"MU",
+			"6YEA5652QU/moc_def.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/settings.h",
 			"MU",
 			"6YEA5652QU/moc_settings.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/styles.h",
+			"MU",
+			"6YEA5652QU/moc_styles.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/toolbartabs.h",
+			"MU",
+			"6YEA5652QU/moc_toolbartabs.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilitiesWin/createnew.h",
+			"MU",
+			"FGU66TFWMU/moc_createnew.cpp",
 			null
 		],
 		[
@@ -115,6 +146,7 @@
 		"/home/oster/OsterMath",
 		"/home/oster/OsterMath/include",
 		"/home/oster/OsterMath/ui",
+		"/home/oster/OsterMath/res",
 		"/home/oster/OsterMath/src",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
@@ -144,7 +176,7 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 2,
+	"PARALLEL" : 6,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",

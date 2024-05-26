@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/oster/OsterMath/build/Debug/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp" "CMakeFiles/OsterMath.dir/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp.o.d"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/mocs_compilation.cpp" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o.d"
   "/home/oster/OsterMath/src/bookmath.cpp" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
   "/home/oster/OsterMath/src/main.cpp" "CMakeFiles/OsterMath.dir/src/main.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"

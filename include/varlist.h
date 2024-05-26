@@ -1,133 +1,69 @@
 #pragma once
 
-#include <QObject>
-#include <QFrame>
-#include <QWidget>
-#include <QSplitter>
-#include <QTableWidget>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QLabel>
-#include <QString>
-#include "./ui_var_list.h"
+#include <QtCore/QVariant>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
+#include <QDockWidget>
+#include <QToolBar>
+#include "def.h"
 
-class VariableBase;
-
-class VarList : public QFrame
-{
+class VarListFrame:public QFrame, public Retranslatable{
     Q_OBJECT
 public:
-    explicit VarList(QWidget *parent = nullptr);
+    VarListFrame(QWidget* parent);
 
-    void insert_var(QStringView var);
-
-    void erase_var(QStringView var_name);
-
-    void refresh();
-
-signals:
+    virtual void retranslate() override;
 
 private:
-    class VarListItem;
-    class VarSearchLine;
-    class VarSearchLabel;
+    QVBoxLayout *gridLayout;
+    QLabel *label_search_var_list;
+    QLineEdit *search_var_list;
+    QTableWidget *table_var_list;
 };
 
-class VarList::VarListItem:public QTableWidget{
+class VarListTitleBar:public QFrame, public Retranslatable{
+    Q_OBJECT
 public:
-    VarListItem(QWidget* parent):QTableWidget(parent){
-        if (columnCount() < 3)
-            setColumnCount(3);
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Sans Serif"));
-        font3.setPointSize(8);
-        font3.setBold(true);
-        font3.setWeight(75);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        __qtablewidgetitem->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem->setFont(font3);
-        __qtablewidgetitem->setBackground(QColor(222, 221, 218));
-        setHorizontalHeaderItem(0, __qtablewidgetitem);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        __qtablewidgetitem1->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem1->setFont(font3);
-        __qtablewidgetitem1->setBackground(QColor(222, 221, 218));
-        setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
-        __qtablewidgetitem2->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem2->setFont(font3);
-        __qtablewidgetitem2->setBackground(QColor(222, 221, 218));
-        setHorizontalHeaderItem(2, __qtablewidgetitem2);
-        if (rowCount() < 1)
-            setRowCount(1);
-        QBrush brush(QColor(0, 0, 0, 255));
-        brush.setStyle(Qt::Dense1Pattern);
-        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        __qtablewidgetitem3->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
-        __qtablewidgetitem3->setForeground(brush);
-        setItem(0, 0, __qtablewidgetitem3);
-        setObjectName(QString::fromUtf8("table_var_list"));
-        setEnabled(true);
-        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(sizePolicy().hasHeightForWidth());
-        setSizePolicy(sizePolicy3);
-        setMouseTracking(true);
-        setTabletTracking(true);
-        setContextMenuPolicy(Qt::NoContextMenu);
-        setAcceptDrops(false);
-        setFrameShape(QFrame::Panel);
-        setFrameShadow(QFrame::Plain);
-        setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
-        setDragEnabled(false);
-        setDragDropMode(QAbstractItemView::NoDragDrop);
-        setAlternatingRowColors(false);
-        setSelectionMode(QAbstractItemView::SingleSelection);
-        setTextElideMode(Qt::ElideRight);
-        setShowGrid(true);
-        setGridStyle(Qt::CustomDashLine);
-        setSortingEnabled(false);
-        setCornerButtonEnabled(true);
-        setRowCount(1);
-        setHorizontalHeader();
-    }
+    VarListTitleBar(QWidget* parent);
+
+    virtual void retranslate() override;
 
 private:
-    class VarListHeader;
+    QHBoxLayout* layout_;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_var_list;
+    CloseCollapseButtons *collapse_var_list;
+    CloseCollapseButtons *close_var_list;
 };
 
-#include <QSettings>
-
-class VarList::VarListItem::VarListHeader:public QHeaderView{
+class VarListDockWidget:public QDockWidget, public Retranslatable{
+    Q_OBJECT
 public:
-    VarListHeader(QWidget* parent):QHeaderView(Qt::Orientation::Horizontal,parent){
-        setVisible(true);
-        setCascadingSectionResizes(false);
-        setDefaultSectionSize(150);
-        setStretchLastSection(true);
+    VarListDockWidget(QMainWindow* parent);
 
-    }
+    virtual void retranslate() override;
+
 private:
+    QVBoxLayout* layout_;
+    VarListFrame* frame_;
+    VarListTitleBar* titlebar_;
+    QPalette* palette;
 
-};
-
-class VarList::VarSearchLine:public QLineEdit{
-
-};
-
-class VarList::VarSearchLabel:public QLabel{
-    VarSearchLabel(QWidget* parent):QLabel(parent){
-        setObjectName(QString::fromUtf8("label_var_list"));
-        setObjectName(QString::fromUtf8("label_var_list"));
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
-        setSizePolicy(sizePolicy);
-        setMaximumSize(QSize(2000, 20));
-        setText(QCoreApplication::translate("Form", "\320\237\320\265\321\200\320\265\320\274\320\265\320\275\320\275\321\213\320\265", nullptr));
+public slots:
+    void collapse(){
+        if(frame_->isHidden())
+            frame_->show();
+        else
+            frame_->hide();
     }
-
-
 };
+
