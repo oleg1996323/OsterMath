@@ -13,6 +13,7 @@
         <file>icons/saveasmenu.png</file>
         <file>icons/savefilemenu.png</file>
         <file>icons/chart.png</file>
+        <file>icons/expr.png</file>
     </qresource>
     <qresource prefix="/common">
         <file>common/close.png</file>

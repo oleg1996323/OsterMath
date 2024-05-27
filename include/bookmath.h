@@ -6,7 +6,9 @@
 #include "styles.h"
 #include "def.h"
 #include "booktoolbar.h"
-#include "utilitiesWin/createnew.h"
+#include "utilities/windows/createnew.h"
+#include "utilities/windows/opennew.h"
+#include "data_view.h"
 
 class VarListDockWidget;
 
@@ -24,7 +26,7 @@ private:
     VarListDockWidget* var_list_;
 
     //main widgets
-    QWidget *centralwidget;
+    VarDataView *centralwidget;
     QVBoxLayout* central_widget_layout_;
 
     //menu items
@@ -39,13 +41,18 @@ private:
     //toolbar
     BookToolBar* tool_bar;
 
+    //utility window deactivating the book-window when openned
     AbstractSubWindowInterface* subwindow;
+
+    void __define_window__();
 
     void __define_menu__();
 
     void __define_tool_bar__();
 
     void __define_data_view__();
+
+    void __define_status_bar__();
 
     void __define_signals_slots__();
 

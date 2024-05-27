@@ -195,10 +195,6 @@ VarListDockWidget::VarListDockWidget(QMainWindow* parent):QDockWidget(parent,Qt:
     this->setTitleBarWidget(titlebar_);
     setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
 
-    layout_ = new QVBoxLayout(this);
-    layout_->setMargin(0);
-    layout_->setContentsMargins(0,0,0,0);
-    setLayout(layout_);
     frame_ = new VarListFrame(this);
     frame_->setPalette(Colors::DarkStyle().palette());
     setWidget(frame_);

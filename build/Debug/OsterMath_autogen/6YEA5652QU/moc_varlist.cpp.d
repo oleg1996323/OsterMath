@@ -1,6 +1,7 @@
 /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp: /home/oster/OsterMath/include/varlist.h \
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
   /home/oster/OsterMath/include/def.h \
+  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
@@ -303,6 +304,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \

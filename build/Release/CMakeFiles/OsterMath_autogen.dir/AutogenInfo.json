@@ -93,15 +93,15 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/def.h",
+			"/home/oster/OsterMath/include/data_view.h",
 			"MU",
-			"6YEA5652QU/moc_def.cpp",
+			"6YEA5652QU/moc_data_view.cpp",
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/resources.h",
+			"/home/oster/OsterMath/include/def.h",
 			"MU",
-			"6YEA5652QU/moc_resources.cpp",
+			"6YEA5652QU/moc_def.cpp",
 			null
 		],
 		[
@@ -120,6 +120,30 @@
 			"/home/oster/OsterMath/include/toolbartabs.h",
 			"MU",
 			"6YEA5652QU/moc_toolbartabs.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/custom_widgets/buttons.h",
+			"MU",
+			"K4XHVSUWZG/moc_buttons.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/windows/createnew.h",
+			"MU",
+			"6V6KTULG6S/moc_createnew.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/windows/opennew.h",
+			"MU",
+			"6V6KTULG6S/moc_opennew.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/windows/windef.h",
+			"MU",
+			"6V6KTULG6S/moc_windef.cpp",
 			null
 		],
 		[
@@ -176,7 +200,7 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 6,
+	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Release/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
@@ -186,6 +210,7 @@
 	"SOURCES" : 
 	[
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/def.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/varlist.cpp", "MU", null ]
 	],

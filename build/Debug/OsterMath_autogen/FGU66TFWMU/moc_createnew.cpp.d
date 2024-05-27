@@ -1,6 +1,7 @@
 /home/oster/OsterMath/build/Debug/OsterMath_autogen/FGU66TFWMU/moc_createnew.cpp: /home/oster/OsterMath/include/utilitiesWin/createnew.h \
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
   /home/oster/OsterMath/include/def.h \
+  /home/oster/OsterMath/include/utilitiesWin/windef.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \

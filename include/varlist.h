@@ -14,7 +14,7 @@
 #include <QtWidgets/QWidget>
 #include <QDockWidget>
 #include <QToolBar>
-#include "def.h"
+#include "utilities/custom_widgets/buttons.h"
 
 class VarListFrame:public QFrame, public Retranslatable{
     Q_OBJECT
@@ -53,7 +53,6 @@ public:
     virtual void retranslate() override;
 
 private:
-    QVBoxLayout* layout_;
     VarListFrame* frame_;
     VarListTitleBar* titlebar_;
     QPalette* palette;

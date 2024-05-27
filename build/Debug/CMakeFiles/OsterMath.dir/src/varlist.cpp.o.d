@@ -374,6 +374,7 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
+ /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
  /home/oster/OsterMath/include/def.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
@@ -388,6 +389,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
  /home/oster/OsterMath/include/styles.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \

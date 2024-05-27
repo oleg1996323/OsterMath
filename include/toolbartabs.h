@@ -9,7 +9,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include "styles.h"
-#include "def.h"
+#include "utilities/custom_widgets/buttons.h"
 
 class BookToolGroup:public QGroupBox{
 public:
@@ -30,20 +30,24 @@ private:
 class FileBox:public BookToolGroup{
     Q_OBJECT
 public:
-    FileBox(QWidget* parent):BookToolGroup("Файл",parent){
+    FileBox(QWidget* parent):BookToolGroup(QObject::tr("Файл"),parent){
+        setObjectName("file_gb");
         {
             new_file = new ToolButton(":booktool/icons/createfile.png",this);
             new_file->setToolTip("Создать новый файл");
+            new_file->setObjectName("createnewbook");
             grid_layout()->addWidget(new_file,0,0,1,1);
         }
         {
             save_file = new ToolButton(":booktool/icons/savefile.png",this);
             save_file->setToolTip("Сохранить");
+            save_file->setObjectName("savebook");
             grid_layout()->addWidget(save_file,0,1,1,1);
         }
         {
             save_copy = new ToolButton(":booktool/icons/savecopyfile.png",this);
             save_copy->setToolTip("Сохранить в копию");
+            save_copy->setObjectName("savecopy");
             grid_layout()->addWidget(save_copy,1,0,1,1);
         }
 
@@ -68,25 +72,29 @@ class ExportBox:public BookToolGroup{
     Q_OBJECT
 public:
     ExportBox(QWidget* parent):BookToolGroup("Экспорт",parent){
-
+        setObjectName("export_gb");
         {
             to_excel = new ToolButton(":booktool/icons/convertexcel.png",this);
             to_excel->setToolTip("Экспорт в Excel");
+            to_excel->setObjectName("to_excel");
             grid_layout()->addWidget(to_excel,0,0,1,1);
         }
         {
             to_word = new ToolButton(":booktool/icons/convertpdf.png",this);
             to_word->setToolTip("Экспорт в Word");
+            to_word->setObjectName("to_word");
             grid_layout()->addWidget(to_word,0,1,1,1);
         }
         {
             to_pdf = new ToolButton(":booktool/icons/convertword.png",this);
             to_pdf->setToolTip("Экспорт в PDF");
+            to_pdf->setObjectName("to_pdf");
             grid_layout()->addWidget(to_pdf,1,0,1,1);
         }
         {
             to_image = new ToolButton(":booktool/icons/convertimage.png",this);
             to_image->setToolTip("Экспорт в изображение");
+            to_image->setObjectName("to_image");
             grid_layout()->addWidget(to_image,1,1,1,1);
         }
 

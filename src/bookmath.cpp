@@ -7,6 +7,19 @@
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent)
 {
+    var_list_ = new VarListDockWidget(this);
+
+    addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
+    __define_window__();
+    __define_status_bar__();
+    __define_data_view__();
+    __define_menu__();
+    __define_tool_bar__();
+    __define_signals_slots__();
+    retranslate();
+}
+
+void BookMath::__define_window__(){
     if (objectName().isEmpty())
         setObjectName(QString::fromUtf8("BookMath"));
 
@@ -16,25 +29,12 @@ BookMath::BookMath(QWidget *parent)
     int height = screenGeometry.height();
     int width = screenGeometry.width();
     this->resize(width,height);
+}
 
-    centralwidget = new QWidget(this);
-
-    central_widget_layout_ = new QVBoxLayout(centralwidget);
-    central_widget_layout_->setSpacing(0);
-    central_widget_layout_->setObjectName(QString::fromUtf8("mainwidgetlayout"));
-    central_widget_layout_->setContentsMargins(0, 0, 0, 0);
-
+void BookMath::__define_status_bar__(){
     statusbar = new QStatusBar(this);
     statusbar->setObjectName(QString::fromUtf8("statusbar"));
     setStatusBar(statusbar);
-
-    setCentralWidget(centralwidget);
-    var_list_ = new VarListDockWidget(this);
-
-    addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
-    __define_menu__();
-    __define_tool_bar__();
-    retranslate();
 }
 
 void BookMath::__define_tool_bar__(){
@@ -70,16 +70,20 @@ void BookMath::__define_menu__(){
     menubar->addAction(QObject::tr("Settings"));
     menubar->addAction(QObject::tr("About"));
 
-
     this->setMenuBar(menubar);
 }
 
 void BookMath::__define_data_view__(){
+    centralwidget = new VarDataView(this);
 
+    centralwidget->setObjectName(QString::fromUtf8("mainwidget"));
+    centralwidget->setContentsMargins(0, 0, 0, 0);
+    setCentralWidget(centralwidget);
 }
 
 void BookMath::__define_signals_slots__(){
-
+    connect(findChild<ToolButton*>("createnewbook"),&ToolButton::clicked,this,&BookMath::create_new_book);
+    connect(findChild<ToolButton*>("savebook"),&ToolButton::clicked,this,&BookMath::save_book);
 }
 
 void BookMath::retranslate(){

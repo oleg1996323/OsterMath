@@ -2,6 +2,7 @@
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
   /home/oster/OsterMath/include/def.h \
   /home/oster/OsterMath/include/styles.h \
+  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
@@ -296,6 +297,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QColor \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
