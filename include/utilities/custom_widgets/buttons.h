@@ -123,16 +123,6 @@ public:
     }
 };
 
-#include <QImage>
-class ExpressionButton:public IconedButton{
-    Q_OBJECT
-public:
-    ExpressionButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
-
-        setContentsMargins(0,0,0,0);
-        setFixedSize(45,45);
-    }
-};
 
 class CollapseButton:public MultiStateIconedButton<button_states::COLLAPSE_EXPAND_STATE>{
     Q_OBJECT

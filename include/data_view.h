@@ -8,7 +8,17 @@
 #include <QHBoxLayout>
 #include <QSplitter>
 #include <QDebug>
+#include <QSizePolicy>
 
+class ExpressionButton:public IconedButton{
+    Q_OBJECT
+public:
+    ExpressionButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
+
+        setContentsMargins(0,0,0,0);
+        setFixedSize(45,45);
+    }
+};
 
 class VarExpressionView:public QWidget{
     Q_OBJECT
@@ -28,18 +38,19 @@ public:
 
         formula_expl_ = new ExpressionButton(":booktool/icons/expr.png",this);
         formula_expl_->setObjectName("formula_expl"+parent->objectName());
-//        QPalette palette
-//        formula_expl_->setPalette(QPalette());
 
-
-
-        expand_collapse_expl_ = new QPushButton(this);
+        expand_collapse_expl_ = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,":common/common/expandexpr.png",":common/common/collapseexpr.png",this);
         expand_collapse_expl_->setObjectName("expand_collapse_expl"+parent->objectName());
-        expand_collapse_expl_->setFixedSize(30,30);
+        expand_collapse_expl_->setFixedSize(45,45);
 
         layout_->addWidget(formula_expl_);
         layout_->addWidget(expression_);
         layout_->addWidget(expand_collapse_expl_);
+        layout_->setAlignment(formula_expl_,Qt::AlignTop);
+        layout_->setAlignment(expression_,Qt::AlignTop);
+        layout_->setAlignment(expand_collapse_expl_,Qt::AlignTop);
+
+        layout_->setSizeConstraint(QHBoxLayout::SizeConstraint::SetMinimumSize);
 
         this->setLayout(layout_);
 
@@ -58,22 +69,33 @@ private slots:
     }
 };
 
+#include <QTableView>
+
+class VarData:public QTableView{
+public:
+    VarData(QWidget* parent):QTableView(parent){
+
+    }
+
+};
+
 class VarDataView:public QSplitter{
     Q_OBJECT
 public:
     VarDataView(QWidget* parent):QSplitter(Qt::Vertical,parent){
 
         expression_view_ = new VarExpressionView(this);
-        data_ = new QTableWidget(this);
+        data_ = new VarData(this);
         addWidget(expression_view_);
         addWidget(data_);
         setCollapsible(0,false);
         setCollapsible(1,false);
+        setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
         data_->setObjectName("data_view"+parent->objectName());
-        this->setSizes({20});
+        this->setSizes({20,data_->maximumHeight()});
 
     }
 private:
-    QTableWidget* data_;
+    VarData* data_;
     VarExpressionView* expression_view_;
 };

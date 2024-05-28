@@ -435,8 +435,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
   ../../include/utilities/windows/createnew.h \
   ../../include/utilities/windows/windef.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
@@ -486,6 +484,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
   OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
   OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
   OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
@@ -953,8 +955,6 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
   ../../include/utilities/windows/createnew.h \
   ../../include/utilities/windows/windef.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
@@ -1004,6 +1004,10 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
   ../../include/varlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
@@ -1863,8 +1867,6 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
   ../../include/utilities/windows/createnew.h \
   ../../include/utilities/windows/windef.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
@@ -1914,6 +1916,10 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
@@ -2362,6 +2368,10 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
   ../../include/utilities/custom_widgets/buttons.h \
   ../../include/def.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
@@ -2381,8 +2391,6 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
   ../../include/styles.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
@@ -2405,6 +2413,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QSize:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QScreen:
 
@@ -2431,6 +2441,8 @@ OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug:
 
@@ -2479,10 +2491,6 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QImage:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
 

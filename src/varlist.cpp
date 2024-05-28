@@ -1,6 +1,7 @@
 #include "varlist.h"
 #include "styles.h"
 #include <QSizePolicy>
+#include <QDebug>
 
 using namespace VarList;
 
@@ -26,11 +27,6 @@ Frame::SearchLine::SearchLine(QWidget* parent):QLineEdit(parent){
     setDragEnabled(false);
     setCursorMoveStyle(Qt::LogicalMoveStyle);
     setClearButtonEnabled(false);
-}
-
-void Frame::SearchLine::showEvent(QShowEvent *event){
-    (void)event;
-    updateGeometry();
 }
 
 Frame::Label::Label(QWidget* parent):QLabel(parent){}
@@ -84,7 +80,6 @@ Frame::Table::Table(QWidget* parent):QTableWidget(parent){
     horizontalHeader()->setCascadingSectionResizes(false);
     horizontalHeader()->setDefaultSectionSize(150);
     horizontalHeader()->setStretchLastSection(true);
-    last_size = size();
 }
 
 Frame::Frame(QWidget* parent):QFrame(parent){
@@ -95,6 +90,7 @@ Frame::Frame(QWidget* parent):QFrame(parent){
     //setPalette(Colors::DarkStyle().palette());
 
     gridLayout = new QVBoxLayout(this);
+
     gridLayout->setSpacing(0);
     gridLayout->setObjectName(QString::fromUtf8("varlistwidget_layout"));
     gridLayout->setSizeConstraint(QLayout::SetMaximumSize);
@@ -119,6 +115,7 @@ Frame::Frame(QWidget* parent):QFrame(parent){
     search_var_list = new SearchLine(this);
 
     QHBoxLayout* search_line = new QHBoxLayout(this);
+    search_line->setSizeConstraint(QHBoxLayout::SetMaximumSize);
     search_line->setContentsMargins(0,4,0,4);
 
     search_line->addWidget(label_search_var_list);
@@ -160,17 +157,6 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent){
     layout_->setSizeConstraint(QLayout::SetNoConstraint);
 
     label_var_list = new Label(this);
-    label_var_list->setContentsMargins(0,0,0,0);
-    label_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_label"));
-    QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
-    label_var_list->setSizePolicy(sizePolicy);
-    label_var_list->setMaximumSize(QSize(2000, 20));
-    QFont font;
-    font.setFamily("Sans");
-    font.setPointSize(10);
-    font.setBold(true);
-    font.setWeight(100);
-    label_var_list->setFont(font);
 
     layout_->addWidget(label_var_list,Qt::AlignLeft);
 
@@ -225,6 +211,7 @@ DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
     setWidget(frame_);
 
     retranslate();
+    last_size = size();
 }
 
 void DockWidget::retranslate(){

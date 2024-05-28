@@ -25,6 +25,7 @@ set(TS_FILES OsterMath_ru_RU.ts)
 file(GLOB_RECURSE PROJECT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/**.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/**.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/ui/*.ui
         ${CMAKE_CURRENT_SOURCE_DIR}/res/*.qrc
         ${TS_FILES}
 )

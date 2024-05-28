@@ -15,6 +15,7 @@
 #include <QDockWidget>
 #include <QToolBar>
 #include <QShowEvent>
+#include <QDebug>
 #include "utilities/custom_widgets/buttons.h"
 
 namespace VarList {
@@ -25,29 +26,15 @@ class Frame:public QFrame, public Retranslatable{
     class Label:public QLabel{
     public:
         Label(QWidget* parent);
-
-    private:
-        void showEvent(QShowEvent *event) override{
-            (void)event;
-            updateGeometry();
-        }
     };
-
     class SearchLine:public QLineEdit{
     public:
         SearchLine(QWidget* parent);
-    private:
-        void showEvent(QShowEvent *event) override;
     };
-
     class Table:public QTableWidget{
     public:
         Table(QWidget* parent);
-    private:
-        QSize last_size;
-        void showEvent(QShowEvent *event) override{
-            setGeometry(pos().x(),pos().y(),last_size.width(),last_size.height());
-        }
+
     };
 
 public:
@@ -55,17 +42,16 @@ public:
 
     virtual void retranslate() override;
 
-    void showEvent(QShowEvent *event) override{
-        (void)event;
-        updateGeometry();
-    }
-
 private:
 
     QVBoxLayout *gridLayout;
     Label *label_search_var_list;
     SearchLine *search_var_list;
     Table *table_var_list;
+
+    virtual void showEvent(QShowEvent* event) override{
+        updateGeometry();
+    }
 
 };
 
@@ -80,15 +66,18 @@ private:
     class Label:public QLabel{
     public:
         Label(QWidget* parent):QLabel(parent){
-
+            setContentsMargins(0,0,0,0);
+            setObjectName(QString::fromUtf8("varlisttitlebar_label"));
+            QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
+            setSizePolicy(sizePolicy);
+            setMaximumSize(QSize(2000, 20));
+            QFont font;
+            font.setFamily("Sans");
+            font.setPointSize(10);
+            font.setBold(true);
+            font.setWeight(100);
+            setFont(font);
         }
-
-    private:
-        void showEvent(QShowEvent *event) override{
-            (void)event;
-            updateGeometry();
-        }
-
     };
 
     QHBoxLayout* layout_;
@@ -109,13 +98,18 @@ private:
     Frame* frame_;
     TitleBar* titlebar_;
     QPalette* palette;
+    QSize last_size;
 
 public slots:
     void collapse(){
-        if(frame_->isHidden())
+        if(frame_->isHidden()){
             frame_->show();
-        else
+            resize(last_size);
+        }
+        else{
+            last_size = size();
             frame_->hide();
+        }
     }
 };
 
