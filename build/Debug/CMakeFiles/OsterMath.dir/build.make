@@ -86,6 +86,7 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/savecopyfile.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/chart.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/createfilemenu.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/common/close.png
+OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/common/expand.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/common/collapse.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: /usr/lib/qt5/bin/rcc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/oster/OsterMath/build/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for res/toolicons.qrc"

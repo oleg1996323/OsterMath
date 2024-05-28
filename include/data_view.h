@@ -70,6 +70,7 @@ public:
         setCollapsible(0,false);
         setCollapsible(1,false);
         data_->setObjectName("data_view"+parent->objectName());
+        this->setSizes({20});
 
     }
 private:

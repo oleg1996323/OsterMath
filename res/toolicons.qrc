@@ -18,5 +18,6 @@
     <qresource prefix="/common">
         <file>common/close.png</file>
         <file>common/collapse.png</file>
+        <file>common/expand.png</file>
     </qresource>
 </RCC>

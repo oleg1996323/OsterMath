@@ -250,7 +250,9 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
@@ -269,6 +271,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \

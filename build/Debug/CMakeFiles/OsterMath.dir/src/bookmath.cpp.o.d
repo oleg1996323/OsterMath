@@ -371,6 +371,10 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
  /home/oster/OsterMath/include/utilities/windows/createnew.h \
@@ -422,11 +426,9 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/include/./ui_bookmath.h \
+ /home/oster/OsterMath/include/varlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
@@ -434,37 +436,25 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenu \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /home/oster/OsterMath/include/varlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/include/./ui_var_list.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QScreen \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
@@ -475,4 +465,9 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSizeF \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QTransform \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h

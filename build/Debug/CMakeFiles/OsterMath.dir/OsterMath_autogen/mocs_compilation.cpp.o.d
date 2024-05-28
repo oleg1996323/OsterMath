@@ -371,6 +371,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/utilities/custom_widgets/buttons.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/utilities/windows/createnew.h \
@@ -453,4 +457,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h

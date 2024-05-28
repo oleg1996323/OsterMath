@@ -10,7 +10,10 @@
 #include "utilities/windows/opennew.h"
 #include "data_view.h"
 
-class VarListDockWidget;
+namespace VarList{
+    class DockWidget;
+}
+
 
 class BookMath : public QMainWindow, public Retranslatable
 {
@@ -23,7 +26,7 @@ public:
 
 private:
     //widget where var are illustrated
-    VarListDockWidget* var_list_;
+    VarList::DockWidget* var_list_;
 
     //main widgets
     VarDataView *centralwidget;

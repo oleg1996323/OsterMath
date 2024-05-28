@@ -20,18 +20,16 @@ message(STATUS Qt${QT_VERSION_MAJOR})
 
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Widgets LinguistTools REQUIRED)
 
-
-
 set(TS_FILES OsterMath_ru_RU.ts)
 
 file(GLOB_RECURSE PROJECT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/**.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/**.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/ui/**.ui
         ${CMAKE_CURRENT_SOURCE_DIR}/res/*.qrc
         ${TS_FILES}
 )
 
+message(STATUS ${CMAKE_SYSTEM_INCLUDE_PATH})
 
 
 message(STATUS ${PROJECT_SOURCES})
@@ -63,10 +61,10 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/ui ${CMAKE_CURRENT_SOURCE_DIR}/res)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/ui ${CMAKE_CURRENT_SOURCE_DIR}/res /usr/include/c++/11)
 
-target_include_directories(OsterMath PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/ui ${CMAKE_CURRENT_SOURCE_DIR}/src)
-target_link_libraries(OsterMath PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(OsterMath PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_link_libraries(OsterMath PUBLIC stdc++fs PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(OsterMath)

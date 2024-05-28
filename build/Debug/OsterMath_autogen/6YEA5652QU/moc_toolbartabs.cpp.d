@@ -236,6 +236,8 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
@@ -249,6 +251,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h \
@@ -261,6 +264,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h \

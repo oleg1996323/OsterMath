@@ -14,47 +14,100 @@
 #include <QtWidgets/QWidget>
 #include <QDockWidget>
 #include <QToolBar>
+#include <QShowEvent>
 #include "utilities/custom_widgets/buttons.h"
 
-class VarListFrame:public QFrame, public Retranslatable{
+namespace VarList {
+
+class Frame:public QFrame, public Retranslatable{
     Q_OBJECT
+
+    class Label:public QLabel{
+    public:
+        Label(QWidget* parent);
+
+    private:
+        void showEvent(QShowEvent *event) override{
+            (void)event;
+            updateGeometry();
+        }
+    };
+
+    class SearchLine:public QLineEdit{
+    public:
+        SearchLine(QWidget* parent);
+    private:
+        void showEvent(QShowEvent *event) override;
+    };
+
+    class Table:public QTableWidget{
+    public:
+        Table(QWidget* parent);
+    private:
+        QSize last_size;
+        void showEvent(QShowEvent *event) override{
+            setGeometry(pos().x(),pos().y(),last_size.width(),last_size.height());
+        }
+    };
+
 public:
-    VarListFrame(QWidget* parent);
+    Frame(QWidget* parent);
 
     virtual void retranslate() override;
 
+    void showEvent(QShowEvent *event) override{
+        (void)event;
+        updateGeometry();
+    }
+
 private:
+
     QVBoxLayout *gridLayout;
-    QLabel *label_search_var_list;
-    QLineEdit *search_var_list;
-    QTableWidget *table_var_list;
+    Label *label_search_var_list;
+    SearchLine *search_var_list;
+    Table *table_var_list;
+
 };
 
-class VarListTitleBar:public QFrame, public Retranslatable{
+class TitleBar:public QFrame, public Retranslatable{
     Q_OBJECT
 public:
-    VarListTitleBar(QWidget* parent);
+    TitleBar(QWidget* parent);
 
     virtual void retranslate() override;
 
 private:
+    class Label:public QLabel{
+    public:
+        Label(QWidget* parent):QLabel(parent){
+
+        }
+
+    private:
+        void showEvent(QShowEvent *event) override{
+            (void)event;
+            updateGeometry();
+        }
+
+    };
+
     QHBoxLayout* layout_;
     QSpacerItem *horizontalSpacer;
-    QLabel *label_var_list;
-    CloseCollapseButtons *collapse_var_list;
-    CloseCollapseButtons *close_var_list;
+    Label *label_var_list;
+    CollapseButton *collapse_var_list;
+    CloseButton *close_var_list;
 };
 
-class VarListDockWidget:public QDockWidget, public Retranslatable{
+class DockWidget:public QDockWidget, public Retranslatable{
     Q_OBJECT
 public:
-    VarListDockWidget(QMainWindow* parent);
+    DockWidget(QMainWindow* parent);
 
     virtual void retranslate() override;
 
 private:
-    VarListFrame* frame_;
-    VarListTitleBar* titlebar_;
+    Frame* frame_;
+    TitleBar* titlebar_;
     QPalette* palette;
 
 public slots:
@@ -66,3 +119,4 @@ public slots:
     }
 };
 
+}

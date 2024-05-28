@@ -374,6 +374,13 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
  /home/oster/OsterMath/include/def.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
@@ -389,6 +396,10 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QImage \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
  /home/oster/OsterMath/include/styles.h \

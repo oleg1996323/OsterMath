@@ -1,13 +1,15 @@
 #include "bookmath.h"
-#include "./ui_bookmath.h"
+//#include "./ui_bookmath.h"
 #include "varlist.h"
-#include "./ui_var_list.h"
+//#include "./ui_var_list.h"
 #include <QScreen>
+#include <QStatusBar>
+#include <QMenuBar>
 
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent)
 {
-    var_list_ = new VarListDockWidget(this);
+    var_list_ = new VarList::DockWidget(this);
 
     addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
     __define_window__();
