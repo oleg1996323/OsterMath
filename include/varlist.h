@@ -72,45 +72,57 @@ public:
 
     virtual void retranslate() override;
 
-    void setVertical(){
-        common_layout_=new QVBoxLayout(this);
-        QVBoxLayout* layout_ = qobject_cast<QVBoxLayout*>(common_layout_);
-        layout_->setSpacing(0);
-        layout_->setContentsMargins(0,0,0,0);
-        layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
-        layout_->setSizeConstraint(QLayout::SetNoConstraint);
+//    void setVertical(){
+//        common_layout_->deleteLater();
+//        common_layout_=new QVBoxLayout(this);
+//        QVBoxLayout* layout_ = reinterpret_cast<QVBoxLayout*>(common_layout_);
+//        layout_->setSpacing(0);
+//        layout_->setContentsMargins(0,0,0,0);
+//        layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
+//        layout_->setSizeConstraint(QLayout::SetMinimumSize);
 
-        layout_->addWidget(label_var_list,Qt::AlignLeft);
-        layout_->addItem(horizontalSpacer);
-        layout_->addWidget(collapse_var_list,Qt::AlignRight);
-        layout_->addWidget(close_var_list,Qt::AlignRight);
+//        layout_->addWidget(close_var_list,Qt::AlignTop);
+//        layout_->addWidget(collapse_var_list,Qt::AlignTop);
+//        QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Maximum, QSizePolicy::Expanding);
+//        layout_->addSpacerItem(spacer);
+//        layout_->addWidget(label_var_list,Qt::AlignBottom);
+//        //label_var_list->vertical();
 
-        setLayout(layout_);
-    }
+//        setLayout(common_layout_);
+//    }
 
     void setHorizontal(){
+        //common_layout_->deleteLater();
         common_layout_=new QHBoxLayout(this);
+
         QHBoxLayout* layout_ = qobject_cast<QHBoxLayout*>(common_layout_);
         layout_->setSpacing(0);
         layout_->setContentsMargins(0,0,0,0);
         layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
-        layout_->setSizeConstraint(QLayout::SetNoConstraint);
+        layout_->setSizeConstraint(QLayout::SetMinimumSize);
 
         layout_->addWidget(label_var_list,Qt::AlignLeft);
-        layout_->addItem(horizontalSpacer);
+        QSpacerItem *spacer = new QSpacerItem(20, 20,QSizePolicy::Expanding, QSizePolicy::Maximum);
+        layout_->addSpacerItem(spacer);
         layout_->addWidget(collapse_var_list,Qt::AlignRight);
         layout_->addWidget(close_var_list,Qt::AlignRight);
+        //label_var_list->horizontal();
 
-        setLayout(layout_);
+        setLayout(common_layout_);
     }
 
 private:
     class Label:public QLabel{
+//        enum class STATE{
+//            VERTICAL,
+//            HORIZONTAL
+//        };
+//        STATE state = STATE::HORIZONTAL;
     public:
         Label(QWidget* parent):QLabel(parent){
             setContentsMargins(0,0,0,0);
             setObjectName(QString::fromUtf8("varlisttitlebar_label"));
-            QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
+            QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
             setSizePolicy(sizePolicy);
             setMaximumSize(QSize(2000, 20));
             QFont font;
@@ -119,11 +131,30 @@ private:
             font.setBold(true);
             font.setWeight(100);
             setFont(font);
+
         }
+
+//        void vertical(){
+//            state = STATE::VERTICAL;
+//        }
+
+//        void horizontal(){
+//            state = STATE::HORIZONTAL;
+//        }
+
+//        virtual void paintEvent(QPaintEvent* event) override{
+//            QPainter painter;
+//            painter.begin(this);
+//            if(state == STATE::HORIZONTAL)
+//                painter.rotate(0);
+//            else painter.rotate(90);
+//            painter.setBrush(palette().color(QPalette::WindowText));
+//            painter.drawText(geometry().bottomLeft(),Label::text());
+//            painter.end();
+//        }
     };
 
     QLayout* common_layout_;
-    QSpacerItem *horizontalSpacer;
     Label *label_var_list;
     CollapseButton *collapse_var_list;
     CloseButton *close_var_list;
@@ -145,18 +176,18 @@ private:
 public slots:
     void collapse(){
         if(frame_->isHidden()){
+            //setFeatures(features()^QDockWidget::DockWidgetVerticalTitleBar);
+            //titlebar_->setHorizontal();
             frame_->show();
             resize(last_size);
-            setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable |DockWidgetMovable);
-            titlebar_->setHorizontal();
-            repaint();
+            //titlebar_->repaint();
         }
         else{
             last_size = size();
+            //setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features() );
+            //titlebar_->setVertical();
             frame_->hide();
-            setFeatures(QDockWidget::DockWidgetVerticalTitleBar);
-            titlebar_->setVertical();
-            repaint();
+            //titlebar_->repaint();
         }
     }
 
@@ -168,7 +199,8 @@ public slots:
 
     virtual void showEvent(QShowEvent *event) override{
         (void)event;
-        qobject_cast<QMainWindow*>(parentWidget())->addDockWidget(Qt::LeftDockWidgetArea,this);
+        if(parentWidget() && qobject_cast<QMainWindow*>(parentWidget())->dockWidgetArea(this)!=Qt::LeftDockWidgetArea)
+            qobject_cast<QMainWindow*>(parentWidget())->addDockWidget(Qt::LeftDockWidgetArea,this);
     }
 };
 

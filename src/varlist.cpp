@@ -147,12 +147,12 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent){
     setPalette(Colors::DarkStyle().palette());
 
     label_var_list = new Label(this);
-    horizontalSpacer = new QSpacerItem(0, 0,QSizePolicy::Expanding, QSizePolicy::Minimum);
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
                                            ":common/common/expand.png",
                                             ":common/common/collapse.png",
                                             this);
     collapse_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_collapse"));
+
     close_var_list = new CloseButton(":common/common/close.png",this);
     close_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_close"));
 
@@ -180,7 +180,7 @@ DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
     this->setContentsMargins(0,0,0,0);
     this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable |DockWidgetMovable);
     this->setTitleBarWidget(titlebar_);
-    setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
+    setAllowedAreas(Qt::LeftDockWidgetArea);
     QSizePolicy sizepolicy;
     sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
     sizepolicy.setRetainSizeWhenHidden(true);
