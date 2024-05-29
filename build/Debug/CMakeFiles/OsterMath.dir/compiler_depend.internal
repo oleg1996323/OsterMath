@@ -492,6 +492,16 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_model_list.cpp
+ /home/oster/OsterMath/include/model/model_list.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndexList
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qstandarditemmodel.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp
@@ -510,7 +520,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
@@ -2378,6 +2387,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h
  /home/oster/OsterMath/include/def.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
@@ -2410,6 +2421,4 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 

@@ -127,6 +127,7 @@ Frame::Frame(QWidget* parent):QFrame(parent){
 
     gridLayout->addWidget(table_var_list);
     setLayout(gridLayout);
+
 }
 
 void Frame::retranslate(){
@@ -135,12 +136,7 @@ void Frame::retranslate(){
                     QSize(QFontMetrics(font()).horizontalAdvance(label_search_var_list->text()),
                           QFontMetrics(font()).height()));
     search_var_list->setPlaceholderText(QCoreApplication::translate("BookMath", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\320\267\320\262\320\260\320\275\320\270\320\265 \320\277\320\265\321\200\320\265\320\274\320\265\320\275\320\275\320\276\320\271", nullptr));
-    QTableWidgetItem *___qtablewidgetitem = table_var_list->horizontalHeaderItem(0);
-    ___qtablewidgetitem->setText(QCoreApplication::translate("BookMath", "\320\230\320\274\321\217 \320\277\320\265\321\200\320\265\320\274\320\265\320\275\320\275\320\276\320\271", nullptr));
-    QTableWidgetItem *___qtablewidgetitem1 = table_var_list->horizontalHeaderItem(1);
-    ___qtablewidgetitem1->setText(QCoreApplication::translate("BookMath", "\320\242\320\270\320\277", nullptr));
-    QTableWidgetItem *___qtablewidgetitem2 = table_var_list->horizontalHeaderItem(2);
-    ___qtablewidgetitem2->setText(QCoreApplication::translate("BookMath", "\320\227\320\275\320\260\321\207\320\265\320\275\320\270\320\265", nullptr));
+    table_var_list->retranslate();
 }
 
 TitleBar::TitleBar(QWidget* parent):QFrame(parent){
@@ -150,36 +146,19 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent){
     setLineWidth(1);
     setPalette(Colors::DarkStyle().palette());
 
-    layout_ = new QHBoxLayout(this);
-    layout_->setSpacing(0);
-    layout_->setContentsMargins(0,0,0,0);
-    layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
-    layout_->setSizeConstraint(QLayout::SetNoConstraint);
-
     label_var_list = new Label(this);
-
-    layout_->addWidget(label_var_list,Qt::AlignLeft);
-
     horizontalSpacer = new QSpacerItem(0, 0,QSizePolicy::Expanding, QSizePolicy::Minimum);
-    layout_->addItem(horizontalSpacer);
-
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
                                            ":common/common/expand.png",
                                             ":common/common/collapse.png",
                                             this);
     collapse_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_collapse"));
-
-    layout_->addWidget(collapse_var_list,Qt::AlignRight);
-
     close_var_list = new CloseButton(":common/common/close.png",this);
     close_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_close"));
 
-    layout_->addWidget(close_var_list,Qt::AlignRight);
-
-    setLayout(layout_);
-
     connect(close_var_list,&CloseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close);
     connect(collapse_var_list,&CollapseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::collapse);
+    setHorizontal();
 }
 
 void TitleBar::retranslate(){

@@ -490,6 +490,16 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
   OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
   OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
+  OsterMath_autogen/Q6AU6LSD6J/moc_model_list.cpp \
+  ../../include/model/model_list.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndexList \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qstandarditemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
   OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp \
   OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp \
@@ -508,7 +518,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
@@ -2372,6 +2381,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
   ../../include/utilities/custom_widgets/buttons.h \
   ../../include/def.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
@@ -2403,9 +2414,7 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 
 
 ../../src/varlist.cpp:
@@ -2422,8 +2431,6 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h:
@@ -2435,6 +2442,14 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstandarditemmodel.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel:
+
+../../include/model/model_list.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h:
 
@@ -2475,6 +2490,8 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndexList:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h:
 
@@ -2595,6 +2612,8 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 ../../include/data_view.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h:
 
@@ -2768,13 +2787,15 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h:
-
 ../../include/varlist.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel:
 
 /usr/include/c++/11/pstl/glue_numeric_defs.h:
 
@@ -3339,6 +3360,8 @@ OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp:
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
 /usr/include/c++/11/bits/basic_ios.h:
+
+OsterMath_autogen/Q6AU6LSD6J/moc_model_list.cpp:
 
 /usr/include/c++/11/bits/exception.h:
 
