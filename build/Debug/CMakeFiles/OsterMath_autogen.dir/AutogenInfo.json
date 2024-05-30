@@ -105,15 +105,15 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/model/item_list.h",
+			"/home/oster/OsterMath/include/model/datamodel.h",
 			"MU",
-			"Q6AU6LSD6J/moc_item_list.cpp",
+			"Q6AU6LSD6J/moc_datamodel.cpp",
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/model/model_list.h",
+			"/home/oster/OsterMath/include/model/varlistmodel.h",
 			"MU",
-			"Q6AU6LSD6J/moc_model_list.cpp",
+			"Q6AU6LSD6J/moc_varlistmodel.cpp",
 			null
 		],
 		[
@@ -212,7 +212,7 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 6,
+	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",

@@ -43,7 +43,6 @@ class Frame:public QFrame, public Retranslatable{
             ___qtablewidgetitem1->setText(QCoreApplication::translate("BookMath", "\320\242\320\270\320\277", nullptr));
             QTableWidgetItem *___qtablewidgetitem2 = horizontalHeaderItem(2);
             ___qtablewidgetitem2->setText(QCoreApplication::translate("BookMath", "\320\227\320\275\320\260\321\207\320\265\320\275\320\270\320\265", nullptr));
-            insertColumn(1);
         }
     };
 

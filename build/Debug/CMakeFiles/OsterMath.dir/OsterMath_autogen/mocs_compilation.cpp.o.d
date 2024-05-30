@@ -430,8 +430,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_model_list.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/../../../../include/model/model_list.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_datamodel.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/../../../../include/model/datamodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
