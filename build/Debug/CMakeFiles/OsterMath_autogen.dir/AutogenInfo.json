@@ -183,6 +183,9 @@
 		"/home/oster/OsterMath/include",
 		"/home/oster/OsterMath/ui",
 		"/home/oster/OsterMath/res",
+		"/home/oster/Electrolisys/arithmetictree/include",
+		"/home/oster/Electrolisys/arithmetictree",
+		"/home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules",
 		"/home/oster/OsterMath/src",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
@@ -224,6 +227,7 @@
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/def.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/settings.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/varlist.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

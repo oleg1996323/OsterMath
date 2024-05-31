@@ -62,10 +62,24 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/ui ${CMAKE_CURRENT_SOURCE_DIR}/res /usr/include/c++/11)
+set(ARITHMTREE_DIR $ENV{HOME}/Electrolisys/arithmetictree)
 
-target_include_directories(OsterMath PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
-target_link_libraries(OsterMath PUBLIC stdc++fs PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
+add_library(arithmetictree STATIC IMPORTED)
+set_target_properties(arithmetictree PROPERTIES IMPORTED_LOCATION ${ARITHMTREE_DIR}/lib/libarithmetictree.a)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/res
+    /usr/include/c++/11
+    ${ARITHMTREE_DIR}/include
+    ${ARITHMTREE_DIR}
+    ${ARITHMTREE_DIR}/grammar/bin/antlr4cpp_generated_src/ParseRules)
+
+target_include_directories(OsterMath PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+target_link_libraries(OsterMath PUBLIC stdc++fs arithmetictree PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(OsterMath)

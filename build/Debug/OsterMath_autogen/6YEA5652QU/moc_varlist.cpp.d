@@ -1,10 +1,63 @@
 /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp: /home/oster/OsterMath/include/varlist.h \
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
+  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesBaseListener.h \
+  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesLexer.h \
+  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesListener.h \
+  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesParser.h \
+  /home/oster/Electrolisys/arithmetictree/include/arithmetic_tree.h \
+  /home/oster/Electrolisys/arithmetictree/include/bound.h \
+  /home/oster/Electrolisys/arithmetictree/include/data.h \
+  /home/oster/Electrolisys/arithmetictree/include/def.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/expr_lexer.h \
+  /home/oster/Electrolisys/arithmetictree/include/expr_listener.h \
+  /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
+  /home/oster/Electrolisys/arithmetictree/include/format.h \
+  /home/oster/Electrolisys/arithmetictree/include/types.h \
   /home/oster/OsterMath/include/def.h \
+  /home/oster/OsterMath/include/model/varlistmodel.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
+  /usr/include/boost/multiprecision/cpp_dec_float.hpp \
+  /usr/include/boost/multiprecision/cpp_int/cpp_int_config.hpp \
+  /usr/include/boost/multiprecision/detail/assert.hpp \
+  /usr/include/boost/multiprecision/detail/check_cpp11_config.hpp \
+  /usr/include/boost/multiprecision/detail/default_ops.hpp \
+  /usr/include/boost/multiprecision/detail/digits.hpp \
+  /usr/include/boost/multiprecision/detail/dynamic_array.hpp \
+  /usr/include/boost/multiprecision/detail/et_ops.hpp \
+  /usr/include/boost/multiprecision/detail/float128_functions.hpp \
+  /usr/include/boost/multiprecision/detail/fpclassify.hpp \
+  /usr/include/boost/multiprecision/detail/functions/constants.hpp \
+  /usr/include/boost/multiprecision/detail/functions/pow.hpp \
+  /usr/include/boost/multiprecision/detail/functions/trig.hpp \
+  /usr/include/boost/multiprecision/detail/functions/trunc.hpp \
+  /usr/include/boost/multiprecision/detail/generic_interconvert.hpp \
+  /usr/include/boost/multiprecision/detail/hash.hpp \
+  /usr/include/boost/multiprecision/detail/itos.hpp \
+  /usr/include/boost/multiprecision/detail/min_max.hpp \
+  /usr/include/boost/multiprecision/detail/no_et_ops.hpp \
+  /usr/include/boost/multiprecision/detail/no_exceptions_support.hpp \
+  /usr/include/boost/multiprecision/detail/number_base.hpp \
+  /usr/include/boost/multiprecision/detail/number_compare.hpp \
+  /usr/include/boost/multiprecision/detail/precision.hpp \
+  /usr/include/boost/multiprecision/detail/rebind.hpp \
+  /usr/include/boost/multiprecision/detail/standalone_config.hpp \
+  /usr/include/boost/multiprecision/detail/static_array.hpp \
+  /usr/include/boost/multiprecision/detail/tables.hpp \
+  /usr/include/boost/multiprecision/detail/ublas_interop.hpp \
+  /usr/include/boost/multiprecision/fwd.hpp \
+  /usr/include/boost/multiprecision/number.hpp \
+  /usr/include/boost/multiprecision/traits/explicit_conversion.hpp \
+  /usr/include/boost/multiprecision/traits/is_backend.hpp \
+  /usr/include/boost/multiprecision/traits/is_complex.hpp \
+  /usr/include/boost/multiprecision/traits/is_convertible_arithmetic.hpp \
+  /usr/include/boost/multiprecision/traits/is_restricted_conversion.hpp \
+  /usr/include/boost/multiprecision/traits/is_variable_precision.hpp \
+  /usr/include/boost/multiprecision/traits/std_integer_traits.hpp \
+  /usr/include/boost/multiprecision/traits/transcendental_reduction_type.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/array \
   /usr/include/c++/11/atomic \
@@ -26,10 +79,13 @@
   /usr/include/c++/11/bits/c++0x_warning.h \
   /usr/include/c++/11/bits/char_traits.h \
   /usr/include/c++/11/bits/charconv.h \
+  /usr/include/c++/11/bits/codecvt.h \
   /usr/include/c++/11/bits/concept_check.h \
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/bits/cxxabi_forced.h \
   /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/enable_special_members.h \
   /usr/include/c++/11/bits/erase_if.h \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_defines.h \
@@ -39,12 +95,16 @@
   /usr/include/c++/11/bits/hash_bytes.h \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/ios_base.h \
+  /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/bits/iterator_concepts.h \
   /usr/include/c++/11/bits/list.tcc \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
   /usr/include/c++/11/bits/locale_facets.h \
   /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
   /usr/include/c++/11/bits/localefwd.h \
   /usr/include/c++/11/bits/max_size_type.h \
   /usr/include/c++/11/bits/memoryfwd.h \
@@ -53,9 +113,11 @@
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/bits/ostream_insert.h \
+  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/postypes.h \
   /usr/include/c++/11/bits/predefined_ops.h \
   /usr/include/c++/11/bits/ptr_traits.h \
+  /usr/include/c++/11/bits/quoted_string.h \
   /usr/include/c++/11/bits/range_access.h \
   /usr/include/c++/11/bits/ranges_algo.h \
   /usr/include/c++/11/bits/ranges_algobase.h \
@@ -67,6 +129,8 @@
   /usr/include/c++/11/bits/shared_ptr.h \
   /usr/include/c++/11/bits/shared_ptr_atomic.h \
   /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/bits/std_function.h \
   /usr/include/c++/11/bits/std_mutex.h \
@@ -74,6 +138,7 @@
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/stl_construct.h \
+  /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/stl_function.h \
   /usr/include/c++/11/bits/stl_heap.h \
   /usr/include/c++/11/bits/stl_iterator.h \
@@ -86,6 +151,7 @@
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_stack.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_uninitialized.h \
@@ -100,19 +166,25 @@
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/uses_allocator_args.h \
   /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/cassert \
   /usr/include/c++/11/cctype \
   /usr/include/c++/11/cerrno \
   /usr/include/c++/11/climits \
   /usr/include/c++/11/clocale \
+  /usr/include/c++/11/cmath \
   /usr/include/c++/11/compare \
+  /usr/include/c++/11/complex \
   /usr/include/c++/11/concepts \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/cstdint \
+  /usr/include/c++/11/cstdio \
   /usr/include/c++/11/cstdlib \
+  /usr/include/c++/11/ctime \
   /usr/include/c++/11/cwchar \
   /usr/include/c++/11/cwctype \
   /usr/include/c++/11/debug/assertions.h \
   /usr/include/c++/11/debug/debug.h \
+  /usr/include/c++/11/deque \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/ext/aligned_buffer.h \
   /usr/include/c++/11/ext/alloc_traits.h \
@@ -124,36 +196,58 @@
   /usr/include/c++/11/ext/type_traits.h \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/iomanip \
   /usr/include/c++/11/ios \
   /usr/include/c++/11/iosfwd \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/istream \
   /usr/include/c++/11/iterator \
   /usr/include/c++/11/limits \
   /usr/include/c++/11/list \
+  /usr/include/c++/11/locale \
   /usr/include/c++/11/map \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/new \
   /usr/include/c++/11/numbers \
   /usr/include/c++/11/numeric \
+  /usr/include/c++/11/optional \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/pstl/execution_defs.h \
   /usr/include/c++/11/pstl/glue_algorithm_defs.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/stack \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/stdlib.h \
   /usr/include/c++/11/streambuf \
   /usr/include/c++/11/string \
   /usr/include/c++/11/string_view \
+  /usr/include/c++/11/tr1/bessel_function.tcc \
+  /usr/include/c++/11/tr1/beta_function.tcc \
+  /usr/include/c++/11/tr1/ell_integral.tcc \
+  /usr/include/c++/11/tr1/exp_integral.tcc \
+  /usr/include/c++/11/tr1/gamma.tcc \
+  /usr/include/c++/11/tr1/hypergeometric.tcc \
+  /usr/include/c++/11/tr1/legendre_function.tcc \
+  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/11/tr1/poly_hermite.tcc \
+  /usr/include/c++/11/tr1/poly_laguerre.tcc \
+  /usr/include/c++/11/tr1/riemann_zeta.tcc \
+  /usr/include/c++/11/tr1/special_function_util.h \
   /usr/include/c++/11/tuple \
   /usr/include/c++/11/type_traits \
   /usr/include/c++/11/typeinfo \
   /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/utility \
+  /usr/include/c++/11/variant \
   /usr/include/c++/11/vector \
   /usr/include/ctype.h \
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/libintl.h \
   /usr/include/linux/errno.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
@@ -237,13 +331,21 @@
   /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
@@ -298,6 +400,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h \
@@ -363,9 +466,11 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
@@ -389,6 +494,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \

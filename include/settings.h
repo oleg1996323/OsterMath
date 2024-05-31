@@ -1,14 +1,17 @@
+#pragma once
 #include <QSettings>
 #include <QString>
+#include <QCoreApplication>
 
-class UserSettings:public QSettings{
-    UserSettings(QObject* parent,const QString& organization):QSettings(QSettings::UserScope,organization,"OsterMath",parent){
+namespace settings{
+    Q_NAMESPACE
+    void initSettings();
 
-    }
-};
+    class GlobalSettings:public QSettings{
 
-class GlobalSettings:public QSettings{
-    GlobalSettings(QObject* parent,const QString& organization):QSettings(QSettings::SystemScope,organization,"OsterMath",parent){
+    public:
+        GlobalSettings():QSettings(QCoreApplication::organizationName(),QCoreApplication::applicationName(),nullptr){ }
 
-    }
-};
+
+    };
+}
