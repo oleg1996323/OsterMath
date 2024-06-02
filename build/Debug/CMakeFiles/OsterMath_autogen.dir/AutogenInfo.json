@@ -93,6 +93,12 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/data/obm_data.h",
+			"MU",
+			"VVDFVJO4II/moc_obm_data.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/data_view.h",
 			"MU",
 			"6YEA5652QU/moc_data_view.cpp",
@@ -102,6 +108,30 @@
 			"/home/oster/OsterMath/include/def.h",
 			"MU",
 			"6YEA5652QU/moc_def.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/kernel/application.h",
+			"MU",
+			"3LUUITMNIE/moc_application.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/kernel/exception.h",
+			"MU",
+			"3LUUITMNIE/moc_exception.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/kernel/settings.h",
+			"MU",
+			"3LUUITMNIE/moc_settings.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/kernel/styles.h",
+			"MU",
+			"3LUUITMNIE/moc_styles.cpp",
 			null
 		],
 		[
@@ -117,18 +147,6 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/settings.h",
-			"MU",
-			"6YEA5652QU/moc_settings.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/styles.h",
-			"MU",
-			"6YEA5652QU/moc_styles.cpp",
-			null
-		],
-		[
 			"/home/oster/OsterMath/include/toolbartabs.h",
 			"MU",
 			"6YEA5652QU/moc_toolbartabs.cpp",
@@ -138,6 +156,18 @@
 			"/home/oster/OsterMath/include/utilities/custom_widgets/buttons.h",
 			"MU",
 			"K4XHVSUWZG/moc_buttons.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/serialization/serial_omb.h",
+			"MU",
+			"RNOEDKGOQU/moc_serial_omb.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/validators/validator.h",
+			"MU",
+			"75SZBFYVPN/moc_validator.cpp",
 			null
 		],
 		[
@@ -180,12 +210,11 @@
 	[
 		"/home/oster/OsterMath/build/Debug",
 		"/home/oster/OsterMath",
+		"/home/oster/OsterMath/PUBLIC",
 		"/home/oster/OsterMath/include",
 		"/home/oster/OsterMath/ui",
 		"/home/oster/OsterMath/res",
 		"/home/oster/Electrolisys/arithmetictree/include",
-		"/home/oster/Electrolisys/arithmetictree",
-		"/home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules",
 		"/home/oster/OsterMath/src",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
@@ -215,7 +244,7 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 2,
+	"PARALLEL" : 6,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",

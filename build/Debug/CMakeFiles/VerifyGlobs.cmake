@@ -5,7 +5,6 @@ cmake_policy(SET CMP0009 NEW)
 # _directory_contents at /usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake:78 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.c")
 set(OLD_GLOB
-  "/home/oster/OsterMath/build/Debug/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -43,10 +42,16 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.cpp")
 set(OLD_GLOB
   "/home/oster/OsterMath/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp"
+  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp"
+  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_def.cpp"
+  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp"
+  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp"
+  "/home/oster/OsterMath/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
   "/home/oster/OsterMath/OsterMath_autogen/mocs_compilation.cpp"
-  "/home/oster/OsterMath/build-OsterMath-Desktop-Debug/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/Debug/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+  "/home/oster/OsterMath/build/Debug/OsterMath_autogen/3LUUITMNIE/moc_settings.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp"
@@ -60,15 +65,8 @@ set(OLD_GLOB
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/mocs_compilation.cpp"
   "/home/oster/OsterMath/build/Release/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/mocs_compilation.cpp"
   "/home/oster/OsterMath/src/bookmath.cpp"
   "/home/oster/OsterMath/src/def.cpp"
@@ -93,20 +91,28 @@ endif()
 # _directory_contents at /usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake:78 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.h")
 set(OLD_GLOB
+  "/home/oster/OsterMath/OsterMath_autogen/include/ui_bookmath.h"
+  "/home/oster/OsterMath/OsterMath_autogen/include/ui_var_list.h"
+  "/home/oster/OsterMath/OsterMath_autogen/moc_predefs.h"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/include/ui_bookmath.h"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/include/ui_var_list.h"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/moc_predefs.h"
   "/home/oster/OsterMath/include/bookmath.h"
   "/home/oster/OsterMath/include/booktoolbar.h"
+  "/home/oster/OsterMath/include/data/obm_data.h"
   "/home/oster/OsterMath/include/data_view.h"
   "/home/oster/OsterMath/include/def.h"
+  "/home/oster/OsterMath/include/kernel/application.h"
+  "/home/oster/OsterMath/include/kernel/exception.h"
+  "/home/oster/OsterMath/include/kernel/settings.h"
+  "/home/oster/OsterMath/include/kernel/styles.h"
   "/home/oster/OsterMath/include/model/datamodel.h"
   "/home/oster/OsterMath/include/model/varlistmodel.h"
-  "/home/oster/OsterMath/include/settings.h"
-  "/home/oster/OsterMath/include/styles.h"
   "/home/oster/OsterMath/include/toolbartabs.h"
   "/home/oster/OsterMath/include/utilities/custom_widgets/buttons.h"
+  "/home/oster/OsterMath/include/utilities/serialization/serial_omb.h"
+  "/home/oster/OsterMath/include/utilities/validators/validator.h"
   "/home/oster/OsterMath/include/utilities/windows/createnew.h"
   "/home/oster/OsterMath/include/utilities/windows/opennew.h"
   "/home/oster/OsterMath/include/utilities/windows/windef.h"

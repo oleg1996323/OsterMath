@@ -213,8 +213,9 @@ OsterMath: CMakeFiles/OsterMath.dir/src/settings.cpp.o
 OsterMath: CMakeFiles/OsterMath.dir/src/varlist.cpp.o
 OsterMath: CMakeFiles/OsterMath.dir/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp.o
 OsterMath: CMakeFiles/OsterMath.dir/build.make
-OsterMath: /home/oster/Electrolisys/arithmetictree/lib/libarithmetictree.a
 OsterMath: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3
+OsterMath: /home/oster/Electrolisys/arithmetictree/lib/libarithmetictree.a
+OsterMath: /home/oster/Electrolisys/arithmetictree/grammar/lib/libantlr4-runtime.a
 OsterMath: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3
 OsterMath: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3
 OsterMath: CMakeFiles/OsterMath.dir/link.txt

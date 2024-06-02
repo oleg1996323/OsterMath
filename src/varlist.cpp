@@ -1,5 +1,5 @@
 #include "varlist.h"
-#include "styles.h"
+#include "kernel/styles.h"
 #include <QSizePolicy>
 #include <QDebug>
 
@@ -32,9 +32,6 @@ Frame::SearchLine::SearchLine(QWidget* parent):QLineEdit(parent){
 Frame::Label::Label(QWidget* parent):QLabel(parent){}
 
 Frame::Table::Table(QWidget* parent):model::Variables(parent){
-    QList<QString> list = {"A","B","C","D"};
-    init(list);
-    this->setModel(this);
 //    if (columnCount() < 3)
 //        setColumnCount(3);
 //    QFont font3;
@@ -101,7 +98,7 @@ Frame::Frame(QWidget* parent):QFrame(parent){
     gridLayout->setSpacing(0);
 
     label_search_var_list = new Label(this);
-    label_search_var_list->setPalette(Colors::DarkStyle().palette());
+    label_search_var_list->setPalette(Themes::DarkStyle().palette());
     label_search_var_list->setObjectName(QString::fromUtf8("label_search_var_list"));
 
     QFont font1;
@@ -147,7 +144,7 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent){
     setFrameShadow(QFrame::Plain);
     setFrameShape(QFrame::StyledPanel);
     setLineWidth(1);
-    setPalette(Colors::DarkStyle().palette());
+    setPalette(Themes::DarkStyle().palette());
 
     label_var_list = new Label(this);
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
@@ -173,13 +170,13 @@ void TitleBar::retranslate(){
 #include <QMainWindow>
 
 DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
-    palette = new QPalette(Colors::DarkStyle().palette());
+    palette = new QPalette(Themes::DarkStyle().palette());
     //QBrush brush_1(QColor(190,220,255,255));
     //palette->setBrush(QPalette::ColorRole::Window, brush_1);
     this->setPalette(*palette);
 
     titlebar_ = new TitleBar(this);
-    titlebar_->setPalette(Colors::DarkStyle().palette());
+    titlebar_->setPalette(Themes::DarkStyle().palette());
     this->setContentsMargins(0,0,0,0);
     this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable |DockWidgetMovable);
     this->setTitleBarWidget(titlebar_);
@@ -189,7 +186,7 @@ DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
     sizepolicy.setRetainSizeWhenHidden(true);
     setSizePolicy(sizepolicy);
     frame_ = new Frame(this);
-    frame_->setPalette(Colors::DarkStyle().palette());
+    frame_->setPalette(Themes::DarkStyle().palette());
     setWidget(frame_);
 
     retranslate();

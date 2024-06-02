@@ -201,8 +201,9 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/bookmath.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/application.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h \
@@ -239,22 +240,21 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
  /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/11/stdlib.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringliteral.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h \
@@ -280,11 +280,25 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h \
+ /usr/include/c++/11/variant \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/styles.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h \
@@ -292,47 +306,18 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/settings.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
- /usr/include/c++/11/variant \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/styles.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QColor \
@@ -341,10 +326,35 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/settings.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/def.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
@@ -394,7 +404,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
@@ -414,7 +423,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
@@ -430,26 +438,16 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/exception.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/utilities/validators/validator.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/../../../../include/model/varlistmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+ /home/oster/Electrolisys/arithmetictree/include/data.h \
  /usr/include/c++/11/unordered_set \
  /usr/include/c++/11/bits/unordered_set.h \
- /home/oster/Electrolisys/arithmetictree/include/types.h \
- /usr/include/c++/11/cassert \
+ /home/oster/Electrolisys/arithmetictree/include/def.h \
  /usr/include/boost/multiprecision/cpp_dec_float.hpp \
  /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -927,7 +925,7 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/boost/predef/make.h /usr/include/boost/predef/detail/test.h \
  /usr/include/boost/predef/library/c/gnu.h \
  /usr/include/boost/predef/library/c/_prefix.h \
- /usr/include/boost/predef/detail/_cassert.h \
+ /usr/include/boost/predef/detail/_cassert.h /usr/include/c++/11/cassert \
  /usr/include/boost/predef/os/macos.h /usr/include/boost/predef/os/ios.h \
  /usr/include/boost/predef/os/bsd.h \
  /usr/include/boost/predef/os/bsd/bsdi.h \
@@ -1007,197 +1005,29 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/boost/math/special_functions/detail/gamma_inva.hpp \
  /usr/include/boost/math/special_functions/erf.hpp \
  /usr/include/boost/math/special_functions/detail/erf_inv.hpp \
- /home/oster/Electrolisys/arithmetictree/include/def.h \
- /home/oster/Electrolisys/arithmetictree/include/exception.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/BaseErrorListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ANTLRErrorListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/RecognitionException.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Exceptions.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/antlr4-common.h \
- /usr/include/c++/11/any /usr/include/c++/11/bitset \
- /usr/include/c++/11/fstream \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/set \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h /usr/include/c++/11/stack \
- /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
- /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/bits/stl_stack.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/support/Declarations.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/DefaultErrorStrategy.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ANTLRErrorStrategy.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Token.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/IntStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/misc/IntervalSet.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/misc/Interval.h \
- /home/oster/Electrolisys/arithmetictree/include/data.h \
  /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
- /home/oster/Electrolisys/arithmetictree/include/expr_listener.h \
- /usr/include/c++/11/optional \
- /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesBaseListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/antlr4-runtime.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ANTLRFileStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ANTLRInputStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/CharStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/BailErrorStrategy.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/BufferedTokenStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/TokenStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/CommonToken.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/WritableToken.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/CommonTokenFactory.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/TokenFactory.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/CommonTokenStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ConsoleErrorListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/DiagnosticErrorListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/FailedPredicateException.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/InputMismatchException.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/InterpreterRuleContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ParserRuleContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/RuleContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ParseTree.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/support/Any.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ParseTreeType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/support/CPPUtils.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Lexer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Recognizer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ProxyErrorListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/support/Casts.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/SerializedATNView.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/misc/MurmurHash.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/internal/Synchronization.h \
- /usr/include/c++/11/shared_mutex \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/TokenSource.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/LexerInterpreter.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredictionContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATN.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/Transition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/TransitionType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNStateType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredictionContextType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredictionContextCache.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/FlatHashSet.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Vocabulary.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/LexerNoViableAltException.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNConfigSet.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/support/BitSet.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNConfig.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/SemanticContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/SemanticContextType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ListTokenSource.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/NoViableAltException.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Parser.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ParseTreeListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/ParserInterpreter.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/RuleContextWithAltNum.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/RuntimeMetaData.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/TokenStreamRewriter.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/UnbufferedCharStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/UnbufferedTokenStream.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/Version.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNDeserializationOptions.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNDeserializer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerActionType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNSimulator.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ATNType.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ActionTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/AmbiguityInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/DecisionEventInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ArrayPredictionContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/AtomTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/BasicBlockStartState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/BlockStartState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/DecisionState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/BasicState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/BlockEndState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ContextSensitivityInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/DecisionInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredicateEvalInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ErrorInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/EpsilonTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LL1Analyzer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerATNConfig.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerATNSimulator.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerActionExecutor.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerChannelAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerCustomAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerIndexedCustomAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerModeAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerMoreAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerPopModeAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerPushModeAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerSkipAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LexerTypeAction.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LookaheadEventInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/LoopEndState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/NotSetTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/SetTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/OrderedATNConfigSet.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ParseInfo.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ParserATNSimulator.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredictionMode.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/dfa/DFAState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/FlatHashMap.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredictionContextMergeCache.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredictionContextMergeCacheOptions.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ParserATNSimulatorOptions.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PlusBlockStartState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PlusLoopbackState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PrecedencePredicateTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/PredicateTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/ProfilingATNSimulator.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/RangeTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/RuleStartState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/RuleStopState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/RuleTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/SingletonPredictionContext.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/StarBlockStartState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/StarLoopEntryState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/StarLoopbackState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/TokensStartState.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/atn/WildcardTransition.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/dfa/DFA.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/dfa/DFASerializer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/dfa/LexerDFASerializer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/misc/InterpreterDataReader.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/misc/Predicate.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/support/Arrays.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/AbstractParseTreeVisitor.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ParseTreeVisitor.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ErrorNode.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/TerminalNode.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ErrorNodeImpl.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/TerminalNodeImpl.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ParseTreeProperty.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/ParseTreeWalker.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/Trees.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/Chunk.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/ParseTreeMatch.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/ParseTreePattern.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/ParseTreePatternMatcher.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/RuleTagToken.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/TagChunk.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/TextChunk.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/pattern/TokenTagToken.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPath.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathLexer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathLexerErrorListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathRuleAnywhereElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathRuleElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathTokenAnywhereElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathTokenElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathWildcardAnywhereElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/antlr4_runtime/runtime/src/tree/xpath/XPathWildcardElement.h \
- /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesListener.h \
- /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesParser.h \
+ /home/oster/Electrolisys/arithmetictree/include/types.h \
+ /home/oster/Electrolisys/arithmetictree/include/format.h \
  /home/oster/Electrolisys/arithmetictree/include/bound.h \
  /home/oster/Electrolisys/arithmetictree/include/arithmetic_tree.h \
- /home/oster/Electrolisys/arithmetictree/include/expr_lexer.h \
- /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesLexer.h \
- /home/oster/Electrolisys/arithmetictree/include/format.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_settings.cpp \
+ /usr/include/c++/11/optional \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/3LUUITMNIE/moc_settings.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/../../../../include/model/varlistmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp \
@@ -1206,22 +1036,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/varlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \

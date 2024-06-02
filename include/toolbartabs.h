@@ -8,7 +8,7 @@
 #include <QCommonStyle>
 #include <QPainter>
 #include <QPixmap>
-#include "styles.h"
+#include "kernel/styles.h"
 #include "utilities/custom_widgets/buttons.h"
 
 class BookToolGroup:public QGroupBox{

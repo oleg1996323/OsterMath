@@ -1,9 +1,8 @@
 #pragma once
-
+#include "kernel/application.h"
 #include <QMainWindow>
 #include <QVBoxLayout>
-#include "settings.h"
-#include "styles.h"
+#include "kernel/styles.h"
 #include "def.h"
 #include "booktoolbar.h"
 #include "utilities/windows/createnew.h"
@@ -58,6 +57,26 @@ private:
     void __define_status_bar__();
 
     void __define_signals_slots__();
+
+    void __load_settings__(){
+        QSettings* sets_ = kernel::Application::get_settings();
+        sets_->beginGroup("bookmath");
+            setGeometry(sets_->value("geometry").toRect());
+        sets_->endGroup();
+    }
+
+    void __save_settings__(){
+        QSettings* sets_ = kernel::Application::get_settings();
+        sets_->beginGroup("bookmath");
+            sets_->setValue("geometry",geometry());
+        sets_->endGroup();
+    }
+
+    void __load_styles__(){
+        if(kernel::Application::get_theme() == Themes::Dark)
+            setPalette(Themes::DarkStyle().palette());
+        else setPalette(Themes::LightStyle().palette());
+    }
 
 private slots:
     void create_new_book();

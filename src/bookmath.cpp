@@ -25,7 +25,7 @@ void BookMath::__define_window__(){
     if (objectName().isEmpty())
         setObjectName(QString::fromUtf8("BookMath"));
 
-    setPalette(Colors::DarkStyle().palette());
+    __load_styles__();
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect  screenGeometry = screen->geometry();
     int height = screenGeometry.height();

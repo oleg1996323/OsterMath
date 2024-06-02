@@ -1,20 +1,16 @@
 /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp: /home/oster/OsterMath/include/varlist.h \
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
-  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesBaseListener.h \
-  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesLexer.h \
-  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesListener.h \
-  /home/oster/Electrolisys/arithmetictree/grammar/bin/antlr4cpp_generated_src/ParseRules/ParseRulesParser.h \
   /home/oster/Electrolisys/arithmetictree/include/arithmetic_tree.h \
   /home/oster/Electrolisys/arithmetictree/include/bound.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /home/oster/Electrolisys/arithmetictree/include/def.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/expr_lexer.h \
-  /home/oster/Electrolisys/arithmetictree/include/expr_listener.h \
   /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
   /home/oster/Electrolisys/arithmetictree/include/format.h \
   /home/oster/Electrolisys/arithmetictree/include/types.h \
   /home/oster/OsterMath/include/def.h \
+  /home/oster/OsterMath/include/kernel/application.h \
+  /home/oster/OsterMath/include/kernel/settings.h \
+  /home/oster/OsterMath/include/kernel/styles.h \
   /home/oster/OsterMath/include/model/varlistmodel.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /usr/include/asm-generic/errno-base.h \
@@ -84,7 +80,6 @@
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/bits/cxxabi_forced.h \
   /usr/include/c++/11/bits/cxxabi_init_exception.h \
-  /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/bits/enable_special_members.h \
   /usr/include/c++/11/bits/erase_if.h \
   /usr/include/c++/11/bits/exception.h \
@@ -138,7 +133,6 @@
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/stl_construct.h \
-  /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/stl_function.h \
   /usr/include/c++/11/bits/stl_heap.h \
   /usr/include/c++/11/bits/stl_iterator.h \
@@ -151,7 +145,6 @@
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/stl_relops.h \
-  /usr/include/c++/11/bits/stl_stack.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_uninitialized.h \
@@ -184,7 +177,6 @@
   /usr/include/c++/11/cwctype \
   /usr/include/c++/11/debug/assertions.h \
   /usr/include/c++/11/debug/debug.h \
-  /usr/include/c++/11/deque \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/ext/aligned_buffer.h \
   /usr/include/c++/11/ext/alloc_traits.h \
@@ -217,7 +209,6 @@
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/sstream \
-  /usr/include/c++/11/stack \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/stdlib.h \
   /usr/include/c++/11/streambuf \
@@ -342,10 +333,12 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
@@ -421,8 +414,12 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QColor \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
@@ -470,6 +467,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \

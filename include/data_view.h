@@ -1,14 +1,18 @@
 #pragma once
+#include "kernel/application.h"
 #include <QTextEdit>
-#include <QFont>
-#include <utilities/custom_widgets/buttons.h>
-#include <styles.h>
 #include <QTableWidget>
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QSplitter>
 #include <QDebug>
+#include <QFont>
 #include <QSizePolicy>
+#include <utilities/custom_widgets/buttons.h>
+#include <kernel/styles.h>
+#include "kernel/exception.h"
+#include "utilities/validators/validator.h"
+
 
 class ExpressionButton:public IconedButton{
     Q_OBJECT
@@ -70,13 +74,112 @@ private slots:
 };
 
 #include <QTableView>
+#include <QTabWidget>
+#include <data.h>
+#include <QSettings>
 
 class VarData:public QTableView{
-public:
-    VarData(QWidget* parent):QTableView(parent){
+public:  
+    VarData(QWidget* parent, const QString& name, BaseData* data):
+        QTableView(parent),
+        data_(data)
+    {
 
     }
 
+    void rename(const QString& name) noexcept{
+        data_->set_name(name.toStdString());
+    }
+
+private:
+    BaseData* data_;
+    QSettings sets_;
+};
+
+#include <QMessageBox>
+
+class Sheets:public QTabWidget{
+    Q_OBJECT
+public:
+    Sheets(QWidget* parent):
+        QTabWidget(parent),
+        data_pool(tr("Книга").toStdString())
+    {
+        __load_settings__();
+        for(int i=0;i<3;++i)
+            add_default_sheet();
+    }
+
+    Sheets(QWidget* parent, const QString& name):
+        QTabWidget(parent),
+        data_pool(name.toStdString())
+    {
+        __load_settings__();
+    }
+
+    ~Sheets(){
+        __save_settings__();
+    }
+
+    void rename(const QString& name){
+        data_pool.set_name(name.toStdString());
+    }
+
+    void erase_sheet(const QString& name) noexcept{
+        data_pool.erase(name.toStdString());
+    }
+
+    void change_sheet_name(QString&& name, int tab_id){
+        try{
+            if(validator::BaseData::validate(name)==validator::Invalid)
+                throw sheet::IncorrectName(tr("Недопустимое название листа").toStdString());
+            for(int id = 0; id<count();++id)
+                if(tabText(id)==name)
+                    throw sheet::AlreadyExist(tr("Лист с таким названием уже существует").toStdString());
+            setTabText(tab_id,name);
+        }
+        catch(const std::logic_error& err){
+            QMessageBox(QMessageBox::Icon::Critical,QObject::tr("Невозможно создать лист"), tr("Лист с таким названием уже существует"),QMessageBox::Ok,this);
+        }
+    }
+
+    void add_default_sheet(){
+        QString new_name = tr("Лист"+QString::number(data_pool.size()+1).toUtf8());
+        this->addTab(new VarData(this,
+                                 new_name,
+                                 data_pool.add_data(new_name.toStdString())),
+                     new_name);
+
+    }
+
+    void __load_settings__(){
+        QSettings* sets_ = kernel::Application::get_settings();
+        sets_->beginGroup("sheetstab");
+            this->setGeometry(sets_->value("geometry").toRect());
+            Themes::TYPE theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
+            if(theme == Themes::Dark)
+                setPalette(Themes::DarkStyle().palette());
+            else setPalette(Themes::LightStyle().palette());
+        sets_->endGroup();
+    }
+
+    void __save_settings__(){
+        QSettings* sets_ = kernel::Application::get_settings();
+        sets_->beginGroup("sheetstab");
+            sets_->setValue("geometry",geometry());
+            Themes::TYPE theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
+            if(theme == Themes::Dark)
+                setPalette(Themes::DarkStyle().palette());
+            else setPalette(Themes::LightStyle().palette());
+        sets_->endGroup();
+    }
+
+private:
+    DataPool data_pool;
+
+    void __init__(){
+        setTabPosition(QTabWidget::South);
+    }
 };
 
 class VarDataView:public QSplitter{
@@ -85,7 +188,7 @@ public:
     VarDataView(QWidget* parent):QSplitter(Qt::Vertical,parent){
 
         expression_view_ = new VarExpressionView(this);
-        data_ = new VarData(this);
+        data_ = new Sheets(this);
         addWidget(expression_view_);
         addWidget(data_);
         setCollapsible(0,false);
@@ -96,6 +199,8 @@ public:
 
     }
 private:
-    VarData* data_;
+    Sheets* data_;
     VarExpressionView* expression_view_;
 };
+
+

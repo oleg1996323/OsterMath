@@ -14,7 +14,10 @@
 #include <iterator>
 #include <unordered_set>
 #include <QSettings>
-#include <types.h>
+#include "types.h"
+#include <string_view>
+
+Q_DECLARE_METATYPE(std::string)
 
 class VariableBase;
 
@@ -71,14 +74,18 @@ public:
         if(index.row()<0 || index.row()>=vars_.size()){
             return QVariant();
         }
-        return (nRole==Qt::DisplayRole || nRole==Qt::EditRole)
-                ? vars_.at(index.row())
-                : QVariant();
+
+        if(index.column()==0)
+            return (nRole==Qt::DisplayRole || nRole==Qt::EditRole)
+                    ? QString::fromStdString(std::string(vars_.at(index.row())->name()))
+                    : QVariant();
     }
 
     virtual bool setData(const QModelIndex& index, const QVariant& value, int nRole) override{
         if(index.isValid() && nRole == Qt::EditRole){
-            vars_.replace(index.row(),value.value<QString>());
+            if(index.column()==0){
+                vars_.replace(index.row(),std::make_shared<VariableBase>(value.value<std::string>(),nullptr));
+            }
             emit dataChanged(index,index);
             return true;
         }
@@ -116,13 +123,13 @@ public:
         return true;
     }
 
-    virtual bool insertColumns(int column, int count, const QModelIndex &parent) const override{
+    virtual bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex()) override{
         if(parent.isValid())
             return false;
-        beginInsertColumns(QModelIndex(),column,column+count-1);
-        for(int i = 0;i<count;++i){
+//        beginInsertColumns(QModelIndex(),column,column+count-1);
+//        for(int i = 0;i<count;++i){
 
-        }
+//        }
     }
 
     virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent = QModelIndex()) override{
@@ -146,7 +153,7 @@ public:
     }
 
     void get_header_pos(){
-        insertColumns();
+
     }
 
 private:

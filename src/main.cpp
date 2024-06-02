@@ -1,13 +1,12 @@
-#include "bookmath.h"
-#include "settings.h"
-#include <QApplication>
+#include "kernel/application.h"
 #include <QLocale>
 #include <QTranslator>
+#include "bookmath.h"
+#include "settings.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    QCoreApplication::setApplicationName("OsterMath");
+    kernel::Application a(argc, argv);
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

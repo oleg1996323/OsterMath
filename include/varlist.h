@@ -1,17 +1,16 @@
 #pragma once
-
-#include <QtCore/QVariant>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QTableWidget>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
+#include "kernel/application.h"
+#include <QVariant>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QHeaderView>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QSpacerItem>
+#include <QTableWidget>
+#include <QVBoxLayout>
+#include <QWidget>
 #include <QDockWidget>
 #include <QToolBar>
 #include <QShowEvent>
@@ -92,7 +91,6 @@ public:
 //    }
 
     void setHorizontal(){
-        //common_layout_->deleteLater();
         common_layout_=new QHBoxLayout(this);
 
         QHBoxLayout* layout_ = qobject_cast<QHBoxLayout*>(common_layout_);
@@ -106,18 +104,13 @@ public:
         layout_->addSpacerItem(spacer);
         layout_->addWidget(collapse_var_list,Qt::AlignRight);
         layout_->addWidget(close_var_list,Qt::AlignRight);
-        //label_var_list->horizontal();
 
         setLayout(common_layout_);
+
     }
 
 private:
     class Label:public QLabel{
-//        enum class STATE{
-//            VERTICAL,
-//            HORIZONTAL
-//        };
-//        STATE state = STATE::HORIZONTAL;
     public:
         Label(QWidget* parent):QLabel(parent){
             setContentsMargins(0,0,0,0);
@@ -131,27 +124,34 @@ private:
             font.setBold(true);
             font.setWeight(100);
             setFont(font);
-
+            __load_settings__();
         }
 
-//        void vertical(){
-//            state = STATE::VERTICAL;
-//        }
+        ~Label(){
+            __save_settings__();
+        }
 
-//        void horizontal(){
-//            state = STATE::HORIZONTAL;
-//        }
+        void __load_settings__(){
+            QSettings* sets_ = kernel::Application::get_settings();
+            sets_->beginGroup("varlist/dockwidget/titlebar/label");
+                setGeometry(sets_->value("geometry").toRect());
+                setVisible(!sets_->value("hidden").toBool());
+            sets_->endGroup();
+        }
 
-//        virtual void paintEvent(QPaintEvent* event) override{
-//            QPainter painter;
-//            painter.begin(this);
-//            if(state == STATE::HORIZONTAL)
-//                painter.rotate(0);
-//            else painter.rotate(90);
-//            painter.setBrush(palette().color(QPalette::WindowText));
-//            painter.drawText(geometry().bottomLeft(),Label::text());
-//            painter.end();
-//        }
+        void __save_settings__(){
+            QSettings* sets_ = kernel::Application::get_settings();
+            sets_->beginGroup("varlist/dockwidget/titlebar/label");
+                sets_->setValue("geometry",geometry());
+                sets_->setValue("hidden",isHidden());
+            sets_->endGroup();
+        }
+
+        void __load_styles__(){
+            if(kernel::Application::get_theme() == Themes::Dark)
+                setPalette(Themes::DarkStyle().palette());
+            else setPalette(Themes::LightStyle().palette());
+        }
     };
 
     QLayout* common_layout_;
@@ -165,6 +165,10 @@ class DockWidget:public QDockWidget, public Retranslatable{
 public:
     DockWidget(QMainWindow* parent);
 
+    ~DockWidget(){
+        __save_settings__();
+    }
+
     virtual void retranslate() override;
 
 private:
@@ -172,6 +176,29 @@ private:
     TitleBar* titlebar_;
     QPalette* palette;
     QSize last_size;
+
+    void __load_settings__(){
+        QSettings* sets_ = kernel::Application::get_settings();
+        sets_->beginGroup("varlist/dockwidget");
+            setGeometry(sets_->value("geometry").toRect());
+            setVisible(!sets_->value("hidden").toBool());
+        sets_->endGroup();
+    }
+
+    void __save_settings__(){
+        QSettings* sets_ = kernel::Application::get_settings();
+        sets_->beginGroup("varlist/dockwidget");
+            sets_->setValue("geometry",geometry());
+            sets_->setValue("hidden",isHidden());
+        sets_->endGroup();
+    }
+
+    void __load_styles__(){
+        if(kernel::Application::get_theme() == Themes::Dark)
+            setPalette(Themes::DarkStyle().palette());
+        else setPalette(Themes::LightStyle().palette());
+    }
+
 
 public slots:
     void collapse(){
