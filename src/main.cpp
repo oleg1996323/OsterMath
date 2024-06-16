@@ -2,7 +2,7 @@
 #include <QLocale>
 #include <QTranslator>
 #include "bookmath.h"
-#include "settings.h"
+#include "kernel/settings.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    settings::initSettings();
     BookMath w;
     w.show();
     return a.exec();

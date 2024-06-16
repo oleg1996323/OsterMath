@@ -216,6 +216,7 @@
 		"/home/oster/OsterMath/res",
 		"/home/oster/Electrolisys/arithmetictree/include",
 		"/home/oster/OsterMath/src",
+		"/home/oster/Electrolisys/arithmetictree/include/types",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
 		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
@@ -254,6 +255,7 @@
 	"SOURCES" : 
 	[
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/data_view.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/def.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/settings.cpp", "MU", null ],

@@ -42,13 +42,6 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.cpp")
 set(OLD_GLOB
   "/home/oster/OsterMath/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_def.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
-  "/home/oster/OsterMath/OsterMath_autogen/mocs_compilation.cpp"
   "/home/oster/OsterMath/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/Debug/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/3LUUITMNIE/moc_settings.cpp"
@@ -69,6 +62,7 @@ set(OLD_GLOB
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/mocs_compilation.cpp"
   "/home/oster/OsterMath/src/bookmath.cpp"
+  "/home/oster/OsterMath/src/data_view.cpp"
   "/home/oster/OsterMath/src/def.cpp"
   "/home/oster/OsterMath/src/main.cpp"
   "/home/oster/OsterMath/src/settings.cpp"
@@ -91,9 +85,6 @@ endif()
 # _directory_contents at /usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake:78 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.h")
 set(OLD_GLOB
-  "/home/oster/OsterMath/OsterMath_autogen/include/ui_bookmath.h"
-  "/home/oster/OsterMath/OsterMath_autogen/include/ui_var_list.h"
-  "/home/oster/OsterMath/OsterMath_autogen/moc_predefs.h"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/include/ui_bookmath.h"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/include/ui_var_list.h"

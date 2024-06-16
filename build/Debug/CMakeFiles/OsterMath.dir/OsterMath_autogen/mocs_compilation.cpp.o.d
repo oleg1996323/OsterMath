@@ -1008,9 +1008,18 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
  /home/oster/Electrolisys/arithmetictree/include/types.h \
  /home/oster/Electrolisys/arithmetictree/include/format.h \
- /home/oster/Electrolisys/arithmetictree/include/bound.h \
- /home/oster/Electrolisys/arithmetictree/include/arithmetic_tree.h \
+ /home/oster/Electrolisys/arithmetictree/include/domain.h \
  /usr/include/c++/11/optional \
+ /home/oster/Electrolisys/arithmetictree/include/types/node.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
+ /home/oster/Electrolisys/arithmetictree/include/serialize.h \
+ /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/filesystem \
+ /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
+ /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
+ /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \

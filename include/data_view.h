@@ -1,5 +1,4 @@
 #pragma once
-#include "kernel/application.h"
 #include <QTextEdit>
 #include <QTableWidget>
 #include <QGridLayout>
@@ -152,27 +151,9 @@ public:
 
     }
 
-    void __load_settings__(){
-        QSettings* sets_ = kernel::Application::get_settings();
-        sets_->beginGroup("sheetstab");
-            this->setGeometry(sets_->value("geometry").toRect());
-            Themes::TYPE theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
-            if(theme == Themes::Dark)
-                setPalette(Themes::DarkStyle().palette());
-            else setPalette(Themes::LightStyle().palette());
-        sets_->endGroup();
-    }
+    void __load_settings__();
 
-    void __save_settings__(){
-        QSettings* sets_ = kernel::Application::get_settings();
-        sets_->beginGroup("sheetstab");
-            sets_->setValue("geometry",geometry());
-            Themes::TYPE theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
-            if(theme == Themes::Dark)
-                setPalette(Themes::DarkStyle().palette());
-            else setPalette(Themes::LightStyle().palette());
-        sets_->endGroup();
-    }
+    void __save_settings__();
 
 private:
     DataPool data_pool;

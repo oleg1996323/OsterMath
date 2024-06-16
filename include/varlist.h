@@ -1,5 +1,5 @@
 #pragma once
-#include "kernel/application.h"
+#include "kernel/settings.h"
 #include <QVariant>
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -132,7 +132,7 @@ private:
         }
 
         void __load_settings__(){
-            QSettings* sets_ = kernel::Application::get_settings();
+            QSettings* sets_ = kernel::ProgramSettings::get_settings();
             sets_->beginGroup("varlist/dockwidget/titlebar/label");
                 setGeometry(sets_->value("geometry").toRect());
                 setVisible(!sets_->value("hidden").toBool());
@@ -140,7 +140,7 @@ private:
         }
 
         void __save_settings__(){
-            QSettings* sets_ = kernel::Application::get_settings();
+            QSettings* sets_ = kernel::ProgramSettings::get_settings();
             sets_->beginGroup("varlist/dockwidget/titlebar/label");
                 sets_->setValue("geometry",geometry());
                 sets_->setValue("hidden",isHidden());
@@ -148,7 +148,7 @@ private:
         }
 
         void __load_styles__(){
-            if(kernel::Application::get_theme() == Themes::Dark)
+            if(kernel::ProgramSettings::get_theme() == Themes::Dark)
                 setPalette(Themes::DarkStyle().palette());
             else setPalette(Themes::LightStyle().palette());
         }
@@ -174,11 +174,10 @@ public:
 private:
     Frame* frame_;
     TitleBar* titlebar_;
-    QPalette* palette;
     QSize last_size;
 
     void __load_settings__(){
-        QSettings* sets_ = kernel::Application::get_settings();
+        QSettings* sets_ = kernel::ProgramSettings::get_settings();
         sets_->beginGroup("varlist/dockwidget");
             setGeometry(sets_->value("geometry").toRect());
             setVisible(!sets_->value("hidden").toBool());
@@ -186,7 +185,7 @@ private:
     }
 
     void __save_settings__(){
-        QSettings* sets_ = kernel::Application::get_settings();
+        QSettings* sets_ = kernel::ProgramSettings::get_settings();
         sets_->beginGroup("varlist/dockwidget");
             sets_->setValue("geometry",geometry());
             sets_->setValue("hidden",isHidden());
@@ -194,7 +193,8 @@ private:
     }
 
     void __load_styles__(){
-        if(kernel::Application::get_theme() == Themes::Dark)
+        QSettings* sets_ = kernel::ProgramSettings::get_settings();
+        if(kernel::ProgramSettings::get_theme() == Themes::Dark)
             setPalette(Themes::DarkStyle().palette());
         else setPalette(Themes::LightStyle().palette());
     }

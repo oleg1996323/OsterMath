@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o"
   "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
+  "CMakeFiles/OsterMath.dir/src/data_view.cpp.o"
+  "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/def.cpp.o"
   "CMakeFiles/OsterMath.dir/src/def.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/main.cpp.o"

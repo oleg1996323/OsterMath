@@ -126,6 +126,10 @@ void BookMath::show_variable_list(){
     }
 }
 
+void BookMath::changed(bool ch){
+    changed_ = ch;
+}
+
 BookMath::~BookMath()
 {
 }

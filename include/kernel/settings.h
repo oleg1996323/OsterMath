@@ -11,37 +11,21 @@ namespace kernel{
         static QSettings* sets_;
         static Themes::TYPE style_theme;
     public:
-        static Themes::TYPE get_theme(){
-            return style_theme;
-        }
+        static Themes::TYPE get_theme();
 
-        static QSettings* get_settings(){
-            return sets_;
-        }
+        static QSettings* get_settings();
 
-        static void __save_settings__(){
-            sets_->beginGroup("global");
-                sets_->setValue("theme",style_theme);
-            sets_->endGroup();
-        }
+        static void __save_settings__();
 
-        static void __load_settings__(){
-            sets_->beginGroup("global");
-                style_theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
-            sets_->endGroup();
-        }
+        static void __load_settings__();
     };
 
     class ProjectSettings{
         static QSettings* sets_;
     public:
-        static void __open_settings__(const QString& path, QObject* parent){
-            sets_ = new QSettings(path,QSettings::Format::NativeFormat,parent);
-        }
+        static void __open_settings__(const QString& path, QObject* parent);
 
-        static QSettings* get_settings(){
-            return sets_;
-        }
+        static QSettings* get_settings();
 
     };
 }

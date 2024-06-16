@@ -8,6 +8,7 @@
 #include "utilities/windows/createnew.h"
 #include "utilities/windows/opennew.h"
 #include "data_view.h"
+#include "data.h"
 
 namespace VarList{
     class DockWidget;
@@ -24,6 +25,7 @@ public:
     virtual void retranslate() override;
 
 private:
+    std::unique_ptr<DataPool> pool_;
     //widget where var are illustrated
     VarList::DockWidget* var_list_;
 
@@ -45,6 +47,7 @@ private:
 
     //utility window deactivating the book-window when openned
     AbstractSubWindowInterface* subwindow;
+    bool changed_ = false;
 
     void __define_window__();
 
@@ -59,21 +62,21 @@ private:
     void __define_signals_slots__();
 
     void __load_settings__(){
-        QSettings* sets_ = kernel::Application::get_settings();
+        QSettings* sets_ = kernel::ProgramSettings::get_settings();
         sets_->beginGroup("bookmath");
             setGeometry(sets_->value("geometry").toRect());
         sets_->endGroup();
     }
 
     void __save_settings__(){
-        QSettings* sets_ = kernel::Application::get_settings();
+        QSettings* sets_ = kernel::ProgramSettings::get_settings();
         sets_->beginGroup("bookmath");
             sets_->setValue("geometry",geometry());
         sets_->endGroup();
     }
 
     void __load_styles__(){
-        if(kernel::Application::get_theme() == Themes::Dark)
+        if(kernel::ProgramSettings::get_theme() == Themes::Dark)
             setPalette(Themes::DarkStyle().palette());
         else setPalette(Themes::LightStyle().palette());
     }
@@ -86,4 +89,5 @@ private slots:
     void insert_chart();
     void show_variable_list();
 
+    void changed(bool);
 };

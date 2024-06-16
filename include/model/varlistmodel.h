@@ -40,6 +40,12 @@ public:
         sets_(QSettings(QCoreApplication::organizationName(),QCoreApplication::applicationName(),this))
     {}
 
+    Variables(QObject* obj, const QList<std::shared_ptr<VariableBase>>& vars):
+        QAbstractTableModel(obj),
+        sets_(QSettings(QCoreApplication::organizationName(),QCoreApplication::applicationName(),this)),
+        vars_(vars)
+    {}
+
     void init(const QList<std::shared_ptr<VariableBase>>& vars){
         vars_=vars;
     }

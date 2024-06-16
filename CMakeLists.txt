@@ -62,7 +62,7 @@ endif()
 
 set(ARITHMTREE_DIR $ENV{HOME}/Electrolisys/arithmetictree)
 
-find_library(ARITHMTREE_LIB NAMES libarithmetictree.a arithmetictree PATHS $ENV{HOME}/Electrolisys/arithmetictree/lib REQUIRED)
+find_library(ARITHMTREE_LIB NAMES libarithmetictree.a arithmetictree PATHS ${ARITHMTREE_DIR}/lib REQUIRED)
 find_library(ANTLR libantlr4-runtime.a PATHS ${ARITHMTREE_DIR}/grammar/lib REQUIRED)
 
 include_directories(
@@ -77,7 +77,8 @@ target_include_directories(OsterMath
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${ARITHMTREE_DIR}/include)
+        ${ARITHMTREE_DIR}/include
+        ${ARITHMTREE_DIR}/include/types)
 
 target_link_libraries(OsterMath PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets PUBLIC ${ARITHMTREE_LIB} ${ANTLR})
 

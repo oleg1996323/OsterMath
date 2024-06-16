@@ -5,6 +5,6 @@ namespace serialization{
 
 class OMB{
     public:
-        QDataStream& operator<<()
 
-}
+
+};
