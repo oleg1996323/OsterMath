@@ -38,6 +38,7 @@ private:
     QMenu *file_menu;
     QMenu *insert_menu;
     QMenu *view_menu;
+    QMenu *langs_;
 
     //status bar
     QStatusBar *statusbar;
@@ -62,24 +63,15 @@ private:
     void __define_signals_slots__();
 
     void __load_settings__(){
-        QSettings* sets_ = kernel::ProgramSettings::get_settings();
+        QSettings* sets_ = kernel::settings::Program::get_settings();
         sets_->beginGroup("bookmath");
             setGeometry(sets_->value("geometry").toRect());
         sets_->endGroup();
     }
 
-    void __save_settings__(){
-        QSettings* sets_ = kernel::ProgramSettings::get_settings();
-        sets_->beginGroup("bookmath");
-            sets_->setValue("geometry",geometry());
-        sets_->endGroup();
-    }
+    void __save_settings__();
 
-    void __load_styles__(){
-        if(kernel::ProgramSettings::get_theme() == Themes::Dark)
-            setPalette(Themes::DarkStyle().palette());
-        else setPalette(Themes::LightStyle().palette());
-    }
+    void __load_styles__();
 
 private slots:
     void create_new_book();
@@ -88,6 +80,8 @@ private slots:
     void save_as();
     void insert_chart();
     void show_variable_list();
+
+    void set_language(QLocale::Language);
 
     void changed(bool);
 };

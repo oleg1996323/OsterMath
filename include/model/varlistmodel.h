@@ -16,6 +16,7 @@
 #include <QSettings>
 #include "types.h"
 #include <string_view>
+#include "kernel/settings.h"
 
 Q_DECLARE_METATYPE(std::string)
 
@@ -36,13 +37,11 @@ enum class HEADER{
 class Variables:public QAbstractTableModel{
 public:
     Variables(QObject* obj):
-        QAbstractTableModel(obj),
-        sets_(QSettings(QCoreApplication::organizationName(),QCoreApplication::applicationName(),this))
+        QAbstractTableModel(obj)
     {}
 
     Variables(QObject* obj, const QList<std::shared_ptr<VariableBase>>& vars):
         QAbstractTableModel(obj),
-        sets_(QSettings(QCoreApplication::organizationName(),QCoreApplication::applicationName(),this)),
         vars_(vars)
     {}
 
@@ -151,11 +150,14 @@ public:
     }
 
     void set_default_header_pos(){
-        sets_.setValue("VarListTable/header/name",0);
-        sets_.setValue("VarListTable/header/type",1);
-        sets_.setValue("VarListTable/header/value",2);
-        sets_.setValue("VarListTable/header/expression",3);
-        sets_.setValue("VarListTable/header/remark",4);
+        QSettings* sets_ = kernel::settings::Program::get_settings();
+        sets_->beginGroup("VarListTable/header");
+            sets_->setValue("name",0);
+            sets_->setValue("type",1);
+            sets_->setValue("value",2);
+            sets_->setValue("expression",3);
+            sets_->setValue("remark",4);
+        sets_->endGroup();
     }
 
     void get_header_pos(){
@@ -164,7 +166,6 @@ public:
 
 private:
     QList<std::shared_ptr<VariableBase>> vars_;
-    QSettings sets_;
 };
 
 }

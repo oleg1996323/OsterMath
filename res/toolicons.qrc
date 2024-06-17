@@ -22,4 +22,8 @@
         <file>common/collapseexpr.png</file>
         <file>common/expandexpr.png</file>
     </qresource>
+    <qresource prefix="/lang_icon">
+        <file alias="rus">icons/lang/rus_lang.png</file>
+        <file alias="eng">icons/lang/eng_lang.png</file>
+    </qresource>
 </RCC>

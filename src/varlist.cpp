@@ -170,10 +170,9 @@ void TitleBar::retranslate(){
 #include <QMainWindow>
 
 DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
-    palette = new QPalette(Themes::DarkStyle().palette());
+    __load_styles__();
     //QBrush brush_1(QColor(190,220,255,255));
     //palette->setBrush(QPalette::ColorRole::Window, brush_1);
-    this->setPalette(*palette);
 
     titlebar_ = new TitleBar(this);
     titlebar_->setPalette(Themes::DarkStyle().palette());

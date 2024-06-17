@@ -344,6 +344,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
@@ -1024,7 +1028,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/3LUUITMNIE/moc_settings.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/../../../../include/model/varlistmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
@@ -1041,6 +1044,12 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_settings.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/../../../../include/utilities/windows/settings.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/varlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \

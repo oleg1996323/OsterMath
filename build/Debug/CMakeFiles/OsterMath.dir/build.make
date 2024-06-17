@@ -85,6 +85,8 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/convertword.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/savecopyfile.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/chart.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/createfilemenu.png
+OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/lang/eng_lang.png
+OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/icons/lang/rus_lang.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/common/close.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/common/expand.png
 OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp: ../../res/common/expandexpr.png

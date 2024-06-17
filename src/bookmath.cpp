@@ -9,8 +9,8 @@
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent)
 {
+    __load_styles__();
     var_list_ = new VarList::DockWidget(this);
-
     addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
     __define_window__();
     __define_status_bar__();
@@ -71,6 +71,13 @@ void BookMath::__define_menu__(){
     menubar->addAction(QObject::tr("Format"));
     menubar->addAction(QObject::tr("Settings"));
     menubar->addAction(QObject::tr("About"));
+    {
+        using namespace kernel::settings;
+        QMenu* menu_lang = menubar->addMenu(QIcon(Program::get_lang_resource_path()), "");
+        for(const auto& res_data:resource_langs)
+            menu_lang->addAction(QIcon(res_data.path),res_data.text,this, [&](){this->set_language(res_data.lang_); });
+
+    }
 
     this->setMenuBar(menubar);
 }
@@ -130,7 +137,26 @@ void BookMath::changed(bool ch){
     changed_ = ch;
 }
 
-BookMath::~BookMath()
-{
+void BookMath::set_language(QLocale::Language lang){
+    using namespace kernel::settings;
+    Program::set_language(lang);
+    retranslate();
 }
 
+BookMath::~BookMath()
+{
+    __save_settings__();
+}
+
+void BookMath::__save_settings__(){
+    QSettings* sets_ = kernel::settings::Program::get_settings();
+    sets_->beginGroup("bookmath");
+        sets_->setValue("geometry",geometry());
+    sets_->endGroup();
+}
+
+void BookMath::__load_styles__(){
+    if(kernel::settings::Program::get_theme() == Themes::Dark)
+        setPalette(Themes::DarkStyle().palette());
+    else setPalette(Themes::LightStyle().palette());
+}

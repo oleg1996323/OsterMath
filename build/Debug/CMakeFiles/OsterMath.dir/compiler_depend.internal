@@ -406,6 +406,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
@@ -1123,7 +1127,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/3LUUITMNIE/moc_settings.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp
  /home/oster/OsterMath/include/model/varlistmodel.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel
@@ -1140,6 +1143,12 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_settings.cpp
+ /home/oster/OsterMath/include/utilities/windows/settings.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp
  /home/oster/OsterMath/include/varlist.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
@@ -1553,6 +1562,10 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
@@ -3388,6 +3401,10 @@ CMakeFiles/OsterMath.dir/src/data_view.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
 
 CMakeFiles/OsterMath.dir/src/def.cpp.o
  /home/oster/OsterMath/src/def.cpp
@@ -4172,10 +4189,10 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
  /home/oster/OsterMath/include/bookmath.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
@@ -5213,6 +5230,11 @@ CMakeFiles/OsterMath.dir/src/settings.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
  /home/oster/OsterMath/include/kernel/styles.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
@@ -5238,7 +5260,6 @@ CMakeFiles/OsterMath.dir/src/settings.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -5606,6 +5627,11 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
  /home/oster/OsterMath/include/kernel/styles.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
@@ -5631,7 +5657,6 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h

@@ -21,11 +21,11 @@ namespace kernel{
 
     private:
         static void __save_settings__(){
-            ProgramSettings::__save_settings__();
+            settings::Program::__save_settings__();
         }
 
         static void __load_settings__(){
-            ProgramSettings::__load_settings__();
+            settings::Program::__load_settings__();
         }
     };
 }

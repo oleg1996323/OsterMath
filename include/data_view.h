@@ -26,38 +26,7 @@ public:
 class VarExpressionView:public QWidget{
     Q_OBJECT
 public:
-    VarExpressionView(QWidget* parent):QWidget(parent){
-        this->setContentsMargins(0,0,0,0);
-        layout_ = new QHBoxLayout(this);
-        layout_->setContentsMargins(0,0,0,0);
-        layout_->setSpacing(0);
-
-        expression_ = new QTextEdit(this);
-        expression_->setObjectName("expression"+parent->objectName());
-        expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
-        expression_->setMinimumHeight(QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-        expression_->setGeometry(pos().x(),pos().y(),width(),QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-        qDebug()<<QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom();
-
-        formula_expl_ = new ExpressionButton(":booktool/icons/expr.png",this);
-        formula_expl_->setObjectName("formula_expl"+parent->objectName());
-
-        expand_collapse_expl_ = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,":common/common/expandexpr.png",":common/common/collapseexpr.png",this);
-        expand_collapse_expl_->setObjectName("expand_collapse_expl"+parent->objectName());
-        expand_collapse_expl_->setFixedSize(45,45);
-
-        layout_->addWidget(formula_expl_);
-        layout_->addWidget(expression_);
-        layout_->addWidget(expand_collapse_expl_);
-        layout_->setAlignment(formula_expl_,Qt::AlignTop);
-        layout_->setAlignment(expression_,Qt::AlignTop);
-        layout_->setAlignment(expand_collapse_expl_,Qt::AlignTop);
-
-        layout_->setSizeConstraint(QHBoxLayout::SizeConstraint::SetMinimumSize);
-
-        this->setLayout(layout_);
-
-    }
+    VarExpressionView(QWidget* parent);
 private:
     QHBoxLayout* layout_;
     QTextEdit* expression_;
@@ -67,9 +36,7 @@ private:
     QPushButton* expand_collapse_expl_;
 
 private slots:
-    void expand_collapse(){
-        expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
-    }
+    void expand_collapse();
 };
 
 #include <QTableView>
@@ -78,17 +45,10 @@ private slots:
 #include <QSettings>
 
 class VarData:public QTableView{
-public:  
-    VarData(QWidget* parent, const QString& name, BaseData* data):
-        QTableView(parent),
-        data_(data)
-    {
+public:
+    VarData(QWidget* parent, const QString& name, BaseData* data);
 
-    }
-
-    void rename(const QString& name) noexcept{
-        data_->set_name(name.toStdString());
-    }
+    void rename(const QString& name) noexcept;
 
 private:
     BaseData* data_;
@@ -100,56 +60,19 @@ private:
 class Sheets:public QTabWidget{
     Q_OBJECT
 public:
-    Sheets(QWidget* parent):
-        QTabWidget(parent),
-        data_pool(tr("Книга").toStdString())
-    {
-        __load_settings__();
-        for(int i=0;i<3;++i)
-            add_default_sheet();
-    }
+    Sheets(QWidget* parent);
 
-    Sheets(QWidget* parent, const QString& name):
-        QTabWidget(parent),
-        data_pool(name.toStdString())
-    {
-        __load_settings__();
-    }
+    Sheets(QWidget* parent, const QString& name);
 
-    ~Sheets(){
-        __save_settings__();
-    }
+    ~Sheets();
 
-    void rename(const QString& name){
-        data_pool.set_name(name.toStdString());
-    }
+    void rename(const QString& name);
 
-    void erase_sheet(const QString& name) noexcept{
-        data_pool.erase(name.toStdString());
-    }
+    void erase_sheet(const QString& name) noexcept;
 
-    void change_sheet_name(QString&& name, int tab_id){
-        try{
-            if(validator::BaseData::validate(name)==validator::Invalid)
-                throw sheet::IncorrectName(tr("Недопустимое название листа").toStdString());
-            for(int id = 0; id<count();++id)
-                if(tabText(id)==name)
-                    throw sheet::AlreadyExist(tr("Лист с таким названием уже существует").toStdString());
-            setTabText(tab_id,name);
-        }
-        catch(const std::logic_error& err){
-            QMessageBox(QMessageBox::Icon::Critical,QObject::tr("Невозможно создать лист"), tr("Лист с таким названием уже существует"),QMessageBox::Ok,this);
-        }
-    }
+    void change_sheet_name(QString&& name, int tab_id);
 
-    void add_default_sheet(){
-        QString new_name = tr("Лист"+QString::number(data_pool.size()+1).toUtf8());
-        this->addTab(new VarData(this,
-                                 new_name,
-                                 data_pool.add_data(new_name.toStdString())),
-                     new_name);
-
-    }
+    void add_default_sheet();
 
     void __load_settings__();
 
