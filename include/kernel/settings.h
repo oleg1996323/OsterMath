@@ -11,13 +11,13 @@
 namespace kernel{
     namespace settings{
 
-    struct lang{
+    struct LANG_DATA{
         const char* path;
         const char* text;
         QLocale::Language lang_;
     };
 
-    constexpr std::array<lang, 2> resource_langs = {
+    constexpr std::array<LANG_DATA, 2> resource_langs = {
         ":lang_icon/rus","Русский",QLocale::Russian,
         ":lang_icon/eng","English",QLocale::English
     };

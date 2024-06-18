@@ -1028,18 +1028,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/../../../../include/model/varlistmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp \
@@ -1054,11 +1042,22 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/varlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/varlistmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex

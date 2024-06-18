@@ -23,7 +23,6 @@ Q_DECLARE_METATYPE(std::string)
 class VariableBase;
 
 namespace model{
-    Q_NAMESPACE
 enum class HEADER{
     NAME,
     TYPE,
@@ -36,136 +35,42 @@ enum class HEADER{
 
 class Variables:public QAbstractTableModel{
 public:
-    Variables(QObject* obj):
-        QAbstractTableModel(obj)
-    {}
+    Variables(QObject* obj);
 
-    Variables(QObject* obj, const QList<std::shared_ptr<VariableBase>>& vars):
-        QAbstractTableModel(obj),
-        vars_(vars)
-    {}
+    Variables(QObject* obj, BaseData* data_base);
 
-    void init(const QList<std::shared_ptr<VariableBase>>& vars){
-        vars_=vars;
-    }
+    void addNewVariable(const QString& name);
 
-    void addNewVariable(const QString& name){
+    void deleteVariable(const QString& name);
 
-    }
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    void deleteVariable(const QString& name){
+    virtual QVariant data(const QModelIndex& index,int nRole) const override;
 
-    }
+    virtual bool setData(const QModelIndex& index, const QVariant& value, int nRole) override;
 
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override{
-        if(role != Qt::DisplayRole)
-            return QVariant();
-        if(orientation == Qt::Horizontal){
-            if(section == 0)
-                return QObject::tr("Имя");
-            else if(section == 1)
-                return QObject::tr("Тип");
-            else if(section == 2)
-                return QObject::tr("Значение");
-            else return QVariant();
-        }
-        else return QString::number(section);
-    }
+    virtual int rowCount(const QModelIndex& parent) const override;
 
-    virtual QVariant data(const QModelIndex& index,int nRole) const override{
-        if(!index.isValid()){
-            return QVariant();
-        }
-        if(index.row()<0 || index.row()>=vars_.size()){
-            return QVariant();
-        }
+    virtual int columnCount(const QModelIndex &parent) const override;
 
-        if(index.column()==0)
-            return (nRole==Qt::DisplayRole || nRole==Qt::EditRole)
-                    ? QString::fromStdString(std::string(vars_.at(index.row())->name()))
-                    : QVariant();
-    }
+    virtual Qt::ItemFlags flags(const QModelIndex& index) const override;
 
-    virtual bool setData(const QModelIndex& index, const QVariant& value, int nRole) override{
-        if(index.isValid() && nRole == Qt::EditRole){
-            if(index.column()==0){
-                vars_.replace(index.row(),std::make_shared<VariableBase>(value.value<std::string>(),nullptr));
-            }
-            emit dataChanged(index,index);
-            return true;
-        }
-        return false;
-    }
+    virtual bool insertRows(int nRow, int nCount, const QModelIndex& parent) override;
 
-    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override{
-        if(parent.isValid()){
-            return 0;
-        }
-        return vars_.size();
-    }
+    virtual bool insertColumns(int column, int count, const QModelIndex &parent) override;
 
-    virtual int columnCount(const QModelIndex &parent) const override{
-        if(parent.isValid()){
-            return 0;
-        }
-        return 5;
-    }
+    virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent) override;
 
-    virtual Qt::ItemFlags flags(const QModelIndex& index) const override{
-        Qt::ItemFlags flags = QAbstractTableModel::flags(index);
-        return (index.isValid())?(flags | Qt::ItemIsEditable):flags;
-    }
+    void set_default_header_pos();
 
-    virtual bool insertRows(int nRow, int nCount, const QModelIndex& parent = QModelIndex()) override{
-        if(parent.isValid())
-            return false;
+    void get_header_pos();
 
-        beginInsertRows(QModelIndex(),nRow,nRow+nCount-1);
-        for(int i = 0; i<nCount; ++i){
-            vars_.insert(nRow,0);
-        }
-        endInsertRows();
-        return true;
-    }
-
-    virtual bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex()) override{
-        if(parent.isValid())
-            return false;
-//        beginInsertColumns(QModelIndex(),column,column+count-1);
-//        for(int i = 0;i<count;++i){
-
-//        }
-    }
-
-    virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent = QModelIndex()) override{
-        if(parent.isValid())
-            return false;
-
-        beginRemoveRows(QModelIndex(),nRow,nRow+nCount-1);
-        for(int i = 0; i<nCount; ++i){
-            vars_.removeAt(nRow);
-        }
-        endRemoveRows();
-        return true;
-    }
-
-    void set_default_header_pos(){
-        QSettings* sets_ = kernel::settings::Program::get_settings();
-        sets_->beginGroup("VarListTable/header");
-            sets_->setValue("name",0);
-            sets_->setValue("type",1);
-            sets_->setValue("value",2);
-            sets_->setValue("expression",3);
-            sets_->setValue("remark",4);
-        sets_->endGroup();
-    }
-
-    void get_header_pos(){
-
-    }
+    void __load_settings__();
+    void __save_settings__();
 
 private:
-    QList<std::shared_ptr<VariableBase>> vars_;
+    BaseData* data_base_;
+    QList<const VariableBase*> vars_;
 };
 
 }

@@ -2,6 +2,7 @@
 //#include "./ui_bookmath.h"
 #include "varlist.h"
 //#include "./ui_var_list.h"
+#include "utilities/functionalities/sz_functions.h"
 #include <QScreen>
 #include <QStatusBar>
 #include <QMenuBar>
@@ -26,11 +27,7 @@ void BookMath::__define_window__(){
         setObjectName(QString::fromUtf8("BookMath"));
 
     __load_styles__();
-    QScreen *screen = QGuiApplication::primaryScreen();
-    QRect  screenGeometry = screen->geometry();
-    int height = screenGeometry.height();
-    int width = screenGeometry.width();
-    this->resize(width,height);
+    __load_settings__();
 }
 
 void BookMath::__define_status_bar__(){
@@ -46,6 +43,7 @@ void BookMath::__define_tool_bar__(){
 
 void BookMath::__define_menu__(){
     menubar = new QMenuBar(this);
+    menubar->setContentsMargins(0,0,0,0);
     menubar->setNativeMenuBar(true);
     QSizePolicy menubar_policy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     menubar->setSizePolicy(menubar_policy);
@@ -73,10 +71,11 @@ void BookMath::__define_menu__(){
     menubar->addAction(QObject::tr("About"));
     {
         using namespace kernel::settings;
-        QMenu* menu_lang = menubar->addMenu(QIcon(Program::get_lang_resource_path()), "");
+        langs_ = menubar->addMenu(QIcon(Program::get_lang_resource_path()), "");
+        langs_->setContentsMargins(0,0,0,0);
+        langs_->resize(30,30);
         for(const auto& res_data:resource_langs)
-            menu_lang->addAction(QIcon(res_data.path),res_data.text,this, [&](){this->set_language(res_data.lang_); });
-
+            langs_->addAction(QIcon(res_data.path),res_data.text,this, [&](){this->set_language(res_data); });
     }
 
     this->setMenuBar(menubar);
@@ -137,15 +136,26 @@ void BookMath::changed(bool ch){
     changed_ = ch;
 }
 
-void BookMath::set_language(QLocale::Language lang){
+void BookMath::set_language(const kernel::settings::LANG_DATA& lang_data){
     using namespace kernel::settings;
-    Program::set_language(lang);
+    Program::set_language(lang_data.lang_);
+    langs_->setIcon(QIcon(lang_data.path));
     retranslate();
 }
 
 BookMath::~BookMath()
 {
     __save_settings__();
+}
+
+void BookMath::__load_settings__(){
+    QSettings* sets_ = kernel::settings::Program::get_settings();
+    sets_->beginGroup("bookmath");
+        if(sets_->value("geometry").isNull())
+            functional::fullscreen(this);
+        else
+            setGeometry(sets_->value("geometry").toRect());
+    sets_->endGroup();
 }
 
 void BookMath::__save_settings__(){

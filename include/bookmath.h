@@ -62,12 +62,7 @@ private:
 
     void __define_signals_slots__();
 
-    void __load_settings__(){
-        QSettings* sets_ = kernel::settings::Program::get_settings();
-        sets_->beginGroup("bookmath");
-            setGeometry(sets_->value("geometry").toRect());
-        sets_->endGroup();
-    }
+    void __load_settings__();
 
     void __save_settings__();
 
@@ -81,7 +76,7 @@ private slots:
     void insert_chart();
     void show_variable_list();
 
-    void set_language(QLocale::Language);
+    void set_language(const kernel::settings::LANG_DATA&);
 
     void changed(bool);
 };
