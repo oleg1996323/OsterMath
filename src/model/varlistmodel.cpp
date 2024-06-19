@@ -1,4 +1,6 @@
 #include "model/varlistmodel.h"
+#include "arithmetic_types.h"
+#include <QModelIndex>
 
 namespace model{
 
@@ -67,9 +69,26 @@ namespace model{
                     data_base_->rename_var(std::string(vars_.at(index.row())->name()),value.value<std::string>());
             }
             //for types
-            else if((int)HEADER::TYPE){
-                if(vars_.size()==index.row()){
-                    vars_.push_back(data_base_->add_variable(value.value<std::string>()).get());
+            else if(index.column()==(int)HEADER::TYPE){
+                if(vars_.size()>=index.row()){
+                    switch(value.value<TYPE_VAL>()){
+                    case TYPE_VAL::UNKNOWN:
+                        vars_.at(index.row())->node()->release_childs();
+                        break;
+                    case TYPE_VAL::STRING:
+                        //vars_.at(index.row())->node()->insert(std::make_shared<ArrayNode>());
+                        break;
+                    }
+                    case TYPE_VAL::VALUE:{
+                        vars_.at(index.row())->node()->insert(std::make_shared<ValueNode>(0));
+                        break;
+                    }
+                    case TYPE_VAL::{
+                        break;
+                    }
+
+
+                    data_base_->get(data(index.siblingAtColumn((int)HEADER::TYPE),Qt::DisplayRole).value<std::string>());
                 }
                 else
                     data_base_->rename_var(std::string(vars_.at(index.row())->name()),value.value<std::string>());

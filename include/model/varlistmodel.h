@@ -31,8 +31,6 @@ enum class HEADER{
     REMARK
 };
 
-#include <QCoreApplication>
-
 class Variables:public QAbstractTableModel{
 public:
     Variables(QObject* obj);

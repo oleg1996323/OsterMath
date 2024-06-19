@@ -5963,7 +5963,14 @@ CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o: ../../src/model/varlistmo
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
+  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h
 
 CMakeFiles/OsterMath.dir/src/settings.cpp.o: ../../src/settings.cpp \
   /usr/include/stdc-predef.h \
@@ -7897,6 +7904,14 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 ../../src/settings.cpp:
 
+/home/oster/Electrolisys/arithmetictree/include/types/range_node.h:
+
+/home/oster/Electrolisys/arithmetictree/include/types/bin_node.h:
+
+/home/oster/Electrolisys/arithmetictree/include/types/unary_node.h:
+
+/home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h:
+
 ../../src/model/varlistmodel.cpp:
 
 ../../src/main.cpp:
@@ -8769,11 +8784,15 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/home/oster/Electrolisys/arithmetictree/include/types/func_node.h:
+
 /usr/include/boost/math/cstdfloat/cstdfloat_complex.hpp:
 
 /usr/include/c++/11/bits/ranges_algobase.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h:
+
+/home/oster/Electrolisys/arithmetictree/include/types/array_node.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 
@@ -9374,6 +9393,8 @@ OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp:
 /usr/include/boost/multiprecision/traits/is_convertible_arithmetic.hpp:
 
 /usr/include/boost/mpl/int_fwd.hpp:
+
+/home/oster/Electrolisys/arithmetictree/include/types/var_node.h:
 
 /usr/include/boost/multiprecision/detail/tables.hpp:
 

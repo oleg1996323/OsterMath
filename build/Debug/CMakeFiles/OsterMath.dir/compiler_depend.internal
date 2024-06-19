@@ -5971,6 +5971,13 @@ CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
+ /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h
+ /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h
+ /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h
+ /home/oster/Electrolisys/arithmetictree/include/types/var_node.h
+ /home/oster/Electrolisys/arithmetictree/include/types/array_node.h
+ /home/oster/Electrolisys/arithmetictree/include/types/func_node.h
+ /home/oster/Electrolisys/arithmetictree/include/types/range_node.h
 
 CMakeFiles/OsterMath.dir/src/settings.cpp.o
  /home/oster/OsterMath/src/settings.cpp
