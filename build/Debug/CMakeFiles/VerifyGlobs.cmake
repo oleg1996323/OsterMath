@@ -5,7 +5,6 @@ cmake_policy(SET CMP0009 NEW)
 # _directory_contents at /usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools/Qt5LinguistToolsMacros.cmake:78 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.c")
 set(OLD_GLOB
-  "/home/oster/OsterMath/build/Debug/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -43,7 +42,6 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/oster/OsterMath/*.cpp")
 set(OLD_GLOB
   "/home/oster/OsterMath/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "/home/oster/OsterMath/build-OsterMath-Desktop-Debug/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/Debug/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/3LUUITMNIE/moc_settings.cpp"
@@ -59,21 +57,16 @@ set(OLD_GLOB
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/Q6AU6LSD6J/moc_varlistmodel.cpp"
+  "/home/oster/OsterMath/build/Debug/OsterMath_autogen/RDDYZ3QB4T/moc_primitive_layouts.cpp"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/mocs_compilation.cpp"
   "/home/oster/OsterMath/build/Release/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/6YEA5652QU/moc_varlist.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp"
-  "/home/oster/OsterMath/build/Release/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
   "/home/oster/OsterMath/build/Release/OsterMath_autogen/mocs_compilation.cpp"
   "/home/oster/OsterMath/src/bookmath.cpp"
   "/home/oster/OsterMath/src/data_view.cpp"
   "/home/oster/OsterMath/src/def.cpp"
+  "/home/oster/OsterMath/src/kernel/application.cpp"
   "/home/oster/OsterMath/src/main.cpp"
   "/home/oster/OsterMath/src/model/varlistmodel.cpp"
   "/home/oster/OsterMath/src/settings.cpp"
@@ -115,6 +108,7 @@ set(OLD_GLOB
   "/home/oster/OsterMath/include/toolbartabs.h"
   "/home/oster/OsterMath/include/utilities/custom_widgets/buttons.h"
   "/home/oster/OsterMath/include/utilities/functionalities/sz_functions.h"
+  "/home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h"
   "/home/oster/OsterMath/include/utilities/serialization/serial_omb.h"
   "/home/oster/OsterMath/include/utilities/validators/validator.h"
   "/home/oster/OsterMath/include/utilities/windows/createnew.h"

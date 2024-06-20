@@ -408,106 +408,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
-  ../../include/def.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
-  ../../include/booktoolbar.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
-  ../../include/toolbartabs.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
-  ../../include/utilities/custom_widgets/buttons.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  ../../include/utilities/windows/createnew.h \
-  ../../include/utilities/windows/windef.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
-  ../../include/utilities/windows/opennew.h \
-  ../../include/data_view.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
-  ../../include/kernel/exception.h \
-  ../../include/utilities/validators/validator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
@@ -1109,6 +1009,23 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /home/oster/Electrolisys/arithmetictree/include/domain.h \
   /usr/include/c++/11/optional \
   /home/oster/Electrolisys/arithmetictree/include/types/node.h \
+  ../../include/def.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
   /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
   /home/oster/Electrolisys/arithmetictree/include/serialize.h \
   /usr/include/c++/11/fstream \
@@ -1121,6 +1038,89 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/c++/11/codecvt \
   /usr/include/c++/11/bits/fs_dir.h \
   /usr/include/c++/11/bits/fs_ops.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
+  ../../include/booktoolbar.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
+  ../../include/toolbartabs.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
+  ../../include/utilities/custom_widgets/buttons.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
+  ../../include/utilities/windows/createnew.h \
+  ../../include/utilities/windows/windef.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
+  ../../include/utilities/windows/opennew.h \
+  ../../include/data_view.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+  ../../include/kernel/exception.h \
+  ../../include/utilities/validators/validator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
@@ -1135,6 +1135,7 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
+  ../../include/utilities/layouts/primitive_layouts.h \
   OsterMath_autogen/6YEA5652QU/moc_varlist.cpp \
   ../../include/varlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
@@ -7967,6 +7968,84 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 ../../include/varlist.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h:
+
+/usr/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
+
+/usr/include/boost/mpl/aux_/arity.hpp:
+
+/usr/include/boost/preprocessor/arithmetic/inc.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/boost/math/special_functions/powm1.hpp:
+
+/usr/include/boost/preprocessor/tuple/eat.hpp:
+
+/usr/include/boost/preprocessor/logical/bool.hpp:
+
+/usr/include/boost/mpl/integral_c_fwd.hpp:
+
+/usr/include/boost/preprocessor/control/if.hpp:
+
+/usr/include/c++/11/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/11/bits/streambuf.tcc:
+
+/usr/include/boost/preprocessor/comma_if.hpp:
+
+/usr/include/boost/mpl/aux_/arg_typedef.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/boost/mpl/aux_/config/dtp.hpp:
+
+/usr/include/boost/preprocessor/config/config.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h:
+
+/usr/include/boost/type_traits/is_float.hpp:
+
+/usr/include/c++/11/ext/concurrence.h:
+
+/usr/include/boost/type_traits/is_same.hpp:
+
+/usr/include/boost/mpl/void_fwd.hpp:
+
+/usr/include/boost/preprocessor/list/fold_left.hpp:
+
+/usr/include/boost/mpl/lambda_fwd.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h:
+
+/usr/include/boost/mpl/aux_/config/msvc.hpp:
+
+/usr/include/boost/lexical_cast.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/c++/11/source_location:
+
+/usr/include/boost/concept/detail/concept_def.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h:
+
+/usr/include/boost/exception/exception.hpp:
+
+/usr/include/boost/assert.hpp:
+
+/usr/include/boost/mpl/aux_/lambda_support.hpp:
+
+/usr/include/boost/multiprecision/number.hpp:
+
+/usr/include/boost/limits.hpp:
+
+/usr/include/boost/range/detail/common.hpp:
+
+/usr/include/boost/config/helper_macros.hpp:
+
 /usr/include/boost/config/detail/posix_features.hpp:
 
 /usr/include/c++/11/iterator:
@@ -7978,6 +8057,10 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 /usr/include/c++/11/version:
 
 /usr/include/boost/core/snprintf.hpp:
+
+/usr/include/boost/detail/select_type.hpp:
+
+/usr/include/boost/config/detail/select_compiler_config.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
@@ -7999,7 +8082,15 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 
+/usr/include/boost/mpl/or.hpp:
+
 /usr/include/c++/11/tr1/hypergeometric.tcc:
+
+/home/oster/Electrolisys/arithmetictree/include/format.h:
+
+/usr/include/boost/mpl/bool.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/c++/11/tr1/ell_integral.tcc:
 
@@ -8017,6 +8108,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
+/usr/include/boost/multiprecision/detail/number_base.hpp:
+
 /usr/include/boost/multiprecision/cpp_dec_float.hpp:
 
 ../../include/utilities/custom_widgets/buttons.h:
@@ -8027,113 +8120,19 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 /home/oster/Electrolisys/arithmetictree/include/data.h:
 
-../../src/bookmath.cpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
-
-/usr/include/boost/numeric/conversion/converter.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h:
-
-/usr/include/boost/mpl/aux_/config/ctps.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h:
-
-/usr/include/boost/range/rbegin.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h:
-
-/usr/include/boost/config/helper_macros.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h:
-
-/usr/include/c++/11/bits/erase_if.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h:
-
-/home/oster/Electrolisys/arithmetictree/include/format.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h:
-
-OsterMath_autogen/mocs_compilation.cpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h:
-
-/usr/include/boost/lexical_cast/detail/widest_char.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel:
-
-/usr/include/boost/math/special_functions/detail/bernoulli_details.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h:
-
-../../include/utilities/functionalities/sz_functions.h:
-
-/usr/include/c++/11/bits/node_handle.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h:
-
-/usr/include/boost/type_traits/is_base_of.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar:
-
-/usr/include/boost/predef/detail/_cassert.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon:
-
-../../include/utilities/windows/opennew.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h:
-
-/usr/include/boost/preprocessor/array/data.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h:
-
-/usr/include/boost/preprocessor/debug/error.hpp:
-
-../../include/booktoolbar.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale:
-
-/usr/include/boost/type_traits/add_pointer.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h:
 
 /usr/include/boost/mpl/aux_/na_spec.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h:
 
 /usr/include/boost/preprocessor/repetition/for.hpp:
+
+/usr/include/boost/mpl/aux_/na.hpp:
+
+/home/oster/Electrolisys/arithmetictree/include/domain.h:
 
 /usr/include/c++/11/unordered_set:
 
@@ -8143,35 +8142,21 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h:
+/usr/include/c++/11/bits/stl_iterator_base_types.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget:
+/usr/include/boost/multiprecision/detail/ublas_interop.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h:
-
-/usr/include/boost/mpl/aux_/config/static_constant.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h:
-
-/usr/include/boost/next_prior.hpp:
+/usr/include/c++/11/bits/uses_allocator.h:
 
 /usr/include/boost/mpl/aux_/numeric_cast_utils.hpp:
 
 /usr/include/c++/11/bits/exception_defines.h:
 
+/usr/include/boost/preprocessor/repeat.hpp:
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h:
-
-/usr/include/c++/11/bits/quoted_string.h:
-
-../../include/utilities/windows/createnew.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton:
-
-/usr/include/c++/11/iosfwd:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h:
 
@@ -8199,33 +8184,23 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/cerrno:
 
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/c++/11/tr1/legendre_function.tcc:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h:
 
 /usr/include/boost/iterator/iterator_adaptor.hpp:
 
-../../include/data_view.h:
-
-/usr/include/c++/11/backward/binders.h:
+/usr/include/boost/mpl/aux_/integral_wrapper.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
-/usr/include/c++/11/bits/enable_special_members.h:
-
 /usr/include/boost/preprocessor/control/iif.hpp:
 
+/usr/include/c++/11/bits/enable_special_members.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h:
-
-/usr/include/c++/11/bits/std_abs.h:
-
-/usr/include/boost/range/reverse_iterator.hpp:
 
 /usr/include/endian.h:
 
@@ -8233,37 +8208,41 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h:
 
 /usr/include/boost/preprocessor/seq/limits/elem_256.hpp:
 
+../../src/bookmath.cpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
+
+/usr/include/boost/mpl/aux_/config/intel.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings:
 
 /usr/include/boost/mpl/next_prior.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent:
-
-/usr/include/c++/11/locale:
-
 /usr/include/c++/11/ctime:
 
 /usr/include/boost/math/special_functions/factorials.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout:
+/usr/include/boost/type_traits/is_base_of.hpp:
 
-/usr/include/boost/range/const_iterator.hpp:
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h:
+
+/usr/include/boost/mpl/aux_/na_fwd.hpp:
 
 /usr/include/c++/11/bits/stl_map.h:
 
 /usr/include/c++/11/map:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit:
+/usr/include/boost/math/special_functions/lanczos.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QColor:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h:
 
@@ -8279,9 +8258,9 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/boost/multiprecision/detail/float128_functions.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h:
+/usr/include/boost/current_function.hpp:
 
-/usr/include/boost/lexical_cast/detail/converter_numeric.hpp:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h:
 
@@ -8295,10 +8274,6 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget:
-
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
 /usr/include/c++/11/bits/stl_list.h:
 
 /usr/include/boost/multiprecision/detail/hash.hpp:
@@ -8309,23 +8284,19 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/numeric:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData:
+/usr/include/boost/predef/detail/_cassert.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar:
 
 /usr/include/boost/type_traits/is_reference.hpp:
 
 /usr/include/syscall.h:
-
-/usr/include/boost/type_traits/is_float.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringview.h:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QObject:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringliteral.h:
 
@@ -8336,8 +8307,6 @@ OsterMath_autogen/mocs_compilation.cpp:
 /usr/include/c++/11/stdlib.h:
 
 /usr/include/strings.h:
-
-../../include/utilities/windows/windef.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication:
 
@@ -8351,6 +8320,8 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/bits/uses_allocator_args.h:
 
+/usr/include/c++/11/bits/iterator_concepts.h:
+
 ../../include/kernel/settings.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h:
@@ -8359,31 +8330,17 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
+/usr/include/c++/11/bits/stl_construct.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h:
-
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h:
-
-/usr/include/c++/11/bits/stl_multimap.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QList:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h:
 
 /usr/include/c++/11/atomic:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h:
-
 /usr/include/boost/range/detail/has_member_size.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h:
 
@@ -8408,6 +8365,16 @@ OsterMath_autogen/mocs_compilation.cpp:
 /usr/include/c++/11/bits/unordered_map.h:
 
 /usr/include/boost/type_traits/is_arithmetic.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessor/enum.hpp:
+
+/usr/include/boost/config/workaround.hpp:
+
+../../include/utilities/functionalities/sz_functions.h:
+
+/usr/include/c++/11/bits/node_handle.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 
@@ -8435,25 +8402,15 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/boost/preprocessor/control/expr_iif.hpp:
 
+/usr/include/c++/11/bits/stl_iterator.h:
+
+/usr/include/c++/11/ext/atomicity.h:
+
+/usr/include/boost/mpl/integral_c_tag.hpp:
+
 /usr/include/c++/11/bits/ranges_base.h:
 
 /usr/include/boost/utility/binary.hpp:
-
-/usr/include/c++/11/ext/concurrence.h:
-
-../../include/toolbartabs.h:
-
-/usr/include/boost/mpl/aux_/config/lambda.hpp:
-
-/usr/include/boost/type_traits/is_same.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h:
-
-/usr/include/c++/11/bits/ios_base.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h:
 
@@ -8485,12 +8442,6 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy:
-
 /usr/include/wchar.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
@@ -8498,6 +8449,10 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 /usr/include/boost/config.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/boost/concept/usage.hpp:
 
@@ -8515,10 +8470,6 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/boost/type_traits/conditional.hpp:
@@ -8529,21 +8480,11 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/boost/multiprecision/detail/default_ops.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp:
-
-/usr/include/boost/math/special_functions/trunc.hpp:
-
-/usr/include/boost/range/has_range_iterator.hpp:
-
-/usr/include/boost/math/tools/mp.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h:
-
 /usr/include/boost/preprocessor/arithmetic/detail/is_1_number.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h:
 
 /usr/include/c++/11/bits/nested_exception.h:
 
@@ -8555,9 +8496,21 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h:
 
+/usr/include/boost/math/special_functions/detail/bernoulli_details.hpp:
+
+/usr/include/boost/lexical_cast/detail/widest_char.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel:
+
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/boost/preprocessor/facilities/empty.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h:
+
+/usr/include/c++/11/bits/basic_ios.tcc:
 
 /usr/include/c++/11/bits/invoke.h:
 
@@ -8573,25 +8526,15 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox:
-
 /usr/include/c++/11/bits/functional_hash.h:
 
 /usr/include/c++/11/variant:
 
 /usr/include/boost/concept_check.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h:
+/usr/include/c++/11/backward/binders.h:
 
-/usr/include/boost/type_traits/add_lvalue_reference.hpp:
-
-/usr/include/boost/assert/source_location.hpp:
-
-/usr/include/c++/11/bits/uses_allocator.h:
-
-/usr/include/boost/exception/exception.hpp:
+../../include/data_view.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
@@ -8611,35 +8554,33 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/c++/11/bits/basic_ios.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h:
 
 /usr/include/boost/preprocessor/variadic/size.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
 
+/usr/include/boost/preprocessor/config/limits.hpp:
+
+/usr/include/c++/11/ext/type_traits.h:
+
 /usr/include/c++/11/bit:
 
-/usr/include/boost/multiprecision/detail/ublas_interop.hpp:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h:
 
-/usr/include/c++/11/bits/stl_iterator_base_types.h:
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h:
 
-/usr/include/boost/mpl/void_fwd.hpp:
+/usr/include/boost/integer_fwd.hpp:
 
-/usr/include/boost/preprocessor/list/fold_left.hpp:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h:
+
+/usr/include/boost/type_traits/is_volatile.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/boost/math/special_functions/cbrt.hpp:
-
-/usr/include/boost/mpl/aux_/arity.hpp:
-
-/usr/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
 
 /usr/include/unistd.h:
 
@@ -8650,10 +8591,6 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 /usr/include/c++/11/cmath:
 
 /usr/include/c++/11/bits/alloc_traits.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h:
-
-/usr/include/errno.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h:
 
@@ -8669,7 +8606,15 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/boost/lexical_cast/detail/inf_nan.hpp:
 
+/usr/include/boost/mpl/aux_/static_cast.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h:
+
 /usr/include/boost/preprocessor/repetition/limits/for_256.hpp:
+
+/usr/include/boost/mpl/aux_/config/ttp.hpp:
+
+/usr/include/boost/multiprecision/detail/assert.hpp:
 
 /usr/include/c++/11/sstream:
 
@@ -8689,6 +8634,12 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h:
 
 /usr/include/c++/11/bits/functexcept.h:
@@ -8699,27 +8650,33 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/boost/preprocessor/punctuation/detail/is_begin_parens.hpp:
 
+/usr/include/boost/mpl/int.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h:
+
+/usr/include/boost/preprocessor/seq/limits/enum_256.hpp:
+
+/usr/include/boost/multiprecision/traits/is_convertible_arithmetic.hpp:
+
 /usr/include/c++/11/streambuf:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
+/usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
+
 /usr/include/c++/11/tr1/beta_function.tcc:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle:
-
-/usr/include/c++/11/tr1/poly_laguerre.tcc:
-
-/usr/include/c++/11/array:
 
 /usr/include/boost/mpl/aux_/value_wknd.hpp:
 
 /usr/include/c++/11/climits:
 
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/boost/multiprecision/detail/static_array.hpp:
 
@@ -8731,9 +8688,17 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h:
 
 /usr/include/c++/11/initializer_list:
+
+/usr/include/c++/11/iosfwd:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -8753,29 +8718,13 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h:
+
 /usr/include/c++/11/tr1/gamma.tcc:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings:
-
-/usr/include/boost/mpl/aux_/config/intel.hpp:
-
-/usr/include/boost/config/workaround.hpp:
-
-/usr/include/boost/mpl/aux_/preprocessor/enum.hpp:
-
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/c++/11/ext/atomicity.h:
-
-/usr/include/c++/11/bits/stl_iterator.h:
-
-/usr/include/boost/preprocessor/arithmetic/inc.hpp:
-
-/usr/include/boost/math/special_functions/powm1.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
@@ -8789,7 +8738,19 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 
 /usr/include/c++/11/memory:
 
+/usr/include/boost/integer_traits.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
+
 /usr/include/boost/math/special_functions/detail/unchecked_bernoulli.hpp:
+
+/usr/include/c++/11/array:
+
+/usr/include/c++/11/tr1/poly_laguerre.tcc:
+
+/usr/include/boost/mpl/aux_/config/lambda.hpp:
+
+../../include/toolbartabs.h:
 
 /usr/include/c++/11/bits/std_mutex.h:
 
@@ -8800,6 +8761,10 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 /usr/include/boost/math/tools/throw_exception.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/boost/core/no_exceptions_support.hpp:
+
+/usr/include/c++/11/bits/ranges_cmp.h:
 
 /home/oster/Electrolisys/arithmetictree/include/types/func_node.h:
 
@@ -8827,9 +8792,17 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h:
 
-/usr/include/boost/type_traits/has_plus.hpp:
+/usr/include/boost/preprocessor/punctuation/comma_if.hpp:
+
+/usr/include/boost/multiprecision/traits/is_backend.hpp:
+
+/usr/include/boost/mpl/aux_/config/preprocessor.hpp:
+
+/usr/include/c++/11/ext/numeric_traits.h:
 
 /usr/include/boost/mpl/aux_/nttp_decl.hpp:
+
+/usr/include/boost/type_traits/has_plus.hpp:
 
 /usr/include/boost/math/special_functions/detail/lgamma_small.hpp:
 
@@ -8839,7 +8812,7 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp:
 
 /usr/include/features.h:
 
-/usr/include/c++/11/bits/iterator_concepts.h:
+/usr/include/boost/mpl/aux_/template_arity_fwd.hpp:
 
 /usr/include/c++/11/tr1/modified_bessel_func.tcc:
 
@@ -8849,13 +8822,13 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp:
 
 /home/oster/Electrolisys/arithmetictree/include/types.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QTransform:
+
+/usr/include/asm-generic/errno.h:
+
 /usr/include/c++/11/bits/exception_ptr.h:
 
 /usr/include/math.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QScreen:
 
@@ -8865,21 +8838,29 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h:
-
-OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
-
 /usr/include/c++/11/cstddef:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+/usr/include/boost/preprocessor/detail/auto_rec.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h:
 
-/usr/include/boost/mpl/aux_/lambda_arity_param.hpp:
+/usr/include/c++/11/cstdlib:
+
+/usr/include/c++/11/string_view:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp:
+
+/usr/include/boost/math/special_functions/trunc.hpp:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h:
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
@@ -8891,17 +8872,11 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/boost/multiprecision/detail/check_cpp11_config.hpp:
 
-/usr/include/boost/iterator/detail/config_undef.hpp:
+/usr/include/boost/mpl/aux_/config/ctps.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/boost/assert.hpp:
-
-../../include/utilities/validators/validator.h:
+/usr/include/c++/11/cstring:
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
@@ -8909,15 +8884,17 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/boost/mpl/aux_/config/has_xxx.hpp:
 
-/usr/include/boost/config/stdlib/libstdcpp3.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/include/boost/config/stdlib/libstdcpp3.hpp:
 
 /usr/include/c++/11/concepts:
 
 /usr/include/boost/math/special_functions/digamma.hpp:
 
 /usr/include/boost/mpl/aux_/arity_spec.hpp:
+
+/usr/include/boost/static_assert.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
@@ -8935,6 +8912,10 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
+/usr/include/c++/11/locale:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent:
+
 /usr/include/ctype.h:
 
 /usr/include/c++/11/bits/cpp_type_traits.h:
@@ -8943,19 +8924,19 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/c++/11/ext/new_allocator.h:
 
-/usr/include/c++/11/bits/stl_iterator_base_funcs.h:
-
-/usr/include/c++/11/bits/streambuf.tcc:
-
-/usr/include/boost/preprocessor/control/if.hpp:
-
 /usr/include/c++/11/bits/stl_uninitialized.h:
 
 /usr/include/c++/11/bits/parse_numbers.h:
 
 /usr/include/boost/math/special_functions/hypot.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/errno.h:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h:
+
+/usr/include/boost/mpl/aux_/config/static_constant.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget:
 
 /usr/include/c++/11/typeinfo:
 
@@ -8964,6 +8945,10 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QSizeF:
 
 /usr/include/boost/multiprecision/detail/number_compare.hpp:
+
+OsterMath_autogen/mocs_compilation.cpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h:
 
 /usr/include/c++/11/bits/ranges_uninitialized.h:
 
@@ -8978,6 +8963,10 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/c++/11/bits/specfun.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/boost/preprocessor/seq/size.hpp:
+
+/usr/include/c++/11/bits/ranges_algo.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
@@ -8999,25 +8988,13 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/boost/mpl/always.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/include/boost/mpl/bool.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/boost/math/tools/real_cast.hpp:
+/usr/include/boost/preprocessor/detail/limits/auto_rec_256.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/stdc-predef.h:
 
 /usr/include/boost/range/detail/misc_concept.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList:
-
-/usr/include/boost/multiprecision/detail/functions/trig.hpp:
 
 /usr/include/boost/math/special_functions/erf.hpp:
 
@@ -9030,6 +9007,10 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/boost/preprocessor/repetition/detail/limits/for_256.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/c++/11/tr1/legendre_function.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
@@ -9053,9 +9034,15 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/boost/math/tools/convert_from_string.hpp:
 
+/usr/include/boost/preprocessor/debug/error.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h:
 
 /usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/boost/preprocessor/cat.hpp:
 
 /usr/include/stdlib.h:
 
@@ -9070,6 +9057,16 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h:
 
 /usr/include/boost/numeric/conversion/cast.hpp:
+
+/usr/include/c++/11/bits/erase_if.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget:
+
+/usr/include/c++/11/bits/ios_base.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h:
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
@@ -9087,15 +9084,11 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/boost/mpl/equal_to.hpp:
 
+/usr/include/boost/multiprecision/cpp_int/cpp_int_config.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont:
-
-/usr/include/c++/11/bits/stl_construct.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
-
-../../include/kernel/exception.h:
-
-/usr/include/boost/mpl/aux_/adl_barrier.hpp:
 
 /usr/include/boost/mpl/aux_/msvc_eti_base.hpp:
 
@@ -9109,25 +9102,23 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/c++/11/pstl/execution_defs.h:
 
+/usr/include/boost/range/reverse_iterator.hpp:
+
+/usr/include/c++/11/bits/std_abs.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h:
+
 /usr/include/c++/11/bits/stl_heap.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h:
-
-/usr/include/c++/11/cstdlib:
-
-/usr/include/c++/11/string_view:
-
-/usr/include/boost/preprocessor/detail/auto_rec.hpp:
 
 /usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/include/c++/11/cstdio:
+
+/usr/include/boost/mpl/int_fwd.hpp:
 
 /usr/include/stdio.h:
 
@@ -9138,6 +9129,8 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/boost/preprocessor/arithmetic/limits/dec_256.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
 
 /usr/include/boost/iterator/detail/config_def.hpp:
 
@@ -9155,10 +9148,6 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QTransform:
-
-/usr/include/asm-generic/errno.h:
-
 /usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
@@ -9172,6 +9161,10 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/c++/11/ios:
 
 /usr/include/c++/11/utility:
+
+/usr/include/boost/multiprecision/fwd.hpp:
+
+/usr/include/boost/preprocessor/repetition/detail/for.hpp:
 
 /usr/include/c++/11/stdexcept:
 
@@ -9209,19 +9202,9 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 
 OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp:
 
-/usr/include/boost/mpl/aux_/preprocessed/gcc/times.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QMap:
-
-/usr/include/boost/mpl/aux_/config/bcc.hpp:
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h:
-
-/usr/include/c++/11/bits/basic_ios.tcc:
-
-/usr/include/boost/preprocessor/facilities/empty.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h:
 
@@ -9269,13 +9252,11 @@ OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
-/usr/include/x86_64-linux-gnu/bits/environments.h:
-
-/usr/include/c++/11/ext/numeric_traits.h:
-
-/usr/include/boost/mpl/aux_/config/preprocessor.hpp:
-
 /usr/include/time.h:
+
+/usr/include/boost/mpl/aux_/config/adl.hpp:
+
+/usr/include/boost/preprocessor/arithmetic/detail/div_base.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
@@ -9307,6 +9288,10 @@ OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
+/usr/include/boost/throw_exception.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
 /usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/boost/preprocessor/detail/is_binary.hpp:
@@ -9317,158 +9302,6 @@ OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qtcore-config.h:
 
-/usr/include/boost/integer_fwd.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h:
-
-/usr/include/boost/type_traits/is_volatile.hpp:
-
-/usr/include/boost/limits.hpp:
-
-/usr/include/boost/range/detail/common.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/syscall.h:
-
-/usr/include/boost/integer_traits.hpp:
-
-/usr/include/boost/static_assert.hpp:
-
-/usr/include/boost/multiprecision/number.hpp:
-
-/usr/include/boost/mpl/aux_/lambda_support.hpp:
-
-/usr/include/boost/config/detail/select_compiler_config.hpp:
-
-/usr/include/boost/detail/select_type.hpp:
-
-/usr/include/boost/multiprecision/detail/number_base.hpp:
-
-/usr/include/boost/multiprecision/fwd.hpp:
-
-/usr/include/boost/preprocessor/repetition/detail/for.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/usr/include/boost/multiprecision/cpp_int/cpp_int_config.hpp:
-
-/usr/include/boost/multiprecision/detail/assert.hpp:
-
-/usr/include/c++/11/bits/char_traits.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter:
-
-/usr/include/c++/11/bits/concept_check.h:
-
-/usr/include/boost/multiprecision/traits/std_integer_traits.hpp:
-
-/usr/include/c++/11/bits/ranges_cmp.h:
-
-/usr/include/boost/core/no_exceptions_support.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
-/usr/include/boost/throw_exception.hpp:
-
-/usr/include/boost/current_function.hpp:
-
-/usr/include/c++/11/cstring:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/c++/11/source_location:
-
-/usr/include/boost/concept/detail/concept_def.hpp:
-
-/usr/include/boost/lexical_cast.hpp:
-
-/usr/include/boost/preprocessor/arithmetic/detail/div_base.hpp:
-
-/usr/include/boost/mpl/aux_/config/adl.hpp:
-
-/usr/include/boost/mpl/aux_/config/msvc.hpp:
-
-/usr/include/boost/mpl/integral_c_tag.hpp:
-
-/usr/include/boost/mpl/or.hpp:
-
-/usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
-
-/usr/include/boost/mpl/lambda_fwd.hpp:
-
-/home/oster/Electrolisys/arithmetictree/include/domain.h:
-
-/usr/include/boost/mpl/aux_/na.hpp:
-
-/usr/include/boost/mpl/aux_/na_fwd.hpp:
-
-/usr/include/boost/mpl/aux_/config/ttp.hpp:
-
-/usr/include/boost/mpl/int.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h:
-
-/usr/include/boost/preprocessor/seq/limits/enum_256.hpp:
-
-/usr/include/boost/multiprecision/traits/is_convertible_arithmetic.hpp:
-
-/usr/include/boost/mpl/int_fwd.hpp:
-
-/home/oster/Electrolisys/arithmetictree/include/types/var_node.h:
-
-/usr/include/boost/multiprecision/detail/tables.hpp:
-
-/usr/include/c++/11/bits/ostream_insert.h:
-
-/usr/include/boost/mpl/aux_/config/nttp.hpp:
-
-/usr/include/boost/mpl/aux_/integral_wrapper.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h:
-
-/usr/include/boost/mpl/aux_/static_cast.hpp:
-
-/usr/include/boost/preprocessor/cat.hpp:
-
-/usr/include/boost/preprocessor/config/config.hpp:
-
-/usr/include/boost/mpl/aux_/template_arity_fwd.hpp:
-
-/usr/include/boost/mpl/aux_/config/dtp.hpp:
-
-/usr/include/c++/11/bits/ranges_algo.h:
-
-/usr/include/boost/preprocessor/seq/size.hpp:
-
-/usr/include/boost/preprocessor/comma_if.hpp:
-
-/usr/include/boost/mpl/aux_/arg_typedef.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp:
-
-/usr/include/boost/multiprecision/traits/is_backend.hpp:
-
-/usr/include/boost/preprocessor/punctuation/comma_if.hpp:
-
-/usr/include/boost/preprocessor/logical/bool.hpp:
-
-/usr/include/boost/mpl/integral_c_fwd.hpp:
-
-/usr/include/c++/11/ext/type_traits.h:
-
-/usr/include/boost/preprocessor/config/limits.hpp:
-
-/usr/include/boost/preprocessor/repeat.hpp:
-
-/usr/include/boost/preprocessor/detail/limits/auto_rec_256.hpp:
-
-/usr/include/boost/preprocessor/tuple/eat.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QColor:
-
-/usr/include/boost/math/special_functions/lanczos.hpp:
-
 /usr/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp:
 
 /usr/include/boost/range/detail/extract_optional_type.hpp:
@@ -9478,10 +9311,6 @@ OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp:
 /usr/include/boost/mpl/limits/arity.hpp:
 
 /usr/include/boost/preprocessor/logical/and.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
-
-/usr/include/boost/preprocessor/logical/bitand.hpp:
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
@@ -9519,12 +9348,6 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/preprocessor/list/limits/fold_left_256.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h:
-
-/usr/include/boost/mpl/tag.hpp:
-
 /usr/include/boost/preprocessor/list/fold_right.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h:
@@ -9545,21 +9368,9 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/preprocessor/logical/bitor.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h:
-
-/usr/include/boost/preprocessor/tuple/elem.hpp:
-
 /usr/include/boost/preprocessor/facilities/expand.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h:
-
-/usr/include/boost/preprocessor/seq/enum.hpp:
-
 /usr/include/boost/preprocessor/facilities/overload.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h:
-
-/usr/include/boost/preprocessor/facilities/check_empty.hpp:
 
 /usr/include/boost/preprocessor/variadic/has_opt.hpp:
 
@@ -9613,10 +9424,6 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/detail/basic_pointerbuf.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h:
-
-/usr/include/boost/math/tools/complex.hpp:
-
 /usr/include/boost/mpl/aux_/preprocessed/gcc/or.hpp:
 
 /usr/include/boost/type_traits/intrinsics.hpp:
@@ -9637,6 +9444,10 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/type_traits/is_rvalue_reference.hpp:
 
+/usr/include/boost/preprocessor/array/data.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h:
+
 /usr/include/boost/type_traits/is_function.hpp:
 
 /usr/include/boost/type_traits/is_array.hpp:
@@ -9644,6 +9455,22 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 /usr/include/boost/type_traits/is_integral.hpp:
 
 /usr/include/boost/type_traits/is_abstract.hpp:
+
+/usr/include/boost/assert/source_location.hpp:
+
+/usr/include/boost/type_traits/add_lvalue_reference.hpp:
+
+/usr/include/boost/next_prior.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/boost/iterator/detail/config_undef.hpp:
+
+/usr/include/boost/preprocessor/logical/bitand.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
 
 /usr/include/boost/detail/workaround.hpp:
 
@@ -9725,6 +9552,14 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/utility/enable_if.hpp:
 
+/usr/include/boost/type_traits/add_pointer.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h:
+
 /usr/include/boost/range/iterator_range_core.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessor/default_params.hpp:
@@ -9753,10 +9588,6 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/mpl/lambda.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit:
-
-/usr/include/boost/mpl/bind.hpp:
-
 /usr/include/boost/mpl/bind_fwd.hpp:
 
 /usr/include/boost/mpl/aux_/config/bind.hpp:
@@ -9782,6 +9613,12 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator:
 
 /usr/include/boost/mpl/void.hpp:
+
+/usr/include/boost/mpl/aux_/config/bcc.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/times.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QMap:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/template_arity.hpp:
 
@@ -9815,9 +9652,25 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/numeric/conversion/detail/converter.hpp:
 
+/usr/include/boost/range/const_iterator.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout:
+
 /usr/include/boost/range/detail/implementation_help.hpp:
 
 /usr/include/boost/range/difference_type.hpp:
+
+/usr/include/boost/range/has_range_iterator.hpp:
+
+/usr/include/boost/math/tools/mp.hpp:
+
+/usr/include/boost/multiprecision/traits/std_integer_traits.hpp:
+
+/usr/include/c++/11/bits/char_traits.h:
+
+/usr/include/c++/11/bits/concept_check.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter:
 
 /usr/include/boost/core/enable_if.hpp:
 
@@ -9865,9 +9718,9 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/type_traits/is_signed.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator:
-
 /usr/include/c++/11/bits/shared_ptr_base.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator:
 
 /usr/include/boost/type_traits/is_unsigned.hpp:
 
@@ -9909,6 +9762,14 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/iterator/distance.hpp:
 
+/usr/include/boost/range/rbegin.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h:
+
 /usr/include/boost/type_traits/detail/has_binary_operator.hpp:
 
 /usr/include/boost/type_traits/make_void.hpp:
@@ -9927,9 +9788,23 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/lexical_cast/detail/is_character.hpp:
 
+/usr/include/boost/lexical_cast/detail/converter_numeric.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget:
+
+/usr/include/boost/mpl/tag.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h:
+
 /usr/include/boost/mpl/eval_if.hpp:
 
 /usr/include/boost/type.hpp:
+
+/usr/include/boost/numeric/conversion/converter.hpp:
+
+OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h:
 
 /usr/include/boost/numeric/conversion/detail/conversion_traits.hpp:
 
@@ -10013,10 +9888,6 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/c++/11/cfloat:
 
-../../include/def.h:
-
-/usr/include/boost/math/tools/config.hpp:
-
 /usr/include/boost/math/tools/is_standalone.hpp:
 
 /usr/include/boost/math/tools/user.hpp:
@@ -10044,6 +9915,14 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 /usr/include/boost/math/constants/calculate_constants.hpp:
 
 /usr/include/boost/math/special_functions/fpclassify.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/boost/math/tools/real_cast.hpp:
+
+/usr/include/boost/preprocessor/tuple/elem.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h:
 
 /usr/include/boost/mpl/aux_/yes_no.hpp:
 
@@ -10125,6 +10004,16 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 
 /usr/include/boost/multiprecision/detail/rebind.hpp:
 
+/home/oster/Electrolisys/arithmetictree/include/types/var_node.h:
+
+/usr/include/boost/mpl/aux_/config/nttp.hpp:
+
+/usr/include/c++/11/bits/ostream_insert.h:
+
+/usr/include/boost/multiprecision/detail/tables.hpp:
+
+../../include/utilities/windows/windef.h:
+
 /usr/include/boost/math/tools/series.hpp:
 
 /usr/include/boost/math/tools/detail/polynomial_horner3_20.hpp:
@@ -10185,6 +10074,46 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 
 /usr/include/c++/11/optional:
 
+/usr/include/boost/math/tools/config.hpp:
+
+../../include/def.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle:
+
+/usr/include/boost/preprocessor/seq/enum.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon:
+
+../../include/utilities/windows/opennew.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/boost/multiprecision/detail/functions/trig.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData:
+
 /home/oster/Electrolisys/arithmetictree/include/types/val_node.h:
 
 /usr/include/c++/11/fstream:
@@ -10202,6 +10131,76 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 /usr/include/c++/11/bits/fs_dir.h:
 
 /usr/include/c++/11/bits/fs_ops.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h:
+
+../../include/booktoolbar.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox:
+
+/usr/include/boost/preprocessor/facilities/check_empty.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy:
+
+/usr/include/c++/11/bits/quoted_string.h:
+
+../../include/utilities/windows/createnew.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QObject:
+
+/usr/include/boost/mpl/bind.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h:
+
+/usr/include/c++/11/bits/stl_multimap.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QList:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit:
+
+/usr/include/boost/math/tools/complex.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h:
+
+/usr/include/boost/mpl/aux_/adl_barrier.hpp:
+
+../../include/kernel/exception.h:
+
+../../include/utilities/validators/validator.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h:
 
@@ -10224,3 +10223,7 @@ OsterMath_autogen/6V6KTULG6S/moc_settings.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction:
+
+/usr/include/boost/mpl/aux_/lambda_arity_param.hpp:
+
+../../include/utilities/layouts/primitive_layouts.h:

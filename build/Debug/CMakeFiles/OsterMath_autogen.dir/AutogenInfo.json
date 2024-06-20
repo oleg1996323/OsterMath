@@ -165,6 +165,12 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h",
+			"MU",
+			"RDDYZ3QB4T/moc_primitive_layouts.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/utilities/serialization/serial_omb.h",
 			"MU",
 			"RNOEDKGOQU/moc_serial_omb.cpp",
@@ -257,7 +263,7 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 2,
+	"PARALLEL" : 6,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
@@ -269,6 +275,7 @@
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/data_view.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/def.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/kernel/application.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/model/varlistmodel.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/settings.cpp", "MU", null ],

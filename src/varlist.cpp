@@ -1,5 +1,6 @@
 #include "varlist.h"
 #include "kernel/styles.h"
+#include "kernel/application.h"
 #include <QSizePolicy>
 #include <QDebug>
 
@@ -31,7 +32,8 @@ Frame::SearchLine::SearchLine(QWidget* parent):QLineEdit(parent){
 
 Frame::Label::Label(QWidget* parent):QLabel(parent){}
 
-Frame::Table::Table(QWidget* parent):model::Variables(parent){
+Frame::Table::Table(QWidget* parent):model::Variables(parent, kernel::Application::get_active_sheet()){
+    setModel(var_list_);
 //    if (columnCount() < 3)
 //        setColumnCount(3);
 //    QFont font3;

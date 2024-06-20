@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/oster/OsterMath/src/bookmath.cpp" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
   "/home/oster/OsterMath/src/data_view.cpp" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
   "/home/oster/OsterMath/src/def.cpp" "CMakeFiles/OsterMath.dir/src/def.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/def.cpp.o.d"
+  "/home/oster/OsterMath/src/kernel/application.cpp" "CMakeFiles/OsterMath.dir/src/kernel/application.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/kernel/application.cpp.o.d"
   "/home/oster/OsterMath/src/main.cpp" "CMakeFiles/OsterMath.dir/src/main.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"
   "/home/oster/OsterMath/src/model/varlistmodel.cpp" "CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o.d"
   "/home/oster/OsterMath/src/settings.cpp" "CMakeFiles/OsterMath.dir/src/settings.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/settings.cpp.o.d"

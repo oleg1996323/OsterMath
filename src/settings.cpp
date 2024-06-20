@@ -51,6 +51,10 @@ namespace kernel{
         lang_ = lang;
     }
 
+    QLocale Program::get_language(){
+        return lang_;
+    }
+
     QSettings* Project::sets_ = nullptr;
 
     void Project::__open_settings__(const QString& path, QObject* parent){

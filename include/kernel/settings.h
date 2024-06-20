@@ -35,6 +35,8 @@ namespace kernel{
 
             static void set_language(QLocale::Language);
 
+            static QLocale get_language();
+
             static void __save_settings__();
 
             static void __load_settings__();

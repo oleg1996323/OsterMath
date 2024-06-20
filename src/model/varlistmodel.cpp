@@ -4,6 +4,7 @@
 #include <QModelIndex>
 
 Q_DECLARE_METATYPE(::TYPE_VAL)
+Q_DECLARE_METATYPE(model::HEADER)
 
 namespace model{
 
@@ -154,15 +155,12 @@ static QList<QString> names_of_types = {
 
      int Variables::rowCount(const QModelIndex& parent = QModelIndex()) const {
         if(parent.isValid()){
-            return 0;
+            return 1;
         }
         return vars_.size();
     }
 
      int Variables::columnCount(const QModelIndex &parent) const {
-        if(parent.isValid()){
-            return 0;
-        }
         return 5;
     }
 
@@ -186,10 +184,12 @@ static QList<QString> names_of_types = {
      bool Variables::insertColumns(int column, int count, const QModelIndex &parent = QModelIndex()) {
         if(parent.isValid())
             return false;
+        return true;
 //        beginInsertColumns(QModelIndex(),column,column+count-1);
 //        for(int i = 0;i<count;++i){
 
 //        }
+
     }
 
      bool Variables::removeRows(int nRow, int nCount, const QModelIndex& parent = QModelIndex()) {
@@ -208,11 +208,11 @@ static QList<QString> names_of_types = {
         QSettings* sets_ = kernel::settings::Program::get_settings();
         //порядок колонок
         sets_->beginGroup("VarListTable/header");
-            sets_->setValue("name",HEADER::NAME);
-            sets_->setValue("type",HEADER::TYPE);
-            sets_->setValue("value",HEADER::VALUE);
-            sets_->setValue("expression",HEADER::EXPRESSION);
-            sets_->setValue("remark",HEADER::REMARK);
+            sets_->setValue("name",QVariant().fromValue(HEADER::NAME));
+            sets_->setValue("type",QVariant().fromValue(HEADER::TYPE));
+            sets_->setValue("value",QVariant().fromValue(HEADER::VALUE));
+            sets_->setValue("expression",QVariant().fromValue(HEADER::EXPRESSION));
+            sets_->setValue("remark",QVariant().fromValue(HEADER::REMARK));
         sets_->endGroup();
     }
 

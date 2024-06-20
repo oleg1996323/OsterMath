@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/def.cpp.o"
   "CMakeFiles/OsterMath.dir/src/def.cpp.o.d"
+  "CMakeFiles/OsterMath.dir/src/kernel/application.cpp.o"
+  "CMakeFiles/OsterMath.dir/src/kernel/application.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/main.cpp.o"
   "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o"

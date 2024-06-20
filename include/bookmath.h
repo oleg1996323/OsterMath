@@ -68,6 +68,9 @@ private:
 
     void __load_styles__();
 
+public slots:
+    void set_language(const kernel::settings::LANG_DATA&);
+
 private slots:
     void create_new_book();
     void open_new_book();
@@ -76,7 +79,7 @@ private slots:
     void insert_chart();
     void show_variable_list();
 
-    void set_language(const kernel::settings::LANG_DATA&);
+
 
     void changed(bool);
 };
