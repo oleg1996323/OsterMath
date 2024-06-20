@@ -1,14 +1,28 @@
 #include "model/varlistmodel.h"
 #include "arithmetic_types.h"
+#include <qglobal.h>
 #include <QModelIndex>
+
+Q_DECLARE_METATYPE(::TYPE_VAL)
 
 namespace model{
 
+static QList<QString> names_of_types = {
+        QT_TRANSLATE_NOOP("ModelItemsTypes","Unknown"),
+        QT_TRANSLATE_NOOP("ModelItemsTypes","String array"),
+        QT_TRANSLATE_NOOP("ModelItemsTypes","Numeric array"),
+        QT_TRANSLATE_NOOP("ModelItemsTypes","Value"),
+        QT_TRANSLATE_NOOP("ModelItemsTypes","String"),
+        QT_TRANSLATE_NOOP("ModelItemsTypes","Array")
+    };
+
     Variables::Variables(QObject* obj):
+        QStyledItemDelegate(obj),
         QAbstractTableModel(obj)
     {}
 
     Variables::Variables(QObject* obj, BaseData* data_base):
+        QStyledItemDelegate(obj),
         QAbstractTableModel(obj),
         data_base_(data_base)
     {
@@ -24,20 +38,48 @@ namespace model{
 
     }
 
+    QWidget* Variables::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
+        QComboBox *cb_types = new QComboBox(parent);
+        cb_types->setEditable(true);
+        cb_types->addItems(QStringList(names_of_types));
+        cb_types->setEditable(false);
+        return cb_types;
+    }
+
+    void Variables::setEditorData(QWidget *editor, const QModelIndex &index) const{
+        //if var is undef, then type can be modified
+        QString value = 0;
+        if(index.isValid() && index.column()<vars_.size()){
+            value = names_of_types[(int)vars_.at(index.row())->type()];
+
+            QComboBox *cb_types = static_cast<QComboBox*>(editor);
+            if(vars_.at(index.row())->type()!=TYPE_VAL::UNKNOWN){
+                cb_types->setEditable(false);
+                cb_types->setEnabled(false);
+            }
+            else {
+
+                cb_types->setEnabled(true);
+            }
+
+            cb_types->setCurrentIndex((int)vars_.at(index.row())->type());
+        }
+    }
+
      QVariant Variables::headerData(int section, Qt::Orientation orientation, int role) const {
         if(role != Qt::DisplayRole)
             return QVariant();
         if(orientation == Qt::Horizontal){
             if(section == (int)HEADER::NAME)
-                return QObject::tr("Имя");
+                return QObject::tr("Name");
             else if(section == (int)HEADER::TYPE)
-                return QObject::tr("Тип");
+                return QObject::tr("Type");
             else if(section == (int)HEADER::VALUE)
-                return QObject::tr("Значение");
+                return QObject::tr("Value");
             else if(section == (int)HEADER::EXPRESSION)
-                return QObject::tr("Выражение");
+                return QObject::tr("Expression");
             else if(section == (int)HEADER::REMARK)
-                return QObject::tr("Примечания");
+                return QObject::tr("Notes");
             else return QVariant();
         }
         else return QString::number(section);
@@ -64,37 +106,48 @@ namespace model{
             if(index.column()==(int)HEADER::NAME){
                 if(vars_.size()==index.row()){
                     vars_.push_back(data_base_->add_variable(value.value<std::string>()).get());
+                    setData(index.siblingAtColumn((int)HEADER::NAME),names_of_types[(int)vars_.at(index.row())->type()],nRole);
                 }
                 else
                     data_base_->rename_var(std::string(vars_.at(index.row())->name()),value.value<std::string>());
             }
             //for types
-            else if(index.column()==(int)HEADER::TYPE){
+            else if(index.column()==(int)HEADER::NAME){
                 if(vars_.size()>=index.row()){
                     switch(value.value<TYPE_VAL>()){
                     case TYPE_VAL::UNKNOWN:
                         vars_.at(index.row())->node()->release_childs();
                         break;
-                    case TYPE_VAL::STRING:
-                        //vars_.at(index.row())->node()->insert(std::make_shared<ArrayNode>());
+                    case TYPE_VAL::STRING:{
+                        //vars_.at(index.row())->node()->insert(std::make_shared<StringNode>());
                         break;
                     }
                     case TYPE_VAL::VALUE:{
                         vars_.at(index.row())->node()->insert(std::make_shared<ValueNode>(0));
                         break;
                     }
-                    case TYPE_VAL::{
+                    case TYPE_VAL::NUMERIC_ARRAY:{
+                        break;
+                    }
+                    case TYPE_VAL::STRING_ARRAY:{
+                        break;
+                    }
+                    case TYPE_VAL::ARRAY:{
+                        break;
+                    }
+                    default:{
                         break;
                     }
 
 
                     data_base_->get(data(index.siblingAtColumn((int)HEADER::TYPE),Qt::DisplayRole).value<std::string>());
                 }
-                else
-                    data_base_->rename_var(std::string(vars_.at(index.row())->name()),value.value<std::string>());
             }
+            else
+                data_base_->rename_var(std::string(vars_.at(index.row())->name()),value.value<std::string>());
             emit dataChanged(index,index);
             return true;
+            }
         }
         return false;
     }
@@ -155,11 +208,11 @@ namespace model{
         QSettings* sets_ = kernel::settings::Program::get_settings();
         //порядок колонок
         sets_->beginGroup("VarListTable/header");
-            sets_->setValue("name",0);
-            sets_->setValue("type",1);
-            sets_->setValue("value",2);
-            sets_->setValue("expression",3);
-            sets_->setValue("remark",4);
+            sets_->setValue("name",HEADER::NAME);
+            sets_->setValue("type",HEADER::TYPE);
+            sets_->setValue("value",HEADER::VALUE);
+            sets_->setValue("expression",HEADER::EXPRESSION);
+            sets_->setValue("remark",HEADER::REMARK);
         sets_->endGroup();
     }
 

@@ -1060,4 +1060,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h

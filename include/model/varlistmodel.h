@@ -14,9 +14,12 @@
 #include <iterator>
 #include <unordered_set>
 #include <QSettings>
+#include <QStyledItemDelegate>
+#include <QComboBox>
 #include "types.h"
 #include <string_view>
 #include "kernel/settings.h"
+#include "def.h"
 
 Q_DECLARE_METATYPE(std::string)
 
@@ -31,7 +34,7 @@ enum class HEADER{
     REMARK
 };
 
-class Variables:public QAbstractTableModel{
+class Variables:QStyledItemDelegate,public QAbstractTableModel{
 public:
     Variables(QObject* obj);
 
@@ -59,6 +62,10 @@ public:
 
     virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent) override;
 
+    virtual QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+    virtual void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+
     void set_default_header_pos();
 
     void get_header_pos();
@@ -67,8 +74,9 @@ public:
     void __save_settings__();
 
 private:
-    BaseData* data_base_;
     QList<const VariableBase*> vars_;
+    QMap<TYPE_VAL,uint8_t> header_pos_;
+    BaseData* data_base_;
 };
 
 }

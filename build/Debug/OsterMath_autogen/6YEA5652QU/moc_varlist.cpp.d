@@ -469,6 +469,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
@@ -481,6 +482,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
@@ -495,6 +497,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
@@ -511,6 +514,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \

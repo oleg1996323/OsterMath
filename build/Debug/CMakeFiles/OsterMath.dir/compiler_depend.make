@@ -1157,7 +1157,9 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
 
 CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/stdc-predef.h \
@@ -2299,6 +2301,10 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
   ../../include/utilities/functionalities/sz_functions.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QScreen \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h \
@@ -5310,6 +5316,10 @@ CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o: ../../src/model/varlistmo
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
   /home/oster/Electrolisys/arithmetictree/include/types.h \
   /usr/include/c++/11/cassert \
   /usr/include/boost/multiprecision/cpp_dec_float.hpp \
@@ -5970,7 +5980,8 @@ CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o: ../../src/model/varlistmo
   /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h
+  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h
 
 CMakeFiles/OsterMath.dir/src/settings.cpp.o: ../../src/settings.cpp \
   /usr/include/stdc-predef.h \
@@ -7283,6 +7294,10 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
   /home/oster/Electrolisys/arithmetictree/include/types.h \
   /usr/include/c++/11/cassert \
   /usr/include/boost/multiprecision/cpp_dec_float.hpp \
@@ -7921,6 +7936,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QSize:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex:
 
@@ -8949,6 +8966,8 @@ OsterMath_autogen/6YEA5652QU/moc_varlist.cpp:
 /usr/include/boost/multiprecision/detail/number_compare.hpp:
 
 /usr/include/c++/11/bits/ranges_uninitialized.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate:
 
 /usr/include/boost/preprocessor/logical/limits/bool_256.hpp:
 

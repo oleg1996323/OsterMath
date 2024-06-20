@@ -1160,6 +1160,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
 
 CMakeFiles/OsterMath.dir/src/bookmath.cpp.o
  /home/oster/OsterMath/src/bookmath.cpp
@@ -2302,6 +2304,10 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
  /home/oster/OsterMath/include/utilities/functionalities/sz_functions.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QScreen
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h
@@ -5317,6 +5323,10 @@ CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h
  /usr/include/c++/11/unordered_set
  /usr/include/c++/11/bits/unordered_set.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
  /home/oster/Electrolisys/arithmetictree/include/types.h
  /usr/include/c++/11/cassert
  /usr/include/boost/multiprecision/cpp_dec_float.hpp
@@ -5978,6 +5988,7 @@ CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o
  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h
  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h
  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h
 
 CMakeFiles/OsterMath.dir/src/settings.cpp.o
  /home/oster/OsterMath/src/settings.cpp
@@ -7293,6 +7304,10 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
  /usr/include/c++/11/unordered_set
  /usr/include/c++/11/bits/unordered_set.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
  /home/oster/Electrolisys/arithmetictree/include/types.h
  /usr/include/c++/11/cassert
  /usr/include/boost/multiprecision/cpp_dec_float.hpp
