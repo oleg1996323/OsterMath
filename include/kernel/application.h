@@ -10,16 +10,30 @@ class BookMath;
 namespace kernel{
 
     class Application:public QApplication{
+        Q_OBJECT
     public:
         Application(int &argc, char** argv);
 
         ~Application();
 
-        static BaseData* get_active_sheet();
+        static BaseData* get_active_data();
 
         static DataPool* get_active_pool();
 
         static BookMath* get_active_book();
+
+        static void set_active_data(BaseData*);
+
+        static void set_active_pool(DataPool*);
+
+        static void set_active_book(BookMath*);
+
+    public slots:
+        void set_language(const settings::LANG_DATA&);
+
+    public:
+        signals:
+        void language_changed();
 
     private:
         static void __save_settings__();

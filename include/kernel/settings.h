@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QTranslator>
 #include <QLocale>
+#include <map>
 #include <array>
 #include "styles.h"
 
@@ -15,27 +16,33 @@ namespace kernel{
         const char* path;
         const char* text;
         QLocale::Language lang_;
+        bool operator<(const LANG_DATA& other){
+            return (int)lang_<(int)other.lang_;
+        }
     };
 
     constexpr std::array<LANG_DATA, 2> resource_langs = {
-        ":lang_icon/rus","Русский",QLocale::Russian,
-        ":lang_icon/eng","English",QLocale::English
+        ":lang_icon/rus","Русский", QLocale::Russian,
+        ":lang_icon/eng","English", QLocale::English
     };
 
         class Program{
             static QSettings sets_;
+            static std::map<QLocale::Language,LANG_DATA> langs_map;
             static Themes::TYPE style_theme;
             static QLocale::Language lang_;
         public:
-            static Themes::TYPE get_theme();
+            static void init_settings();
 
-            static QString get_lang_resource_path();
+            static Themes::TYPE get_theme();
 
             static QSettings* get_settings();
 
             static void set_language(QLocale::Language);
 
             static QLocale get_language();
+
+            static const LANG_DATA& get_language_properties();
 
             static void __save_settings__();
 

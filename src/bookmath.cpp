@@ -10,6 +10,7 @@
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent)
 {
+    __book_initialization__();
     __load_styles__();
     var_list_ = new VarList::DockWidget(this);
     addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
@@ -71,11 +72,13 @@ void BookMath::__define_menu__(){
     menubar->addAction(QObject::tr("About"));
     {
         using namespace kernel::settings;
-        langs_ = menubar->addMenu(QIcon(Program::get_lang_resource_path()), "");
+        langs_ = menubar->addMenu(QIcon(Program::get_language_properties().path), "");
         langs_->setContentsMargins(0,0,0,0);
         langs_->resize(30,30);
-        for(const auto& res_data:resource_langs)
-            langs_->addAction(QIcon(res_data.path),res_data.text,this, [&](){this->set_language(res_data); });
+        for(const auto& res_data:resource_langs){
+            QAction* action = langs_->addAction(QIcon(res_data.path),res_data.text);
+            QObject::connect(action,&QAction::triggered,QApplication::instance(),[&res_data](){qobject_cast<kernel::Application*>(QApplication::instance())->set_language(res_data);});
+        }
     }
 
     this->setMenuBar(menubar);
@@ -92,6 +95,7 @@ void BookMath::__define_data_view__(){
 void BookMath::__define_signals_slots__(){
     connect(findChild<ToolButton*>("createnewbook"),&ToolButton::clicked,this,&BookMath::create_new_book);
     connect(findChild<ToolButton*>("savebook"),&ToolButton::clicked,this,&BookMath::save_book);
+    QObject::connect(qobject_cast<kernel::Application*>(QApplication::instance()),&kernel::Application::language_changed,this,&BookMath::changed_language);
 }
 
 void BookMath::retranslate(){
@@ -109,6 +113,12 @@ void BookMath::create_new_book(){
 }
 
 void BookMath::open_new_book(){
+    setEnabled(false);
+    subwindow = new OpenNewBook(this);
+    connect(static_cast<OpenNewBook*>(subwindow),&OpenNewBook::closing,this,&QMainWindow::setEnabled);
+}
+
+void BookMath::settings(){
     setEnabled(false);
     subwindow = new OpenNewBook(this);
     connect(static_cast<OpenNewBook*>(subwindow),&OpenNewBook::closing,this,&QMainWindow::setEnabled);
@@ -136,10 +146,9 @@ void BookMath::changed(bool ch){
     changed_ = ch;
 }
 
-void BookMath::set_language(const kernel::settings::LANG_DATA& lang_data){
+void BookMath::changed_language(){
     using namespace kernel::settings;
-    Program::set_language(lang_data.lang_);
-    langs_->setIcon(QIcon(lang_data.path));
+    langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
     retranslate();
 }
 
@@ -169,4 +178,12 @@ void BookMath::__load_styles__(){
     if(kernel::settings::Program::get_theme() == Themes::Dark)
         setPalette(Themes::DarkStyle().palette());
     else setPalette(Themes::LightStyle().palette());
+}
+
+void BookMath::__book_initialization__(){
+    pool_ = std::make_unique<DataPool>("Pool data 1");
+    for(int i=0;i<3;++i)
+        pool_->add_data(QString("Data base %1").arg(i).toStdString());
+    kernel::Application::set_active_pool(pool_.get());
+    kernel::Application::set_active_data(pool_->data_bases().);
 }

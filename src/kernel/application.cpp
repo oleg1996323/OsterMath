@@ -14,7 +14,7 @@ namespace kernel{
             __save_settings__();
         }
 
-        BaseData* Application::get_active_sheet(){
+        BaseData* Application::get_active_data(){
             return active_sheet_;
         }
 
@@ -24,6 +24,23 @@ namespace kernel{
 
         BookMath* Application::get_active_book(){
             return active_book_ui_;
+        }
+
+        void Application::set_active_data(BaseData* data){
+            active_sheet_ = data;
+        }
+
+        void Application::set_active_pool(DataPool* pool){
+            active_pool_ = pool;
+        }
+
+        void Application::set_active_book(BookMath* book){
+            active_book_ui_ = book;
+        }
+
+        void Application::set_language(const settings::LANG_DATA& lang){
+            settings::Program::set_language(lang.lang_);
+            emit language_changed();
         }
 
         void Application::__save_settings__(){

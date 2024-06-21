@@ -68,12 +68,15 @@ private:
 
     void __load_styles__();
 
+    void __book_initialization__();
+
 public slots:
-    void set_language(const kernel::settings::LANG_DATA&);
+    void changed_language();
 
 private slots:
     void create_new_book();
     void open_new_book();
+    void settings();
     void save_book();
     void save_as();
     void insert_chart();
