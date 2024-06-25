@@ -12,7 +12,7 @@ public:
 
     void Build(){
         QFileDialog::connect(this,&QFileDialog::rejected,this,&OpenNewBook::Cancel);
-        this->setNameFilters(QStringList(QList<QString>(format_.begin(),format_.end())));
+        this->setNameFilters(QStringList(QList<QString>(files::format.begin(),files::format.end())));
         this->setDirectory(QDir::homePath());
     }
 

@@ -12,17 +12,15 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/mocs_compilation.cpp" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o.d"
   "/home/oster/OsterMath/src/bookmath.cpp" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
   "/home/oster/OsterMath/src/data_view.cpp" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
-  "/home/oster/OsterMath/src/def.cpp" "CMakeFiles/OsterMath.dir/src/def.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/def.cpp.o.d"
-  "/home/oster/OsterMath/src/kernel/application.cpp" "CMakeFiles/OsterMath.dir/src/kernel/application.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/kernel/application.cpp.o.d"
   "/home/oster/OsterMath/src/main.cpp" "CMakeFiles/OsterMath.dir/src/main.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"
-  "/home/oster/OsterMath/src/model/varlistmodel.cpp" "CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/model/varlistmodel.cpp.o.d"
-  "/home/oster/OsterMath/src/settings.cpp" "CMakeFiles/OsterMath.dir/src/settings.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/settings.cpp.o.d"
   "/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp" "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o.d"
   "/home/oster/OsterMath/src/varlist.cpp" "CMakeFiles/OsterMath.dir/src/varlist.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/varlist.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/oster/OsterMath/build/Debug/CMakeFiles/model.dir/DependInfo.cmake"
+  "/home/oster/OsterMath/build/Debug/CMakeFiles/app.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

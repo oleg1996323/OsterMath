@@ -1,6 +1,6 @@
 /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp: /home/oster/OsterMath/include/toolbartabs.h \
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
-  /home/oster/OsterMath/include/def.h \
+  /home/oster/OsterMath/include/kernel/def.h \
   /home/oster/OsterMath/include/kernel/styles.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /usr/include/asm-generic/errno-base.h \

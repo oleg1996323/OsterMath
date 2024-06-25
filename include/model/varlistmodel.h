@@ -7,7 +7,7 @@
 #include <QHeaderView>
 #include <QListView>
 #include <QModelIndex>
-#include <QList>
+#include <deque>
 #include <QSettings>
 #include <list>
 #include <memory>
@@ -18,10 +18,35 @@
 #include <QComboBox>
 #include "types.h"
 #include <string_view>
+#include <string>
 #include "kernel/settings.h"
-#include "def.h"
+#include "kernel/def.h"
+#include "arithmetic_types.h"
+#include <qmetatype.h>
+#include "model/exception/exception.h"
+//#include <dlfcn.h>
 
-Q_DECLARE_METATYPE(std::string)
+#if defined _WIN32 || defined __CYGWIN__ || defined __MINGW32__
+    #ifdef MODEL_SHARED
+        #ifdef __GNUC__
+            #define MODEL_SHARED_EXPORT_DECL __attribute__ ((dllexport))
+        #else
+            #define MODEL_SHARED_EXPORT_DECL __declspec(dllexport)
+        #endif
+    #else
+        #ifdef __GNUC__
+            #define MODEL_SHARED_EXPORT_DECL __attribute__ ((dllimport))
+        #else
+            #define MODEL_SHARED_EXPORT_DECL __declspec(dllimport)
+        #endif
+    #endif
+#else
+    #define MODEL_SHARED_EXPORT_DECL __attribute__ ((visibility ("default")))
+#endif
+
+#define MODEL_SHARED_EXPORT extern "C" MODEL_SHARED_EXPORT_DECL
+
+
 
 class VariableBase;
 
@@ -34,11 +59,20 @@ enum class HEADER{
     REMARK
 };
 
-class Variables:QStyledItemDelegate,public QAbstractTableModel{
+class Variables:public QStyledItemDelegate,public QAbstractTableModel{
 public:
+    struct VAR_STRUCT{
+        QString note_;
+        VariableBase* var_;
+        TYPE_VAL type_;
+        exceptions::EXCEPTION_TYPE err_;
+    };
+
     Variables(QObject* obj);
 
     Variables(QObject* obj, BaseData* data_base);
+
+    ~Variables() = default;
 
     void addNewVariable(const QString& name);
 
@@ -66,6 +100,8 @@ public:
 
     virtual void setEditorData(QWidget *editor, const QModelIndex &index) const override;
 
+    virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+
     void set_default_header_pos();
 
     void get_header_pos();
@@ -74,9 +110,15 @@ public:
     void __save_settings__();
 
 private:
-    QList<const VariableBase*> vars_;
+    std::deque<VAR_STRUCT> vars_;
     QMap<TYPE_VAL,uint8_t> header_pos_;
     BaseData* data_base_;
 };
 
 }
+
+Q_DECLARE_METATYPE(TYPE_VAL)
+Q_DECLARE_METATYPE(model::HEADER)
+Q_DECLARE_METATYPE(std::string)
+Q_DECLARE_METATYPE(Value_t)
+Q_DECLARE_METATYPE(Node*)

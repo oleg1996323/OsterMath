@@ -185,5 +185,5 @@ void BookMath::__book_initialization__(){
     for(int i=0;i<3;++i)
         pool_->add_data(QString("Data base %1").arg(i).toStdString());
     kernel::Application::set_active_pool(pool_.get());
-    kernel::Application::set_active_data(pool_->data_bases().);
+    kernel::Application::set_active_data(pool_->data_bases().at(0).get());
 }

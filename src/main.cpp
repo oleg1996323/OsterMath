@@ -3,10 +3,18 @@
 #include <QTranslator>
 #include "bookmath.h"
 #include "kernel/settings.h"
+#include "model/varlistmodel.h"
 
 int main(int argc, char *argv[])
 {
     kernel::Application a(argc, argv);
+
+    qRegisterMetaType<TYPE_VAL>("TYPE_VAL");
+    qRegisterMetaType<model::HEADER>("model::HEADER");
+    qRegisterMetaType<std::string>("std::string");
+    qRegisterMetaType<Value_t>("Value_t");
+    qRegisterMetaType<Node*>("Node*");
+
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

@@ -1,5 +1,4 @@
 #include "kernel/application.h"
-#include "bookmath.h"
 
 namespace kernel{
 
@@ -15,7 +14,7 @@ namespace kernel{
         }
 
         BaseData* Application::get_active_data(){
-            return active_sheet_;
+            return active_data_;
         }
 
         DataPool* Application::get_active_pool(){
@@ -27,7 +26,7 @@ namespace kernel{
         }
 
         void Application::set_active_data(BaseData* data){
-            active_sheet_ = data;
+            active_data_ = data;
         }
 
         void Application::set_active_pool(DataPool* pool){
@@ -51,7 +50,7 @@ namespace kernel{
             settings::Program::__load_settings__();
         }
 
-        BaseData* Application::active_sheet_ = nullptr;
+        BaseData* Application::active_data_ = nullptr;
         DataPool* Application::active_pool_ = nullptr;
         BookMath* Application::active_book_ui_ = nullptr;
 }

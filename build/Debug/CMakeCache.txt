@@ -18,7 +18,10 @@
 ANTLR:FILEPATH=/home/oster/Electrolisys/arithmetictree/grammar/lib/libantlr4-runtime.a
 
 //Path to a library.
-ARITHMTREE_LIB:FILEPATH=/home/oster/Electrolisys/arithmetictree/lib/libarithmetictree.a
+ARITHMTREE_EXC_LIB:FILEPATH=/home/oster/Electrolisys/arithmetictree/lib/ui/Debug/libexceptions.a
+
+//Path to a library.
+ARITHMTREE_LIB:FILEPATH=/home/oster/Electrolisys/arithmetictree/lib/ui/Debug/libarithmetictree.a
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
@@ -32,7 +35,7 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//No help, variable specified on the command line.
+//CXX compiler
 CMAKE_CXX_COMPILER:STRING=/usr/bin/g++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
@@ -84,6 +87,9 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+//No help, variable specified on the command line.
+CMAKE_LIBRARY_OUTPUT_DIRECTORY:STRING=/home/oster/OsterMath/lib/Debug
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
@@ -155,6 +161,9 @@ CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
 
 //Path to a program.
 CMAKE_READELF:FILEPATH=/usr/bin/readelf
+
+//No help, variable specified on the command line.
+CMAKE_RUNTIME_OUTPUT_DIRECTORY:STRING=/home/oster/OsterMath/bin/Debug
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.

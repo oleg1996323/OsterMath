@@ -1,8 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OsterMath_autogen"
-  "OsterMath_autogen/include/ui/ui_bookmath.h"
-  "OsterMath_autogen/include/ui/ui_data_frame.h"
-  "OsterMath_autogen/include/ui/ui_var_list.h"
   "OsterMath_autogen/mocs_compilation.cpp"
 )
 

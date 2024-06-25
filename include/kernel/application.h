@@ -3,9 +3,10 @@
 #include <QSettings>
 #include "styles.h"
 #include "settings.h"
-#include "data.h"
 
 class BookMath;
+class BaseData;
+class DataPool;
 
 namespace kernel{
 
@@ -40,7 +41,7 @@ namespace kernel{
 
         static void __load_settings__();
 
-        static BaseData* active_sheet_;
+        static BaseData* active_data_;
         static DataPool* active_pool_;
         static BookMath* active_book_ui_;
     };

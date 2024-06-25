@@ -32,7 +32,7 @@ class Frame:public QFrame, public Retranslatable{
     public:
         SearchLine(QWidget* parent);
     };
-    class Table:public QTableView, public model::Variables, public Retranslatable{
+    class Table:public QTableView, public Retranslatable{
         model::Variables* var_list_;
     public:
         Table(QWidget* parent);

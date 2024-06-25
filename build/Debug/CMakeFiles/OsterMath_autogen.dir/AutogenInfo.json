@@ -93,57 +93,9 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/data/obm_data.h",
-			"MU",
-			"VVDFVJO4II/moc_obm_data.cpp",
-			null
-		],
-		[
 			"/home/oster/OsterMath/include/data_view.h",
 			"MU",
 			"6YEA5652QU/moc_data_view.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/def.h",
-			"MU",
-			"6YEA5652QU/moc_def.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/kernel/application.h",
-			"MU",
-			"3LUUITMNIE/moc_application.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/kernel/exception.h",
-			"MU",
-			"3LUUITMNIE/moc_exception.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/kernel/settings.h",
-			"MU",
-			"3LUUITMNIE/moc_settings.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/kernel/styles.h",
-			"MU",
-			"3LUUITMNIE/moc_styles.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/model/datamodel.h",
-			"MU",
-			"Q6AU6LSD6J/moc_datamodel.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/model/varlistmodel.h",
-			"MU",
-			"Q6AU6LSD6J/moc_varlistmodel.cpp",
 			null
 		],
 		[
@@ -235,6 +187,8 @@
 		"/home/oster/Electrolisys/arithmetictree/include",
 		"/home/oster/OsterMath/src",
 		"/home/oster/Electrolisys/arithmetictree/include/types",
+		"/home/oster/OsterMath/src/kernel",
+		"/home/oster/OsterMath/include/kernel",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
 		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
@@ -261,9 +215,13 @@
 	],
 	"MOC_PREDEFS_FILE" : "/home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [],
+	"MOC_SKIP" : 
+	[
+		"/home/oster/OsterMath/build/Debug/app_autogen/mocs_compilation.cpp",
+		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
+	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 2,
+	"PARALLEL" : 6,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
@@ -274,11 +232,7 @@
 	[
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/data_view.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/def.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/kernel/application.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/model/varlistmodel.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/settings.cpp", "MU", null ],
 		[
 			"/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp",
 			"MU",
@@ -288,7 +242,11 @@
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "/home/oster/OsterMath/ui" ],
-	"UIC_SKIP" : [],
+	"UIC_SKIP" : 
+	[
+		"/home/oster/OsterMath/build/Debug/app_autogen/mocs_compilation.cpp",
+		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
+	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0
 }

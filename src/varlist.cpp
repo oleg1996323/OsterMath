@@ -32,8 +32,10 @@ Frame::SearchLine::SearchLine(QWidget* parent):QLineEdit(parent){
 
 Frame::Label::Label(QWidget* parent):QLabel(parent){}
 
-Frame::Table::Table(QWidget* parent):model::Variables(parent, kernel::Application::get_active_sheet()){
+Frame::Table::Table(QWidget* parent){
+    var_list_ = new model::Variables(parent, kernel::Application::get_active_data());
     setModel(var_list_);
+    setItemDelegate(var_list_);
 //    if (columnCount() < 3)
 //        setColumnCount(3);
 //    QFont font3;

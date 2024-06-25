@@ -6,7 +6,7 @@
 #include <QFileDialog>
 #include <QStringList>
 #include <QList>
-#include "def.h"
+#include "kernel/def.h"
 
 enum class SUBWINDOWTYPES{
     CREATE,
