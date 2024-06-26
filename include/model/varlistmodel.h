@@ -23,7 +23,7 @@
 #include "kernel/def.h"
 #include "arithmetic_types.h"
 #include <qmetatype.h>
-#include "model/exception/exception.h"
+#include "exception/exception.h"
 //#include <dlfcn.h>
 
 #if defined _WIN32 || defined __CYGWIN__ || defined __MINGW32__
@@ -62,15 +62,16 @@ enum class HEADER{
 class Variables:public QStyledItemDelegate,public QAbstractTableModel{
 public:
     struct VAR_STRUCT{
+        QString expr_;
         QString note_;
         VariableBase* var_;
         TYPE_VAL type_;
         exceptions::EXCEPTION_TYPE err_;
     };
 
-    Variables(QObject* obj);
+    Variables(QWidget* obj);
 
-    Variables(QObject* obj, BaseData* data_base);
+    Variables(QWidget* obj, BaseData* data_base);
 
     ~Variables() = default;
 

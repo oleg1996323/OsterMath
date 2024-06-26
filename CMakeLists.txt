@@ -73,13 +73,16 @@ find_library(ARITHMTREE_EXC_LIB NAMES libexceptions.a exceptions PATHS ${ARITHMT
 find_library(ANTLR libantlr4-runtime.a PATHS ${ARITHMTREE_DIR}/grammar/lib REQUIRED)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+message(STATUS ${ARITHMTREE_DIR})
+message(STATUS ${ARITHMTREE_DIR})
+
 include_directories(
     PUBLIC
-	${CMAKE_CURRENT_SOURCE_DIR}/include
-	${CMAKE_CURRENT_SOURCE_DIR}/ui
-	${CMAKE_CURRENT_SOURCE_DIR}/res
-	/usr/include/c++/11
-	${ARITHMTREE_DIR}/include)
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/ui
+        ${CMAKE_CURRENT_SOURCE_DIR}/res
+        /usr/include/c++/11
+        ${ARITHMTREE_DIR}/include)
 
 add_library(app SHARED
     ${PROJECT_SOURCES_KERNEL})

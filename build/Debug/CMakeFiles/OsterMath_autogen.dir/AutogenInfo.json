@@ -221,7 +221,7 @@
 		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 6,
+	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",

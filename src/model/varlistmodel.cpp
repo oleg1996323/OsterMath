@@ -7,21 +7,22 @@
 #include <QLineEdit>
 #include <QStringView>
 #include <QDebug>
+#include "model/exception/exception.h"
 
 namespace model{
 
-Variables::Variables(QObject* obj):
+Variables::Variables(QWidget* obj):
     QStyledItemDelegate(obj),
     QAbstractTableModel(obj)
 {}
 
-Variables::Variables(QObject* obj, BaseData* data_base):
+Variables::Variables(QWidget* obj, BaseData* data_base):
     QStyledItemDelegate(obj),
     QAbstractTableModel(obj),
     data_base_(data_base)
 {
     for(const auto& [var_name,var]:data_base->variables()){
-        vars_.push_back({QString(),var.get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
+        vars_.push_back({QString(),QString(),var.get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
     }
 }
 
@@ -167,12 +168,7 @@ void Variables::setModelData(QWidget *editor, QAbstractItemModel *model, const Q
         case (int)HEADER::EXPRESSION:
             if(vars_.size()>index.row()){
                 QLineEdit* line_expr = static_cast<QLineEdit*>(editor);
-                QString var_expr = QString("VAR(!('%1')#%2)").arg(data_base_->name().data()).arg(vars_.at(index.row()).var_->name().data());
-                std::stringstream stream;
-                qDebug()<<var_expr<<line_expr->text();
-                var_expr+=line_expr->text();
-                qDebug()<<var_expr;
-                model->setData(index,var_expr,Qt::EditRole);
+                model->setData(index,line_expr->text(),Qt::EditRole);
             }
             break;
         case (int)HEADER::VALUE:
@@ -207,11 +203,11 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::EXPRESSION:{
-                return QString::fromStdString(vars_.at(index.row()).var_->text());
+                return vars_.at(index.row()).expr_;
                 break;
             }
             case (int)HEADER::VALUE:{
-                if(!vars_.at(index.row()).err_){
+                if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
                     std::stringstream stream;
                     vars_.at(index.row()).var_->set_stream(stream);
                     vars_.at(index.row()).var_->print_result();
@@ -247,7 +243,7 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                     if(value.toString()!=""){
                         if(!data_base_->exists(value.toString().toStdString())){
                             if(vars_.size()==index.row()){
-                                vars_.push_back({QString(),data_base_->add_variable(std::move(value.toString().toStdString())).get(),TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
+                                vars_.push_back({QString(),QString(),data_base_->add_variable(std::move(value.toString().toStdString())).get(),TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
                                 insertRow(rowCount());
                             }
                             else
@@ -321,16 +317,21 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                 break;
             }
             case (int)HEADER::EXPRESSION:{
+                vars_.at(index.row()).expr_=value.toString();
+                QString var_expr = QString("VAR(!('%1')#%2)").
+                        arg(data_base_->name().data()).
+                        arg(vars_.at(index.row()).var_->name().data())+
+                        vars_.at(index.row()).expr_;
                 std::stringstream stream;
-                stream<<value.toString().toStdString();
+                stream<<var_expr.toStdString();
                 data_base_->setstream(stream);
-                vars_.at(index.row()).err_ = exception_handler([&](){
+                vars_.at(index.row()).err_ = exception_handler([&]()->void{
                     data_base_->read_new();
-                });
-                if(vars_.at(index.row()).err_)
-                    vars_.at(index.row()).err_=exception_handler([&](){
+                }, qobject_cast<QWidget*>(QAbstractItemModel::parent()));
+                if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT)
+                    vars_.at(index.row()).err_=exception_handler([&]()->void{
                         vars_.at(index.row()).var_->refresh();
-                    });
+                    }, qobject_cast<QWidget*>(QAbstractItemModel::parent()));
                 return true;
                 break;
             }
