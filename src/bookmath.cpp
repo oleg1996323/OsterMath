@@ -8,7 +8,7 @@
 #include <QMenuBar>
 
 BookMath::BookMath(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), ObjectFromSettings(this)
 {
     __book_initialization__();
     __load_styles__();
@@ -95,7 +95,6 @@ void BookMath::__define_data_view__(){
 void BookMath::__define_signals_slots__(){
     connect(findChild<ToolButton*>("createnewbook"),&ToolButton::clicked,this,&BookMath::create_new_book);
     connect(findChild<ToolButton*>("savebook"),&ToolButton::clicked,this,&BookMath::save_book);
-    QObject::connect(qobject_cast<kernel::Application*>(QApplication::instance()),&kernel::Application::language_changed,this,&BookMath::changed_language);
 }
 
 void BookMath::retranslate(){
@@ -146,7 +145,18 @@ void BookMath::changed(bool ch){
     changed_ = ch;
 }
 
-void BookMath::changed_language(){
+void BookMath::upload_language(){
+    using namespace kernel::settings;
+    langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
+    retranslate();
+}
+void BookMath::upload_fonts(){
+    using namespace kernel::settings;
+    setPalette(Themes::Palette::get());
+    langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
+    retranslate();
+}
+void BookMath::upload_style(){
     using namespace kernel::settings;
     langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
     retranslate();
@@ -176,7 +186,7 @@ void BookMath::__save_settings__(){
 
 void BookMath::__load_styles__(){
     if(kernel::settings::Program::get_theme() == Themes::Dark)
-        setPalette(Themes::DarkStyle().palette());
+        setPalette(Themes::Palette().get());
     else setPalette(Themes::LightStyle().palette());
 }
 

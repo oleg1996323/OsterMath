@@ -6137,6 +6137,7 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
+ /home/oster/OsterMath/include/model/list_header.h
  /home/oster/OsterMath/include/kernel/application.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h

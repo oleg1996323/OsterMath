@@ -15,7 +15,7 @@ namespace VarList{
 }
 
 
-class BookMath : public QMainWindow, public Retranslatable
+class BookMath : public QMainWindow, public Retranslatable, public ObjectFromSettings
 {
     Q_OBJECT
 public:
@@ -70,8 +70,10 @@ private:
 
     void __book_initialization__();
 
-public slots:
-    void changed_language();
+private:
+    virtual void upload_language() override;
+    virtual void upload_fonts() override;
+    virtual void upload_style() override;
 
 private slots:
     void create_new_book();

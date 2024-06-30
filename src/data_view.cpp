@@ -101,10 +101,7 @@ void Sheets::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup("widget/sheetstab");
         this->setGeometry(sets_->value("geometry").toRect());
-        Themes::TYPE theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
-        if(theme == Themes::Dark)
-            setPalette(Themes::DarkStyle().palette());
-        else setPalette(Themes::LightStyle().palette());
+        setPalette(Themes::Palette::get());
     sets_->endGroup();
 }
 
@@ -112,9 +109,6 @@ void Sheets::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup("sheetstab");
         sets_->setValue("geometry",geometry());
-        Themes::TYPE theme = sets_->value("theme",Themes::Dark).value<Themes::TYPE>();
-        if(theme == Themes::Dark)
-            setPalette(Themes::DarkStyle().palette());
-        else setPalette(Themes::LightStyle().palette());
+        setPalette(Themes::Palette::get());
     sets_->endGroup();
 }

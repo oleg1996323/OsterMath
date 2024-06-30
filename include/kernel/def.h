@@ -30,4 +30,18 @@ class Retranslatable{
     virtual void retranslate() = 0;
 };
 
+class ObjectFromSettings{
+public:
+    ObjectFromSettings(QObject* object);
+
+    virtual void upload_fonts() = 0;
+    virtual void upload_style() = 0;
+    virtual void upload_language() = 0;
+
+public slots:
+    void changed_language();
+    void changed_font();
+    void changed_style();
+};
+
 QIcon negativeIcon(const QIcon &icon);

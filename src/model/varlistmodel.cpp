@@ -38,14 +38,6 @@ int Variables::columnCount(const QModelIndex &parent) const {
     return 5;
 }
 
-void Variables::addNewVariable(const QString& name){
-
-}
-
-void Variables::deleteVariable(const QString& name){
-
-}
-
 QVariant Variables::headerData(int section, Qt::Orientation orientation, int role) const {
     if(role != Qt::DisplayRole)
         return QVariant();
@@ -207,6 +199,7 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::VALUE:{
+
                 if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
                     std::stringstream stream;
                     vars_.at(index.row()).var_->set_stream(stream);
@@ -324,14 +317,17 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                         vars_.at(index.row()).expr_;
                 std::stringstream stream;
                 stream<<var_expr.toStdString();
+                qDebug()<<var_expr;
                 data_base_->setstream(stream);
                 vars_.at(index.row()).err_ = exception_handler([&]()->void{
                     data_base_->read_new();
-                }, qobject_cast<QWidget*>(QAbstractItemModel::parent()));
+                }/*, qobject_cast<QWidget*>(QAbstractItemModel::parent())*/);
+                qDebug()<<"Parents size at"<<QString::fromStdString(vars_.at(index.row()).var_->name())<<": "<<vars_.at(index.row()).var_->node()->parents().size();
                 if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT)
                     vars_.at(index.row()).err_=exception_handler([&]()->void{
                         vars_.at(index.row()).var_->refresh();
-                    }, qobject_cast<QWidget*>(QAbstractItemModel::parent()));
+                    }/*, qobject_cast<QWidget*>(QAbstractItemModel::parent())*/);
+                emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
                 return true;
                 break;
             }

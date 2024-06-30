@@ -35,6 +35,8 @@ namespace kernel{
     public:
         signals:
         void language_changed();
+        void font_inc_changed();
+        void style_changed();
 
     private:
         static void __save_settings__();

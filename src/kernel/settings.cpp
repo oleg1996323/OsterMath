@@ -2,7 +2,6 @@
 
 namespace kernel{
     namespace settings{
-
     bool operator<(const QLocale::Language& lhs,const QLocale::Language& rhs){
         return (int)lhs<(int)rhs;
     }
@@ -13,13 +12,15 @@ namespace kernel{
     }
 
     QSettings Program::sets_ = QSettings("Oster-Industries","OsterMath");
+    uint8_t Program::font_size_inc = 0;
+    Themes::TYPE Program::style_theme = Themes::TYPE::Light;
+    QLocale::Language Program::lang_ = QLocale::Language::English;
+
     std::map<QLocale::Language,LANG_DATA> Program::langs_map=[]()->std::map<QLocale::Language,LANG_DATA>{std::map<QLocale::Language,LANG_DATA> res;
         for(auto& lang:resource_langs)
             res.insert({lang.lang_,lang});
         return res;
     }();
-    Themes::TYPE Program::style_theme = Themes::TYPE::Light;
-    QLocale::Language Program::lang_ = QLocale::Language::English;
 
     Themes::TYPE Program::get_theme(){
         return style_theme;
@@ -37,6 +38,7 @@ namespace kernel{
         sets_.beginGroup("common");
             sets_.setValue("style",style_theme);
             sets_.setValue("language", lang_);
+            sets_.setValue("font_size_inc", font_size_inc);
         sets_.endGroup();
     }
 
@@ -44,6 +46,7 @@ namespace kernel{
         sets_.beginGroup("common");
             style_theme = sets_.value("style",Themes::Dark).value<Themes::TYPE>();
             lang_ = sets_.value("language",QLocale::English).value<QLocale::Language>();
+            font_size_inc = sets_.value("font_size_inc",0).value<uint8_t>();
         sets_.endGroup();
     }
 

@@ -1,4 +1,5 @@
 #include "varlist.h"
+#include "model/list_header.h"
 #include "kernel/styles.h"
 #include "kernel/application.h"
 #include <QSizePolicy>
@@ -36,6 +37,10 @@ Frame::Table::Table(QWidget* parent){
     var_list_ = new model::Variables(parent, kernel::Application::get_active_data());
     setModel(var_list_);
     setItemDelegate(var_list_);
+    model::ListHeader* header = new model::ListHeader(this);
+    setHorizontalHeader(header);
+    header->setModel(var_list_);
+    //assert(header->itemDelegate());
 //    if (columnCount() < 3)
 //        setColumnCount(3);
 //    QFont font3;
@@ -102,7 +107,7 @@ Frame::Frame(QWidget* parent):QFrame(parent){
     gridLayout->setSpacing(0);
 
     label_search_var_list = new Label(this);
-    label_search_var_list->setPalette(Themes::DarkStyle().palette());
+    label_search_var_list->setPalette(Themes::Palette::get());
     label_search_var_list->setObjectName(QString::fromUtf8("label_search_var_list"));
 
     QFont font1;
@@ -148,7 +153,7 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent){
     setFrameShadow(QFrame::Plain);
     setFrameShape(QFrame::StyledPanel);
     setLineWidth(1);
-    setPalette(Themes::DarkStyle().palette());
+    setPalette(Themes::Palette::get());
 
     label_var_list = new Label(this);
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
@@ -179,7 +184,7 @@ DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
     //palette->setBrush(QPalette::ColorRole::Window, brush_1);
 
     titlebar_ = new TitleBar(this);
-    titlebar_->setPalette(Themes::DarkStyle().palette());
+    titlebar_->setPalette(Themes::Palette::get());
     this->setContentsMargins(0,0,0,0);
     this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable |DockWidgetMovable);
     this->setTitleBarWidget(titlebar_);
@@ -189,7 +194,7 @@ DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
     sizepolicy.setRetainSizeWhenHidden(true);
     setSizePolicy(sizepolicy);
     frame_ = new Frame(this);
-    frame_->setPalette(Themes::DarkStyle().palette());
+    frame_->setPalette(Themes::Palette::get());
     setWidget(frame_);
 
     retranslate();

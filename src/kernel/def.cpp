@@ -1,4 +1,5 @@
 #include "kernel/def.h"
+#include "kernel/application.h"
 
 QWidget* findParent(QWidget* widget, QString name)
 {
@@ -20,4 +21,17 @@ QIcon negativeIcon(const QIcon &icon) {
     }
 
     return QIcon(QPixmap::fromImage(image));
+}
+
+ObjectFromSettings::ObjectFromSettings(QObject* object){
+    kernel::Application* app = qobject_cast<kernel::Application*>(kernel::Application::instance());
+    object->connect(app, &kernel::Application::language_changed, [this](){
+        upload_language();
+    });
+    object->connect(app, &kernel::Application::font_inc_changed, [this](){
+        upload_fonts();
+    });
+    object->connect(app, &kernel::Application::style_changed, [this](){
+        upload_style();
+    });
 }

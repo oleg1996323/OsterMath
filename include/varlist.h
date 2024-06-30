@@ -150,7 +150,7 @@ private:
 
         void __load_styles__(){
             if(kernel::settings::Program::get_theme() == Themes::Dark)
-                setPalette(Themes::DarkStyle().palette());
+                setPalette(Themes::Palette::get());
             else setPalette(Themes::LightStyle().palette());
         }
     };
@@ -196,7 +196,7 @@ private:
     void __load_styles__(){
         QSettings* sets_ = kernel::settings::Program::get_settings();
         if(kernel::settings::Program::get_theme() == Themes::Dark)
-            setPalette(Themes::DarkStyle().palette());
+            setPalette(Themes::Palette::get());
         else setPalette(Themes::LightStyle().palette());
     }
 

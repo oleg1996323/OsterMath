@@ -31,6 +31,7 @@ namespace kernel{
             static std::map<QLocale::Language,LANG_DATA> langs_map;
             static Themes::TYPE style_theme;
             static QLocale::Language lang_;
+            static uint8_t font_size_inc;
         public:
             static void init_settings();
 

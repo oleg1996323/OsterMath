@@ -75,10 +75,6 @@ public:
 
     ~Variables() = default;
 
-    void addNewVariable(const QString& name);
-
-    void deleteVariable(const QString& name);
-
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
     virtual QVariant data(const QModelIndex& index,int nRole) const override;
@@ -109,6 +105,10 @@ public:
 
     void __load_settings__();
     void __save_settings__();
+
+    void refresh(){
+
+    }
 
 private:
     std::deque<VAR_STRUCT> vars_;
