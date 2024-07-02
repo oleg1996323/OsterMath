@@ -7,22 +7,22 @@
 #include <QLineEdit>
 #include <QStringView>
 #include <QDebug>
-#include "model/exception/exception.h"
 
 namespace model{
 
 Variables::Variables(QWidget* obj):
-    QStyledItemDelegate(obj),
     QAbstractTableModel(obj)
 {}
 
 Variables::Variables(QWidget* obj, BaseData* data_base):
-    QStyledItemDelegate(obj),
     QAbstractTableModel(obj),
     data_base_(data_base)
 {
+    int row_counter = 0;
     for(const auto& [var_name,var]:data_base->variables()){
         vars_.push_back({QString(),QString(),var.get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
+        createIndex(row_counter,(int)HEADER::NAME,var.get());
+        createIndex(row_counter,(int)HEADER::TYPE,&vars_.back().type_);
     }
 }
 
@@ -55,124 +55,6 @@ QVariant Variables::headerData(int section, Qt::Orientation orientation, int rol
         else return QVariant();
     }
     else return QString::number(section+1);
-}
-
-QWidget* Variables::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    if(index.isValid()){
-        switch (index.column()){
-        case (int)HEADER::NAME:{
-            QLineEdit* line_name = new QLineEdit(data(index,Qt::DisplayRole).toString(),parent);
-            line_name->setEnabled(true);
-            return line_name;
-        }
-            break;
-        case (int)HEADER::TYPE:{
-            if(vars_.size()>index.row()){
-                QComboBox *cb_types = new QComboBox(parent);
-                cb_types->addItems(QStringList(variables::names_of_types));
-                cb_types->setEditable(false);
-                return cb_types;
-            }
-            break;
-        }
-        case (int)HEADER::EXPRESSION:
-            if(vars_.size()>index.row()){
-                QLineEdit* line_expr = new QLineEdit(parent);
-                return line_expr;
-            }
-            break;
-        case (int)HEADER::VALUE:
-            return nullptr;
-            break;
-        case (int)HEADER::REMARK:
-            if(vars_.size()>index.row()){
-                QLineEdit* line_expr = new QLineEdit(parent);
-                return line_expr;
-            }
-            break;
-        }
-    }
-    return nullptr;
-}
-
-void Variables::setEditorData(QWidget *editor, const QModelIndex &index) const{
-    //if var is undef, then type can be modified
-    QString value = 0;
-    if(index.isValid()){
-        switch (index.column()){
-        case (int)HEADER::NAME:{
-            QLineEdit* line_name = static_cast<QLineEdit*>(editor);
-            line_name->setText(data(index,Qt::DisplayRole).toString());
-        }
-            break;
-        case (int)HEADER::TYPE:{
-            QComboBox *cb_types = static_cast<QComboBox*>(editor);
-            if(vars_.size()>index.row()){
-                //cb_types->setCurrentIndex((int)vars_.at(index.row())->type());
-                qDebug()<<cb_types->currentIndex();
-
-                if(vars_.at(index.row()).type_!=TYPE_VAL::UNKNOWN){
-                    cb_types->setEnabled(false);
-                    cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
-                }
-                else {
-                    cb_types->setEnabled(true);
-                }
-            }
-            else{
-                cb_types->setEnabled(false);
-                cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
-            }
-            break;
-        }
-        case (int)HEADER::EXPRESSION:
-            if(vars_.size()>index.row()){
-                QLineEdit* line_expr = static_cast<QLineEdit*>(editor);
-                line_expr->setText(data(index,Qt::DisplayRole).toString());
-            }
-            break;
-        case (int)HEADER::VALUE:
-            break;
-        case (int)HEADER::REMARK:
-            if(vars_.size()>index.row()){
-                QLineEdit* line_note = static_cast<QLineEdit*>(editor);
-                line_note->setText(data(index,Qt::DisplayRole).toString());
-            }
-            break;
-        }
-    }
-}
-
-void Variables::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
-    QString value = 0;
-    if(index.isValid()){
-        switch (index.column()){
-        case (int)HEADER::NAME:{
-            QLineEdit* line_name = static_cast<QLineEdit*>(editor);
-            model->setData(index,line_name->text(),Qt::EditRole);
-        }
-            break;
-        case (int)HEADER::TYPE:{
-            QComboBox *cb_types = static_cast<QComboBox*>(editor);
-            model->setData(index,QVariant::fromValue((TYPE_VAL)cb_types->currentIndex()),Qt::EditRole);
-            break;
-        }
-        case (int)HEADER::EXPRESSION:
-            if(vars_.size()>index.row()){
-                QLineEdit* line_expr = static_cast<QLineEdit*>(editor);
-                model->setData(index,line_expr->text(),Qt::EditRole);
-            }
-            break;
-        case (int)HEADER::VALUE:
-            break;
-        case (int)HEADER::REMARK:
-            if(vars_.size()>index.row()){
-                QLineEdit* line_note = static_cast<QLineEdit*>(editor);
-                line_note->setText(data(index,Qt::DisplayRole).toString());
-            }
-            break;
-        }
-    }
 }
 
 QVariant Variables::data(const QModelIndex& index,int nRole) const {
@@ -236,7 +118,10 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                     if(value.toString()!=""){
                         if(!data_base_->exists(value.toString().toStdString())){
                             if(vars_.size()==index.row()){
-                                vars_.push_back({QString(),QString(),data_base_->add_variable(std::move(value.toString().toStdString())).get(),TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
+                                auto var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get();
+                                vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
+                                createIndex(index.row(),(int)HEADER::NAME,var_ptr);
+                                createIndex(index.row(),(int)HEADER::TYPE,&vars_.back().type_);
                                 insertRow(rowCount());
                             }
                             else
@@ -406,5 +291,12 @@ void Variables::__save_settings__(){
 
 }
 
+BaseData* Variables::get_data() const{
+    return data_base_;
+}
+
+void Variables::set_data(BaseData* data_base){
+    data_base_ = data_base;
+}
 
 }

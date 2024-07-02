@@ -1057,9 +1057,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/varlistmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
@@ -1074,4 +1073,5 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/exception/exception.h \
- /home/oster/Electrolisys/arithmetictree/include/exception/exception.h
+ /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+ /home/oster/OsterMath/include/model/def.h

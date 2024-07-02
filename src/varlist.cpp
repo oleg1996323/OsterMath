@@ -2,6 +2,7 @@
 #include "model/list_header.h"
 #include "kernel/styles.h"
 #include "kernel/application.h"
+#include "model/varlistmodel_delegate.h"
 #include <QSizePolicy>
 #include <QDebug>
 
@@ -36,7 +37,7 @@ Frame::Label::Label(QWidget* parent):QLabel(parent){}
 Frame::Table::Table(QWidget* parent){
     var_list_ = new model::Variables(parent, kernel::Application::get_active_data());
     setModel(var_list_);
-    setItemDelegate(var_list_);
+    setItemDelegate(new model::VariablesDelegate(this));
     model::ListHeader* header = new model::ListHeader(this);
     setHorizontalHeader(header);
     header->setModel(var_list_);

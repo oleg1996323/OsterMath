@@ -1,7 +1,4 @@
 #pragma once
-#include <QTableWidget>
-#include <QTableView>
-#include <QAbstractListModel>
 #include <QAbstractTableModel>
 #include <QWidget>
 #include <QHeaderView>
@@ -24,7 +21,7 @@
 #include "arithmetic_types.h"
 #include <qmetatype.h>
 #include "exception/exception.h"
-//#include <dlfcn.h>
+#include "model/def.h"
 
 #if defined _WIN32 || defined __CYGWIN__ || defined __MINGW32__
     #ifdef MODEL_SHARED
@@ -46,20 +43,12 @@
 
 #define MODEL_SHARED_EXPORT extern "C" MODEL_SHARED_EXPORT_DECL
 
-
-
 class VariableBase;
 
 namespace model{
-enum class HEADER{
-    NAME,
-    TYPE,
-    VALUE,
-    EXPRESSION,
-    REMARK
-};
 
-class Variables:public QStyledItemDelegate,public QAbstractTableModel{
+class Variables:public QAbstractTableModel{
+    Q_OBJECT
 public:
     struct VAR_STRUCT{
         QString expr_;
@@ -93,12 +82,6 @@ public:
 
     virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent) override;
 
-    virtual QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-
-    virtual void setEditorData(QWidget *editor, const QModelIndex &index) const override;
-
-    virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
-
     void set_default_header_pos();
 
     void get_header_pos();
@@ -109,6 +92,13 @@ public:
     void refresh(){
 
     }
+
+    void set_data(BaseData*);
+
+    BaseData* get_data() const;
+
+signals:
+    void show_value();
 
 private:
     std::deque<VAR_STRUCT> vars_;

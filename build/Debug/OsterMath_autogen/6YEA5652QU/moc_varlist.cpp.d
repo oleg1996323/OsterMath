@@ -20,6 +20,7 @@
   /home/oster/OsterMath/include/kernel/def.h \
   /home/oster/OsterMath/include/kernel/settings.h \
   /home/oster/OsterMath/include/kernel/styles.h \
+  /home/oster/OsterMath/include/model/def.h \
   /home/oster/OsterMath/include/model/exception/exception.h \
   /home/oster/OsterMath/include/model/varlistmodel.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
@@ -352,7 +353,6 @@
   /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
@@ -495,7 +495,6 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
