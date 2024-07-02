@@ -24,6 +24,9 @@ public:
 
     virtual void retranslate() override;
 
+    signals:
+    void show_var_data(const std::string &);
+
 private:
     std::unique_ptr<DataPool> pool_;
     //widget where var are illustrated
@@ -70,7 +73,6 @@ private:
 
     void __book_initialization__();
 
-private:
     virtual void upload_language() override;
     virtual void upload_fonts() override;
     virtual void upload_style() override;
@@ -83,8 +85,6 @@ private slots:
     void save_as();
     void insert_chart();
     void show_variable_list();
-
-
 
     void changed(bool);
 };

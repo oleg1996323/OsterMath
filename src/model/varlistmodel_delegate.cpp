@@ -7,8 +7,11 @@
 #include <QLineEdit>
 #include <QStringView>
 #include <QDebug>
+#include <QAction>
 #include "model/exception/exception.h"
 #include "model/varlistmodel.h"
+#include "kernel/application.h"
+#include "bookmath.h"
 
 namespace model{
 
@@ -41,6 +44,17 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
             }
             break;
         case (int)HEADER::VALUE:
+            if(index.model()->rowCount()-1>index.row() &&
+                    (index.siblingAtColumn((int)HEADER::TYPE).data(Qt::EditRole).value<TYPE_VAL>()&
+                    (TYPE_VAL::ARRAY | TYPE_VAL::NUMERIC_ARRAY | TYPE_VAL::STRING_ARRAY))){
+                //QModelIndex local_index = index;
+                QPushButton* see_var_data = new QPushButton("...",parent);
+                connect(see_var_data,&QPushButton::clicked,
+                [index](){
+                emit kernel::Application::get_active_book()->
+                show_var_data(index.siblingAtColumn((int)HEADER::NAME).data(Qt::DisplayRole).toString().toStdString());});
+                return see_var_data;
+            }
             return nullptr;
             break;
         case (int)HEADER::REMARK:
@@ -69,7 +83,7 @@ void VariablesDelegate::setEditorData(QWidget *editor, const QModelIndex &index)
             if(index.model()->rowCount()-1>index.row()){
                 //cb_types->setCurrentIndex((int)vars_.at(index.row())->type());
                 qDebug()<<cb_types->currentIndex();
-                if(*reinterpret_cast<TYPE_VAL*>(index.internalPointer())!=TYPE_VAL::UNKNOWN){
+                if(index.data(Qt::EditRole).value<TYPE_VAL>()!=TYPE_VAL::UNKNOWN){
                     cb_types->setEnabled(false);
                     cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
                 }

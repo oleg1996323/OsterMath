@@ -98,7 +98,7 @@ public:
         setCollapsible(0,false);
         setCollapsible(1,false);
         setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-        data_->setObjectName("data_view"+parent->objectName());
+        data_->setObjectName("data_view");
         this->setSizes({20,data_->maximumHeight()});
 
     }

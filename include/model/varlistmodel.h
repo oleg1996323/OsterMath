@@ -1,6 +1,7 @@
 #pragma once
 #include <QAbstractTableModel>
 #include <QWidget>
+#include <QVariant>
 #include <QHeaderView>
 #include <QListView>
 #include <QModelIndex>
@@ -23,6 +24,9 @@
 #include "exception/exception.h"
 #include "model/def.h"
 
+Q_DECLARE_METATYPE(Node*)
+Q_DECLARE_METATYPE(VariableBase*)
+
 #if defined _WIN32 || defined __CYGWIN__ || defined __MINGW32__
     #ifdef MODEL_SHARED
         #ifdef __GNUC__
@@ -42,8 +46,6 @@
 #endif
 
 #define MODEL_SHARED_EXPORT extern "C" MODEL_SHARED_EXPORT_DECL
-
-class VariableBase;
 
 namespace model{
 
@@ -112,4 +114,3 @@ Q_DECLARE_METATYPE(TYPE_VAL)
 Q_DECLARE_METATYPE(model::HEADER)
 Q_DECLARE_METATYPE(std::string)
 Q_DECLARE_METATYPE(Value_t)
-Q_DECLARE_METATYPE(Node*)

@@ -18,11 +18,8 @@ Variables::Variables(QWidget* obj, BaseData* data_base):
     QAbstractTableModel(obj),
     data_base_(data_base)
 {
-    int row_counter = 0;
     for(const auto& [var_name,var]:data_base->variables()){
         vars_.push_back({QString(),QString(),var.get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
-        createIndex(row_counter,(int)HEADER::NAME,var.get());
-        createIndex(row_counter,(int)HEADER::TYPE,&vars_.back().type_);
     }
 }
 
@@ -81,6 +78,46 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::VALUE:{
+                if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
+                    if (vars_.at(index.row()).type_&
+                    (TYPE_VAL::ARRAY | TYPE_VAL::NUMERIC_ARRAY | TYPE_VAL::STRING_ARRAY))
+                        return QString("...");
+                    else{
+                        std::stringstream stream;
+                        vars_.at(index.row()).var_->set_stream(stream);
+                        vars_.at(index.row()).var_->print_result();
+                        return QString::fromStdString(stream.str());
+                    }
+                }
+                else return QString::fromUtf8(exceptions::get_except_abbr(vars_.at(index.row()).err_));
+                break;
+            }
+            case (int)HEADER::REMARK:{
+                return vars_.at(index.row()).note_;
+                break;
+            }
+            default:
+                return QVariant();
+                break;
+            }
+        }
+        else return QVariant();
+    }
+    else if(nRole == Qt::EditRole){
+        switch (index.column()){
+            case (int)HEADER::NAME:{
+                return QVariant::fromValue(vars_.at(index.row()).var_);
+                break;
+            }
+            case (int)HEADER::TYPE:{
+                return (int)vars_.at(index.row()).type_;
+                break;
+            }
+            case (int)HEADER::EXPRESSION:{
+                return vars_.at(index.row()).expr_;
+                break;
+            }
+            case (int)HEADER::VALUE:{
 
                 if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
                     std::stringstream stream;
@@ -99,11 +136,6 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 return QVariant();
                 break;
             }
-        }
-        else return QVariant();
-    }
-    else if(nRole == Qt::EditRole){
-        return QVariant();
     }
     else return QVariant();
 }
@@ -120,8 +152,6 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                             if(vars_.size()==index.row()){
                                 auto var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get();
                                 vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
-                                createIndex(index.row(),(int)HEADER::NAME,var_ptr);
-                                createIndex(index.row(),(int)HEADER::TYPE,&vars_.back().type_);
                                 insertRow(rowCount());
                             }
                             else
@@ -211,6 +241,7 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                 if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT)
                     vars_.at(index.row()).err_=exception_handler([&]()->void{
                         vars_.at(index.row()).var_->refresh();
+                        vars_.at(index.row()).type_ = vars_.at(index.row()).var_->type();
                     }/*, qobject_cast<QWidget*>(QAbstractItemModel::parent())*/);
                 emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
                 return true;
@@ -229,6 +260,8 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
     }
     return false;
 }
+
+#include <QFlags>
 
 Qt::ItemFlags Variables::flags(const QModelIndex& index) const {
     Qt::ItemFlags flags = QAbstractTableModel::flags(index);

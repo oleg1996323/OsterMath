@@ -21,7 +21,7 @@ void define_section_subelements(STRUCT_SECTION& section_sizes, ArrayNode* array)
     }
 }
 
-void DataViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, STRUCT_SECTION* str_section){
+void DataViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, STRUCT_SECTION* str_section) const{
     const size_t depth = str_section->max_size_depth;
     for (int i = 0; i < depth; ++i) {
         QSize cellSize = {400,20};
@@ -64,11 +64,7 @@ void DataViewHeader::paintSection(QPainter *painter, const QRect &rect, int logi
     if(var_->is_array() && var_->node()->has_childs())
         define_section_subelements(section_sizes,reinterpret_cast<ArrayNode*>(var_->node().get()));
 
-
-    const size_t depth = section_sizes.max_size_depth;
-    for (int i = 0; i < depth; ++i) {
-
-    }
+    recurse_paintSection(painter,rect,logicalIndex,&section_sizes);
 }
 
 }

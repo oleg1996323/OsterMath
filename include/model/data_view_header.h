@@ -26,7 +26,7 @@ namespace model {
     private:
         std::unique_ptr<VariableBase> var_;
 
-        void recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, STRUCT_SECTION* str_section);
+        void recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, STRUCT_SECTION* str_section) const;
     };
 }
 

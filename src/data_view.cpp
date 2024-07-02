@@ -94,7 +94,6 @@ void Sheets::add_default_sheet(){
                              new_name,
                              data_pool.add_data(new_name.toStdString())),
                  new_name);
-
 }
 
 void Sheets::__load_settings__(){

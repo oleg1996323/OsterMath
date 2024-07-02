@@ -10,6 +10,7 @@
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent), ObjectFromSettings(this)
 {
+    kernel::Application::set_active_book(this);
     __book_initialization__();
     __load_styles__();
     var_list_ = new VarList::DockWidget(this);

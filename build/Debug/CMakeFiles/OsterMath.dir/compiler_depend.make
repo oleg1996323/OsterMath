@@ -4564,6 +4564,8 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
