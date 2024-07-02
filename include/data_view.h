@@ -11,6 +11,8 @@
 #include <kernel/styles.h>
 #include "kernel/exception.h"
 #include "utilities/validators/validator.h"
+#include "model/data_view_header.h"
+#include "kernel/application.h"
 
 
 class ExpressionButton:public IconedButton{
@@ -39,22 +41,6 @@ private slots:
     void expand_collapse();
 };
 
-#include <QTableView>
-#include <QTabWidget>
-#include <data.h>
-#include <QSettings>
-
-class VarData:public QTableView{
-public:
-    VarData(QWidget* parent, const QString& name, BaseData* data);
-
-    void rename(const QString& name) noexcept;
-
-private:
-    BaseData* data_;
-    QSettings sets_;
-};
-
 #include <QMessageBox>
 
 class Sheets:public QTabWidget{
@@ -74,12 +60,13 @@ public:
 
     void add_default_sheet();
 
+    void set_new_model(QAbstractTableModel* model);
+
     void __load_settings__();
 
     void __save_settings__();
 
 private:
-    DataPool data_pool;
 
     void __init__(){
         setTabPosition(QTabWidget::South);
@@ -102,6 +89,10 @@ public:
         this->setSizes({20,data_->maximumHeight()});
 
     }
+
+public slots:
+    void open_var_data() const;
+
 private:
     Sheets* data_;
     VarExpressionView* expression_view_;

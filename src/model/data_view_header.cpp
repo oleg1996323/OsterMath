@@ -7,21 +7,7 @@
 
 namespace model {
 
-
-void define_section_subelements(STRUCT_SECTION& section_sizes, ArrayNode* array){
-    if(array->has_childs()){
-        section_sizes.size_=array->childs().size();
-        for(std::shared_ptr<Node> child:*array){
-            if(child->is_array()){
-                section_sizes.childs_.push_back(STRUCT_SECTION(&section_sizes));
-                define_section_subelements(section_sizes.childs_.back(), reinterpret_cast<ArrayNode*>(child->execute().get<Node*>()));
-                section_sizes.childs_.back().update_max_size_depth();
-            }
-        }
-    }
-}
-
-void DataViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, STRUCT_SECTION* str_section) const{
+void DataViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, ChildsMeasure* str_section) const{
     const size_t depth = str_section->max_size_depth;
     for (int i = 0; i < depth; ++i) {
         QSize cellSize = {400,20};
@@ -60,7 +46,7 @@ void DataViewHeader::paintSection(QPainter *painter, const QRect &rect, int logi
     const Variables *model =
             qobject_cast<Variables *>(this->model());
 
-    STRUCT_SECTION section_sizes;
+    ChildsMeasure section_sizes;
     if(var_->is_array() && var_->node()->has_childs())
         define_section_subelements(section_sizes,reinterpret_cast<ArrayNode*>(var_->node().get()));
 

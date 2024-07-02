@@ -1098,8 +1098,11 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   ../../include/utilities/validators/validator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  ../../include/model/data_view_header.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
@@ -1124,8 +1127,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/c++/11/codecvt \
   /usr/include/c++/11/bits/fs_dir.h \
   /usr/include/c++/11/bits/fs_ops.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
   OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
   OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
@@ -1143,8 +1144,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   ../../include/varlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
@@ -2268,8 +2267,11 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   ../../include/utilities/validators/validator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  ../../include/model/data_view_header.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
@@ -2294,13 +2296,9 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/c++/11/codecvt \
   /usr/include/c++/11/bits/fs_dir.h \
   /usr/include/c++/11/bits/fs_ops.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   ../../include/varlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
@@ -2798,645 +2796,34 @@ CMakeFiles/OsterMath.dir/src/data_view.cpp.o: ../../src/data_view.cpp \
   ../../include/utilities/validators/validator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
-  /home/oster/Electrolisys/arithmetictree/include/data.h \
-  /usr/include/c++/11/unordered_set \
-  /usr/include/c++/11/bits/unordered_set.h \
-  /usr/include/c++/11/deque \
-  /usr/include/c++/11/bits/stl_deque.h \
-  /usr/include/c++/11/bits/deque.tcc \
-  /home/oster/Electrolisys/arithmetictree/include/def.h \
-  /usr/include/boost/multiprecision/cpp_dec_float.hpp \
-  /usr/include/c++/11/cmath \
-  /usr/include/math.h \
-  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
-  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
-  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
-  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
-  /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/tr1/gamma.tcc \
-  /usr/include/c++/11/tr1/special_function_util.h \
-  /usr/include/c++/11/tr1/bessel_function.tcc \
-  /usr/include/c++/11/tr1/beta_function.tcc \
-  /usr/include/c++/11/tr1/ell_integral.tcc \
-  /usr/include/c++/11/tr1/exp_integral.tcc \
-  /usr/include/c++/11/tr1/hypergeometric.tcc \
-  /usr/include/c++/11/tr1/legendre_function.tcc \
-  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
-  /usr/include/c++/11/tr1/poly_hermite.tcc \
-  /usr/include/c++/11/tr1/poly_laguerre.tcc \
-  /usr/include/c++/11/tr1/riemann_zeta.tcc \
-  /usr/include/c++/11/iomanip \
-  /usr/include/c++/11/locale \
-  /usr/include/c++/11/bits/locale_facets_nonio.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
-  /usr/include/libintl.h \
-  /usr/include/c++/11/bits/codecvt.h \
-  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
-  /usr/include/c++/11/bits/locale_conv.h \
-  /usr/include/c++/11/bits/quoted_string.h \
-  /usr/include/c++/11/sstream \
-  /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc \
-  /usr/include/c++/11/bits/sstream.tcc \
-  /usr/include/boost/multiprecision/detail/standalone_config.hpp \
-  /usr/include/boost/config.hpp \
-  /usr/include/boost/config/user.hpp \
-  /usr/include/boost/config/detail/select_compiler_config.hpp \
-  /usr/include/boost/config/compiler/gcc.hpp \
-  /usr/include/boost/config/detail/select_stdlib_config.hpp \
-  /usr/include/c++/11/version \
-  /usr/include/boost/config/stdlib/libstdcpp3.hpp \
-  /usr/include/boost/config/detail/select_platform_config.hpp \
-  /usr/include/boost/config/platform/linux.hpp \
-  /usr/include/boost/config/detail/posix_features.hpp \
-  /usr/include/boost/config/detail/suffix.hpp \
-  /usr/include/boost/config/helper_macros.hpp \
-  /usr/include/boost/config/detail/cxx_composite.hpp \
-  /usr/include/boost/config/workaround.hpp \
-  /usr/include/boost/integer.hpp \
-  /usr/include/boost/integer_fwd.hpp \
-  /usr/include/boost/limits.hpp \
-  /usr/include/boost/cstdint.hpp \
-  /usr/include/boost/integer_traits.hpp \
-  /usr/include/boost/static_assert.hpp \
-  /usr/include/boost/detail/workaround.hpp \
-  /usr/include/boost/multiprecision/number.hpp \
-  /usr/include/boost/multiprecision/detail/precision.hpp \
-  /usr/include/boost/multiprecision/traits/is_variable_precision.hpp \
-  /usr/include/boost/multiprecision/detail/number_base.hpp \
-  /usr/include/boost/multiprecision/fwd.hpp \
-  /usr/include/boost/multiprecision/cpp_int/cpp_int_config.hpp \
-  /usr/include/boost/multiprecision/detail/assert.hpp \
-  /usr/include/boost/assert.hpp \
-  /usr/include/boost/multiprecision/traits/transcendental_reduction_type.hpp \
-  /usr/include/boost/multiprecision/traits/std_integer_traits.hpp \
-  /usr/include/boost/multiprecision/detail/no_exceptions_support.hpp \
-  /usr/include/boost/core/no_exceptions_support.hpp \
-  /usr/include/boost/throw_exception.hpp \
-  /usr/include/boost/exception/exception.hpp \
-  /usr/include/boost/assert/source_location.hpp \
-  /usr/include/boost/current_function.hpp \
-  /usr/include/c++/11/cstring \
-  /usr/include/c++/11/source_location \
-  /usr/include/boost/lexical_cast.hpp \
-  /usr/include/boost/range/iterator_range_core.hpp \
-  /usr/include/boost/iterator/iterator_traits.hpp \
-  /usr/include/boost/iterator/iterator_facade.hpp \
-  /usr/include/boost/iterator/interoperable.hpp \
-  /usr/include/boost/mpl/bool.hpp \
-  /usr/include/boost/mpl/bool_fwd.hpp \
-  /usr/include/boost/mpl/aux_/adl_barrier.hpp \
-  /usr/include/boost/mpl/aux_/config/adl.hpp \
-  /usr/include/boost/mpl/aux_/config/msvc.hpp \
-  /usr/include/boost/mpl/aux_/config/intel.hpp \
-  /usr/include/boost/mpl/aux_/config/gcc.hpp \
-  /usr/include/boost/mpl/aux_/config/workaround.hpp \
-  /usr/include/boost/mpl/integral_c_tag.hpp \
-  /usr/include/boost/mpl/aux_/config/static_constant.hpp \
-  /usr/include/boost/mpl/or.hpp \
-  /usr/include/boost/mpl/aux_/config/use_preprocessed.hpp \
-  /usr/include/boost/mpl/aux_/nested_type_wknd.hpp \
-  /usr/include/boost/mpl/aux_/na_spec.hpp \
-  /usr/include/boost/mpl/lambda_fwd.hpp \
-  /usr/include/boost/mpl/void_fwd.hpp \
-  /usr/include/boost/mpl/aux_/na.hpp \
-  /usr/include/boost/mpl/aux_/na_fwd.hpp \
-  /usr/include/boost/mpl/aux_/config/ctps.hpp \
-  /usr/include/boost/mpl/aux_/config/lambda.hpp \
-  /usr/include/boost/mpl/aux_/config/ttp.hpp \
-  /usr/include/boost/mpl/int.hpp \
-  /usr/include/boost/mpl/int_fwd.hpp \
-  /usr/include/boost/mpl/aux_/nttp_decl.hpp \
-  /usr/include/boost/mpl/aux_/config/nttp.hpp \
-  /usr/include/boost/mpl/aux_/integral_wrapper.hpp \
-  /usr/include/boost/mpl/aux_/static_cast.hpp \
-  /usr/include/boost/preprocessor/cat.hpp \
-  /usr/include/boost/preprocessor/config/config.hpp \
-  /usr/include/boost/mpl/aux_/lambda_arity_param.hpp \
-  /usr/include/boost/mpl/aux_/template_arity_fwd.hpp \
-  /usr/include/boost/mpl/aux_/arity.hpp \
-  /usr/include/boost/mpl/aux_/config/dtp.hpp \
-  /usr/include/boost/mpl/aux_/preprocessor/params.hpp \
-  /usr/include/boost/mpl/aux_/config/preprocessor.hpp \
-  /usr/include/boost/preprocessor/comma_if.hpp \
-  /usr/include/boost/preprocessor/punctuation/comma_if.hpp \
-  /usr/include/boost/preprocessor/control/if.hpp \
-  /usr/include/boost/preprocessor/control/iif.hpp \
-  /usr/include/boost/preprocessor/logical/bool.hpp \
-  /usr/include/boost/preprocessor/config/limits.hpp \
-  /usr/include/boost/preprocessor/logical/limits/bool_256.hpp \
-  /usr/include/boost/preprocessor/facilities/empty.hpp \
-  /usr/include/boost/preprocessor/punctuation/comma.hpp \
-  /usr/include/boost/preprocessor/repeat.hpp \
-  /usr/include/boost/preprocessor/repetition/repeat.hpp \
-  /usr/include/boost/preprocessor/debug/error.hpp \
-  /usr/include/boost/preprocessor/detail/auto_rec.hpp \
-  /usr/include/boost/preprocessor/detail/limits/auto_rec_256.hpp \
-  /usr/include/boost/preprocessor/tuple/eat.hpp \
-  /usr/include/boost/preprocessor/repetition/limits/repeat_256.hpp \
-  /usr/include/boost/preprocessor/inc.hpp \
-  /usr/include/boost/preprocessor/arithmetic/inc.hpp \
-  /usr/include/boost/preprocessor/arithmetic/limits/inc_256.hpp \
-  /usr/include/boost/mpl/aux_/preprocessor/enum.hpp \
-  /usr/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp \
-  /usr/include/boost/mpl/limits/arity.hpp \
-  /usr/include/boost/preprocessor/logical/and.hpp \
-  /usr/include/boost/preprocessor/logical/bitand.hpp \
-  /usr/include/boost/preprocessor/identity.hpp \
-  /usr/include/boost/preprocessor/facilities/identity.hpp \
-  /usr/include/boost/preprocessor/empty.hpp \
-  /usr/include/boost/preprocessor/arithmetic/add.hpp \
-  /usr/include/boost/preprocessor/arithmetic/dec.hpp \
-  /usr/include/boost/preprocessor/arithmetic/limits/dec_256.hpp \
-  /usr/include/boost/preprocessor/control/while.hpp \
-  /usr/include/boost/preprocessor/list/fold_left.hpp \
-  /usr/include/boost/preprocessor/list/detail/fold_left.hpp \
-  /usr/include/boost/preprocessor/control/expr_iif.hpp \
-  /usr/include/boost/preprocessor/list/adt.hpp \
-  /usr/include/boost/preprocessor/detail/is_binary.hpp \
-  /usr/include/boost/preprocessor/detail/check.hpp \
-  /usr/include/boost/preprocessor/logical/compl.hpp \
-  /usr/include/boost/preprocessor/list/detail/limits/fold_left_256.hpp \
-  /usr/include/boost/preprocessor/list/limits/fold_left_256.hpp \
-  /usr/include/boost/preprocessor/list/fold_right.hpp \
-  /usr/include/boost/preprocessor/list/detail/fold_right.hpp \
-  /usr/include/boost/preprocessor/list/reverse.hpp \
-  /usr/include/boost/preprocessor/list/detail/limits/fold_right_256.hpp \
-  /usr/include/boost/preprocessor/control/detail/while.hpp \
-  /usr/include/boost/preprocessor/control/detail/limits/while_256.hpp \
-  /usr/include/boost/preprocessor/control/limits/while_256.hpp \
-  /usr/include/boost/preprocessor/logical/bitor.hpp \
-  /usr/include/boost/preprocessor/tuple/elem.hpp \
-  /usr/include/boost/preprocessor/facilities/expand.hpp \
-  /usr/include/boost/preprocessor/facilities/overload.hpp \
-  /usr/include/boost/preprocessor/variadic/size.hpp \
-  /usr/include/boost/preprocessor/facilities/check_empty.hpp \
-  /usr/include/boost/preprocessor/variadic/has_opt.hpp \
-  /usr/include/boost/preprocessor/variadic/detail/has_opt.hpp \
-  /usr/include/boost/preprocessor/facilities/is_empty_variadic.hpp \
-  /usr/include/boost/preprocessor/punctuation/is_begin_parens.hpp \
-  /usr/include/boost/preprocessor/punctuation/detail/is_begin_parens.hpp \
-  /usr/include/boost/preprocessor/facilities/detail/is_empty.hpp \
-  /usr/include/boost/preprocessor/variadic/limits/size_64.hpp \
-  /usr/include/boost/preprocessor/tuple/rem.hpp \
-  /usr/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
-  /usr/include/boost/preprocessor/variadic/elem.hpp \
-  /usr/include/boost/preprocessor/variadic/limits/elem_64.hpp \
-  /usr/include/boost/preprocessor/arithmetic/detail/is_maximum_number.hpp \
-  /usr/include/boost/preprocessor/comparison/equal.hpp \
-  /usr/include/boost/preprocessor/comparison/not_equal.hpp \
-  /usr/include/boost/preprocessor/comparison/limits/not_equal_256.hpp \
-  /usr/include/boost/preprocessor/arithmetic/detail/maximum_number.hpp \
-  /usr/include/boost/preprocessor/arithmetic/detail/is_minimum_number.hpp \
-  /usr/include/boost/preprocessor/logical/not.hpp \
-  /usr/include/boost/preprocessor/arithmetic/sub.hpp \
-  /usr/include/boost/mpl/aux_/config/eti.hpp \
-  /usr/include/boost/mpl/aux_/config/overload_resolution.hpp \
-  /usr/include/boost/mpl/aux_/lambda_support.hpp \
-  /usr/include/boost/mpl/aux_/include_preprocessed.hpp \
-  /usr/include/boost/mpl/aux_/config/compiler.hpp \
-  /usr/include/boost/preprocessor/stringize.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/or.hpp \
-  /usr/include/boost/type_traits/is_convertible.hpp \
-  /usr/include/boost/type_traits/intrinsics.hpp \
-  /usr/include/boost/type_traits/detail/config.hpp \
-  /usr/include/boost/version.hpp \
-  /usr/include/boost/type_traits/integral_constant.hpp \
-  /usr/include/boost/type_traits/is_complete.hpp \
-  /usr/include/boost/type_traits/declval.hpp \
-  /usr/include/boost/type_traits/add_rvalue_reference.hpp \
-  /usr/include/boost/type_traits/is_void.hpp \
-  /usr/include/boost/type_traits/is_reference.hpp \
-  /usr/include/boost/type_traits/is_lvalue_reference.hpp \
-  /usr/include/boost/type_traits/is_rvalue_reference.hpp \
-  /usr/include/boost/type_traits/remove_reference.hpp \
-  /usr/include/boost/type_traits/is_function.hpp \
-  /usr/include/boost/type_traits/detail/is_function_cxx_11.hpp \
-  /usr/include/boost/type_traits/detail/yes_no_type.hpp \
-  /usr/include/boost/type_traits/is_array.hpp \
-  /usr/include/boost/type_traits/is_arithmetic.hpp \
-  /usr/include/boost/type_traits/is_integral.hpp \
-  /usr/include/boost/type_traits/is_floating_point.hpp \
-  /usr/include/boost/type_traits/is_abstract.hpp \
-  /usr/include/boost/type_traits/add_lvalue_reference.hpp \
-  /usr/include/boost/type_traits/add_reference.hpp \
-  /usr/include/boost/iterator/detail/config_def.hpp \
-  /usr/include/boost/iterator/detail/config_undef.hpp \
-  /usr/include/boost/iterator/iterator_categories.hpp \
-  /usr/include/boost/mpl/eval_if.hpp \
-  /usr/include/boost/mpl/if.hpp \
-  /usr/include/boost/mpl/aux_/value_wknd.hpp \
-  /usr/include/boost/mpl/aux_/config/integral.hpp \
-  /usr/include/boost/mpl/identity.hpp \
-  /usr/include/boost/mpl/placeholders.hpp \
-  /usr/include/boost/mpl/arg.hpp \
-  /usr/include/boost/mpl/arg_fwd.hpp \
-  /usr/include/boost/mpl/aux_/na_assert.hpp \
-  /usr/include/boost/mpl/assert.hpp \
-  /usr/include/boost/mpl/not.hpp \
-  /usr/include/boost/mpl/aux_/yes_no.hpp \
-  /usr/include/boost/mpl/aux_/config/arrays.hpp \
-  /usr/include/boost/mpl/aux_/config/gpu.hpp \
-  /usr/include/boost/mpl/aux_/config/pp_counter.hpp \
-  /usr/include/boost/mpl/aux_/arity_spec.hpp \
-  /usr/include/boost/mpl/aux_/arg_typedef.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp \
-  /usr/include/boost/iterator/detail/facade_iterator_category.hpp \
-  /usr/include/boost/core/use_default.hpp \
-  /usr/include/boost/mpl/and.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/and.hpp \
-  /usr/include/boost/type_traits/is_same.hpp \
-  /usr/include/boost/type_traits/is_const.hpp \
-  /usr/include/boost/detail/indirect_traits.hpp \
-  /usr/include/boost/type_traits/is_pointer.hpp \
-  /usr/include/boost/type_traits/is_class.hpp \
-  /usr/include/boost/type_traits/is_volatile.hpp \
-  /usr/include/boost/type_traits/is_member_function_pointer.hpp \
-  /usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp \
-  /usr/include/boost/type_traits/is_member_pointer.hpp \
-  /usr/include/boost/type_traits/remove_cv.hpp \
-  /usr/include/boost/type_traits/remove_pointer.hpp \
-  /usr/include/boost/detail/select_type.hpp \
-  /usr/include/boost/iterator/detail/enable_if.hpp \
-  /usr/include/boost/core/addressof.hpp \
-  /usr/include/boost/type_traits/add_const.hpp \
-  /usr/include/boost/type_traits/add_pointer.hpp \
-  /usr/include/boost/type_traits/remove_const.hpp \
-  /usr/include/boost/type_traits/is_pod.hpp \
-  /usr/include/boost/type_traits/is_scalar.hpp \
-  /usr/include/boost/type_traits/is_enum.hpp \
-  /usr/include/boost/mpl/always.hpp \
-  /usr/include/boost/mpl/aux_/preprocessor/default_params.hpp \
-  /usr/include/boost/mpl/apply.hpp \
-  /usr/include/boost/mpl/apply_fwd.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp \
-  /usr/include/boost/mpl/apply_wrap.hpp \
-  /usr/include/boost/mpl/aux_/has_apply.hpp \
-  /usr/include/boost/mpl/has_xxx.hpp \
-  /usr/include/boost/mpl/aux_/type_wrapper.hpp \
-  /usr/include/boost/mpl/aux_/config/has_xxx.hpp \
-  /usr/include/boost/mpl/aux_/config/msvc_typename.hpp \
-  /usr/include/boost/preprocessor/array/elem.hpp \
-  /usr/include/boost/preprocessor/array/data.hpp \
-  /usr/include/boost/preprocessor/array/size.hpp \
-  /usr/include/boost/preprocessor/repetition/enum_params.hpp \
-  /usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp \
-  /usr/include/boost/mpl/aux_/config/has_apply.hpp \
-  /usr/include/boost/mpl/aux_/msvc_never_true.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp \
-  /usr/include/boost/mpl/lambda.hpp \
-  /usr/include/boost/mpl/bind.hpp \
-  /usr/include/boost/mpl/bind_fwd.hpp \
-  /usr/include/boost/mpl/aux_/config/bind.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp \
-  /usr/include/boost/mpl/next.hpp \
-  /usr/include/boost/mpl/next_prior.hpp \
-  /usr/include/boost/mpl/aux_/common_name_wknd.hpp \
-  /usr/include/boost/mpl/protect.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp \
-  /usr/include/boost/mpl/aux_/full_lambda.hpp \
-  /usr/include/boost/mpl/quote.hpp \
-  /usr/include/boost/mpl/void.hpp \
-  /usr/include/boost/mpl/aux_/has_type.hpp \
-  /usr/include/boost/mpl/aux_/config/bcc.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp \
-  /usr/include/boost/mpl/aux_/template_arity.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/template_arity.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/full_lambda.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp \
-  /usr/include/boost/type_traits/is_base_and_derived.hpp \
-  /usr/include/boost/range/functions.hpp \
-  /usr/include/boost/range/begin.hpp \
-  /usr/include/boost/range/config.hpp \
-  /usr/include/boost/range/iterator.hpp \
-  /usr/include/boost/range/range_fwd.hpp \
-  /usr/include/boost/range/mutable_iterator.hpp \
-  /usr/include/boost/range/detail/extract_optional_type.hpp \
-  /usr/include/boost/range/detail/msvc_has_iterator_workaround.hpp \
-  /usr/include/boost/range/const_iterator.hpp \
-  /usr/include/boost/range/end.hpp \
-  /usr/include/boost/range/detail/implementation_help.hpp \
-  /usr/include/boost/range/detail/common.hpp \
-  /usr/include/boost/range/detail/sfinae.hpp \
-  /usr/include/boost/range/size.hpp \
-  /usr/include/boost/range/size_type.hpp \
-  /usr/include/boost/range/difference_type.hpp \
-  /usr/include/boost/range/has_range_iterator.hpp \
-  /usr/include/boost/utility/enable_if.hpp \
-  /usr/include/boost/core/enable_if.hpp \
-  /usr/include/boost/range/concepts.hpp \
-  /usr/include/boost/concept_check.hpp \
-  /usr/include/boost/concept/assert.hpp \
-  /usr/include/boost/concept/detail/general.hpp \
-  /usr/include/boost/concept/detail/backward_compatibility.hpp \
-  /usr/include/boost/concept/detail/has_constraints.hpp \
-  /usr/include/boost/type_traits/conditional.hpp \
-  /usr/include/boost/type_traits/conversion_traits.hpp \
-  /usr/include/boost/concept/usage.hpp \
-  /usr/include/boost/concept/detail/concept_def.hpp \
-  /usr/include/boost/preprocessor/seq/for_each_i.hpp \
-  /usr/include/boost/preprocessor/repetition/for.hpp \
-  /usr/include/boost/preprocessor/repetition/detail/for.hpp \
-  /usr/include/boost/preprocessor/repetition/detail/limits/for_256.hpp \
-  /usr/include/boost/preprocessor/repetition/limits/for_256.hpp \
-  /usr/include/boost/preprocessor/seq/seq.hpp \
-  /usr/include/boost/preprocessor/seq/elem.hpp \
-  /usr/include/boost/preprocessor/seq/limits/elem_256.hpp \
-  /usr/include/boost/preprocessor/seq/size.hpp \
-  /usr/include/boost/preprocessor/seq/limits/size_256.hpp \
-  /usr/include/boost/preprocessor/seq/detail/is_empty.hpp \
-  /usr/include/boost/preprocessor/seq/enum.hpp \
-  /usr/include/boost/preprocessor/seq/limits/enum_256.hpp \
-  /usr/include/boost/concept/detail/concept_undef.hpp \
-  /usr/include/boost/iterator/iterator_concepts.hpp \
-  /usr/include/boost/range/value_type.hpp \
-  /usr/include/boost/range/detail/misc_concept.hpp \
-  /usr/include/boost/type_traits/make_unsigned.hpp \
-  /usr/include/boost/type_traits/is_signed.hpp \
-  /usr/include/boost/type_traits/is_unsigned.hpp \
-  /usr/include/boost/type_traits/add_volatile.hpp \
-  /usr/include/boost/range/detail/has_member_size.hpp \
-  /usr/include/boost/utility.hpp \
-  /usr/include/boost/utility/base_from_member.hpp \
-  /usr/include/boost/preprocessor/repetition/enum_binary_params.hpp \
-  /usr/include/boost/preprocessor/repetition/repeat_from_to.hpp \
-  /usr/include/boost/utility/binary.hpp \
-  /usr/include/boost/preprocessor/control/deduce_d.hpp \
-  /usr/include/boost/preprocessor/seq/cat.hpp \
-  /usr/include/boost/preprocessor/seq/fold_left.hpp \
-  /usr/include/boost/preprocessor/seq/limits/fold_left_256.hpp \
-  /usr/include/boost/preprocessor/seq/transform.hpp \
-  /usr/include/boost/preprocessor/arithmetic/mod.hpp \
-  /usr/include/boost/preprocessor/arithmetic/detail/div_base.hpp \
-  /usr/include/boost/preprocessor/comparison/less_equal.hpp \
-  /usr/include/boost/preprocessor/arithmetic/detail/is_1_number.hpp \
-  /usr/include/boost/utility/identity_type.hpp \
-  /usr/include/boost/type_traits/function_traits.hpp \
-  /usr/include/boost/core/checked_delete.hpp \
-  /usr/include/boost/core/noncopyable.hpp \
-  /usr/include/boost/range/distance.hpp \
-  /usr/include/boost/iterator/distance.hpp \
-  /usr/include/boost/range/empty.hpp \
-  /usr/include/boost/range/rbegin.hpp \
-  /usr/include/boost/range/reverse_iterator.hpp \
-  /usr/include/boost/iterator/reverse_iterator.hpp \
-  /usr/include/boost/iterator/iterator_adaptor.hpp \
-  /usr/include/boost/range/rend.hpp \
-  /usr/include/boost/range/algorithm/equal.hpp \
-  /usr/include/boost/range/detail/safe_bool.hpp \
-  /usr/include/boost/next_prior.hpp \
-  /usr/include/boost/type_traits/has_plus.hpp \
-  /usr/include/boost/type_traits/detail/has_binary_operator.hpp \
-  /usr/include/boost/type_traits/make_void.hpp \
-  /usr/include/boost/type_traits/has_plus_assign.hpp \
-  /usr/include/boost/type_traits/has_minus.hpp \
-  /usr/include/boost/type_traits/has_minus_assign.hpp \
-  /usr/include/boost/iterator/advance.hpp \
-  /usr/include/boost/lexical_cast/bad_lexical_cast.hpp \
-  /usr/include/boost/lexical_cast/try_lexical_convert.hpp \
-  /usr/include/boost/type_traits/type_identity.hpp \
-  /usr/include/boost/lexical_cast/detail/is_character.hpp \
-  /usr/include/boost/lexical_cast/detail/converter_numeric.hpp \
-  /usr/include/boost/type_traits/is_base_of.hpp \
-  /usr/include/boost/type_traits/is_float.hpp \
-  /usr/include/boost/type_traits/remove_volatile.hpp \
-  /usr/include/boost/numeric/conversion/cast.hpp \
-  /usr/include/boost/type.hpp \
-  /usr/include/boost/numeric/conversion/converter.hpp \
-  /usr/include/boost/numeric/conversion/conversion_traits.hpp \
-  /usr/include/boost/numeric/conversion/detail/conversion_traits.hpp \
-  /usr/include/boost/numeric/conversion/detail/meta.hpp \
-  /usr/include/boost/mpl/equal_to.hpp \
-  /usr/include/boost/mpl/aux_/comparison_op.hpp \
-  /usr/include/boost/mpl/aux_/numeric_op.hpp \
-  /usr/include/boost/mpl/numeric_cast.hpp \
-  /usr/include/boost/mpl/tag.hpp \
-  /usr/include/boost/mpl/aux_/has_tag.hpp \
-  /usr/include/boost/mpl/aux_/numeric_cast_utils.hpp \
-  /usr/include/boost/mpl/aux_/config/forwarding.hpp \
-  /usr/include/boost/mpl/aux_/msvc_eti_base.hpp \
-  /usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp \
-  /usr/include/boost/numeric/conversion/detail/int_float_mixture.hpp \
-  /usr/include/boost/numeric/conversion/int_float_mixture_enum.hpp \
-  /usr/include/boost/numeric/conversion/detail/sign_mixture.hpp \
-  /usr/include/boost/numeric/conversion/sign_mixture_enum.hpp \
-  /usr/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp \
-  /usr/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp \
-  /usr/include/boost/numeric/conversion/detail/is_subranged.hpp \
-  /usr/include/boost/mpl/multiplies.hpp \
-  /usr/include/boost/mpl/times.hpp \
-  /usr/include/boost/mpl/aux_/arithmetic_op.hpp \
-  /usr/include/boost/mpl/integral_c.hpp \
-  /usr/include/boost/mpl/integral_c_fwd.hpp \
-  /usr/include/boost/mpl/aux_/largest_int.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/times.hpp \
-  /usr/include/boost/mpl/less.hpp \
-  /usr/include/boost/mpl/aux_/preprocessed/gcc/less.hpp \
-  /usr/include/boost/numeric/conversion/converter_policies.hpp \
-  /usr/include/boost/config/no_tr1/cmath.hpp \
-  /usr/include/boost/numeric/conversion/detail/converter.hpp \
-  /usr/include/boost/numeric/conversion/bounds.hpp \
-  /usr/include/boost/numeric/conversion/detail/bounds.hpp \
-  /usr/include/boost/numeric/conversion/numeric_cast_traits.hpp \
-  /usr/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp \
-  /usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp \
-  /usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp \
-  /usr/include/boost/lexical_cast/detail/converter_lexical.hpp \
-  /usr/include/boost/type_traits/has_left_shift.hpp \
-  /usr/include/boost/type_traits/has_right_shift.hpp \
-  /usr/include/boost/detail/lcast_precision.hpp \
-  /usr/include/boost/lexical_cast/detail/widest_char.hpp \
-  /usr/include/boost/array.hpp \
-  /usr/include/boost/core/swap.hpp \
-  /usr/include/boost/container/container_fwd.hpp \
-  /usr/include/boost/container/detail/std_fwd.hpp \
-  /usr/include/boost/move/detail/std_ns_begin.hpp \
-  /usr/include/boost/move/detail/std_ns_end.hpp \
-  /usr/include/boost/lexical_cast/detail/converter_lexical_streams.hpp \
-  /usr/include/boost/core/snprintf.hpp \
-  /usr/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
-  /usr/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
-  /usr/include/boost/lexical_cast/detail/inf_nan.hpp \
-  /usr/include/boost/core/cmath.hpp \
-  /usr/include/boost/detail/basic_pointerbuf.hpp \
-  /usr/include/boost/core/nvp.hpp \
-  /usr/include/boost/math/tools/complex.hpp \
-  /usr/include/boost/math/tools/is_detected.hpp \
-  /usr/include/boost/multiprecision/detail/check_cpp11_config.hpp \
-  /usr/include/boost/multiprecision/detail/digits.hpp \
-  /usr/include/boost/multiprecision/detail/generic_interconvert.hpp \
-  /usr/include/boost/multiprecision/detail/default_ops.hpp \
-  /usr/include/boost/multiprecision/traits/is_backend.hpp \
-  /usr/include/boost/multiprecision/detail/fpclassify.hpp \
-  /usr/include/boost/multiprecision/detail/float128_functions.hpp \
-  /usr/include/boost/cstdfloat.hpp \
-  /usr/include/boost/math/cstdfloat/cstdfloat_types.hpp \
-  /usr/include/c++/11/cfloat \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
-  /usr/include/boost/math/tools/config.hpp \
-  /usr/include/boost/math/tools/is_standalone.hpp \
-  /usr/include/boost/math/tools/user.hpp \
-  /usr/include/boost/math/cstdfloat/cstdfloat_limits.hpp \
-  /usr/include/boost/math/tools/nothrow.hpp \
-  /usr/include/boost/math/cstdfloat/cstdfloat_cmath.hpp \
-  /usr/include/c++/11/iostream \
-  /usr/include/boost/math/tools/assert.hpp \
-  /usr/include/boost/math/tools/throw_exception.hpp \
-  /usr/include/boost/math/cstdfloat/cstdfloat_iostream.hpp \
-  /usr/include/boost/math/cstdfloat/cstdfloat_complex.hpp \
-  /usr/include/boost/math/cstdfloat/cstdfloat_complex_std.hpp \
-  /usr/include/c++/11/complex \
-  /usr/include/boost/math/constants/constants.hpp \
-  /usr/include/boost/math/tools/cxx03_warn.hpp \
-  /usr/include/boost/math/policies/policy.hpp \
-  /usr/include/boost/math/tools/mp.hpp \
-  /usr/include/boost/math/tools/precision.hpp \
-  /usr/include/boost/math/tools/convert_from_string.hpp \
-  /usr/include/boost/math/constants/calculate_constants.hpp \
-  /usr/include/boost/math/special_functions/fpclassify.hpp \
-  /usr/include/boost/math/tools/real_cast.hpp \
-  /usr/include/boost/math/special_functions/math_fwd.hpp \
-  /usr/include/boost/math/special_functions/detail/round_fwd.hpp \
-  /usr/include/boost/math/tools/promotion.hpp \
-  /usr/include/boost/math/special_functions/detail/fp_traits.hpp \
-  /usr/include/boost/predef/other/endian.h \
-  /usr/include/boost/predef/version_number.h \
-  /usr/include/boost/predef/make.h \
-  /usr/include/boost/predef/detail/test.h \
-  /usr/include/boost/predef/library/c/gnu.h \
-  /usr/include/boost/predef/library/c/_prefix.h \
-  /usr/include/boost/predef/detail/_cassert.h \
-  /usr/include/c++/11/cassert \
-  /usr/include/boost/predef/os/macos.h \
-  /usr/include/boost/predef/os/ios.h \
-  /usr/include/boost/predef/os/bsd.h \
-  /usr/include/boost/predef/os/bsd/bsdi.h \
-  /usr/include/boost/predef/os/bsd/dragonfly.h \
-  /usr/include/boost/predef/os/bsd/free.h \
-  /usr/include/boost/predef/os/bsd/open.h \
-  /usr/include/boost/predef/os/bsd/net.h \
-  /usr/include/boost/predef/platform/android.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/quadmath.h \
-  /usr/include/boost/math/special_functions/next.hpp \
-  /usr/include/boost/math/policies/error_handling.hpp \
-  /usr/include/boost/math/special_functions/sign.hpp \
-  /usr/include/boost/math/special_functions/trunc.hpp \
-  /usr/include/boost/math/tools/traits.hpp \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
-  /usr/include/boost/math/special_functions/hypot.hpp \
-  /usr/include/boost/multiprecision/detail/functions/constants.hpp \
-  /usr/include/boost/multiprecision/detail/functions/pow.hpp \
-  /usr/include/boost/multiprecision/detail/functions/trig.hpp \
-  /usr/include/boost/multiprecision/detail/no_et_ops.hpp \
-  /usr/include/boost/multiprecision/detail/et_ops.hpp \
-  /usr/include/boost/multiprecision/detail/min_max.hpp \
-  /usr/include/boost/multiprecision/detail/functions/trunc.hpp \
-  /usr/include/boost/multiprecision/detail/number_compare.hpp \
-  /usr/include/boost/multiprecision/traits/is_restricted_conversion.hpp \
-  /usr/include/boost/multiprecision/traits/explicit_conversion.hpp \
-  /usr/include/boost/multiprecision/traits/is_complex.hpp \
-  /usr/include/boost/multiprecision/traits/is_convertible_arithmetic.hpp \
-  /usr/include/boost/multiprecision/detail/hash.hpp \
-  /usr/include/boost/multiprecision/detail/ublas_interop.hpp \
-  /usr/include/boost/multiprecision/detail/dynamic_array.hpp \
-  /usr/include/boost/multiprecision/detail/rebind.hpp \
-  /usr/include/boost/multiprecision/detail/itos.hpp \
-  /usr/include/boost/multiprecision/detail/static_array.hpp \
-  /usr/include/boost/multiprecision/detail/tables.hpp \
-  /usr/include/boost/math/special_functions/acosh.hpp \
-  /usr/include/boost/math/special_functions/log1p.hpp \
-  /usr/include/boost/math/tools/series.hpp \
-  /usr/include/boost/math/tools/rational.hpp \
-  /usr/include/boost/math/tools/detail/polynomial_horner3_20.hpp \
-  /usr/include/boost/math/tools/detail/rational_horner3_20.hpp \
-  /usr/include/boost/math/tools/big_constant.hpp \
-  /usr/include/boost/math/special_functions/asinh.hpp \
-  /usr/include/boost/math/special_functions/sqrt1pm1.hpp \
-  /usr/include/boost/math/special_functions/expm1.hpp \
-  /usr/include/boost/math/special_functions/atanh.hpp \
-  /usr/include/boost/math/special_functions/cbrt.hpp \
-  /usr/include/boost/math/special_functions/gamma.hpp \
-  /usr/include/boost/math/tools/fraction.hpp \
-  /usr/include/boost/math/special_functions/powm1.hpp \
-  /usr/include/boost/math/special_functions/lanczos.hpp \
-  /usr/include/boost/math/special_functions/detail/lanczos_sse2.hpp \
-  /usr/include/boost/math/special_functions/detail/igamma_large.hpp \
-  /usr/include/boost/math/special_functions/detail/unchecked_factorial.hpp \
-  /usr/include/boost/math/special_functions/detail/lgamma_small.hpp \
-  /usr/include/boost/math/special_functions/bernoulli.hpp \
-  /usr/include/boost/math/special_functions/detail/unchecked_bernoulli.hpp \
-  /usr/include/boost/math/special_functions/detail/bernoulli_details.hpp \
-  /usr/include/boost/math/tools/atomic.hpp \
-  /usr/include/boost/math/tools/toms748_solve.hpp \
-  /usr/include/c++/11/mutex \
-  /usr/include/c++/11/bits/unique_lock.h \
-  /usr/include/boost/math/special_functions/polygamma.hpp \
-  /usr/include/boost/math/special_functions/factorials.hpp \
-  /usr/include/boost/math/special_functions/detail/polygamma.hpp \
-  /usr/include/boost/math/special_functions/zeta.hpp \
-  /usr/include/boost/math/special_functions/sin_pi.hpp \
-  /usr/include/boost/math/special_functions/digamma.hpp \
-  /usr/include/boost/math/special_functions/cos_pi.hpp \
-  /usr/include/boost/math/special_functions/pow.hpp \
-  /usr/include/boost/math/special_functions/trigamma.hpp \
-  /usr/include/boost/math/special_functions/detail/igamma_inverse.hpp \
-  /usr/include/boost/math/tools/tuple.hpp \
-  /usr/include/boost/math/tools/roots.hpp \
-  /usr/include/boost/math/special_functions/detail/gamma_inva.hpp \
-  /usr/include/boost/math/special_functions/erf.hpp \
-  /usr/include/boost/math/special_functions/detail/erf_inv.hpp \
-  /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
-  /home/oster/Electrolisys/arithmetictree/include/types.h \
-  /home/oster/Electrolisys/arithmetictree/include/format.h \
-  /home/oster/Electrolisys/arithmetictree/include/domain.h \
-  /usr/include/c++/11/optional \
-  /home/oster/Electrolisys/arithmetictree/include/types/node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/serialize.h \
-  /usr/include/c++/11/fstream \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc \
-  /usr/include/c++/11/filesystem \
-  /usr/include/c++/11/bits/fs_fwd.h \
-  /usr/include/c++/11/bits/fs_path.h \
-  /usr/include/c++/11/codecvt \
-  /usr/include/c++/11/bits/fs_dir.h \
-  /usr/include/c++/11/bits/fs_ops.h \
+  ../../include/model/data_view_header.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  ../../include/kernel/application.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 
 CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -6153,6 +5540,8 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 ../../src/utilities/functionalities/sz_functions.cpp:
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView:
+
 ../../src/main.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h:
@@ -6195,13 +5584,13 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant:
 
 ../../include/varlist.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction:
+
+../../include/utilities/windows/settings.h:
 
 /usr/include/boost/preprocessor/logical/bool.hpp:
 
@@ -6637,6 +6026,10 @@ CMakeFiles/OsterMath.dir/src/varlist.cpp.o: ../../src/varlist.cpp \
 
 /usr/include/boost/mpl/integral_c_tag.hpp:
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox:
+
+/usr/include/boost/preprocessor/punctuation/comma.hpp:
+
 /usr/include/c++/11/bits/ranges_base.h:
 
 /usr/include/boost/utility/binary.hpp:
@@ -6862,8 +6255,6 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 /usr/include/c++/11/type_traits:
 
 /usr/include/boost/type_traits/conversion_traits.hpp:
-
-../../include/utilities/windows/settings.h:
 
 /usr/include/c++/11/tuple:
 
@@ -7797,10 +7188,6 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 
 /usr/include/boost/type_traits/remove_cv.hpp:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView:
-
-/usr/include/boost/core/addressof.hpp:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h:
 
 /usr/include/boost/type_traits/add_const.hpp:
@@ -7912,6 +7299,8 @@ OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp:
 /usr/include/boost/range/detail/implementation_help.hpp:
 
 /usr/include/boost/range/difference_type.hpp:
+
+../../include/model/data_view_header.h:
 
 /usr/include/boost/range/has_range_iterator.hpp:
 
@@ -8421,7 +7810,17 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 
 ../../include/utilities/validators/validator.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView:
+/usr/include/boost/core/addressof.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h:
+
+/usr/include/c++/11/bits/fs_ops.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox:
 
 /home/oster/Electrolisys/arithmetictree/include/data.h:
 
@@ -8447,12 +7846,6 @@ OsterMath_autogen/6YEA5652QU/moc_data_view.cpp:
 
 /usr/include/c++/11/bits/fs_dir.h:
 
-/usr/include/c++/11/bits/fs_ops.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox:
-
 OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp:
 
 /usr/include/boost/mpl/aux_/config/workaround.hpp:
@@ -8464,7 +7857,3 @@ OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp:
 OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp:
 
 OsterMath_autogen/6V6KTULG6S/moc_settings.cpp:
-
-/usr/include/boost/preprocessor/punctuation/comma.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox:

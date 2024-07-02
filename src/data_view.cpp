@@ -37,18 +37,8 @@ void VarExpressionView::expand_collapse(){
     expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
 }
 
-VarData::VarData(QWidget* parent, const QString& name, BaseData* data):
-    QTableView(parent),
-    data_(data)
-{}
-
-void VarData::rename(const QString& name) noexcept{
-    data_->set_name(name.toStdString());
-}
-
 Sheets::Sheets(QWidget* parent):
-    QTabWidget(parent),
-    data_pool(tr("Книга").toStdString())
+    QTabWidget(parent)
 {
     __load_settings__();
     for(int i=0;i<3;++i)
@@ -56,8 +46,7 @@ Sheets::Sheets(QWidget* parent):
 }
 
 Sheets::Sheets(QWidget* parent, const QString& name):
-    QTabWidget(parent),
-    data_pool(name.toStdString())
+    QTabWidget(parent)
 {
     __load_settings__();
 }
@@ -66,12 +55,15 @@ Sheets::~Sheets(){
     __save_settings__();
 }
 
+#include "data.h"
+#include "model/dataviewmodel.h"
+
 void Sheets::rename(const QString& name){
-    data_pool.set_name(name.toStdString());
+    kernel::Application::get_active_pool()->set_name(name.toStdString());
 }
 
 void Sheets::erase_sheet(const QString& name) noexcept{
-    data_pool.erase(name.toStdString());
+    kernel::Application::get_active_pool()->erase(name.toStdString());
 }
 
 void Sheets::change_sheet_name(QString&& name, int tab_id){
@@ -89,11 +81,12 @@ void Sheets::change_sheet_name(QString&& name, int tab_id){
 }
 
 void Sheets::add_default_sheet(){
-    QString new_name = tr("Лист"+QString::number(data_pool.size()+1).toUtf8());
-    this->addTab(new VarData(this,
-                             new_name,
-                             data_pool.add_data(new_name.toStdString())),
-                 new_name);
+    QString new_name = tr("Лист"+QString::number(kernel::Application::get_active_pool()->size()+1).toUtf8());
+    this->addTab(new QTableView(this),new_name);
+}
+
+void Sheets::set_new_model(QAbstractTableModel *model){
+    qobject_cast<QTableView*>(widget(currentIndex()))->setModel(model);
 }
 
 void Sheets::__load_settings__(){
@@ -110,4 +103,8 @@ void Sheets::__save_settings__(){
         sets_->setValue("geometry",geometry());
         setPalette(Themes::Palette::get());
     sets_->endGroup();
+}
+
+void VarDataView::open_var_data() const{
+
 }
