@@ -4,7 +4,7 @@
 namespace model{
 
 VarData::VarData(QWidget* parent, VariableBase* var):
-    QAbstractTableModel(parent),
+    QAbstractItemModel(parent),
     var_(var)
 {
     if(var->is_array())
@@ -40,5 +40,32 @@ QVariant VarData::data(const QModelIndex &index, int role) const{
 
     }
     else return QVariant();
+}
+
+bool VarData::setData(const QModelIndex &index, const QVariant &value, int role){
+
+}
+Qt::ItemFlags VarData::flags(const QModelIndex &index) const{
+    Qt::ItemFlags flags = QAbstractItemModel::flags(index);
+    if(index.isValid()){
+        if(index.data(Qt::EditRole).value<TYPE_VAL>()&(ARRAY|NUMERIC_ARRAY|STRING_ARRAY))
+            return flags | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+        else
+            return flags | Qt::ItemNeverHasChildren | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+    }
+    return flags;
+}
+
+bool VarData::hasChildren(const QModelIndex &parent) const{
+    if(!parent.isValid())
+        return false;
+    else
+        return
+}
+bool VarData::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
+
+}
+bool VarData::setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles){
+
 }
 }

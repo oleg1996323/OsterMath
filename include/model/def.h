@@ -79,7 +79,9 @@ std::vector<std::vector<Node*>> get_table_data(ArrayNode* root){
         std::vector<std::vector<size_t>> vector_sizes;
         std::function<void(std::vector<std::vector<size_t>>&)> def2Dvector;
         def2Dvector = [&def2Dvector,&measure](std::vector<std::vector<size_t>>& vector_sizes){
-            for(auto child:measure.childs_)
+            for(auto child:measure.childs_){
+
+            }
         };
     }
     std::vector<std::vector<Node*>> data;
