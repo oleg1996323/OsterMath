@@ -10,18 +10,25 @@
 
 namespace model{
 
-class VarData:public QAbstractItemModel{
+class DataView:public QAbstractItemModel{
+    struct SubNodes{
+        SubNodes(const SubNodes&) = default;
+        int id_;
+        Node* node_;
+        QList<SubNodes> openned_;
+    };
+
 public:
     enum MODE_REPRESENTATION{
         Table,
         Sequential
     };
 
-    VarData(QWidget* parent, VariableBase* var);
+    DataView(QWidget* parent, Node* var);
 
     void rename(const QString& name) noexcept;
-    void set_representable_variable(VariableBase*);
-    void reset_representable_variable();
+    void set_representable_node(Node*);
+    void reset_representable_node();
 
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     virtual int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -33,8 +40,9 @@ public:
     virtual bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles) override;
 
 private:
+    QList<SubNodes> openned_;
     ChildsMeasure measure_;
-    VariableBase* var_ = nullptr;
+    Node* node_ = nullptr;
     MODE_REPRESENTATION mode_;
 };
 }
