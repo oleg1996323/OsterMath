@@ -7,7 +7,9 @@ namespace model{
 DataView::DataView(QWidget* parent, Node* node):
     QAbstractItemModel(parent),
     node_(node)
-{}
+{
+
+}
 
 int DataView::rowCount(const QModelIndex &parent) const{
     unsigned long row = 0;
@@ -28,6 +30,7 @@ int DataView::rowCount(const QModelIndex &parent) const{
         for(auto subnode:openned_)
             recurse(subnode);
         }
+
     }
     return row;
 }
@@ -80,6 +83,7 @@ QVariant DataView::data(const QModelIndex &index, int role) const{
     switch(role){
     case(Qt::DisplayRole):
 
+        break;
     case(Qt::EditRole):
 
         break;

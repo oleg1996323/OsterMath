@@ -42,6 +42,7 @@ public:
 private:
     QList<SubNodes> openned_;
     ChildsMeasure measure_;
+    std::unique_ptr<DataView> child_;
     Node* node_ = nullptr;
     MODE_REPRESENTATION mode_;
 };
