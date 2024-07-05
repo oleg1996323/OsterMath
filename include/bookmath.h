@@ -33,8 +33,7 @@ private:
     VarList::DockWidget* var_list_;
 
     //main widgets
-    VarDataView *centralwidget;
-    QVBoxLayout* central_widget_layout_;
+    DataViewSplit *centralwidget;
 
     //menu items
     QMenuBar *menubar;

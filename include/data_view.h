@@ -42,6 +42,9 @@ private slots:
 };
 
 #include <QMessageBox>
+#include "model/data_view_header.h"
+#include "model/dataview_delegate.h"
+#include "model/dataviewmodel.h"
 
 class Sheets:public QTabWidget{
     Q_OBJECT
@@ -71,13 +74,14 @@ private:
     void __init__(){
         setTabPosition(QTabWidget::South);
     }
+    model::DataViewDelegate* delegate_;
+    model::DataViewHeader* header_;
 };
 
-class VarDataView:public QSplitter{
+class DataViewSplit:public QSplitter{
     Q_OBJECT
 public:
-    VarDataView(QWidget* parent):QSplitter(Qt::Vertical,parent){
-
+    DataViewSplit(QWidget* parent):QSplitter(Qt::Vertical,parent){
         expression_view_ = new VarExpressionView(this);
         data_ = new Sheets(this);
         addWidget(expression_view_);
@@ -89,9 +93,6 @@ public:
         this->setSizes({20,data_->maximumHeight()});
 
     }
-
-public slots:
-    void open_var_data() const;
 
 private:
     Sheets* data_;

@@ -1007,14 +1007,14 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/data_view_header.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
- /home/oster/Electrolisys/arithmetictree/include/data.h \
- /usr/include/c++/11/unordered_set \
- /usr/include/c++/11/bits/unordered_set.h /usr/include/c++/11/deque \
- /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
- /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
+ /home/oster/OsterMath/include/model/def.h \
  /home/oster/Electrolisys/arithmetictree/include/types.h \
+ /usr/include/c++/11/unordered_set \
+ /usr/include/c++/11/bits/unordered_set.h \
+ /home/oster/Electrolisys/arithmetictree/include/data.h \
+ /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
+ /usr/include/c++/11/bits/deque.tcc \
+ /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
  /home/oster/Electrolisys/arithmetictree/include/format.h \
  /home/oster/Electrolisys/arithmetictree/include/domain.h \
  /usr/include/c++/11/optional \
@@ -1028,6 +1028,15 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
  /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
  /usr/include/c++/11/bits/fs_ops.h \
+ /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
+ /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
@@ -1063,14 +1072,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
- /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
- /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
- /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
- /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
- /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
- /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
- /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/exception/exception.h \
- /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
- /home/oster/OsterMath/include/model/def.h
+ /home/oster/Electrolisys/arithmetictree/include/exception/exception.h

@@ -86,7 +86,7 @@ void BookMath::__define_menu__(){
 }
 
 void BookMath::__define_data_view__(){
-    centralwidget = new VarDataView(this);
+    centralwidget = new DataViewSplit(this);
 
     centralwidget->setObjectName(QString::fromUtf8("mainwidget"));
     centralwidget->setContentsMargins(0, 0, 0, 0);

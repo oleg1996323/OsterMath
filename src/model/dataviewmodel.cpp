@@ -11,59 +11,72 @@ DataView::DataView(QWidget* parent, Node* node):
 
 }
 
-int DataView::rowCount(const QModelIndex &parent) const{
-    unsigned long row = 0;
-    switch(mode_){
-    case(MODE_REPRESENTATION::Sequential):{
-        return 1;
-        break;
-    }
-    case(MODE_REPRESENTATION::Table):{
-        std::function<void(const SubNodes&)> recurse = [&row, &recurse](const SubNodes& subnode_loc){
-            if(!subnode_loc.openned_.empty())
-                for(auto child_subnode:subnode_loc.openned_)
-                    recurse(child_subnode);
-            else{
-                row+=subnode_loc.node_->childs().size();
-            }
-        };
-        for(auto subnode:openned_)
-            recurse(subnode);
-        }
+//int DataView::rowCount(const QModelIndex &parent) const{
+//    unsigned long row = 0;
+//    switch(mode_){
+//    case(MODE_REPRESENTATION::Sequential):{
+//        return 1;
+//        break;
+//    }
+//    case(MODE_REPRESENTATION::Table):{
+//        std::function<void(const SubNodes&)> recurse = [&row, &recurse](const SubNodes& subnode_loc){
+//            if(!subnode_loc.openned_.empty())
+//                for(auto child_subnode:subnode_loc.openned_)
+//                    recurse(child_subnode);
+//            else{
+//                row+=subnode_loc.node_->childs().size();
+//            }
+//        };
+//        for(auto subnode:openned_)
+//            recurse(subnode);
+//        }
 
-    }
-    return row;
+//    }
+//    return row;
+//}
+
+//int DataView::columnCount(const QModelIndex &parent) const{
+//    unsigned long col = 0;
+//    switch(mode_){
+//    case(MODE_REPRESENTATION::Sequential):{
+//        std::function<void(const SubNodes&)> recurse = [&col, &recurse](const SubNodes& subnode_loc){
+//            if(subnode_loc.openned_.empty())
+//                col+=subnode_loc.node_->childs().size();
+//            else
+//                for(auto child_subnode:subnode_loc.openned_)
+//                    recurse(child_subnode);
+//        };
+//        for(auto subnode:openned_)
+//            recurse(subnode);
+//    }
+//    case(MODE_REPRESENTATION::Table):{
+//        std::function<void(const SubNodes&)> recurse = [&col, &recurse](const SubNodes& subnode_loc){
+//            if(!subnode_loc.openned_.empty())
+//                for(auto child_subnode:subnode_loc.openned_)
+//                    recurse(child_subnode);
+//            else{
+//                if(subnode_loc.node_->has_parents())
+//                    col+=(*subnode_loc.node_->parents().begin())->childs().size();
+//            }
+//        };
+//        for(auto subnode:openned_)
+//            recurse(subnode);
+//    }
+//    }
+//    return col;
+//}
+
+int DataView::rowCount(const QModelIndex &parent) const{
+    auto max = std::max_element(node_->childs().begin(),node_->childs().end(),[](std::shared_ptr<Node>& lhs, std::shared_ptr<Node>& rhs){
+        return lhs->childs().size()<rhs->childs().size();
+    });
+    if(max==node_->childs().end())
+        return 1;
+    else return (*max)->childs().size();
 }
 
 int DataView::columnCount(const QModelIndex &parent) const{
-    unsigned long col = 0;
-    switch(mode_){
-    case(MODE_REPRESENTATION::Sequential):{
-        std::function<void(const SubNodes&)> recurse = [&col, &recurse](const SubNodes& subnode_loc){
-            if(subnode_loc.openned_.empty())
-                col+=subnode_loc.node_->childs().size();
-            else
-                for(auto child_subnode:subnode_loc.openned_)
-                    recurse(child_subnode);
-        };
-        for(auto subnode:openned_)
-            recurse(subnode);
-    }
-    case(MODE_REPRESENTATION::Table):{
-        std::function<void(const SubNodes&)> recurse = [&col, &recurse](const SubNodes& subnode_loc){
-            if(!subnode_loc.openned_.empty())
-                for(auto child_subnode:subnode_loc.openned_)
-                    recurse(child_subnode);
-            else{
-                if(subnode_loc.node_->has_parents())
-                    col+=(*subnode_loc.node_->parents().begin())->childs().size();
-            }
-        };
-        for(auto subnode:openned_)
-            recurse(subnode);
-    }
-    }
-    return col;
+    return node_ -> childs().size();
 }
 
 void DataView::set_representable_node(Node* node){

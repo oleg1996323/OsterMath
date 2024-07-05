@@ -1,5 +1,6 @@
 /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp: /home/oster/OsterMath/include/bookmath.h \
   /home/oster/OsterMath/build/Debug/OsterMath_autogen/moc_predefs.h \
+  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /home/oster/Electrolisys/arithmetictree/include/def.h \
   /home/oster/Electrolisys/arithmetictree/include/domain.h \
@@ -7,8 +8,14 @@
   /home/oster/Electrolisys/arithmetictree/include/format.h \
   /home/oster/Electrolisys/arithmetictree/include/serialize.h \
   /home/oster/Electrolisys/arithmetictree/include/types.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
   /home/oster/OsterMath/include/booktoolbar.h \
   /home/oster/OsterMath/include/data_view.h \
   /home/oster/OsterMath/include/kernel/application.h \
@@ -17,6 +24,7 @@
   /home/oster/OsterMath/include/kernel/settings.h \
   /home/oster/OsterMath/include/kernel/styles.h \
   /home/oster/OsterMath/include/model/data_view_header.h \
+  /home/oster/OsterMath/include/model/def.h \
   /home/oster/OsterMath/include/toolbartabs.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /home/oster/OsterMath/include/utilities/validators/validator.h \

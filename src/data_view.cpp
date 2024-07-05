@@ -104,7 +104,3 @@ void Sheets::__save_settings__(){
         setPalette(Themes::Palette::get());
     sets_->endGroup();
 }
-
-void VarDataView::open_var_data() const{
-
-}
