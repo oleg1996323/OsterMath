@@ -11,13 +11,17 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp" "CMakeFiles/OsterMath.dir/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp.o.d"
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/mocs_compilation.cpp" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o.d"
   "/home/oster/OsterMath/src/bookmath.cpp" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
-  "/home/oster/OsterMath/src/data_view.cpp" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
-  "/home/oster/OsterMath/src/expression_view.cpp" "CMakeFiles/OsterMath.dir/src/expression_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/expression_view.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/expr_view_splitter.cpp" "CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/expression_view.cpp" "CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/model_data/modeldataview.cpp" "CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/sheets.cpp" "CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/tabwidgetdataview.cpp" "CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/variable_list/dock.cpp" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/variable_list/search_line.cpp" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/search_line.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/search_line.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/variable_list/table.cpp" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/table.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/table.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/variable_list/titlebar.cpp" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o.d"
   "/home/oster/OsterMath/src/main.cpp" "CMakeFiles/OsterMath.dir/src/main.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"
-  "/home/oster/OsterMath/src/modeldataview.cpp" "CMakeFiles/OsterMath.dir/src/modeldataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/modeldataview.cpp.o.d"
   "/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp" "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o.d"
-  "/home/oster/OsterMath/src/varlist.cpp" "CMakeFiles/OsterMath.dir/src/varlist.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/varlist.cpp.o.d"
-  "/home/oster/OsterMath/src/view.cpp" "CMakeFiles/OsterMath.dir/src/view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/view.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -1,19 +1,16 @@
 #pragma once
-#include "kernel/application.h"
 #include <QMainWindow>
 #include <QVBoxLayout>
-#include "kernel/styles.h"
 #include "def.h"
-#include "booktoolbar.h"
-#include "utilities/windows/createnew.h"
-#include "utilities/windows/opennew.h"
-#include "data_view.h"
+#include "kernel/application.h"
+#include "menuwidgets/booktoolbar.h"
+#include "utilities/windows.h"
+#include "dataview/expr_view_splitter.h"
 #include "data.h"
 
 namespace VarList{
     class DockWidget;
 }
-
 
 class BookMath : public QMainWindow, public Retranslatable, public ObjectFromSettings
 {
@@ -24,12 +21,14 @@ public:
 
     virtual void retranslate() override;
 
+    dataview::Sheets* get_sheets_handler() const;
+
 private:
     std::unique_ptr<DataPool> pool_;
 
     //main widgets
 
-    DataViewSplit *centralwidget;
+    dataview::DataViewSplit *centralwidget;
 
     //menu items
     QMenuBar *menubar;

@@ -87,33 +87,69 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/booktoolbar.h",
+			"/home/oster/OsterMath/include/dataview/expr_view_splitter.h",
 			"MU",
-			"6YEA5652QU/moc_booktoolbar.cpp",
+			"FWWZ35XHKZ/moc_expr_view_splitter.cpp",
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/data_view.h",
+			"/home/oster/OsterMath/include/dataview/expression_view.h",
 			"MU",
-			"6YEA5652QU/moc_data_view.cpp",
+			"FWWZ35XHKZ/moc_expression_view.cpp",
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/expression_view.h",
+			"/home/oster/OsterMath/include/dataview/model_data/nodedataview.h",
 			"MU",
-			"6YEA5652QU/moc_expression_view.cpp",
+			"TBKUEERFDP/moc_nodedataview.cpp",
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/modeldataview.h",
+			"/home/oster/OsterMath/include/dataview/sheets.h",
 			"MU",
-			"6YEA5652QU/moc_modeldataview.cpp",
+			"FWWZ35XHKZ/moc_sheets.cpp",
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/toolbartabs.h",
+			"/home/oster/OsterMath/include/dataview/tabwidgetdataview.h",
 			"MU",
-			"6YEA5652QU/moc_toolbartabs.cpp",
+			"FWWZ35XHKZ/moc_tabwidgetdataview.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/variable_list/dock.h",
+			"MU",
+			"VEZS5EH527/moc_dock.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/variable_list/search_line.h",
+			"MU",
+			"VEZS5EH527/moc_search_line.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/variable_list/table.h",
+			"MU",
+			"VEZS5EH527/moc_table.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/variable_list/titlebar.h",
+			"MU",
+			"VEZS5EH527/moc_titlebar.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/menuwidgets/booktoolbar.h",
+			"MU",
+			"6Q6C4MVPTR/moc_booktoolbar.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/menuwidgets/toolbartabs.h",
+			"MU",
+			"6Q6C4MVPTR/moc_toolbartabs.cpp",
 			null
 		],
 		[
@@ -147,6 +183,12 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/utilities/windows.h",
+			"MU",
+			"RKC3QKYJT2/moc_windows.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/utilities/windows/createnew.h",
 			"MU",
 			"6V6KTULG6S/moc_createnew.cpp",
@@ -168,18 +210,6 @@
 			"/home/oster/OsterMath/include/utilities/windows/windef.h",
 			"MU",
 			"6V6KTULG6S/moc_windef.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/varlist.h",
-			"MU",
-			"6YEA5652QU/moc_varlist.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/view.h",
-			"MU",
-			"6YEA5652QU/moc_view.cpp",
 			null
 		]
 	],
@@ -239,7 +269,7 @@
 		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 6,
+	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
@@ -249,17 +279,49 @@
 	"SOURCES" : 
 	[
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/data_view.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/expression_view.cpp", "MU", null ],
+		[
+			"/home/oster/OsterMath/src/dataview/expr_view_splitter.cpp",
+			"MU",
+			null
+		],
+		[ "/home/oster/OsterMath/src/dataview/expression_view.cpp", "MU", null ],
+		[
+			"/home/oster/OsterMath/src/dataview/model_data/modeldataview.cpp",
+			"MU",
+			null
+		],
+		[ "/home/oster/OsterMath/src/dataview/sheets.cpp", "MU", null ],
+		[
+			"/home/oster/OsterMath/src/dataview/tabwidgetdataview.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/variable_list/dock.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/variable_list/search_line.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/variable_list/table.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/variable_list/titlebar.cpp",
+			"MU",
+			null
+		],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/modeldataview.cpp", "MU", null ],
 		[
 			"/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp",
 			"MU",
 			null
-		],
-		[ "/home/oster/OsterMath/src/varlist.cpp", "MU", null ],
-		[ "/home/oster/OsterMath/src/view.cpp", "MU", null ]
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "/home/oster/OsterMath/ui" ],

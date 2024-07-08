@@ -1,6 +1,5 @@
 #pragma once
-#include <QTextEdit>
-#include <QTableWidget>
+#include <QTabWidget>
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QSplitter>
@@ -12,10 +11,12 @@
 #include "utilities/validators/validator.h"
 #include "model/data_view_header.h"
 #include "kernel/application.h"
+#include "dataview/tabwidgetdataview.h"
+#include "model/manager.h"
 
 #include <QMessageBox>
-#include "view.h"
 
+namespace dataview{
 class Sheets:public QTabWidget{
     Q_OBJECT
 public:
@@ -28,6 +29,8 @@ public:
     virtual void tabRemoved(int index) override;
 
     void rename(const QString& name);
+
+    void init_new_pool();
 
     void erase_sheet(const QString& name) noexcept;
 
@@ -47,37 +50,7 @@ private:
         setTabPosition(QTabWidget::South);
     }
 
-    QList<QTableView*> sheets_;
+    model::Manager manager_;
     QList<View*> var_lists_;
 };
-
-#include "expression_view.h"
-
-class DataViewSplit:public QSplitter{
-    Q_OBJECT
-public:
-    DataViewSplit(QWidget* parent):QSplitter(Qt::Vertical,parent){
-        setObjectName("MainDataView");
-        __define_view__();
-    }
-
-public slots:
-    void show_variable_list();
-
-private:
-
-    void __define_view__();
-
-    void __define_signals_slots__();
-
-    void __load_settings__();
-
-    void __save_settings__();
-
-    void __load_styles__();
-
-    Sheets* data_;
-    VarExpressionView* expression_view_;
-};
-
-
+}

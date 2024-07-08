@@ -1,5 +1,9 @@
 #pragma once
+#include <QHBoxLayout>
+#include <QTextEdit>
 #include <utilities/custom_widgets/buttons.h>
+
+namespace dataview{
 
 class ExpressionButton:public IconedButton{
     Q_OBJECT
@@ -26,3 +30,4 @@ private:
 private slots:
     void expand_collapse();
 };
+}

@@ -1,7 +1,4 @@
 #include "bookmath.h"
-//#include "./ui_bookmath.h"
-#include "varlist.h"
-//#include "./ui_var_list.h"
 #include "utilities/functionalities/sz_functions.h"
 #include <QScreen>
 #include <QStatusBar>
@@ -84,7 +81,7 @@ void BookMath::__define_menu__(){
 }
 
 void BookMath::__define_data_view__(){
-    centralwidget = new DataViewSplit(this);
+    centralwidget = new model::dataview::DataViewSplit(this);
 
     centralwidget->setObjectName(QString::fromUtf8("mainwidget"));
     centralwidget->setContentsMargins(0, 0, 0, 0);
@@ -107,6 +104,10 @@ void BookMath::retranslate(){
     view_menu->setTitle(QObject::tr("View"));
 
     //label_var_list->setText(QCoreApplication::translate("BookMath", "\320\237\320\265\321\200\320\265\320\274\320\265\320\275\320\275\321\213\320\265", nullptr));
+}
+
+dataview::Sheets* BookMath::get_sheets_handler() const{
+    return centralwidget->sheets();
 }
 
 void BookMath::create_new_book(){

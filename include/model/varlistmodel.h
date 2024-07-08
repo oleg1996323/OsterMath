@@ -59,7 +59,9 @@ public:
 
     Variables(QObject* parent, BaseData* data_base);
 
-    ~Variables() = default;
+    ~Variables(){
+        disconnectNotify();
+    }
 
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 

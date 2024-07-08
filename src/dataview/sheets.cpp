@@ -1,41 +1,7 @@
-#include "data_view.h"
-#include "kernel/settings.h"
+#include "dataview/sheets.h"
+#include "kernel/application.h"
 
-VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
-    this->setContentsMargins(0,0,0,0);
-    layout_ = new QHBoxLayout(this);
-    layout_->setContentsMargins(0,0,0,0);
-    layout_->setSpacing(0);
-
-    expression_ = new QTextEdit(this);
-    expression_->setObjectName("expression"+parent->objectName());
-    expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
-    expression_->setMinimumHeight(QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-    expression_->setGeometry(pos().x(),pos().y(),width(),QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-    qDebug()<<QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom();
-
-    formula_expl_ = new ExpressionButton(":booktool/icons/expr.png",this);
-    formula_expl_->setObjectName("formula_expl"+parent->objectName());
-
-    expand_collapse_expl_ = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,":common/common/expandexpr.png",":common/common/collapseexpr.png",this);
-    expand_collapse_expl_->setObjectName("expand_collapse_expl"+parent->objectName());
-    expand_collapse_expl_->setFixedSize(45,45);
-
-    layout_->addWidget(formula_expl_);
-    layout_->addWidget(expression_);
-    layout_->addWidget(expand_collapse_expl_);
-    layout_->setAlignment(formula_expl_,Qt::AlignTop);
-    layout_->setAlignment(expression_,Qt::AlignTop);
-    layout_->setAlignment(expand_collapse_expl_,Qt::AlignTop);
-
-    layout_->setSizeConstraint(QHBoxLayout::SizeConstraint::SetMinimumSize);
-
-    this->setLayout(layout_);
-}
-
-void VarExpressionView::expand_collapse(){
-    expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
-}
+namespace dataview{
 
 Sheets::Sheets(QWidget* parent):
     QTabWidget(parent)
@@ -57,6 +23,11 @@ Sheets::~Sheets(){
 
 #include "data.h"
 #include "model/dataviewmodel.h"
+
+void Sheets::init_new_pool(){
+    if(kernel::Application::get_active_pool())
+        manager_.clear();
+}
 
 void Sheets::rename(const QString& name){
     kernel::Application::get_active_pool()->set_name(name.toStdString());
@@ -91,16 +62,16 @@ void Sheets::add_default_sheet(){
 void Sheets::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup("widget/sheetstab");
-        this->setGeometry(sets_->value("geometry").toRect());
-        setPalette(Themes::Palette::get());
+    this->setGeometry(sets_->value("geometry").toRect());
+    setPalette(Themes::Palette::get());
     sets_->endGroup();
 }
 
 void Sheets::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup("sheetstab");
-        sets_->setValue("geometry",geometry());
-        setPalette(Themes::Palette::get());
+    sets_->setValue("geometry",geometry());
+    setPalette(Themes::Palette::get());
     sets_->endGroup();
 }
 
@@ -114,4 +85,5 @@ void DataViewSplit::__define_view__(){
     setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     data_->setObjectName("data_view");
     this->setSizes({20,data_->maximumHeight()});
+}
 }

@@ -24,6 +24,10 @@ public:
         Sequential
     };
 
+    ~DataView(){
+        disconnectNotify();
+    }
+
     DataView(QObject* parent);
 
     void rename(const QString& name) noexcept;

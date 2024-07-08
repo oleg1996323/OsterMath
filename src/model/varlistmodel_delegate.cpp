@@ -11,7 +11,6 @@
 #include "model/exception/exception.h"
 #include "model/varlistmodel.h"
 #include "kernel/application.h"
-#include "bookmath.h"
 
 namespace model{
 
