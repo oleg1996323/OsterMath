@@ -1008,6 +1008,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
  /home/oster/OsterMath/include/model/def.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
  /home/oster/Electrolisys/arithmetictree/include/types.h \
  /usr/include/c++/11/unordered_set \
  /usr/include/c++/11/bits/unordered_set.h \
@@ -1037,6 +1039,29 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/dataview_delegate.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/exception/exception.h \
+ /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/dataviewmodel.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
+ /usr/include/c++/11/stack /usr/include/c++/11/bits/stl_stack.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_data_view.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/moc_toolbartabs.cpp \
@@ -1045,8 +1070,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_settings.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/../../../../include/utilities/windows/settings.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
  /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \
@@ -1056,22 +1079,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QShowEvent \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/varlistmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/exception/exception.h \
- /home/oster/Electrolisys/arithmetictree/include/exception/exception.h
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/model/varlistmodel.h

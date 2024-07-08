@@ -32,6 +32,7 @@ namespace kernel{
             static Themes::TYPE style_theme;
             static QLocale::Language lang_;
             static uint8_t font_size_inc;
+            static bool var_list_showed_;
         public:
             static void init_settings();
 
@@ -48,6 +49,10 @@ namespace kernel{
             static void __save_settings__();
 
             static void __load_settings__();
+
+            static bool variable_list_showed();
+
+            static void set_variable_list_showed(bool);
         };
 
         class Project{

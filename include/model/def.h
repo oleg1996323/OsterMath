@@ -1,6 +1,9 @@
 #pragma once
+#include <QMetaType>
+#include <QObject>
 #include "types.h"
 #include "arithmetic_types.h"
+#include "data.h"
 
 namespace model{
 enum class HEADER{
@@ -9,6 +12,18 @@ enum class HEADER{
     VALUE,
     EXPRESSION,
     REMARK
+};
+
+class DataView;
+class Variables;
+
+class Data{
+public:
+    Data(QObject* parent, BaseData* data);
+    Data(Data&& other) = default;
+
+    std::unique_ptr<DataView> data_model;
+    std::unique_ptr<Variables> var_model;
 };
 
 struct ChildsMeasure{
@@ -33,3 +48,10 @@ std::vector<std::vector<Node*>> get_table_data(std::vector<std::vector<Node*>>& 
 
 std::vector<std::vector<Node*>> get_table_data(ArrayNode* root);
 }
+
+Q_DECLARE_METATYPE(TYPE_VAL)
+Q_DECLARE_METATYPE(model::HEADER)
+Q_DECLARE_METATYPE(std::string)
+Q_DECLARE_METATYPE(Value_t)
+Q_DECLARE_METATYPE(Node*)
+Q_DECLARE_METATYPE(VariableBase*)

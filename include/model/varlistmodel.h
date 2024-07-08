@@ -24,9 +24,6 @@
 #include "exception/exception.h"
 #include "model/def.h"
 
-Q_DECLARE_METATYPE(Node*)
-Q_DECLARE_METATYPE(VariableBase*)
-
 #if defined _WIN32 || defined __CYGWIN__ || defined __MINGW32__
     #ifdef MODEL_SHARED
         #ifdef __GNUC__
@@ -60,9 +57,7 @@ public:
         exceptions::EXCEPTION_TYPE err_;
     };
 
-    Variables(QWidget* obj);
-
-    Variables(QWidget* obj, BaseData* data_base);
+    Variables(QObject* parent, BaseData* data_base);
 
     ~Variables() = default;
 
@@ -109,8 +104,3 @@ private:
 };
 
 }
-
-Q_DECLARE_METATYPE(TYPE_VAL)
-Q_DECLARE_METATYPE(model::HEADER)
-Q_DECLARE_METATYPE(std::string)
-Q_DECLARE_METATYPE(Value_t)

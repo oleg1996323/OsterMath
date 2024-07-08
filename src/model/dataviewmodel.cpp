@@ -4,9 +4,8 @@
 
 namespace model{
 
-DataView::DataView(QWidget* parent, Node* node):
-    QAbstractItemModel(parent),
-    node_(node)
+DataView::DataView(QObject* parent):
+    QAbstractItemModel(parent)
 {
 
 }
@@ -67,25 +66,31 @@ DataView::DataView(QWidget* parent, Node* node):
 //}
 
 int DataView::rowCount(const QModelIndex &parent) const{
-    auto max = std::max_element(node_->childs().begin(),node_->childs().end(),[](std::shared_ptr<Node>& lhs, std::shared_ptr<Node>& rhs){
+    auto max = std::max_element(sequence_node_.back()->childs().begin(),sequence_node_.back()->childs().end(),[](const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs){
         return lhs->childs().size()<rhs->childs().size();
     });
-    if(max==node_->childs().end())
+    if(max==sequence_node_.back()->childs().end())
         return 1;
     else return (*max)->childs().size();
 }
 
 int DataView::columnCount(const QModelIndex &parent) const{
-    return node_ -> childs().size();
+    return sequence_node_.back()->childs().size();
 }
 
 void DataView::set_representable_node(Node* node){
-    node_ = node;
+    sequence_node_.clear();
+    sequence_node_.push_back(node);
     emit dataChanged(createIndex(0,0),createIndex(0,columnCount()));
 }
 
+void DataView::set_representable_child_node(size_t id){
+    if(sequence_node_.back()->has_child(id))
+        sequence_node_.push_back(sequence_node_.back()->child(id).get());
+}
+
 void DataView::reset_representable_node(){
-    node_ = nullptr;
+    sequence_node_.pop_back();
     emit dataChanged(createIndex(0,0),createIndex(0,columnCount()));
 }
 
@@ -132,4 +137,36 @@ bool DataView::setHeaderData(int section, Qt::Orientation orientation, const QVa
 bool DataView::setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles){
 
 }
+
+QModelIndex DataView::index(int row, int column, const QModelIndex &parent) const{
+    if(row>0 && column>0){
+        Node* parent_node = static_cast<Node*>(parent.internalPointer());
+        if(parent_node){
+            if(mode_&MODE_REPRESENTATION::Sequential){
+                if(parent_node->has_child(column))
+                    return createIndex(1,column,parent_node->child(column).get());
+                else
+                    return QModelIndex();
+            }
+            else{
+                if(parent_node->has_child(column) && parent_node->child(column)->has_child(row))
+                    return createIndex(row,column,parent_node->child(column)->child(row).get());
+                else return QModelIndex();
+            }
+        }
+        else{
+            return QModelIndex();
+        }
+    }
+}
+
+QModelIndex DataView::parent(const QModelIndex &child) const{
+    Node* child_node = static_cast<Node*>(child.internalPointer());
+    if(child_node && child_node->has_parents()){
+        Node* parent = (*child_node->parents().begin());
+        return createIndex(0,0,parent);
+    }
+    else return QModelIndex();
+}
+
 }

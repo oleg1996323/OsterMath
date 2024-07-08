@@ -99,6 +99,18 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/expression_view.h",
+			"MU",
+			"6YEA5652QU/moc_expression_view.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/modeldataview.h",
+			"MU",
+			"6YEA5652QU/moc_modeldataview.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/toolbartabs.h",
 			"MU",
 			"6YEA5652QU/moc_toolbartabs.cpp",
@@ -163,6 +175,12 @@
 			"MU",
 			"6YEA5652QU/moc_varlist.cpp",
 			null
+		],
+		[
+			"/home/oster/OsterMath/include/view.h",
+			"MU",
+			"6YEA5652QU/moc_view.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -221,7 +239,7 @@
 		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 2,
+	"PARALLEL" : 6,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
@@ -232,13 +250,16 @@
 	[
 		[ "/home/oster/OsterMath/src/bookmath.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/data_view.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/expression_view.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/modeldataview.cpp", "MU", null ],
 		[
 			"/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp",
 			"MU",
 			null
 		],
-		[ "/home/oster/OsterMath/src/varlist.cpp", "MU", null ]
+		[ "/home/oster/OsterMath/src/varlist.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/view.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "/home/oster/OsterMath/ui" ],

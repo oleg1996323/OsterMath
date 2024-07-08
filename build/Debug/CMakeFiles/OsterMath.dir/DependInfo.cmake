@@ -12,9 +12,12 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/oster/OsterMath/build/Debug/OsterMath_autogen/mocs_compilation.cpp" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o.d"
   "/home/oster/OsterMath/src/bookmath.cpp" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
   "/home/oster/OsterMath/src/data_view.cpp" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
+  "/home/oster/OsterMath/src/expression_view.cpp" "CMakeFiles/OsterMath.dir/src/expression_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/expression_view.cpp.o.d"
   "/home/oster/OsterMath/src/main.cpp" "CMakeFiles/OsterMath.dir/src/main.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"
+  "/home/oster/OsterMath/src/modeldataview.cpp" "CMakeFiles/OsterMath.dir/src/modeldataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/modeldataview.cpp.o.d"
   "/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp" "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o.d"
   "/home/oster/OsterMath/src/varlist.cpp" "CMakeFiles/OsterMath.dir/src/varlist.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/varlist.cpp.o.d"
+  "/home/oster/OsterMath/src/view.cpp" "CMakeFiles/OsterMath.dir/src/view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/view.cpp.o.d"
   )
 
 # Targets to which this target links.

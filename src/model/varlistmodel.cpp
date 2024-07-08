@@ -10,11 +10,7 @@
 
 namespace model{
 
-Variables::Variables(QWidget* obj):
-    QAbstractTableModel(obj)
-{}
-
-Variables::Variables(QWidget* obj, BaseData* data_base):
+Variables::Variables(QObject* obj, BaseData* data_base):
     QAbstractTableModel(obj),
     data_base_(data_base)
 {

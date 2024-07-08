@@ -25,6 +25,10 @@ namespace kernel{
             return active_book_ui_;
         }
 
+        model::Manager* Application::get_model_manager(){
+            return manager;
+        }
+
         void Application::set_active_data(BaseData* data){
             active_data_ = data;
         }
@@ -35,6 +39,10 @@ namespace kernel{
 
         void Application::set_active_book(BookMath* book){
             active_book_ui_ = book;
+        }
+
+        void Application::set_model_manager(model::Manager* m){
+            manager = m;
         }
 
         void Application::set_language(const settings::LANG_DATA& lang){
@@ -50,7 +58,13 @@ namespace kernel{
             settings::Program::__load_settings__();
         }
 
+        void Application::set_variable_list_showed(bool b){
+            settings::Program::set_variable_list_showed(b);
+            emit variable_list_showed(b);
+        }
+
         BaseData* Application::active_data_ = nullptr;
         DataPool* Application::active_pool_ = nullptr;
         BookMath* Application::active_book_ui_ = nullptr;
+        model::Manager* Application::manager = nullptr;
 }

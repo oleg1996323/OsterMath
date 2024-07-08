@@ -12,12 +12,18 @@ file(REMOVE_RECURSE
   "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/data_view.cpp.o"
   "CMakeFiles/OsterMath.dir/src/data_view.cpp.o.d"
+  "CMakeFiles/OsterMath.dir/src/expression_view.cpp.o"
+  "CMakeFiles/OsterMath.dir/src/expression_view.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/main.cpp.o"
   "CMakeFiles/OsterMath.dir/src/main.cpp.o.d"
+  "CMakeFiles/OsterMath.dir/src/modeldataview.cpp.o"
+  "CMakeFiles/OsterMath.dir/src/modeldataview.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o"
   "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/varlist.cpp.o"
   "CMakeFiles/OsterMath.dir/src/varlist.cpp.o.d"
+  "CMakeFiles/OsterMath.dir/src/view.cpp.o"
+  "CMakeFiles/OsterMath.dir/src/view.cpp.o.d"
   "OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
 )
 

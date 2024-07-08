@@ -13,8 +13,6 @@ BookMath::BookMath(QWidget *parent)
     kernel::Application::set_active_book(this);
     __book_initialization__();
     __load_styles__();
-    var_list_ = new VarList::DockWidget(this);
-    addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
     __define_window__();
     __define_status_bar__();
     __define_data_view__();
@@ -63,7 +61,7 @@ void BookMath::__define_menu__(){
     insert_menu->addAction(QIcon(":booktool/icons/chart.png"),QObject::tr("Insert chart"),this,&BookMath::insert_chart);
 
     view_menu = new QMenu(menubar);
-    view_menu->addAction(QObject::tr("Show variables"),this,&BookMath::show_variable_list);
+    view_menu->addAction(QObject::tr("Show variables"),qobject_cast<kernel::Application*>(kernel::Application::instance()),&kernel::Application::set_variable_list_showed);
 
     menubar->addMenu(file_menu);
     menubar->addMenu(insert_menu);
@@ -96,6 +94,11 @@ void BookMath::__define_data_view__(){
 void BookMath::__define_signals_slots__(){
     connect(findChild<ToolButton*>("createnewbook"),&ToolButton::clicked,this,&BookMath::create_new_book);
     connect(findChild<ToolButton*>("savebook"),&ToolButton::clicked,this,&BookMath::save_book);
+    for(auto& data_base:kernel::Application::get_active_pool()->data_bases())
+        connect(findChild<VarList::Table*>(QString("varlist")+QString::fromStdString(std::string(data_base->name())))),
+                &VarList::Table::open_node,
+                );
+    //
 }
 
 void BookMath::retranslate(){
@@ -134,12 +137,6 @@ void BookMath::save_as(){
 
 void BookMath::insert_chart(){
 
-}
-
-void BookMath::show_variable_list(){
-    if(!var_list_->isVisible()){
-        var_list_->show();
-    }
 }
 
 void BookMath::changed(bool ch){

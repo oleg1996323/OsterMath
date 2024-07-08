@@ -45,7 +45,7 @@ Sheets::Sheets(QWidget* parent):
         add_default_sheet();
 }
 
-Sheets::Sheets(QWidget* parent, const QString& name):
+Sheets::Sheets(QWidget* parent, const QString& data_name):
     QTabWidget(parent)
 {
     __load_settings__();
@@ -66,27 +66,26 @@ void Sheets::erase_sheet(const QString& name) noexcept{
     kernel::Application::get_active_pool()->erase(name.toStdString());
 }
 
+void Sheets::tabRemoved(int index){
+    //sheets_.removeAt(index);
+}
+
 void Sheets::change_sheet_name(QString&& name, int tab_id){
-    try{
-        if(validator::BaseData::validate(name)==validator::Invalid)
-            throw sheet::IncorrectName(tr("Недопустимое название листа").toStdString());
-        for(int id = 0; id<count();++id)
+    for(int id = 0; id<count();++id){
+        if(tab_id!=id){
             if(tabText(id)==name)
-                throw sheet::AlreadyExist(tr("Лист с таким названием уже существует").toStdString());
-        setTabText(tab_id,name);
-    }
-    catch(const std::logic_error& err){
-        QMessageBox(QMessageBox::Icon::Critical,QObject::tr("Невозможно создать лист"), tr("Лист с таким названием уже существует"),QMessageBox::Ok,this);
+                QMessageBox(QMessageBox::Icon::Critical,QObject::tr("Невозможно создать лист"), tr("Лист с таким названием уже существует"),QMessageBox::Ok,this);
+            else
+                setTabText(tab_id,name);
+        }
     }
 }
 
 void Sheets::add_default_sheet(){
-    QString new_name = tr("Лист"+QString::number(kernel::Application::get_active_pool()->size()+1).toUtf8());
-    this->addTab(new QTableView(this),new_name);
-}
-
-void Sheets::set_new_model(QAbstractTableModel *model){
-    qobject_cast<QTableView*>(widget(currentIndex()))->setModel(model);
+    QString new_name = tr("Лист"+QString::number(kernel::Application::get_active_pool()->size()).toUtf8());
+    sheets_.push_back(new QTableView(this));
+    int id = this->addTab(sheets_.back(),new_name);
+    sheets_.back()->setModel(new model::DataView(sheets_.back()));
 }
 
 void Sheets::__load_settings__(){
@@ -103,4 +102,16 @@ void Sheets::__save_settings__(){
         sets_->setValue("geometry",geometry());
         setPalette(Themes::Palette::get());
     sets_->endGroup();
+}
+
+void DataViewSplit::__define_view__(){
+    expression_view_ = new VarExpressionView(this);
+    data_ = new Sheets(this);
+    addWidget(expression_view_);
+    addWidget(data_);
+    setCollapsible(0,false);
+    setCollapsible(1,false);
+    setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    data_->setObjectName("data_view");
+    this->setSizes({20,data_->maximumHeight()});
 }

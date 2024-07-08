@@ -15,6 +15,7 @@ namespace kernel{
     uint8_t Program::font_size_inc = 0;
     Themes::TYPE Program::style_theme = Themes::TYPE::Light;
     QLocale::Language Program::lang_ = QLocale::Language::English;
+    bool Program::var_list_showed_ = true;
 
     std::map<QLocale::Language,LANG_DATA> Program::langs_map=[]()->std::map<QLocale::Language,LANG_DATA>{std::map<QLocale::Language,LANG_DATA> res;
         for(auto& lang:resource_langs)
@@ -56,6 +57,14 @@ namespace kernel{
 
     QLocale Program::get_language(){
         return lang_;
+    }
+
+    bool Program::variable_list_showed(){
+        return Program::var_list_showed_;
+    }
+
+    void Program::set_variable_list_showed(bool b){
+        Program::var_list_showed_ = b;
     }
 
     QSettings* Project::sets_ = nullptr;

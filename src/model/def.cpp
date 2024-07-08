@@ -1,6 +1,12 @@
 #include "model/def.h"
+#include "model/dataviewmodel.h"
+#include "model/varlistmodel.h"
 
 namespace model{
+
+Data::Data(QObject* parent, BaseData* data):
+    data_model(std::make_unique<DataView>(parent)),
+    var_model(std::make_unique<Variables>(parent,data)){}
 
 void ChildsMeasure::update(){
     if(parent_){

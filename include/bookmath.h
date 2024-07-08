@@ -24,15 +24,11 @@ public:
 
     virtual void retranslate() override;
 
-    signals:
-    void show_var_data(const std::string &);
-
 private:
     std::unique_ptr<DataPool> pool_;
-    //widget where var are illustrated
-    VarList::DockWidget* var_list_;
 
     //main widgets
+
     DataViewSplit *centralwidget;
 
     //menu items
@@ -83,7 +79,5 @@ private slots:
     void save_book();
     void save_as();
     void insert_chart();
-    void show_variable_list();
-
     void changed(bool);
 };
