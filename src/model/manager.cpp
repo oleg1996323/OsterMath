@@ -1,6 +1,4 @@
 #include "model/manager.h"
-#include "model/varlistmodel.h"
-#include "model/dataviewmodel.h"
 
 namespace model{
 const Data& Manager::add_data(QObject* parent, BaseData* data){

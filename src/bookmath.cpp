@@ -81,7 +81,7 @@ void BookMath::__define_menu__(){
 }
 
 void BookMath::__define_data_view__(){
-    centralwidget = new model::dataview::DataViewSplit(this);
+    centralwidget = new dataview::DataViewSplit(this);
 
     centralwidget->setObjectName(QString::fromUtf8("mainwidget"));
     centralwidget->setContentsMargins(0, 0, 0, 0);
@@ -91,10 +91,6 @@ void BookMath::__define_data_view__(){
 void BookMath::__define_signals_slots__(){
     connect(findChild<ToolButton*>("createnewbook"),&ToolButton::clicked,this,&BookMath::create_new_book);
     connect(findChild<ToolButton*>("savebook"),&ToolButton::clicked,this,&BookMath::save_book);
-    for(auto& data_base:kernel::Application::get_active_pool()->data_bases())
-        connect(findChild<VarList::Table*>(QString("varlist")+QString::fromStdString(std::string(data_base->name())))),
-                &VarList::Table::open_node,
-                );
     //
 }
 

@@ -2,8 +2,6 @@
 #include <QLocale>
 #include <QTranslator>
 #include "bookmath.h"
-#include "kernel/settings.h"
-#include "model/varlistmodel.h"
 
 int main(int argc, char *argv[])
 {

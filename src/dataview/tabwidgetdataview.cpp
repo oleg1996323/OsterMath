@@ -7,8 +7,6 @@
 namespace dataview{
 
 View::View(QWidget* parent, BaseData* data):QMainWindow(parent, Qt::Widget|Qt::WindowTitleHint){
-    var_list_ = new DockWidget(this);
-    addDockWidget(Qt::LeftDockWidgetArea,var_list_,Qt::Vertical);
     data_view_ = new NodeData(parent);
 }
 

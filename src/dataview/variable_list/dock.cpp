@@ -2,10 +2,11 @@
 #include "dataview/variable_list/table.h"
 #include "dataview/variable_list/titlebar.h"
 #include "dataview/variable_list/search_line.h"
+#include "model/varlist_model.h"
 #include <QMainWindow>
 
 namespace dataview{
-DockWidget::DockWidget(QMainWindow* parent):QDockWidget(parent,Qt::Widget){
+DockWidget::DockWidget(QWidget* parent):QDockWidget(parent,Qt::Widget){
     __load_styles__();
     //QBrush brush_1(QColor(190,220,255,255));
     //palette->setBrush(QPalette::ColorRole::Window, brush_1);
@@ -86,5 +87,10 @@ void DockWidget::showEvent(QShowEvent *event){
     (void)event;
     if(parentWidget() && qobject_cast<QMainWindow*>(parentWidget())->dockWidgetArea(this)!=Qt::LeftDockWidgetArea)
         qobject_cast<QMainWindow*>(parentWidget())->addDockWidget(Qt::LeftDockWidgetArea,this);
+}
+
+void DockWidget::set_model(const model::Data& data){
+    if(data.var_model)
+        var_list_->setModel(data.var_model.get());
 }
 }

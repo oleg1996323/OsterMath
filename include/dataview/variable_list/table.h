@@ -1,6 +1,7 @@
 #pragma once
 #include <QTableView>
 #include "kernel/def.h"
+#include "arithmetic_types.h"
 
 namespace model{
 class Variables;

@@ -27,6 +27,7 @@ QWidget* findParent(QWidget* widget, QString name);
 
 //using for classes, where any translations are provided
 class Retranslatable{
+public:
     virtual void retranslate() = 0;
 };
 

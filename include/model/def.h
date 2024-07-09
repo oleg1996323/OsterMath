@@ -14,7 +14,7 @@ enum class HEADER{
     REMARK
 };
 
-class DataView;
+class NodeView;
 class Variables;
 
 class Data{
@@ -22,8 +22,8 @@ public:
     Data(QObject* parent, BaseData* data);
     Data(Data&& other) = default;
 
-    std::unique_ptr<DataView> data_model;
-    std::unique_ptr<Variables> var_model;
+    std::unique_ptr<::model::NodeView> data_model;
+    std::unique_ptr<::model::Variables> var_model;
 };
 
 struct ChildsMeasure{

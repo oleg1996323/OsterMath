@@ -1,7 +1,7 @@
 #pragma once
 #include <QTableView>
-#include "model/dataview_delegate.h"
-#include "model/data_view_header.h"
+#include "model/nodeview_delegate.h"
+#include "model/nodeview_header.h"
 
 namespace dataview{
 
@@ -13,7 +13,7 @@ public:
     }
 
 private:
-    model::DataViewDelegate* delegate_;
-    model::DataViewHeader* header_;
+    model::NodeViewDelegate* delegate_;
+    model::NodeViewHeader* header_;
 };
 }

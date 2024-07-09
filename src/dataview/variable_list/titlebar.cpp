@@ -1,4 +1,5 @@
 #include "dataview/variable_list/titlebar.h"
+#include "dataview/variable_list/dock.h"
 
 namespace dataview{
 

@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include "kernel/def.h"
+#include "model/varlist_model.h"
 
 namespace dataview{
 
@@ -12,30 +13,28 @@ class Table;
 
 class Frame:public QFrame, public Retranslatable{
     Q_OBJECT
-
-    class Label:public QLabel{
-    public:
-        Label(QWidget* parent);
-    };
-    class SearchLine:public QLineEdit{
-    public:
-        SearchLine(QWidget* parent);
-    };
-
 public:
     Frame(QWidget* parent);
-
     virtual void retranslate() override;
+
+public slots:
+
+    void set_model(model::Variables*);
 
 signals:
     void search_in_model(const QString&);
 private:
-    Label *label_search_var_list;
-    SearchLine *search_var_list;
+    QLabel *label_search_var_list;
+    QLineEdit *search_var_list;
+    model::Variables* var_list_model_ = nullptr;
 
     virtual void showEvent(QShowEvent* event) override{
         updateGeometry();
     }
+
+    void __define_search_line__();
+    void __define_label__();
+    void __define_frame__();
 
 };
 }

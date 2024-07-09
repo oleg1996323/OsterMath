@@ -1,15 +1,15 @@
 #include "dataview/variable_list/table.h"
 #include "kernel/application.h"
-#include "model/varlistmodel.h"
-#include "model/varlistmodel_header.h"
-#include "model/varlistmodel_delegate.h"
+#include "model/varlist_model.h"
+#include "model/varlist_header.h"
+#include "model/varlist_delegate.h"
 
 namespace dataview{
 Table::Table(QWidget* parent){
     var_list_ = new model::Variables(parent, kernel::Application::get_active_data());
     setModel(var_list_);
     setItemDelegate(new model::VariablesDelegate(this));
-    model::ListHeader* header = new model::ListHeader(this);
+    model::VariablesHeader* header = new model::VariablesHeader(this);
     setHorizontalHeader(header);
     header->setModel(var_list_);
     /*assert(header->itemDelegate());

@@ -6,7 +6,6 @@
 #include <QFont>
 #include <QPalette>
 #include "utilities/custom_widgets/buttons.h"
-#include "def.h"
 #include "kernel/application.h"
 
 namespace dataview{

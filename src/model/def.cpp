@@ -1,12 +1,12 @@
+#include "model/nodeview_model.h"
+#include "model/varlist_model.h"
 #include "model/def.h"
-#include "model/dataviewmodel.h"
-#include "model/varlistmodel.h"
 
 namespace model{
 
 Data::Data(QObject* parent, BaseData* data):
-    data_model(std::make_unique<DataView>(parent)),
-    var_model(std::make_unique<Variables>(parent,data)){}
+    data_model(std::make_unique<::model::NodeView>(parent)),
+    var_model(std::make_unique<::model::Variables>(parent,data)){}
 
 void ChildsMeasure::update(){
     if(parent_){

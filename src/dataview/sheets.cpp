@@ -1,11 +1,14 @@
 #include "dataview/sheets.h"
 #include "kernel/application.h"
+#include "dataview/variable_list/dock.h"
 
 namespace dataview{
 
 Sheets::Sheets(QWidget* parent):
     QTabWidget(parent)
 {
+    if(!var_list_)
+        var_list_ = new DockWidget(this);
     __load_settings__();
     for(int i=0;i<3;++i)
         add_default_sheet();
@@ -22,7 +25,7 @@ Sheets::~Sheets(){
 }
 
 #include "data.h"
-#include "model/dataviewmodel.h"
+#include "model/nodeview_model.h"
 
 void Sheets::init_new_pool(){
     if(kernel::Application::get_active_pool())
@@ -53,10 +56,18 @@ void Sheets::change_sheet_name(QString&& name, int tab_id){
 }
 
 void Sheets::add_default_sheet(){
+    assert(var_list_);
     QString new_name = tr("Лист"+QString::number(kernel::Application::get_active_pool()->size()).toUtf8());
-    sheets_.push_back(new QTableView(this));
-    int id = this->addTab(sheets_.back(),new_name);
-    sheets_.back()->setModel(new model::DataView(sheets_.back()));
+    DataPool* pool = kernel::Application::get_active_pool();
+    ::BaseData* data = pool->add_data(QString("Data base %1").arg(pool->data_bases().size()+1).toStdString());
+    kernel::Application::set_active_data(data);
+    View* view = new View(this,data);
+    int id = this->addTab(view,new_name);
+    View* current = qobject_cast<View*>(this->currentWidget());
+    if(current)
+        view->addDockWidget(current->dockWidgetArea(var_list_),var_list_);
+    else view->addDockWidget(Qt::LeftDockWidgetArea,var_list_);
+    setCurrentIndex(id);
 }
 
 void Sheets::__load_settings__(){
@@ -75,15 +86,5 @@ void Sheets::__save_settings__(){
     sets_->endGroup();
 }
 
-void DataViewSplit::__define_view__(){
-    expression_view_ = new VarExpressionView(this);
-    data_ = new Sheets(this);
-    addWidget(expression_view_);
-    addWidget(data_);
-    setCollapsible(0,false);
-    setCollapsible(1,false);
-    setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    data_->setObjectName("data_view");
-    this->setSizes({20,data_->maximumHeight()});
-}
+
 }

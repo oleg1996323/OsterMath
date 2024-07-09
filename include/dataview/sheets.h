@@ -9,7 +9,7 @@
 #include <kernel/styles.h>
 #include "kernel/exception.h"
 #include "utilities/validators/validator.h"
-#include "model/data_view_header.h"
+#include "model/nodeview_header.h"
 #include "kernel/application.h"
 #include "dataview/tabwidgetdataview.h"
 #include "model/manager.h"
@@ -51,6 +51,7 @@ private:
     }
 
     model::Manager manager_;
-    QList<View*> var_lists_;
+    QList<View*> central_view_tabs_;
+    DockWidget* var_list_;
 };
 }

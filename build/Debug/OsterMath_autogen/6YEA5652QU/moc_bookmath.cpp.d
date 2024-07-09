@@ -17,23 +17,31 @@
   /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
-  /home/oster/OsterMath/include/booktoolbar.h \
-  /home/oster/OsterMath/include/data_view.h \
+  /home/oster/OsterMath/include/bookmath.h \
+  /home/oster/OsterMath/include/dataview/expr_view_splitter.h \
+  /home/oster/OsterMath/include/dataview/expression_view.h \
+  /home/oster/OsterMath/include/dataview/sheets.h \
+  /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
   /home/oster/OsterMath/include/kernel/application.h \
   /home/oster/OsterMath/include/kernel/def.h \
   /home/oster/OsterMath/include/kernel/exception.h \
   /home/oster/OsterMath/include/kernel/settings.h \
   /home/oster/OsterMath/include/kernel/styles.h \
-  /home/oster/OsterMath/include/model/data_view_header.h \
-  /home/oster/OsterMath/include/model/dataview_delegate.h \
-  /home/oster/OsterMath/include/model/dataviewmodel.h \
+  /home/oster/OsterMath/include/menuwidgets/booktoolbar.h \
+  /home/oster/OsterMath/include/menuwidgets/toolbartabs.h \
   /home/oster/OsterMath/include/model/def.h \
   /home/oster/OsterMath/include/model/exception/exception.h \
-  /home/oster/OsterMath/include/toolbartabs.h \
+  /home/oster/OsterMath/include/model/manager.h \
+  /home/oster/OsterMath/include/model/nodeview_header.h \
+  /home/oster/OsterMath/include/model/nodeview_model.h \
+  /home/oster/OsterMath/include/model/varlist_model.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
+  /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \
   /home/oster/OsterMath/include/utilities/validators/validator.h \
+  /home/oster/OsterMath/include/utilities/windows.h \
   /home/oster/OsterMath/include/utilities/windows/createnew.h \
   /home/oster/OsterMath/include/utilities/windows/opennew.h \
+  /home/oster/OsterMath/include/utilities/windows/settings.h \
   /home/oster/OsterMath/include/utilities/windows/windef.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -174,7 +182,6 @@
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/stl_relops.h \
-  /usr/include/c++/11/bits/stl_stack.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_uninitialized.h \
@@ -244,7 +251,6 @@
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/sstream \
-  /usr/include/c++/11/stack \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/stdlib.h \
   /usr/include/c++/11/streambuf \
@@ -367,7 +373,7 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
@@ -384,7 +390,9 @@
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h \
@@ -499,7 +507,7 @@
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
@@ -519,8 +527,6 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
@@ -559,8 +565,6 @@
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h \
