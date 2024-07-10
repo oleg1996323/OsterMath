@@ -6,7 +6,7 @@
 #include <QMainWindow>
 
 namespace dataview{
-DockWidget::DockWidget(QWidget* parent):QDockWidget(parent,Qt::Widget){
+DockWidget::DockWidget(QWidget* parent):QDockWidget(parent){
     __load_styles__();
     //QBrush brush_1(QColor(190,220,255,255));
     //palette->setBrush(QPalette::ColorRole::Window, brush_1);

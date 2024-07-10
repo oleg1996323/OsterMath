@@ -8,6 +8,7 @@ namespace dataview{
 
 View::View(QWidget* parent, BaseData* data):QMainWindow(parent, Qt::Widget|Qt::WindowTitleHint){
     data_view_ = new NodeData(parent);
+    setCentralWidget(data_view_);
 }
 
 void View::show_variable_list(){

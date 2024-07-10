@@ -38,9 +38,7 @@ public:
 
     void add_default_sheet();
 
-    void __load_settings__();
 
-    void __save_settings__();
 
 public:
 
@@ -50,8 +48,15 @@ private:
         setTabPosition(QTabWidget::South);
     }
 
+    void __load_settings__();
+
+    void __save_settings__();
+
     model::Manager manager_;
     QList<View*> central_view_tabs_;
     DockWidget* var_list_;
+
+private slots:
+    void __change_widget__(int);
 };
 }
