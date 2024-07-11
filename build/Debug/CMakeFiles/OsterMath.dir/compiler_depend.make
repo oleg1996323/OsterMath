@@ -8352,10 +8352,32 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  ../../include/dataview/sheets.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+  ../../include/kernel/exception.h \
+  ../../include/utilities/validators/validator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
+  ../../include/model/nodeview_header.h \
+  ../../include/dataview/tabwidgetdataview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
+  ../../include/model/manager.h \
+  ../../include/model/nodeview_model.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
 
 CMakeFiles/OsterMath.dir/src/dataview/variable_list/search_line.cpp.o: ../../src/dataview/variable_list/search_line.cpp \
   /usr/include/stdc-predef.h \

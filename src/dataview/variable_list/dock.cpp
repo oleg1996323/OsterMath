@@ -3,12 +3,14 @@
 #include "dataview/variable_list/titlebar.h"
 #include "dataview/variable_list/search_line.h"
 #include "model/varlist_model.h"
+#include "dataview/sheets.h"
 #include <QMainWindow>
 #include <QDebug>
 
 namespace dataview{
 DockWidget::DockWidget(QWidget* parent):QDockWidget(parent){
     setObjectName("dockwidget_var_list");
+
     __load_styles__();
     __load_settings__();
     //QBrush brush_1(QColor(190,220,255,255));
@@ -21,13 +23,11 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent){
     setAllowedAreas(Qt::LeftDockWidgetArea);
     QSizePolicy sizepolicy;
     sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
-    sizepolicy.setVerticalPolicy(QSizePolicy::Preferred);
     sizepolicy.setRetainSizeWhenHidden(true);
     setSizePolicy(sizepolicy);
     frame_ = new Frame(this);
     frame_->setPalette(Themes::Palette::get());
     setWidget(frame_);
-
     retranslate();
     last_size = size();
 }
@@ -44,8 +44,9 @@ DockWidget::~DockWidget(){
 void DockWidget::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
-    setGeometry(sets_->value("geometry").toRect());
+    restoreGeometry(sets_->value("geometry").toByteArray());
     setVisible(!sets_->value("hidden").toBool());
+    setFloating(sets_->value("floating").toBool());
     qDebug()<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
@@ -53,8 +54,9 @@ void DockWidget::__load_settings__(){
 void DockWidget::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
-    sets_->setValue("geometry",geometry());
+    sets_->setValue("geometry",saveGeometry());
     sets_->setValue("hidden",isHidden());
+    sets_->setValue("floating", isFloating());
     sets_->endGroup();
 }
 
@@ -82,17 +84,25 @@ void DockWidget::collapse(){
     }
 }
 
-//void DockWidget::closeEvent(QCloseEvent *event){
-//    (void)event;
-//    if(qobject_cast<QMainWindow*>(parentWidget())->dockWidgetArea(this)!=Qt::NoDockWidgetArea)
-//        qobject_cast<QMainWindow*>(parentWidget())->removeDockWidget(this);
-//}
+QMainWindow* DockWidget::window_attached() const{
+    return window_owner_;
+}
 
-//void DockWidget::showEvent(QShowEvent *event){
-//    (void)event;
-//    if(parentWidget() && qobject_cast<QMainWindow*>(parentWidget())->dockWidgetArea(this)!=Qt::LeftDockWidgetArea)
-//        qobject_cast<QMainWindow*>(parentWidget())->addDockWidget(Qt::LeftDockWidgetArea,this);
-//}
+void DockWidget::set_window_attached(QMainWindow * window){
+    window_owner_ = window;
+}
+
+void DockWidget::closeEvent(QCloseEvent *event){
+    (void)event;
+    if(window_owner_ && window_owner_->dockWidgetArea(this)!=Qt::NoDockWidgetArea)
+        window_owner_->removeDockWidget(this);
+}
+
+void DockWidget::showEvent(QShowEvent *event){
+    (void)event;
+    if(window_owner_ && window_owner_->dockWidgetArea(this)!=Qt::LeftDockWidgetArea)
+        window_owner_->addDockWidget(Qt::LeftDockWidgetArea,this);
+}
 
 void DockWidget::set_model(const model::Data& data){
     if(data.var_model)

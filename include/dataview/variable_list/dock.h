@@ -19,12 +19,15 @@ class DockWidget:public QDockWidget, public Retranslatable{
 public:
     DockWidget(QWidget* parent);
     ~DockWidget();
+    QMainWindow* window_attached() const;
+    void set_window_attached(QMainWindow*);
     virtual void retranslate() override;
 private:
-    Frame* frame_;
-    Table* var_list_;
-    TitleBar* titlebar_;
     QSize last_size;
+    Frame* frame_=nullptr;
+    Table* var_list_=nullptr;
+    TitleBar* titlebar_=nullptr;
+    QMainWindow* window_owner_=nullptr;
 
     void __load_settings__();
     void __save_settings__();
@@ -33,7 +36,7 @@ private:
 public slots:
     void set_model(const model::Data&);
     void collapse();
-//    virtual void closeEvent(QCloseEvent *event) override;
-//    virtual void showEvent(QShowEvent *event) override;
+    virtual void closeEvent(QCloseEvent *event) override;
+    virtual void showEvent(QShowEvent *event) override;
 };
 }

@@ -42,8 +42,6 @@ public:
 
     void add_default_sheet();
 
-public:
-
 private:
 
     void __init__(){
