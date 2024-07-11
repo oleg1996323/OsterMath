@@ -36,9 +36,11 @@ public:
 
     void change_sheet_name(QString&& name, int tab_id);
 
+    virtual void tabInserted(int id) override;
+
+    void add_default_sheet(int after);
+
     void add_default_sheet();
-
-
 
 public:
 
@@ -57,6 +59,6 @@ private:
     DockWidget* var_list_;
 
 private slots:
-    void __change_widget__(int);
+    void __change_dock_to__(QMainWindow*);
 };
 }

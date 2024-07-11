@@ -33,7 +33,7 @@ private:
 public slots:
     void set_model(const model::Data&);
     void collapse();
-    virtual void closeEvent(QCloseEvent *event) override;
-    virtual void showEvent(QShowEvent *event) override;
+//    virtual void closeEvent(QCloseEvent *event) override;
+//    virtual void showEvent(QShowEvent *event) override;
 };
 }

@@ -6127,7 +6127,10 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   ../../include/model/varlist_delegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  ../../include/model/varlist_header.h
+  ../../include/model/varlist_header.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 
 CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/dataview/tabwidgetdataview.cpp \
   /usr/include/stdc-predef.h \
@@ -8348,7 +8351,11 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 
 CMakeFiles/OsterMath.dir/src/dataview/variable_list/search_line.cpp.o: ../../src/dataview/variable_list/search_line.cpp \
   /usr/include/stdc-predef.h \
@@ -13248,6 +13255,8 @@ CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o: ../..
 
 ../../src/dataview/variable_list/dock.cpp:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer:
+
 ../../src/dataview/sheets.cpp:
 
 ../../src/dataview/model_data/modeldataview.cpp:
@@ -13369,6 +13378,8 @@ OsterMath_autogen/TBKUEERFDP/moc_nodedataview.cpp:
 /usr/include/boost/range/detail/extract_optional_type.hpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h:
 
 /usr/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
 
@@ -15213,6 +15224,8 @@ OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp:
 /usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp:
 
 /usr/include/boost/math/special_functions/log1p.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h:
 
 /usr/include/boost/type_traits/has_left_shift.hpp:
 
