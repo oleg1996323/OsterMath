@@ -35,3 +35,10 @@ ObjectFromSettings::ObjectFromSettings(QObject* object){
         upload_style();
     });
 }
+
+void ObjectFromSettings::load_settings(){
+    __load_settings__();
+}
+void ObjectFromSettings::save_settings(){
+    __save_settings__();
+}

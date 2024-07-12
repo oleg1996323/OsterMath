@@ -14,8 +14,8 @@
 
 namespace model{
 
-VariablesDelegate::VariablesDelegate(QWidget* obj):
-    QStyledItemDelegate(obj)
+VariablesDelegate::VariablesDelegate(QObject* parent):
+    QStyledItemDelegate(parent)
 {}
 
 QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{

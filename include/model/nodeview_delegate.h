@@ -21,7 +21,7 @@ class NodeViewDelegate:public QAbstractItemDelegate{
     Q_OBJECT
 public:
 
-    NodeViewDelegate(QWidget* obj);
+    NodeViewDelegate(QObject*);
 
     ~NodeViewDelegate() = default;
 
@@ -50,5 +50,4 @@ signals:
 private:
 
 };
-
 }

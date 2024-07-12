@@ -21,7 +21,7 @@ class VariablesDelegate:public QStyledItemDelegate{
     Q_OBJECT
 public:
 
-    VariablesDelegate(QWidget* obj);
+    VariablesDelegate(QObject* obj);
 
     ~VariablesDelegate() = default;
 

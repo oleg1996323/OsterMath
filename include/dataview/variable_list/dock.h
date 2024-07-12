@@ -23,7 +23,6 @@ public:
     void set_window_attached(QMainWindow*);
     virtual void retranslate() override;
 private:
-    QSize last_size;
     Frame* frame_=nullptr;
     Table* var_list_=nullptr;
     TitleBar* titlebar_=nullptr;

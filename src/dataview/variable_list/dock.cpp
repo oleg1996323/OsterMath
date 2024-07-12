@@ -6,6 +6,8 @@
 #include "dataview/sheets.h"
 #include <QMainWindow>
 #include <QDebug>
+#include <QTimer>
+#include <QVBoxLayout>
 
 namespace dataview{
 DockWidget::DockWidget(QWidget* parent):QDockWidget(parent){
@@ -25,11 +27,13 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent){
     sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
     sizepolicy.setRetainSizeWhenHidden(true);
     setSizePolicy(sizepolicy);
+    QVBoxLayout* layout = new QVBoxLayout(this);
     frame_ = new Frame(this);
-    frame_->setPalette(Themes::Palette::get());
-    setWidget(frame_);
+    layout->addWidget(frame_);
+    var_list_ = new Table(this);
+    layout->addWidget(var_list_);
+    this->setLayout(layout);
     retranslate();
-    last_size = size();
 }
 
 void DockWidget::retranslate(){
@@ -72,14 +76,14 @@ void DockWidget::collapse(){
         //setFeatures(features()^QDockWidget::DockWidgetVerticalTitleBar);
         //titlebar_->setHorizontal();
         frame_->show();
-        resize(last_size);
+        var_list_->show();
         //titlebar_->repaint();
     }
     else{
-        last_size = size();
         //setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features() );
         //titlebar_->setVertical();
         frame_->hide();
+        var_list_->hide();
         //titlebar_->repaint();
     }
 }
@@ -88,7 +92,48 @@ QMainWindow* DockWidget::window_attached() const{
     return window_owner_;
 }
 
+
+
 void DockWidget::set_window_attached(QMainWindow * window){
+    if (window) {
+        // Сохранение состояния var_list_
+        QByteArray geometry = saveGeometry();
+        bool floating = isFloating();
+        Qt::DockWidgetArea area;
+        QByteArray state;
+        QRect floatGeometry;
+        if (floating) {
+            floatGeometry = this->geometry();
+        }
+
+        // Отсоединяем var_list_ от текущего виджета
+        if(window_owner_){
+            state = window_owner_->saveState();
+            area = window_owner_->dockWidgetArea(this);
+            window_owner_->removeDockWidget(this);
+            window->restoreDockWidget(this);
+        }
+        else {
+            window->restoreDockWidget(this);
+        }
+
+        // Восстанавливаем состояние и геометрию var_list_ после полной инициализации
+        QTimer::singleShot(0, [this, window,area, state, geometry, floating, floatGeometry]() {
+            bool restoreGeometrySuccess = restoreGeometry(geometry);
+            qDebug() << "Restore geometry success:" << restoreGeometrySuccess;
+
+            if (floating) {
+                setFloating(true);
+                setGeometry(floatGeometry);
+                qDebug() << "Restored floating geometry:" << this->geometry();
+            }
+
+            if(window_owner_)
+                window->restoreState(state);
+        });
+        //bool restoreStateSuccess = tab_window->restoreState(state);
+        //qDebug() << "Restore state success:" << restoreStateSuccess;
+    }
     window_owner_ = window;
 }
 

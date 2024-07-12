@@ -53,8 +53,12 @@ private:
     void __save_settings__();
 
     model::Manager manager_;
-    QList<View*> central_view_tabs_;
     DockWidget* var_list_;
+    model::VariablesDelegate* var_list_delegate_;
+    model::VariablesHeader* var_list_header_;
+
+    signals:
+    void set_model_to_var_list(QAbstractItemModel*);
 
 private slots:
     void __change_dock_to__(QMainWindow*);

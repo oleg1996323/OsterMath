@@ -6,7 +6,7 @@
 
 namespace dataview{
 Table::Table(QWidget* parent){
-    var_list_ = new model::Variables(parent, kernel::Application::get_active_data());
+    va_list_ = new model::Variables(parent, kernel::Application::get_active_data());
     setModel(var_list_);
     setItemDelegate(new model::VariablesDelegate(this));
     model::VariablesHeader* header = new model::VariablesHeader(this);
@@ -61,5 +61,9 @@ Table::Table(QWidget* parent){
     horizontalHeader()->setCascadingSectionResizes(false);
     horizontalHeader()->setDefaultSectionSize(150);
     horizontalHeader()->setStretchLastSection(true);*/
+}
+
+void Table::change_model(QAbstractItemModel* model){
+    this->setModel(model);
 }
 }

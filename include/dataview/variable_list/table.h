@@ -10,7 +10,6 @@ class Variables;
 namespace dataview{
 
 class Table:public QTableView, public Retranslatable{
-    model::Variables* var_list_;
 public:
     Table(QWidget* parent);
 
@@ -27,7 +26,6 @@ signals:
     void open_node(Node*);
 
 public slots:
-    void changed_data_base(const QString& name);
-    void deleted_data_base(const QString& name);
+    void change_model(QAbstractItemModel*);
 };
 }

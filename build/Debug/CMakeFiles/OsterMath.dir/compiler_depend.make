@@ -6505,8 +6505,33 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/c++/11/variant \
+  ../../include/kernel/def.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
@@ -7138,7 +7163,6 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
   ../../include/kernel/styles.h \
@@ -7152,10 +7176,6 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
@@ -7168,21 +7188,6 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
-  ../../include/kernel/def.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
   ../../include/dataview/variable_list/table.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
@@ -7190,7 +7195,6 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
@@ -8377,7 +8381,10 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   ../../include/model/nodeview_model.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 
 CMakeFiles/OsterMath.dir/src/dataview/variable_list/search_line.cpp.o: ../../src/dataview/variable_list/search_line.cpp \
   /usr/include/stdc-predef.h \

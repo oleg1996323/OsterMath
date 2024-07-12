@@ -7,6 +7,8 @@
 
 namespace model{
 
+NodeViewDelegate::NodeViewDelegate(QObject* parent):QAbstractItemDelegate(parent){}
+
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
         Node* node = qobject_cast<const model::NodeView*>(index.model())->get_node();

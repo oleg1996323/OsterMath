@@ -9,6 +9,7 @@ namespace model {
     class NodeViewHeader:public QHeaderView, public Retranslatable{
         Q_OBJECT
     public:
+        NodeViewHeader(QWidget* parent);
         virtual void paintSection(QPainter *painter, const QRect &rect, int logicalIndex) const override;
         virtual void retranslate() override;
     private:

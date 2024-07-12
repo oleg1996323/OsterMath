@@ -7,6 +7,10 @@
 
 namespace model {
 
+NodeViewHeader::NodeViewHeader(QWidget* parent):QHeaderView(Qt::Horizontal,parent){
+
+}
+
 void NodeViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, ChildsMeasure* str_section) const{
     const size_t depth = str_section->max_size_depth;
     for (int i = 0; i < depth; ++i) {

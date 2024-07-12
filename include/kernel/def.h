@@ -38,6 +38,12 @@ public:
     virtual void upload_fonts() = 0;
     virtual void upload_style() = 0;
     virtual void upload_language() = 0;
+    void load_settings();
+    void save_settings();
+
+protected:
+    virtual void __load_settings__() = 0;
+    virtual void __save_settings__() = 0;
 
 public slots:
     void changed_language();
