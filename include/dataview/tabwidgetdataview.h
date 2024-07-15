@@ -22,7 +22,7 @@ public:
     bool state_initialized() const;
 public slots:
     QAbstractProxyModel* search_var(const QString&);
-    void show_variable_list();
+    void show_variable_list(QModelIndex index) const;
 private:
     //widget where var are illustrated
     DockWidget* var_list_;

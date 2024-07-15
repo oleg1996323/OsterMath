@@ -18,10 +18,8 @@ View::~View(){
     save_settings();
 }
 
-void View::show_variable_list(){
-    if(!var_list_->isVisible()){
-        var_list_->show();
-    }
+void View::show_variable_list(QModelIndex index) const{
+
 }
 
 QAbstractProxyModel* View::search_var(const QString&){

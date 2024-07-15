@@ -42,11 +42,18 @@ public:
 
     void add_default_sheet();
 
+    void save_last_window_state(QByteArray&&);
+    const QByteArray& get_last_window_state() const;
+
 private:
 
     void __init__(){
         setTabPosition(QTabWidget::South);
     }
+
+    View* __create_default_tab__(QString&);
+
+    void __change_model__(int id);
 
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;
@@ -56,10 +63,8 @@ private:
     virtual void __retranslate__() override;
 
     model::Manager manager_;
-    DockWidget* var_list_;
-
-    signals:
-    void set_model_to_var_list(QAbstractItemModel*);
+    QByteArray win_state_;
+    DockWidget* var_list_ = nullptr;
 
 private slots:
     void __change_dock_to__(View*);

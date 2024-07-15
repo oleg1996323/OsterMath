@@ -21,13 +21,13 @@ public:
     ~DockWidget();
     QMainWindow* window_attached() const;
     void set_window_attached(View*);
-    void save_last_window_state(QByteArray&&);
+    bool closed_by_titlebar() const;
+
 private:
-    QByteArray win_state_;
+
     Frame* frame_=nullptr;
     Table* var_list_=nullptr;
     TitleBar* titlebar_=nullptr;
-    View* window_owner_=nullptr;
     bool closed = false;
 
     virtual void __load_settings__() override;
@@ -39,9 +39,11 @@ private:
     virtual void closeEvent(QCloseEvent *event) override;
     virtual void showEvent(QShowEvent *event) override;
 
+
 public slots:
-    void set_model(const model::Data&);
+    void setData(model::Data*);
     void collapse();
+    void close_from_titlebar();
 
 };
 }

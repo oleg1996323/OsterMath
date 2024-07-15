@@ -10,21 +10,19 @@ Sheets::Sheets(QWidget* parent):
     ObjectFromSettings(this)
 {
     setObjectName("sheets_view");
-
+    load_settings();
     __init__();
 
     connect(this,&Sheets::tabBarClicked,[this](int id){
-    __change_dock_to__(qobject_cast<View*>(widget(id)));
-    std::string str = tabText(id).toStdString();
-    BaseData* data = kernel::Application::get_active_pool()->get(tabText(id).toStdString());
-    model::Variables* data_model = manager_.get_data(data)->var_model.get();
-    emit set_model_to_var_list(data_model);});
+        int current = currentIndex();
+        __change_dock_to__(qobject_cast<View*>(widget(id)));
+        __change_model__(id);
+        setCurrentIndex(id);
+    });
     for(int i=0;i<4;++i)
         add_default_sheet(i);
-    load_settings();
+
 }
-
-
 
 Sheets::Sheets(QWidget* parent, const QString& data_name):
     QTabWidget(parent),
@@ -71,47 +69,103 @@ void Sheets::change_sheet_name(QString&& name, int tab_id){
     }
 }
 
-void Sheets::add_default_sheet(int id){
-    QString new_name = tr("Sheet")+QString::number(kernel::Application::get_active_pool()->size()).toUtf8();
+View* Sheets::__create_default_tab__(QString& name){
+    name = tr("Sheet")+QString::number(kernel::Application::get_active_pool()->size()).toUtf8();
     DataPool* pool = kernel::Application::get_active_pool();
-    ::BaseData* data = pool->add_data(new_name.toStdString());
+    ::BaseData* data = pool->add_data(name.toStdString());
     manager_.add_data(this,data); //check the parent object
     kernel::Application::set_active_data(data);
-    View* view = new View(this,data);
+    return new View(this,data);
+}
+
+void Sheets::add_default_sheet(int id){
+    QString name;
+    View* view = __create_default_tab__(name);
+    qDebug()<<"Before inserting"<<id;
+    insertTab(id,view,name);
+    qDebug()<<"After inserting"<<id;
     __change_dock_to__(view);
-    insertTab(id,view,new_name);
+    __change_model__(id);
     setCurrentIndex(id);
 }
 
 void Sheets::add_default_sheet(){
-    assert(var_list_);
-    QString new_name = tr("Sheet")+QString::number(kernel::Application::get_active_pool()->size()).toUtf8();
-    DataPool* pool = kernel::Application::get_active_pool();
-    ::BaseData* data = pool->add_data(new_name.toStdString());
-    manager_.add_data(this,data); //check the parent object
-    kernel::Application::set_active_data(data);
-    View* view = new View(this,data);
+    QString name;
+    View* view = __create_default_tab__(name);
+    int new_id = addTab(view,name);
     __change_dock_to__(view);
-
-    int new_id = addTab(view,new_name);
+    __change_model__(new_id);
     setCurrentIndex(new_id);
 }
 
 void Sheets::tabInserted(int id){
-    assert(var_list_);
-    View* view = qobject_cast<View*>(this->widget(id));
-    View* current = qobject_cast<View*>(this->currentWidget());
+}
+
+void Sheets::__change_model__(int id){
+    std::string str = tabText(id).toStdString();
+    BaseData* data = kernel::Application::get_active_pool()->get(tabText(id).toStdString());
+    var_list_->setData(manager_.get_data(data));
 }
 
 void Sheets::__change_dock_to__(View* tab_window) {
     if (tab_window) {
-        if(!var_list_)
+
+        bool floating = false;
+        QSize size;
+        QRect floatGeometry;
+
+        //saving last state
+        if(var_list_ && var_list_->parent()){
+            save_last_window_state(qobject_cast<View*>(var_list_->parent())->saveState());
+            floating = var_list_->isFloating();
+            size = {var_list_->width(),var_list_->height()};
+            if (floating) {
+                floatGeometry = var_list_->geometry();
+            }
+        }
+
+        //restoring state
+        if(!win_state_.isEmpty()){
+            assert(tab_window->restoreState(win_state_));
+            if(var_list_){
+                tab_window->restoreDockWidget(var_list_);
+                var_list_->setParent(tab_window);
+            }
+        }
+
+        //initialization
+        if(!var_list_){
             var_list_ = new DockWidget(tab_window);
-        var_list_->set_window_attached(tab_window);
-        //bool restoreStateSuccess = tab_window->restoreState(state);
-        //qDebug() << "Restore state success:" << restoreStateSuccess;
-        tab_window->updateGeometry();
+            floating = var_list_->isFloating();
+            size = {var_list_->width(),var_list_->height()};
+            if (floating) {
+                floatGeometry = var_list_->geometry();
+            }
+            if(win_state_.isEmpty())
+                tab_window->addDockWidget(Qt::LeftDockWidgetArea,var_list_);
+            else{
+                tab_window->restoreDockWidget(var_list_);
+            }
+        }
+
+        if (floating) {
+            var_list_->setFloating(true);
+            var_list_->setGeometry(floatGeometry);
+            var_list_->move(floatGeometry.topLeft());
+        }
+        else var_list_->resize(size);
+
+        if(var_list_->closed_by_titlebar())
+            var_list_->close_from_titlebar();
     }
+}
+
+void Sheets::save_last_window_state(QByteArray&& state){
+    win_state_ = state;
+}
+
+const QByteArray& Sheets::get_last_window_state() const{
+    return win_state_;
 }
 
 void Sheets::__load_settings__(){
@@ -124,6 +178,8 @@ void Sheets::__load_settings__(){
 //        setCurrentIndex(current);
 //    }
     setPalette(Themes::Palette::get());
+    if(sets_->contains("winstate"))
+        win_state_ = sets_->value("winstate").toByteArray();
     sets_->endGroup();
     //add loading settings from project
 }
@@ -133,6 +189,7 @@ void Sheets::__save_settings__(){
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
     //sets_->setValue("curId",currentIndex());
+    sets_->setValue("winstate",win_state_);
     sets_->endGroup();
 }
 

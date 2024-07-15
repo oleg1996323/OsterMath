@@ -22,7 +22,7 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent), ObjectFromSettings(this){
     close_var_list = new CloseButton(":common/common/close.png",this);
     close_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_close"));
 
-    connect(close_var_list,&CloseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close);
+    connect(close_var_list,&CloseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close_from_titlebar);
     connect(collapse_var_list,&CollapseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::collapse);
     setHorizontal();
 }

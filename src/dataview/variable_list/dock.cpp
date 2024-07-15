@@ -55,8 +55,6 @@ void DockWidget::__load_settings__(){
         collapse();
     closed = sets_->value("closed").toBool();
     setFloating(sets_->value("floating").toBool());
-    if(sets_->contains("winstate"))
-        win_state_ = sets_->value("winstate").toByteArray();
     qDebug()<<"DockWidget init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
@@ -68,9 +66,7 @@ void DockWidget::__save_settings__(){
     sets_->setValue("hidden",!isHidden() && frame_->isHidden() && var_list_->isHidden());
     sets_->setValue("closed",closed);
     sets_->setValue("floating", isFloating());
-    if(window_owner_)
-        save_last_window_state(window_owner_->saveState());
-    sets_->setValue("winstate",win_state_);
+
     qDebug()<<"DockWidget save geometry"<<geometry();
     sets_->endGroup();
 }
@@ -103,72 +99,32 @@ void DockWidget::collapse(){
 }
 
 QMainWindow* DockWidget::window_attached() const{
-    return window_owner_;
+    return nullptr;//window_owner_;
 }
 
-void DockWidget::save_last_window_state(QByteArray&& state){
-    win_state_ = state;
+bool DockWidget::closed_by_titlebar() const{
+    return closed;
 }
 
 void DockWidget::set_window_attached(View * window){
-    if (window) {
-        // Сохранение состояния var_list_
-        qDebug()<<"Before Dockwidget geometry attached: "<<this->geometry();
-        bool floating = isFloating();
-        QSize size{width(),height()};
-        Qt::DockWidgetArea area;
-        QByteArray state;
 
-        QRect floatGeometry;
-        if (floating) {
-            floatGeometry = this->geometry();
-        }
+}
 
-        if(window_owner_)
-            win_state_ = window_owner_->saveState();
-
-        if(win_state_.isEmpty()){
-            window->addDockWidget(Qt::LeftDockWidgetArea,this);
-        }
-        else{
-            window->restoreState(win_state_);
-            window->addDockWidget(Qt::LeftDockWidgetArea,this);
-            qDebug()<<this->size();
-            if (floating) {
-                setFloating(true);
-                setGeometry(floatGeometry);
-                qDebug() << "Restored floating geometry:" << this->geometry();
-            }
-            else resize(size);
-
-            if(closed)
-                close();
-            this->setParent(window);
-        }
-
-        qDebug() << "Restored geometry:" << this->geometry();
-    }
-    window_owner_ = window;
-    qDebug()<<"After Dockwidget geometry attached: "<<this->geometry();
+void DockWidget::close_from_titlebar(){
+    closed = true;
+    close();
 }
 
 void DockWidget::closeEvent(QCloseEvent *event){
     (void)event;
-    closed = true;
-//    if(window_owner_)
-//        window_owner_->removeDockWidget(this);
 }
 
 void DockWidget::showEvent(QShowEvent *event){
     (void)event;
-    closed = false;
-
-//    if(window_owner_)
-//        window_owner_->addDockWidget(Qt::LeftDockWidgetArea,this);
 }
 
-void DockWidget::set_model(const model::Data& data){
-    if(data.var_model)
-        var_list_->setModel(data.var_model.get());
+void DockWidget::setData(model::Data* data){
+    if(data->var_model)
+        var_list_->setModel(data->var_model.get());
 }
 }
