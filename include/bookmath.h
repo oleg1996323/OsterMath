@@ -19,7 +19,7 @@ public:
     BookMath(QWidget *parent = nullptr);
     ~BookMath();
 
-    virtual void retranslate() override;
+
 
     dataview::Sheets* get_sheets_handler() const;
 
@@ -59,17 +59,17 @@ private:
 
     void __define_signals_slots__();
 
-    void __load_settings__();
+    virtual void __load_settings__() override;
 
-    void __save_settings__();
-
-    void __load_styles__();
+    virtual void __save_settings__() override;
 
     void __book_initialization__();
 
-    virtual void upload_language() override;
-    virtual void upload_fonts() override;
-    virtual void upload_style() override;
+    virtual void __retranslate__() override;
+
+    virtual void __upload_language__() override;
+    virtual void __upload_fonts__() override;
+    virtual void __upload_style__() override;
 
 private slots:
     void create_new_book();

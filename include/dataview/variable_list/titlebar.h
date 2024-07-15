@@ -10,12 +10,10 @@
 
 namespace dataview{
 
-class TitleBar:public QFrame, public Retranslatable{
+class TitleBar:public QFrame, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT
 public:
     TitleBar(QWidget* parent);
-
-    virtual void retranslate() override;
 
     //    void setVertical(){
     //        common_layout_->deleteLater();
@@ -56,48 +54,17 @@ public:
     }
 
 private:
+    virtual void __load_settings__() override;
+    virtual void __save_settings__() override;
+    virtual void __upload_fonts__() override;
+    virtual void __upload_style__() override;
+    virtual void __upload_language__() override;
+    virtual void __retranslate__() override;
+
     class Label:public QLabel{
     public:
-        Label(QWidget* parent):QLabel(parent){
-            setContentsMargins(0,0,0,0);
-            setObjectName(QString::fromUtf8("varlisttitlebar_label"));
-            QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-            setSizePolicy(sizePolicy);
-            setMaximumSize(QSize(2000, 20));
-            QFont font;
-            font.setFamily("Sans");
-            font.setPointSize(10);
-            font.setBold(true);
-            font.setWeight(100);
-            setFont(font);
-            __load_settings__();
-        }
-
-        ~Label(){
-            __save_settings__();
-        }
-
-        void __load_settings__(){
-            QSettings* sets_ = kernel::settings::Program::get_settings();
-            sets_->beginGroup("varlist/dockwidget/titlebar/label");
-            setGeometry(sets_->value("geometry").toRect());
-            setVisible(!sets_->value("hidden").toBool());
-            sets_->endGroup();
-        }
-
-        void __save_settings__(){
-            QSettings* sets_ = kernel::settings::Program::get_settings();
-            sets_->beginGroup("varlist/dockwidget/titlebar/label");
-            sets_->setValue("geometry",geometry());
-            sets_->setValue("hidden",isHidden());
-            sets_->endGroup();
-        }
-
-        void __load_styles__(){
-            if(kernel::settings::Program::get_theme() == Themes::Dark)
-                setPalette(Themes::Palette::get());
-            else setPalette(Themes::LightStyle().palette());
-        }
+        Label(QWidget* parent);
+        ~Label();
     };
 
     QLayout* common_layout_;

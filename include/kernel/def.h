@@ -28,22 +28,28 @@ QWidget* findParent(QWidget* widget, QString name);
 //using for classes, where any translations are provided
 class Retranslatable{
 public:
-    virtual void retranslate() = 0;
+    void retranslate();
+
+private:
+    virtual void __retranslate__() = 0;
 };
 
 class ObjectFromSettings{
 public:
     ObjectFromSettings(QObject* object);
 
-    virtual void upload_fonts() = 0;
-    virtual void upload_style() = 0;
-    virtual void upload_language() = 0;
+    void upload_fonts();
+    void upload_style();
+    void upload_language();
     void load_settings();
     void save_settings();
 
-protected:
+private:
     virtual void __load_settings__() = 0;
     virtual void __save_settings__() = 0;
+    virtual void __upload_fonts__() = 0;
+    virtual void __upload_style__() = 0;
+    virtual void __upload_language__() = 0;
 
 public slots:
     void changed_language();

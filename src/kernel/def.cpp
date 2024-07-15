@@ -36,9 +36,22 @@ ObjectFromSettings::ObjectFromSettings(QObject* object){
     });
 }
 
+void ObjectFromSettings::upload_fonts(){
+    __upload_fonts__();
+}
+void ObjectFromSettings::upload_style(){
+    __upload_style__();
+}
+void ObjectFromSettings::upload_language(){
+    __upload_language__();
+}
 void ObjectFromSettings::load_settings(){
     __load_settings__();
 }
 void ObjectFromSettings::save_settings(){
     __save_settings__();
+}
+
+void Retranslatable::retranslate(){
+    __retranslate__();
 }

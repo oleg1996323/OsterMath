@@ -9,7 +9,7 @@ BookMath::BookMath(QWidget *parent)
 {
     kernel::Application::set_active_book(this);
     __book_initialization__();
-    __load_styles__();
+    upload_style();
     __define_window__();
     __define_status_bar__();
     __define_data_view__();
@@ -23,8 +23,8 @@ void BookMath::__define_window__(){
     if (objectName().isEmpty())
         setObjectName(QString::fromUtf8("BookMath"));
 
-    __load_styles__();
-    __load_settings__();
+    upload_style();
+    load_settings();
 }
 
 void BookMath::__define_status_bar__(){
@@ -94,7 +94,7 @@ void BookMath::__define_signals_slots__(){
     //
 }
 
-void BookMath::retranslate(){
+void BookMath::__retranslate__(){
     file_menu->setTitle(QObject::tr("File"));
     insert_menu->setTitle(QObject::tr("Insert"));
     view_menu->setTitle(QObject::tr("View"));
@@ -140,26 +140,24 @@ void BookMath::changed(bool ch){
     changed_ = ch;
 }
 
-void BookMath::upload_language(){
+void BookMath::__upload_language__(){
     using namespace kernel::settings;
     langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
     retranslate();
 }
-void BookMath::upload_fonts(){
+void BookMath::__upload_fonts__(){
     using namespace kernel::settings;
     setPalette(Themes::Palette::get());
     langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
     retranslate();
 }
-void BookMath::upload_style(){
-    using namespace kernel::settings;
-    langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
-    retranslate();
+void BookMath::__upload_style__(){
+    setPalette(Themes::Palette().get());
 }
 
 BookMath::~BookMath()
 {
-    __save_settings__();
+    save_settings();
 }
 
 void BookMath::__load_settings__(){
@@ -179,16 +177,7 @@ void BookMath::__save_settings__(){
     sets_->endGroup();
 }
 
-void BookMath::__load_styles__(){
-    if(kernel::settings::Program::get_theme() == Themes::Dark)
-        setPalette(Themes::Palette().get());
-    else setPalette(Themes::LightStyle().palette());
-}
-
 void BookMath::__book_initialization__(){
     pool_ = std::make_unique<DataPool>("Pool data 1");
-    for(int i=0;i<3;++i)
-        pool_->add_data(QString("Data base %1").arg(i).toStdString());
     kernel::Application::set_active_pool(pool_.get());
-    kernel::Application::set_active_data(pool_->data_bases().at(0).get());
 }

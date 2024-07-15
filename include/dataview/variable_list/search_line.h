@@ -15,8 +15,6 @@ class Frame:public QFrame, public Retranslatable{
     Q_OBJECT
 public:
     Frame(QWidget* parent);
-    virtual void retranslate() override;
-
 public slots:
 
     void set_model(model::Variables*);
@@ -31,6 +29,7 @@ private:
     virtual void showEvent(QShowEvent* event) override{
         updateGeometry();
     }
+    virtual void __retranslate__() override;
 
     void __define_search_line__();
     void __define_label__();

@@ -57,7 +57,7 @@ void NodeViewHeader::paintSection(QPainter *painter, const QRect &rect, int logi
     recurse_paintSection(painter,rect,logicalIndex,&section_sizes);
 }
 
-void NodeViewHeader::retranslate(){
+void NodeViewHeader::__retranslate__(){
 
 }
 

@@ -9,7 +9,7 @@ Frame::Frame(QWidget* parent):QFrame(parent->parentWidget()){
     __define_frame__();
 }
 
-void Frame::retranslate(){
+void Frame::__retranslate__(){
     label_search_var_list->setText(kernel::Application::translate("BookMath", "\320\237\320\276\320\270\321\201\320\272", nullptr));
     label_search_var_list->setFixedSize(
                     QSize(QFontMetrics(font()).horizontalAdvance(label_search_var_list->text()),

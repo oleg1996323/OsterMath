@@ -13,7 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/oster/OsterMath/src/bookmath.cpp" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/bookmath.cpp.o.d"
   "/home/oster/OsterMath/src/dataview/expr_view_splitter.cpp" "CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o.d"
   "/home/oster/OsterMath/src/dataview/expression_view.cpp" "CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o.d"
-  "/home/oster/OsterMath/src/dataview/model_data/modeldataview.cpp" "CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o.d"
+  "/home/oster/OsterMath/src/dataview/model_data/nodedataview.cpp" "CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o.d"
   "/home/oster/OsterMath/src/dataview/sheets.cpp" "CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o.d"
   "/home/oster/OsterMath/src/dataview/tabwidgetdataview.cpp" "CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o.d"
   "/home/oster/OsterMath/src/dataview/variable_list/dock.cpp" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o" "gcc" "CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o.d"

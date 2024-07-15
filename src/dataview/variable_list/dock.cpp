@@ -8,50 +8,56 @@
 #include <QDebug>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QDebug>
 
 namespace dataview{
-DockWidget::DockWidget(QWidget* parent):QDockWidget(parent){
+DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(this){
     setObjectName("dockwidget_var_list");
 
-    __load_styles__();
-    __load_settings__();
-    //QBrush brush_1(QColor(190,220,255,255));
-    //palette->setBrush(QPalette::ColorRole::Window, brush_1);
-
     titlebar_ = new TitleBar(this);
+    QWidget* w = new QWidget(this);
+    QVBoxLayout* layout = new QVBoxLayout(w);
+    frame_ = new Frame(this);
+    var_list_ = new Table(this);
+    upload_style();
+    load_settings();
     this->setContentsMargins(0,0,0,0);
     this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable |DockWidgetMovable);
     this->setTitleBarWidget(titlebar_);
     setAllowedAreas(Qt::LeftDockWidgetArea);
     QSizePolicy sizepolicy;
-    sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
+    sizepolicy.setHorizontalPolicy(QSizePolicy::Ignored);
     sizepolicy.setRetainSizeWhenHidden(true);
     setSizePolicy(sizepolicy);
-    QVBoxLayout* layout = new QVBoxLayout(this);
-    frame_ = new Frame(this);
+    layout->setContentsMargins(0,0,0,0);
+    layout->setSpacing(0);
     layout->addWidget(frame_);
-    var_list_ = new Table(this);
     layout->addWidget(var_list_);
-    this->setLayout(layout);
+    w->setLayout(layout);
+    setWidget(w);
     retranslate();
 }
 
-void DockWidget::retranslate(){
+void DockWidget::__retranslate__(){
     frame_->retranslate();
     titlebar_->retranslate();
 }
 
 DockWidget::~DockWidget(){
-    __save_settings__();
+    save_settings();
 }
 
 void DockWidget::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     restoreGeometry(sets_->value("geometry").toByteArray());
-    setVisible(!sets_->value("hidden").toBool());
+    if(sets_->value("hidden").toBool())
+        collapse();
+    closed = sets_->value("closed").toBool();
     setFloating(sets_->value("floating").toBool());
-    qDebug()<<geometry(); //размер инициализируется окном (надо исправить)
+    if(sets_->contains("winstate"))
+        win_state_ = sets_->value("winstate").toByteArray();
+    qDebug()<<"DockWidget init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
 
@@ -59,16 +65,24 @@ void DockWidget::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
-    sets_->setValue("hidden",isHidden());
+    sets_->setValue("hidden",!isHidden() && frame_->isHidden() && var_list_->isHidden());
+    sets_->setValue("closed",closed);
     sets_->setValue("floating", isFloating());
+    if(window_owner_)
+        save_last_window_state(window_owner_->saveState());
+    sets_->setValue("winstate",win_state_);
+    qDebug()<<"DockWidget save geometry"<<geometry();
     sets_->endGroup();
 }
 
-void DockWidget::__load_styles__(){
-    QSettings* sets_ = kernel::settings::Program::get_settings();
-    if(kernel::settings::Program::get_theme() == Themes::Dark)
-        setPalette(Themes::Palette::get());
-    else setPalette(Themes::LightStyle().palette());
+void DockWidget::__upload_fonts__(){
+
+}
+void DockWidget::__upload_style__(){
+    setPalette(Themes::Palette::get());
+}
+void DockWidget::__upload_language__(){
+
 }
 
 void DockWidget::collapse(){
@@ -92,61 +106,65 @@ QMainWindow* DockWidget::window_attached() const{
     return window_owner_;
 }
 
+void DockWidget::save_last_window_state(QByteArray&& state){
+    win_state_ = state;
+}
 
-
-void DockWidget::set_window_attached(QMainWindow * window){
+void DockWidget::set_window_attached(View * window){
     if (window) {
         // Сохранение состояния var_list_
-        QByteArray geometry = saveGeometry();
+        qDebug()<<"Before Dockwidget geometry attached: "<<this->geometry();
         bool floating = isFloating();
+        QSize size{width(),height()};
         Qt::DockWidgetArea area;
         QByteArray state;
+
         QRect floatGeometry;
         if (floating) {
             floatGeometry = this->geometry();
         }
 
-        // Отсоединяем var_list_ от текущего виджета
-        if(window_owner_){
-            state = window_owner_->saveState();
-            area = window_owner_->dockWidgetArea(this);
-            window_owner_->removeDockWidget(this);
-            window->restoreDockWidget(this);
-        }
-        else {
-            window->restoreDockWidget(this);
-        }
+        if(window_owner_)
+            win_state_ = window_owner_->saveState();
 
-        // Восстанавливаем состояние и геометрию var_list_ после полной инициализации
-        QTimer::singleShot(0, [this, window,area, state, geometry, floating, floatGeometry]() {
-            bool restoreGeometrySuccess = restoreGeometry(geometry);
-            qDebug() << "Restore geometry success:" << restoreGeometrySuccess;
-
+        if(win_state_.isEmpty()){
+            window->addDockWidget(Qt::LeftDockWidgetArea,this);
+        }
+        else{
+            window->restoreState(win_state_);
+            window->addDockWidget(Qt::LeftDockWidgetArea,this);
+            qDebug()<<this->size();
             if (floating) {
                 setFloating(true);
                 setGeometry(floatGeometry);
                 qDebug() << "Restored floating geometry:" << this->geometry();
             }
+            else resize(size);
 
-            if(window_owner_)
-                window->restoreState(state);
-        });
-        //bool restoreStateSuccess = tab_window->restoreState(state);
-        //qDebug() << "Restore state success:" << restoreStateSuccess;
+            if(closed)
+                close();
+            this->setParent(window);
+        }
+
+        qDebug() << "Restored geometry:" << this->geometry();
     }
     window_owner_ = window;
+    qDebug()<<"After Dockwidget geometry attached: "<<this->geometry();
 }
 
 void DockWidget::closeEvent(QCloseEvent *event){
     (void)event;
-    if(window_owner_ && window_owner_->dockWidgetArea(this)!=Qt::NoDockWidgetArea)
-        window_owner_->removeDockWidget(this);
+    closed = true;
+//    if(window_owner_)
+//        window_owner_->removeDockWidget(this);
 }
 
 void DockWidget::showEvent(QShowEvent *event){
     (void)event;
-    if(window_owner_ && window_owner_->dockWidgetArea(this)!=Qt::LeftDockWidgetArea)
-        window_owner_->addDockWidget(Qt::LeftDockWidgetArea,this);
+    closed = false;
+
+//    if(window_owner_)
+//        window_owner_->addDockWidget(Qt::LeftDockWidgetArea,this);
 }
 
 void DockWidget::set_model(const model::Data& data){

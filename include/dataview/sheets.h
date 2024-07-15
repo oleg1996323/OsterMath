@@ -17,7 +17,7 @@
 #include <QMessageBox>
 
 namespace dataview{
-class Sheets:public QTabWidget{
+class Sheets:public QTabWidget, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT
 public:
     Sheets(QWidget* parent);
@@ -48,19 +48,20 @@ private:
         setTabPosition(QTabWidget::South);
     }
 
-    void __load_settings__();
-
-    void __save_settings__();
+    virtual void __load_settings__() override;
+    virtual void __save_settings__() override;
+    virtual void __upload_fonts__() override;
+    virtual void __upload_style__() override;
+    virtual void __upload_language__() override;
+    virtual void __retranslate__() override;
 
     model::Manager manager_;
     DockWidget* var_list_;
-    model::VariablesDelegate* var_list_delegate_;
-    model::VariablesHeader* var_list_header_;
 
     signals:
     void set_model_to_var_list(QAbstractItemModel*);
 
 private slots:
-    void __change_dock_to__(QMainWindow*);
+    void __change_dock_to__(View*);
 };
 }

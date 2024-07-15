@@ -7,8 +7,8 @@ class VariablesHeader:public QHeaderView, public Retranslatable{
     Q_OBJECT
 public:
     VariablesHeader(QWidget* parent);
-    virtual void retranslate() override;
-private:
 
+private:
+    virtual void __retranslate__() override;
 };
 }

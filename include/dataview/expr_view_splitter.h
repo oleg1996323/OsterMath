@@ -26,8 +26,6 @@ private:
 
     void __save_settings__();
 
-    void __load_styles__();
-
     Sheets* sheets_;
     VarExpressionView* expression_view_;
 };

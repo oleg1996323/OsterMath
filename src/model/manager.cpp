@@ -1,22 +1,21 @@
 #include "model/manager.h"
+#include "kernel/exception.h"
 
 namespace model{
-const Data& Manager::add_data(QObject* parent, BaseData* data){
-    static Data data_loc = Data(nullptr,nullptr);
-    if(data_.contains((size_t)data)){
-        return data_.emplace((size_t)data,Data(parent,data)).first->second;
+Data* Manager::add_data(QObject* parent, BaseData* data){
+    if(!data_.contains(data)){
+        return &data_.emplace(data,Data(parent,data)).first->second;
     }
-    else return data_loc;
+    else return nullptr;
 }
 void Manager::erase_data(BaseData* data_ptr){
-    if(data_ptr && data_.contains((size_t)data_ptr))
-        data_.erase((size_t)data_ptr);
+    if(data_ptr && data_.contains(data_ptr))
+        data_.erase(data_ptr);
 }
-const Data& Manager::get_data(BaseData* data_ptr){
-    static Data data_loc = Data(nullptr,nullptr);
-    if(data_ptr && data_.contains((size_t)data_ptr))
-        return data_.at((size_t)data_ptr);
-    else return data_loc;
+Data* Manager::get_data(BaseData* data_ptr){
+    if(data_ptr && data_.contains(data_ptr))
+        return &data_.at(data_ptr);
+    else return nullptr;
 }
 
 void Manager::clear(){

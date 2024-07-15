@@ -5,15 +5,16 @@
 
 namespace dataview{
 
-class NodeData: public QTableView{
+class NodeData: public QTableView, public ObjectFromSettings{
     Q_OBJECT
 public:
-    NodeData(QWidget* parent):QTableView(parent){
-
-    }
-
+    NodeData(QWidget* parent);
+    ~NodeData();
 private:
-    model::NodeViewDelegate* delegate_;
-    model::NodeViewHeader* header_;
+    virtual void __load_settings__() override;
+    virtual void __save_settings__() override;
+    virtual void __upload_fonts__() override;
+    virtual void __upload_style__() override;
+    virtual void __upload_language__() override;
 };
 }

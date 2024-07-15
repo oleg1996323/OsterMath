@@ -3921,7 +3921,7 @@ CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o: ../../src/dataview/
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 
-CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o: ../../src/dataview/model_data/modeldataview.cpp \
+CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/dataview/model_data/nodedataview.cpp \
   /usr/include/stdc-predef.h \
   ../../include/dataview/model_data/nodedataview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
@@ -4995,7 +4995,11 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o: ../../src/
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
   ../../include/model/nodeview_header.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 
 CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cpp \
   /usr/include/stdc-predef.h \
@@ -7188,9 +7192,29 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
-  ../../include/dataview/variable_list/table.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  ../../include/model/manager.h \
+  ../../include/model/def.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/nodeview_model.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
+  ../../include/kernel/exception.h \
+  ../../include/model/varlist_model.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
@@ -7204,31 +7228,26 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
-  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/varlist_delegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   ../../include/model/exception/exception.h \
   /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
-  ../../include/model/def.h \
+  ../../include/dataview/variable_list/table.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  ../../include/model/varlist_delegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
   ../../include/model/varlist_header.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   ../../include/dataview/model_data/nodedataview.h \
   ../../include/model/nodeview_delegate.h \
   ../../include/model/nodeview_header.h
@@ -7662,27 +7681,12 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
-  ../../include/dataview/variable_list/table.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
-  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
-  /usr/include/c++/11/optional \
-  /home/oster/Electrolisys/arithmetictree/include/def.h \
+  ../../include/model/manager.h \
+  ../../include/model/def.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /home/oster/Electrolisys/arithmetictree/include/types.h \
+  /usr/include/c++/11/cassert \
   /usr/include/boost/multiprecision/cpp_dec_float.hpp \
   /usr/include/c++/11/cmath \
   /usr/include/math.h \
@@ -8192,7 +8196,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/boost/predef/library/c/gnu.h \
   /usr/include/boost/predef/library/c/_prefix.h \
   /usr/include/boost/predef/detail/_cassert.h \
-  /usr/include/c++/11/cassert \
   /usr/include/boost/predef/os/macos.h \
   /usr/include/boost/predef/os/ios.h \
   /usr/include/boost/predef/os/bsd.h \
@@ -8274,15 +8277,9 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/boost/math/special_functions/detail/gamma_inva.hpp \
   /usr/include/boost/math/special_functions/erf.hpp \
   /usr/include/boost/math/special_functions/detail/erf_inv.hpp \
-  /home/oster/Electrolisys/arithmetictree/include/types/node.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types.h \
+  /home/oster/Electrolisys/arithmetictree/include/def.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
@@ -8290,6 +8287,9 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
   /home/oster/Electrolisys/arithmetictree/include/format.h \
   /home/oster/Electrolisys/arithmetictree/include/domain.h \
+  /usr/include/c++/11/optional \
+  /home/oster/Electrolisys/arithmetictree/include/types/node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
   /home/oster/Electrolisys/arithmetictree/include/serialize.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
@@ -8301,28 +8301,62 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/c++/11/codecvt \
   /usr/include/c++/11/bits/fs_dir.h \
   /usr/include/c++/11/bits/fs_ops.h \
+  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/varlist_delegate.h \
+  ../../include/model/nodeview_model.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
+  ../../include/kernel/exception.h \
+  ../../include/model/varlist_model.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   ../../include/model/exception/exception.h \
   /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
-  ../../include/model/def.h \
+  ../../include/dataview/variable_list/table.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  ../../include/model/varlist_delegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
   ../../include/model/varlist_header.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
   ../../include/dataview/variable_list/titlebar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
@@ -8347,15 +8381,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
-  ../../include/model/varlist_model.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   ../../include/dataview/sheets.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
@@ -8369,7 +8394,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
-  ../../include/kernel/exception.h \
   ../../include/utilities/validators/validator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
@@ -8377,11 +8401,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
-  ../../include/model/manager.h \
-  ../../include/model/nodeview_model.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
@@ -10515,16 +10534,33 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/table.cpp.o: ../../src/datav
   /usr/include/c++/11/bits/fs_ops.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/kernel/application.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
+  ../../include/model/varlist_delegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
+  ../../include/kernel/settings.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
   ../../include/kernel/styles.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
@@ -10536,49 +10572,36 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/table.cpp.o: ../../src/datav
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
-  ../../include/kernel/settings.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
-  ../../include/model/varlist_model.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   ../../include/model/exception/exception.h \
   /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
   ../../include/model/def.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
   ../../include/model/varlist_header.h \
-  ../../include/model/varlist_delegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  ../../include/kernel/application.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
+  ../../include/model/varlist_model.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 
 CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/dataview/variable_list/titlebar.cpp \
   /usr/include/stdc-predef.h \
@@ -11028,26 +11051,12 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QSize \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
-  ../../include/dataview/variable_list/table.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
-  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
-  /usr/include/c++/11/optional \
-  /home/oster/Electrolisys/arithmetictree/include/def.h \
+  ../../include/model/manager.h \
+  ../../include/model/def.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /home/oster/Electrolisys/arithmetictree/include/types.h \
+  /usr/include/c++/11/cassert \
   /usr/include/boost/multiprecision/cpp_dec_float.hpp \
   /usr/include/c++/11/cmath \
   /usr/include/math.h \
@@ -11557,7 +11566,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /usr/include/boost/predef/library/c/gnu.h \
   /usr/include/boost/predef/library/c/_prefix.h \
   /usr/include/boost/predef/detail/_cassert.h \
-  /usr/include/c++/11/cassert \
   /usr/include/boost/predef/os/macos.h \
   /usr/include/boost/predef/os/ios.h \
   /usr/include/boost/predef/os/bsd.h \
@@ -11639,15 +11647,9 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /usr/include/boost/math/special_functions/detail/gamma_inva.hpp \
   /usr/include/boost/math/special_functions/erf.hpp \
   /usr/include/boost/math/special_functions/detail/erf_inv.hpp \
-  /home/oster/Electrolisys/arithmetictree/include/types/node.h \
   /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/bits/unordered_set.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
-  /home/oster/Electrolisys/arithmetictree/include/types.h \
+  /home/oster/Electrolisys/arithmetictree/include/def.h \
   /home/oster/Electrolisys/arithmetictree/include/data.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
@@ -11655,6 +11657,9 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
   /home/oster/Electrolisys/arithmetictree/include/format.h \
   /home/oster/Electrolisys/arithmetictree/include/domain.h \
+  /usr/include/c++/11/optional \
+  /home/oster/Electrolisys/arithmetictree/include/types/node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
   /home/oster/Electrolisys/arithmetictree/include/serialize.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
@@ -11666,28 +11671,65 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /usr/include/c++/11/codecvt \
   /usr/include/c++/11/bits/fs_dir.h \
   /usr/include/c++/11/bits/fs_ops.h \
+  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
+  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/varlist_delegate.h \
+  ../../include/model/nodeview_model.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
+  ../../include/kernel/exception.h \
+  ../../include/model/varlist_model.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   ../../include/model/exception/exception.h \
   /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
-  ../../include/model/def.h \
+  ../../include/dataview/variable_list/table.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+  ../../include/model/varlist_delegate.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
   ../../include/model/varlist_header.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 
 CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -13288,7 +13330,7 @@ CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o: ../..
 
 ../../src/dataview/sheets.cpp:
 
-../../src/dataview/model_data/modeldataview.cpp:
+../../src/dataview/model_data/nodedataview.cpp:
 
 ../../src/dataview/expression_view.cpp:
 

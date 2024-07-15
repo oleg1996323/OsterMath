@@ -10,7 +10,6 @@ void DataViewSplit::__define_view__(){
     setCollapsible(0,false);
     setCollapsible(1,false);
     setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    sheets_->setObjectName("data_view");
     this->setSizes({20,sheets_->maximumHeight()});
 }
 

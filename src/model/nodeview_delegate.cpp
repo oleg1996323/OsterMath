@@ -76,4 +76,8 @@ void NodeViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     // example of simple painting after widget
     painter->drawEllipse(0,0, 10,10);
 }
+
+QSize NodeViewDelegate::sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const{
+    return QSize();
+}
 }

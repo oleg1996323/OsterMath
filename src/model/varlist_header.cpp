@@ -13,7 +13,7 @@ VariablesHeader::VariablesHeader(QWidget* parent):QHeaderView(Qt::Horizontal,par
     setFont(font);
 }
 
-void VariablesHeader::retranslate(){
+void VariablesHeader::__retranslate__(){
 
 }
 }

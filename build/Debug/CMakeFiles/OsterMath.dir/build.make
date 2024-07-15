@@ -180,19 +180,19 @@ CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oster/OsterMath/src/dataview/expression_view.cpp -o CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.s
 
-CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o: CMakeFiles/OsterMath.dir/flags.make
-CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o: ../../src/dataview/model_data/modeldataview.cpp
-CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o: CMakeFiles/OsterMath.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oster/OsterMath/build/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o -MF CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o.d -o CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o -c /home/oster/OsterMath/src/dataview/model_data/modeldataview.cpp
+CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: CMakeFiles/OsterMath.dir/flags.make
+CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/dataview/model_data/nodedataview.cpp
+CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: CMakeFiles/OsterMath.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oster/OsterMath/build/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o -MF CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o.d -o CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o -c /home/oster/OsterMath/src/dataview/model_data/nodedataview.cpp
 
-CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oster/OsterMath/src/dataview/model_data/modeldataview.cpp > CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.i
+CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oster/OsterMath/src/dataview/model_data/nodedataview.cpp > CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.i
 
-CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oster/OsterMath/src/dataview/model_data/modeldataview.cpp -o CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.s
+CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oster/OsterMath/src/dataview/model_data/nodedataview.cpp -o CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.s
 
 CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: CMakeFiles/OsterMath.dir/flags.make
 CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cpp
@@ -300,7 +300,7 @@ OsterMath_OBJECTS = \
 "CMakeFiles/OsterMath.dir/src/main.cpp.o" \
 "CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o" \
 "CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o" \
-"CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o" \
+"CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o" \
 "CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o" \
 "CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o" \
 "CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o" \
@@ -318,7 +318,7 @@ OsterMath_EXTERNAL_OBJECTS =
 ../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/main.cpp.o
 ../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o
 ../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o
-../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/model_data/modeldataview.cpp.o
+../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o
 ../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o
 ../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o
 ../../bin/Debug/OsterMath: CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o
