@@ -14,7 +14,7 @@ namespace dataview{
 DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(this){
     setObjectName("dockwidget_var_list");
 
-    titlebar_ = new TitleBar(this);
+    titlebar_ = new TitleBar(this, Qt::Horizontal);
     QWidget* w = new QWidget(this);
     QVBoxLayout* layout = new QVBoxLayout(w);
     frame_ = new Frame(this);
@@ -50,11 +50,14 @@ DockWidget::~DockWidget(){
 void DockWidget::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
-    restoreGeometry(sets_->value("geometry").toByteArray());
+    if(sets_->contains("geometry"))
+        restoreGeometry(sets_->value("geometry").toByteArray());
     if(sets_->value("hidden").toBool())
         collapse();
-    closed = sets_->value("closed").toBool();
-    setFloating(sets_->value("floating").toBool());
+    if(sets_->contains("closed"))
+        closed = sets_->value("closed").toBool();
+    if(sets_->contains("floating"))
+        setFloating(sets_->value("floating").toBool());
     qDebug()<<"DockWidget init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
@@ -94,20 +97,13 @@ void DockWidget::collapse(){
         //titlebar_->setVertical();
         frame_->hide();
         var_list_->hide();
+        adjustSize();
         //titlebar_->repaint();
     }
 }
 
-QMainWindow* DockWidget::window_attached() const{
-    return nullptr;//window_owner_;
-}
-
 bool DockWidget::closed_by_titlebar() const{
     return closed;
-}
-
-void DockWidget::set_window_attached(View * window){
-
 }
 
 void DockWidget::close_from_titlebar(){
@@ -116,11 +112,11 @@ void DockWidget::close_from_titlebar(){
 }
 
 void DockWidget::closeEvent(QCloseEvent *event){
-    (void)event;
+    Q_UNUSED(event);
 }
 
 void DockWidget::showEvent(QShowEvent *event){
-    (void)event;
+    Q_UNUSED(event);
 }
 
 void DockWidget::setData(model::Data* data){

@@ -19,8 +19,6 @@ class DockWidget:public QDockWidget, public Retranslatable, public ObjectFromSet
 public:
     DockWidget(QWidget* parent);
     ~DockWidget();
-    QMainWindow* window_attached() const;
-    void set_window_attached(View*);
     bool closed_by_titlebar() const;
 
 private:
@@ -38,7 +36,6 @@ private:
     virtual void __retranslate__() override;
     virtual void closeEvent(QCloseEvent *event) override;
     virtual void showEvent(QShowEvent *event) override;
-
 
 public slots:
     void setData(model::Data*);

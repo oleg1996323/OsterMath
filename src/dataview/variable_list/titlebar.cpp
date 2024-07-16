@@ -5,7 +5,11 @@
 
 namespace dataview{
 
-TitleBar::TitleBar(QWidget* parent):QFrame(parent), ObjectFromSettings(this){
+TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
+    QFrame(parent),
+    ObjectFromSettings(this),
+    orientation_(orientation)
+{
     this->setContentsMargins(0,0,0,0);
     setFrameShadow(QFrame::Plain);
     setFrameShape(QFrame::StyledPanel);
@@ -24,7 +28,58 @@ TitleBar::TitleBar(QWidget* parent):QFrame(parent), ObjectFromSettings(this){
 
     connect(close_var_list,&CloseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close_from_titlebar);
     connect(collapse_var_list,&CollapseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::collapse);
-    setHorizontal();
+    if(orientation_&Qt::Horizontal)
+        setHorizontal();
+    else setVertical();
+}
+
+void TitleBar::setVertical(){
+    common_layout_->deleteLater();
+    common_layout_=new QVBoxLayout(this);
+    QVBoxLayout* layout_ = reinterpret_cast<QVBoxLayout*>(common_layout_);
+    layout_->setSpacing(0);
+    layout_->setContentsMargins(0,0,0,0);
+    layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
+    layout_->setSizeConstraint(QLayout::SetMinimumSize);
+
+    layout_->addWidget(close_var_list,Qt::AlignTop);
+    layout_->addWidget(collapse_var_list,Qt::AlignTop);
+    QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Maximum, QSizePolicy::Expanding);
+    layout_->addSpacerItem(spacer);
+    layout_->addWidget(label_var_list,Qt::AlignBottom);
+    //label_var_list->vertical();
+
+    setLayout(common_layout_);
+}
+
+void TitleBar::setHorizontal(){
+    common_layout_=new QHBoxLayout(this);
+
+    QHBoxLayout* layout_ = qobject_cast<QHBoxLayout*>(common_layout_);
+    layout_->setSpacing(0);
+    layout_->setContentsMargins(0,0,0,0);
+    layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
+    layout_->setSizeConstraint(QLayout::SetMinimumSize);
+
+    layout_->addWidget(label_var_list,Qt::AlignLeft);
+    QSpacerItem *spacer = new QSpacerItem(20, 20,QSizePolicy::Expanding, QSizePolicy::Maximum);
+    layout_->addSpacerItem(spacer);
+    layout_->addWidget(collapse_var_list,Qt::AlignRight);
+    layout_->addWidget(close_var_list,Qt::AlignRight);
+
+    setLayout(common_layout_);
+}
+
+void TitleBar::paintEvent(QPaintEvent *event){
+    Q_UNUSED(event);
+
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::TextAntialiasing);
+    painter.translate(width(), height());
+    painter.rotate(-90);
+
+    QRect rect(0, 0, height(), width());
+    painter.drawText(rect, Qt::AlignCenter, windowTitle());
 }
 
 void TitleBar::__retranslate__(){

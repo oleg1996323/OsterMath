@@ -110,50 +110,41 @@ void Sheets::__change_model__(int id){
 void Sheets::__change_dock_to__(View* tab_window) {
     if (tab_window) {
 
-        bool floating = false;
-        QSize size;
-        QRect floatGeometry;
-
-        //saving last state
-        if(var_list_ && var_list_->parent()){
-            save_last_window_state(qobject_cast<View*>(var_list_->parent())->saveState());
-            floating = var_list_->isFloating();
-            size = {var_list_->width(),var_list_->height()};
-            if (floating) {
-                floatGeometry = var_list_->geometry();
-            }
-        }
-
-        //restoring state
-        if(!win_state_.isEmpty()){
-            assert(tab_window->restoreState(win_state_));
-            if(var_list_){
-                tab_window->restoreDockWidget(var_list_);
-                var_list_->setParent(tab_window);
-            }
-        }
-
         //initialization
         if(!var_list_){
             var_list_ = new DockWidget(tab_window);
-            floating = var_list_->isFloating();
-            size = {var_list_->width(),var_list_->height()};
-            if (floating) {
-                floatGeometry = var_list_->geometry();
-            }
-            if(win_state_.isEmpty())
-                tab_window->addDockWidget(Qt::LeftDockWidgetArea,var_list_);
-            else{
-                tab_window->restoreDockWidget(var_list_);
-            }
-        }
 
-        if (floating) {
-            var_list_->setFloating(true);
-            var_list_->setGeometry(floatGeometry);
-            var_list_->move(floatGeometry.topLeft());
+            if(win_state_.isEmpty()){
+                tab_window->addDockWidget(Qt::LeftDockWidgetArea,var_list_);
+                if(var_list_->closed_by_titlebar())
+                    var_list_->close_from_titlebar();
+            }
+            else{
+                if(!var_list_->isFloating()){
+                    assert(tab_window->restoreState(win_state_));
+                    tab_window->restoreDockWidget(var_list_);
+                }
+                else
+                    tab_window->addDockWidget(Qt::LeftDockWidgetArea,var_list_);
+            }
         }
-        else var_list_->resize(size);
+        else{
+            if(var_list_->parent()){
+                save_last_window_state(qobject_cast<View*>(var_list_->parent())->saveState());
+                qobject_cast<View*>(var_list_->parent())->removeDockWidget(var_list_);
+            }
+            if(!win_state_.isEmpty()){
+                QTimer::singleShot(0,[this, tab_window]{
+                    var_list_->setParent(tab_window);
+                    assert(tab_window->restoreState(win_state_));
+                    tab_window->restoreDockWidget(var_list_);
+                });
+            }
+            else{
+                var_list_->setParent(tab_window);
+                tab_window->addDockWidget(Qt::LeftDockWidgetArea,var_list_);
+            }
+        }
 
         if(var_list_->closed_by_titlebar())
             var_list_->close_from_titlebar();
@@ -189,7 +180,8 @@ void Sheets::__save_settings__(){
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
     //sets_->setValue("curId",currentIndex());
-    sets_->setValue("winstate",win_state_);
+    if(var_list_ && var_list_->parent())
+        sets_->setValue("winstate",qobject_cast<View*>(var_list_->parent())->saveState());
     sets_->endGroup();
 }
 
