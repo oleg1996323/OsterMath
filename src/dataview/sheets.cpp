@@ -131,7 +131,7 @@ void Sheets::__change_dock_to__(View* tab_window) {
         else{
             if(var_list_->parent()){
                 save_last_window_state(qobject_cast<View*>(var_list_->parent())->saveState());
-                qobject_cast<View*>(var_list_->parent())->removeDockWidget(var_list_);
+                //qobject_cast<View*>(var_list_->parent())->removeDockWidget(var_list_);
             }
             if(!win_state_.isEmpty()){
                 QTimer::singleShot(0,[this, tab_window]{

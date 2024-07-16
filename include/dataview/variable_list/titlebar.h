@@ -5,21 +5,30 @@
 #include <QLabel>
 #include <QFont>
 #include <QPalette>
+#include <QPaintEvent>
+#include <QPaintDevice>
 #include "utilities/custom_widgets/buttons.h"
 #include "kernel/application.h"
 
 namespace dataview{
 
+class TitleBarLabel:public QLabel{
+    Q_OBJECT
+    Qt::Orientation orientation_ = Qt::Horizontal;
+    virtual void paintEvent(QPaintEvent*) override;
+public:
+    TitleBarLabel(QWidget* parent);
+    ~TitleBarLabel();
+    void set_orientation(Qt::Orientation);
+};
+
 class TitleBar:public QFrame, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT
 public:
     TitleBar(QWidget*, Qt::Orientation);
-
-    void setVertical();
-    void setHorizontal();
+    void __init__();
 
 private:
-    virtual void paintEvent(QPaintEvent* event) override;
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;
     virtual void __upload_fonts__() override;
@@ -27,16 +36,12 @@ private:
     virtual void __upload_language__() override;
     virtual void __retranslate__() override;
 
-    class Label:public QLabel{
-    public:
-        Label(QWidget* parent);
-        ~Label();
-    };
-
-    QLayout* common_layout_;
-    Label *label_var_list;
+    TitleBarLabel *label_var_list;
     CollapseButton *collapse_var_list;
     CloseButton *close_var_list;
     Qt::Orientation orientation_;
+
+private slots:
+    void collapse();
 };
 }

@@ -86,19 +86,19 @@ void DockWidget::__upload_language__(){
 
 void DockWidget::collapse(){
     if(frame_->isHidden()){
-        //setFeatures(features()^QDockWidget::DockWidgetVerticalTitleBar);
-        //titlebar_->setHorizontal();
         frame_->show();
         var_list_->show();
-        //titlebar_->repaint();
+        setFeatures(features() ^ QDockWidget::DockWidgetVerticalTitleBar);
+
     }
     else{
-        //setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features() );
-        //titlebar_->setVertical();
+
+        //setLayoutDirection(Qt::RightToLeft);
         frame_->hide();
         var_list_->hide();
-        adjustSize();
-        //titlebar_->repaint();
+        setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features() );
+
+
     }
 }
 

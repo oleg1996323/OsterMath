@@ -15,8 +15,7 @@ TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
     setFrameShape(QFrame::StyledPanel);
     setLineWidth(1);
     setPalette(Themes::Palette::get());
-
-    label_var_list = new Label(this);
+    label_var_list = new TitleBarLabel(this);
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
                                            ":common/common/expand.png",
                                             ":common/common/collapse.png",
@@ -25,61 +24,26 @@ TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
 
     close_var_list = new CloseButton(":common/common/close.png",this);
     close_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_close"));
-
     connect(close_var_list,&CloseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close_from_titlebar);
-    connect(collapse_var_list,&CollapseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::collapse);
-    if(orientation_&Qt::Horizontal)
-        setHorizontal();
-    else setVertical();
+    connect(collapse_var_list,&CollapseButton::clicked,this,&TitleBar::collapse);
+    __init__();
 }
 
-void TitleBar::setVertical(){
-    common_layout_->deleteLater();
-    common_layout_=new QVBoxLayout(this);
-    QVBoxLayout* layout_ = reinterpret_cast<QVBoxLayout*>(common_layout_);
-    layout_->setSpacing(0);
-    layout_->setContentsMargins(0,0,0,0);
-    layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
-    layout_->setSizeConstraint(QLayout::SetMinimumSize);
-
-    layout_->addWidget(close_var_list,Qt::AlignTop);
-    layout_->addWidget(collapse_var_list,Qt::AlignTop);
-    QSpacerItem *spacer = new QSpacerItem(20, 20, QSizePolicy::Maximum, QSizePolicy::Expanding);
-    layout_->addSpacerItem(spacer);
-    layout_->addWidget(label_var_list,Qt::AlignBottom);
-    //label_var_list->vertical();
-
-    setLayout(common_layout_);
-}
-
-void TitleBar::setHorizontal(){
-    common_layout_=new QHBoxLayout(this);
-
-    QHBoxLayout* layout_ = qobject_cast<QHBoxLayout*>(common_layout_);
+void TitleBar::__init__(){
+    QBoxLayout* layout_=new QBoxLayout(orientation_&Qt::Horizontal?QBoxLayout::LeftToRight:QBoxLayout::BottomToTop,this);
     layout_->setSpacing(0);
     layout_->setContentsMargins(0,0,0,0);
     layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
     layout_->setSizeConstraint(QLayout::SetMinimumSize);
 
     layout_->addWidget(label_var_list,Qt::AlignLeft);
+    label_var_list->set_orientation(orientation_);
     QSpacerItem *spacer = new QSpacerItem(20, 20,QSizePolicy::Expanding, QSizePolicy::Maximum);
     layout_->addSpacerItem(spacer);
     layout_->addWidget(collapse_var_list,Qt::AlignRight);
     layout_->addWidget(close_var_list,Qt::AlignRight);
 
-    setLayout(common_layout_);
-}
-
-void TitleBar::paintEvent(QPaintEvent *event){
-    Q_UNUSED(event);
-
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::TextAntialiasing);
-    painter.translate(width(), height());
-    painter.rotate(-90);
-
-    QRect rect(0, 0, height(), width());
-    painter.drawText(rect, Qt::AlignCenter, windowTitle());
+    setLayout(layout_);
 }
 
 void TitleBar::__retranslate__(){
@@ -111,7 +75,25 @@ void TitleBar::__upload_language__(){
 
 }
 
-TitleBar::Label::Label(QWidget* parent):QLabel(parent){
+void TitleBar::collapse(){
+    assert(parent());
+    QBoxLayout* l = qobject_cast<QBoxLayout*>(layout());
+    assert(l);
+    auto dir = l->direction();
+    if(l->direction()==QBoxLayout::LeftToRight){
+        orientation_=Qt::Vertical;
+        l->setDirection(QBoxLayout::BottomToTop);
+        label_var_list->set_orientation(Qt::Vertical);
+    }
+    else{
+        l->setDirection(QBoxLayout::LeftToRight);
+        orientation_=Qt::Horizontal;
+        label_var_list->set_orientation(Qt::Horizontal);
+    }
+    qobject_cast<DockWidget*>(parent())->collapse();
+}
+
+TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
     setContentsMargins(0,0,0,0);
     setObjectName(QString::fromUtf8("varlisttitlebar_label"));
     QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -125,7 +107,29 @@ TitleBar::Label::Label(QWidget* parent):QLabel(parent){
     setFont(font);
 }
 
-TitleBar::Label::~Label(){
+TitleBarLabel::~TitleBarLabel(){
+}
+
+void TitleBarLabel::TitleBarLabel::paintEvent(QPaintEvent* event){
+    (void)event;
+    QPainter painter(this);
+    painter.setPen(painter.pen());
+    painter.setBrush(painter.brush());
+    painter.setFont(this->font());
+    if(orientation_&Qt::Vertical){
+        painter.rotate(90);
+        painter.drawText(width()/2,height(), text()); //incorrect point
+    }
+    else{
+        painter.drawText(0,this->height()/2, text()); //incorrect point
+    }
+
+}
+
+void TitleBarLabel::TitleBarLabel::set_orientation(Qt::Orientation orientation){
+    if(orientation_ ^ orientation){
+        orientation_=orientation;
+    }
 }
 
 //void TitleBar::Label::__load_settings__(){
