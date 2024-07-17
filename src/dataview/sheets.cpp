@@ -81,9 +81,9 @@ View* Sheets::__create_default_tab__(QString& name){
 void Sheets::add_default_sheet(int id){
     QString name;
     View* view = __create_default_tab__(name);
-    qDebug()<<"Before inserting"<<id;
+    //qDebug()<<"Before inserting"<<id;
     insertTab(id,view,name);
-    qDebug()<<"After inserting"<<id;
+    //qDebug()<<"After inserting"<<id;
     __change_dock_to__(view);
     __change_model__(id);
     setCurrentIndex(id);

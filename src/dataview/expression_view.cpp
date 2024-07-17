@@ -13,7 +13,7 @@ VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
     expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
     expression_->setMinimumHeight(QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
     expression_->setGeometry(pos().x(),pos().y(),width(),QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-    qDebug()<<QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom();
+    //qDebug()<<QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom();
 
     formula_expl_ = new ExpressionButton(":booktool/icons/expr.png",this);
     formula_expl_->setObjectName("formula_expl"+parent->objectName());

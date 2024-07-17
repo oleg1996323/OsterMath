@@ -11748,6 +11748,9 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
   ../../include/model/varlist_header.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QTimer \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \

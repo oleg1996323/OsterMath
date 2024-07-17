@@ -20,14 +20,14 @@ void NodeData::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     restoreGeometry(sets_->value("geometry").toByteArray());
-    qDebug()<<"NodeData init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
+    //qDebug()<<"NodeData init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
 void NodeData::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
-    qDebug()<<"NodeData save geometry"<<geometry();
+    //qDebug()<<"NodeData save geometry"<<geometry();
     sets_->endGroup();
 }
 void NodeData::__upload_fonts__(){

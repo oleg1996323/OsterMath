@@ -81,7 +81,7 @@ void VariablesDelegate::setEditorData(QWidget *editor, const QModelIndex &index)
             QComboBox *cb_types = static_cast<QComboBox*>(editor);
             if(index.model()->rowCount()-1>index.row()){
                 //cb_types->setCurrentIndex((int)vars_.at(index.row())->type());
-                qDebug()<<cb_types->currentIndex();
+                //qDebug()<<cb_types->currentIndex();
                 if(index.data(Qt::EditRole).value<TYPE_VAL>()!=TYPE_VAL::UNKNOWN){
                     cb_types->setEnabled(false);
                     cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");

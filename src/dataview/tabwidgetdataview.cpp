@@ -30,7 +30,7 @@ void View::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     restoreGeometry(sets_->value("geometry").toByteArray());
-    qDebug()<<geometry(); //размер инициализируется окном (надо исправить)
+    //qDebug()<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
 

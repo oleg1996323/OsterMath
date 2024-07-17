@@ -16,6 +16,8 @@ class TitleBarLabel:public QLabel{
     Q_OBJECT
     Qt::Orientation orientation_ = Qt::Horizontal;
     virtual void paintEvent(QPaintEvent*) override;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 public:
     TitleBarLabel(QWidget* parent);
     ~TitleBarLabel();
@@ -40,6 +42,8 @@ private:
     CollapseButton *collapse_var_list;
     CloseButton *close_var_list;
     Qt::Orientation orientation_;
+    QVBoxLayout* vertical_;
+    QHBoxLayout* horizontal_;
 
 private slots:
     void collapse();

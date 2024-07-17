@@ -58,7 +58,7 @@ void DockWidget::__load_settings__(){
         closed = sets_->value("closed").toBool();
     if(sets_->contains("floating"))
         setFloating(sets_->value("floating").toBool());
-    qDebug()<<"DockWidget init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
+    //qDebug()<<"DockWidget init geometry"<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
 
@@ -70,7 +70,7 @@ void DockWidget::__save_settings__(){
     sets_->setValue("closed",closed);
     sets_->setValue("floating", isFloating());
 
-    qDebug()<<"DockWidget save geometry"<<geometry();
+    //qDebug()<<"DockWidget save geometry"<<geometry();
     sets_->endGroup();
 }
 

@@ -1,5 +1,6 @@
 #include "dataview/variable_list/titlebar.h"
 #include "dataview/variable_list/dock.h"
+#include <QTimer>
 
 #include <QDebug>
 
@@ -34,12 +35,9 @@ void TitleBar::__init__(){
     layout_->setSpacing(0);
     layout_->setContentsMargins(0,0,0,0);
     layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
-    layout_->setSizeConstraint(QLayout::SetNoConstraint);
 
     layout_->addWidget(label_var_list);
     label_var_list->set_orientation(orientation_);
-    QSpacerItem *spacer = new QSpacerItem(20, 20,QSizePolicy::Expanding, QSizePolicy::Maximum);
-    layout_->addSpacerItem(spacer);
     layout_->addWidget(collapse_var_list);
     layout_->addWidget(close_var_list);
 
@@ -56,13 +54,13 @@ void TitleBar::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     restoreGeometry(sets_->value("geometry").toByteArray());
-    qDebug()<<geometry(); //размер инициализируется окном (надо исправить)
+    //qDebug()<<geometry(); //размер инициализируется окном (надо исправить)
     sets_->endGroup();
 }
 void TitleBar::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
-    sets_->setValue("geometry",saveGeometry());
+    //sets_->setValue("geometry",saveGeometry());
     sets_->endGroup();
 }
 void TitleBar::__upload_fonts__(){
@@ -79,26 +77,30 @@ void TitleBar::collapse(){
     assert(parent());
     QBoxLayout* l = qobject_cast<QBoxLayout*>(layout());
     assert(l);
+qobject_cast<DockWidget*>(parent())->collapse();
     auto dir = l->direction();
     if(l->direction()==QBoxLayout::LeftToRight){
+//        setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
+
+        label_var_list->set_orientation(Qt::Vertical);
         orientation_=Qt::Vertical;
         l->setDirection(QBoxLayout::BottomToTop);
-        label_var_list->set_orientation(Qt::Vertical);
     }
     else{
-        l->setDirection(QBoxLayout::LeftToRight);
+//        setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Expanding);
         orientation_=Qt::Horizontal;
         label_var_list->set_orientation(Qt::Horizontal);
+        l->setDirection(QBoxLayout::LeftToRight);
     }
-    qobject_cast<DockWidget*>(parent())->collapse();
+    l->update();
 }
 
 TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
     setContentsMargins(0,0,0,0);
     setObjectName(QString::fromUtf8("varlisttitlebar_label"));
-    QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     setSizePolicy(sizePolicy);
-    setMaximumSize(QSize(2000, 20));
+
     QFont font;
     font.setFamily("Sans");
     font.setPointSize(10);
@@ -110,30 +112,55 @@ TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
 TitleBarLabel::~TitleBarLabel(){
 }
 
-void TitleBarLabel::TitleBarLabel::paintEvent(QPaintEvent* event){
+void TitleBarLabel::paintEvent(QPaintEvent* event) {
     (void)event;
     QPainter painter(this);
     painter.setPen(painter.pen());
     painter.setBrush(painter.brush());
-//    QFont font = this->font();
-//    font.setPixelSize(100);
-//    painter.setFont(font);
-    auto geom = geometry();
-    if(orientation_&Qt::Vertical){
-        painter.translate(width(), 0);
-        painter.rotate(90);
-        painter.drawText(0,0,height(),width(),Qt::AlignLeft, text()); //incorrect point
-    }
-    else{
-        painter.drawText(0,0,width(),height(),Qt::AlignVCenter|Qt::AlignLeft, text()); //incorrect point
-    }
 
+    if (orientation_ & Qt::Vertical) {
+        qDebug()<<"Label geometry before"<<geometry();
+        qDebug()<<"Titlebar geometry before"<<parentWidget()->geometry();
+        // Поворачиваем контекст рисования на 90 градусов по часовой стрелке
+        painter.setRenderHints(QPainter::TextAntialiasing);
+        painter.translate(0,y()+QFontMetrics(font()).horizontalAdvance(text()));
+        painter.rotate(-90);
+        // Рисуем текст с учетом новой системы координат
+        painter.drawText(2,0,height(),width(), alignment(), text());
+        qDebug()<<"Label geometry after"<<geometry();
+        qDebug()<<"Titlebar geometry after"<<parentWidget()->geometry();
+
+    } else {
+        painter.drawText(geometry(), alignment(), text());
+
+    }
+    updateGeometry();
 }
+
 
 void TitleBarLabel::TitleBarLabel::set_orientation(Qt::Orientation orientation){
     if(orientation_ ^ orientation){
         orientation_=orientation;
     }
+}
+
+QSize TitleBarLabel::sizeHint() const{
+    QFontMetrics metrics(font());
+    QSize s{metrics.size(Qt::TextSingleLine,text())};
+    if(orientation_&Qt::Horizontal){
+        return s;
+    }
+    else
+        return {s.height(),s.width()};
+}
+QSize TitleBarLabel::minimumSizeHint() const{
+    QFontMetrics metrics(font());
+    QSize s{metrics.size(Qt::TextSingleLine,text())};
+    if(orientation_&Qt::Horizontal){
+        return s;
+    }
+    else
+        return {s.height(),s.width()};
 }
 
 //void TitleBar::Label::__load_settings__(){
