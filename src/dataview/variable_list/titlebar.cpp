@@ -34,14 +34,14 @@ void TitleBar::__init__(){
     layout_->setSpacing(0);
     layout_->setContentsMargins(0,0,0,0);
     layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
-    layout_->setSizeConstraint(QLayout::SetMinimumSize);
+    layout_->setSizeConstraint(QLayout::SetNoConstraint);
 
-    layout_->addWidget(label_var_list,Qt::AlignLeft);
+    layout_->addWidget(label_var_list);
     label_var_list->set_orientation(orientation_);
     QSpacerItem *spacer = new QSpacerItem(20, 20,QSizePolicy::Expanding, QSizePolicy::Maximum);
     layout_->addSpacerItem(spacer);
-    layout_->addWidget(collapse_var_list,Qt::AlignRight);
-    layout_->addWidget(close_var_list,Qt::AlignRight);
+    layout_->addWidget(collapse_var_list);
+    layout_->addWidget(close_var_list);
 
     setLayout(layout_);
 }
@@ -115,13 +115,17 @@ void TitleBarLabel::TitleBarLabel::paintEvent(QPaintEvent* event){
     QPainter painter(this);
     painter.setPen(painter.pen());
     painter.setBrush(painter.brush());
-    painter.setFont(this->font());
+//    QFont font = this->font();
+//    font.setPixelSize(100);
+//    painter.setFont(font);
+    auto geom = geometry();
     if(orientation_&Qt::Vertical){
+        painter.translate(width(), 0);
         painter.rotate(90);
-        painter.drawText(width()/2,height(), text()); //incorrect point
+        painter.drawText(0,0,height(),width(),Qt::AlignLeft, text()); //incorrect point
     }
     else{
-        painter.drawText(0,this->height()/2, text()); //incorrect point
+        painter.drawText(0,0,width(),height(),Qt::AlignVCenter|Qt::AlignLeft, text()); //incorrect point
     }
 
 }
