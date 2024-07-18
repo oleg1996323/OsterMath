@@ -77,7 +77,7 @@ void TitleBar::collapse(){
     assert(parent());
     QBoxLayout* l = qobject_cast<QBoxLayout*>(layout());
     assert(l);
-qobject_cast<DockWidget*>(parent())->collapse();
+
     auto dir = l->direction();
     if(l->direction()==QBoxLayout::LeftToRight){
 //        setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
@@ -92,7 +92,7 @@ qobject_cast<DockWidget*>(parent())->collapse();
         label_var_list->set_orientation(Qt::Horizontal);
         l->setDirection(QBoxLayout::LeftToRight);
     }
-    l->update();
+    qobject_cast<DockWidget*>(parent())->collapse();
 }
 
 TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){

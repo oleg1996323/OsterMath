@@ -96,8 +96,8 @@ void DockWidget::collapse(){
         //setLayoutDirection(Qt::RightToLeft);
         frame_->hide();
         var_list_->hide();
+        widget()->updateGeometry();
         setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features() );
-
 
     }
 }
@@ -122,5 +122,11 @@ void DockWidget::showEvent(QShowEvent *event){
 void DockWidget::setData(model::Data* data){
     if(data->var_model)
         var_list_->setModel(data->var_model.get());
+}
+
+QSize DockWidget::sizeHint() const{
+    if(frame_->isHidden())
+        return titlebar_->size();
+    else return {width(),height()};
 }
 }

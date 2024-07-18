@@ -28,6 +28,7 @@ private:
     TitleBar* titlebar_=nullptr;
     bool closed = false;
 
+    virtual QSize sizeHint() const override;
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;
     virtual void __upload_fonts__() override;
