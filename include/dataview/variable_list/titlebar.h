@@ -14,10 +14,12 @@ namespace dataview{
 
 class TitleBarLabel:public QLabel{
     Q_OBJECT
+    const int separation_between_btns_and_label_ = 20;
     Qt::Orientation orientation_ = Qt::Horizontal;
     virtual void paintEvent(QPaintEvent*) override;
     virtual QSize sizeHint() const override;
     virtual QSize minimumSizeHint() const override;
+
 public:
     TitleBarLabel(QWidget* parent);
     ~TitleBarLabel();

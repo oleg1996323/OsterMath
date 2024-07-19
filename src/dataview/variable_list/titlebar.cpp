@@ -93,6 +93,9 @@ void TitleBar::collapse(){
         l->setDirection(QBoxLayout::LeftToRight);
     }
     qobject_cast<DockWidget*>(parent())->collapse();
+
+
+
 }
 
 TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
@@ -123,7 +126,7 @@ void TitleBarLabel::paintEvent(QPaintEvent* event) {
         qDebug()<<"Titlebar geometry before"<<parentWidget()->geometry();
         // Поворачиваем контекст рисования на 90 градусов по часовой стрелке
         painter.setRenderHints(QPainter::TextAntialiasing);
-        painter.translate(0,y()+QFontMetrics(font()).horizontalAdvance(text()));
+        painter.translate(0,QFontMetrics(font()).horizontalAdvance(text())+20);
         painter.rotate(-90);
         // Рисуем текст с учетом новой системы координат
         painter.drawText(2,0,height(),width(), alignment(), text());
@@ -148,19 +151,19 @@ QSize TitleBarLabel::sizeHint() const{
     QFontMetrics metrics(font());
     QSize s{metrics.size(Qt::TextSingleLine,text())};
     if(orientation_&Qt::Horizontal){
-        return s;
+        return {s.width()+separation_between_btns_and_label_,s.height()};
     }
     else
-        return {s.height(),s.width()};
+        return {s.height(),s.width()+separation_between_btns_and_label_};
 }
 QSize TitleBarLabel::minimumSizeHint() const{
     QFontMetrics metrics(font());
     QSize s{metrics.size(Qt::TextSingleLine,text())};
     if(orientation_&Qt::Horizontal){
-        return s;
+        return {s.width()+separation_between_btns_and_label_,s.height()};
     }
     else
-        return {s.height(),s.width()};
+        return {s.height(),s.width()+separation_between_btns_and_label_};
 }
 
 //void TitleBar::Label::__load_settings__(){

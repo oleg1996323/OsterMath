@@ -54,7 +54,6 @@ void Frame::__define_search_line__(){
     QSizePolicy sizepolicy;
     sizepolicy.setRetainSizeWhenHidden(true);
     search_var_list->setObjectName(QString::fromUtf8("search_var_list"));
-    search_var_list->setMaximumSize(QSize(16777215, 20));
     sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
     search_var_list->setSizePolicy(sizepolicy);
     QFont font2;

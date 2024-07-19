@@ -23,6 +23,7 @@ public:
 
 private:
 
+    QSize dock_size_before_hidding;
     Frame* frame_=nullptr;
     Table* var_list_=nullptr;
     TitleBar* titlebar_=nullptr;

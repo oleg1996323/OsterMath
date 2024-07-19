@@ -19,22 +19,24 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(
     QVBoxLayout* layout = new QVBoxLayout(w);
     frame_ = new Frame(this);
     var_list_ = new Table(this);
-    upload_style();
-    load_settings();
-    this->setContentsMargins(0,0,0,0);
-    this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable |DockWidgetMovable);
-    this->setTitleBarWidget(titlebar_);
-    setAllowedAreas(Qt::LeftDockWidgetArea);
-    QSizePolicy sizepolicy;
-    sizepolicy.setHorizontalPolicy(QSizePolicy::Ignored);
-    sizepolicy.setRetainSizeWhenHidden(true);
-    setSizePolicy(sizepolicy);
     layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
     layout->addWidget(frame_);
     layout->addWidget(var_list_);
+    this->setContentsMargins(0,0,0,0);
+    this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable);
+    this->setTitleBarWidget(titlebar_);
+    setAllowedAreas(Qt::LeftDockWidgetArea);
+    QSizePolicy sizepolicy;
+    sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
+    sizepolicy.setVerticalPolicy(QSizePolicy::Expanding);
+    w->setSizePolicy(sizepolicy);
+    sizepolicy.setRetainSizeWhenHidden(true);
+    setSizePolicy(sizepolicy);
     w->setLayout(layout);
     setWidget(w);
+    upload_style();
+    load_settings();
     retranslate();
 }
 
@@ -66,7 +68,7 @@ void DockWidget::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
-    sets_->setValue("hidden",!isHidden() && frame_->isHidden() && var_list_->isHidden());
+    sets_->setValue("hidden",!isHidden() && widget()->isHidden());
     sets_->setValue("closed",closed);
     sets_->setValue("floating", isFloating());
 
@@ -84,23 +86,36 @@ void DockWidget::__upload_language__(){
 
 }
 
-void DockWidget::collapse(){
-    if(frame_->isHidden()){
-        frame_->show();
-        var_list_->show();
+void DockWidget::collapse() {
+    if (widget()->isHidden()) {
+        // Отображение виджета
+        widget()->setHidden(false);
+        qApp->processEvents();
+        resize(dock_size_before_hidding);
+
+        // Принудительное обновление размеров виджета и его layout
+
+        //widget()->adjustSize();
+        //widget()->updateGeometry();
+
+//        // Принудительное обновление layout родительского виджета
+//        if (widget()->layout()) {
+//            widget()->layout()->invalidate();
+//            widget()->layout()->activate();
+//        }
+
         setFeatures(features() ^ QDockWidget::DockWidgetVerticalTitleBar);
+    } else {
+        // Сохранение текущего размера перед скрытием
+        dock_size_before_hidding = size();
 
-    }
-    else{
+        // Скрытие виджета
+        widget()->setHidden(true);
 
-        //setLayoutDirection(Qt::RightToLeft);
-        frame_->hide();
-        var_list_->hide();
-        widget()->updateGeometry();
-        setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features() );
-
+        setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features());
     }
 }
+
 
 bool DockWidget::closed_by_titlebar() const{
     return closed;
@@ -125,8 +140,8 @@ void DockWidget::setData(model::Data* data){
 }
 
 QSize DockWidget::sizeHint() const{
-    if(frame_->isHidden())
+    if(widget()->isHidden())
         return titlebar_->size();
-    else return {width(),height()};
+    else return {var_list_->width(),var_list_->height()+frame_->height()};
 }
 }

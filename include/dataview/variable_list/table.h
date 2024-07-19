@@ -25,6 +25,8 @@ private:
     model::VariablesDelegate* var_list_delegate_;
     model::VariablesHeader* var_list_header_;
 
+    virtual QSize sizeHint() const override;
+    //virtual QSize minimumSizeHint() const override;
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;
     virtual void __upload_fonts__() override;

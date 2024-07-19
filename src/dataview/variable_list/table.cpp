@@ -9,9 +9,16 @@
 namespace dataview{
 Table::Table(QWidget* parent):ObjectFromSettings(this){
     setObjectName("tableview_var_list");
+    QSizePolicy size_policy;
+    size_policy.setRetainSizeWhenHidden(true);
+    size_policy.setHorizontalPolicy(QSizePolicy::Expanding);
+    size_policy.setVerticalPolicy(QSizePolicy::Expanding);
+    setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+    setSizePolicy(size_policy);
     load_settings();
     setItemDelegate(new model::VariablesDelegate(this));
     setHorizontalHeader(new model::VariablesHeader(this));
+
     /*assert(header->itemDelegate());
     if (columnCount() < 3)
         setColumnCount(3);
@@ -96,4 +103,12 @@ void Table::__upload_language__(){
 void Table::__retranslate__(){
 
 }
+
+QSize Table::sizeHint() const{
+    QSize sz = size();
+    return sz;
+}
+//QSize Table::minimumSizeHint() const{
+//    return {viewportSizeHint().height(),0};
+//}
 }
