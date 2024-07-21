@@ -11,10 +11,10 @@ namespace dataview{
 
 class Table;
 
-class Frame:public QFrame, public Retranslatable{
+class SearchLine:public QFrame, public Retranslatable{
     Q_OBJECT
 public:
-    Frame(QWidget* parent);
+    SearchLine(QWidget* parent);
 public slots:
 
     void set_model(model::Variables*);

@@ -18,12 +18,20 @@ View::~View(){
     save_settings();
 }
 
-void View::show_variable_list(QModelIndex index) const{
+void View::show_node(Node* node) const{
+    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_node(node);
+    //qobject_cast<model::NodeView*>(data_view_->model())->(node);
 
 }
 
 QAbstractProxyModel* View::search_var(const QString&){
 
+}
+
+void View::set_model(QAbstractItemModel* model){
+    data_view_->setModel(model);
+    data_view_->setRootIndex(QModelIndex());
+    data_view_->horizontalHeader()->setRootIndex(QModelIndex());
 }
 
 void View::__load_settings__(){

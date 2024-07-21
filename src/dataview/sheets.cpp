@@ -19,9 +19,12 @@ Sheets::Sheets(QWidget* parent):
         __change_model__(id);
         setCurrentIndex(id);
     });
+
     for(int i=0;i<4;++i)
         add_default_sheet(i);
-
+    connect(findChild<::model::VariablesDelegate*>("var_list_delegate"), &::model::VariablesDelegate::show_node,[this](Node* node){
+        qobject_cast<View*>(currentWidget())->show_node(node);
+    });
 }
 
 Sheets::Sheets(QWidget* parent, const QString& data_name):
@@ -105,6 +108,7 @@ void Sheets::__change_model__(int id){
     std::string str = tabText(id).toStdString();
     BaseData* data = kernel::Application::get_active_pool()->get(tabText(id).toStdString());
     var_list_->setData(manager_.get_data(data));
+    qobject_cast<View*>(widget(id))->set_model(manager_.get_data(data)->data_model.get());
 }
 
 void Sheets::__change_dock_to__(View* tab_window) {

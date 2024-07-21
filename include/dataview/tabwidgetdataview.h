@@ -4,6 +4,7 @@
 #include "kernel/def.h"
 
 class BaseData;
+class Node;
 namespace model{
 class VariablesDelegate;
 class VariablesHeader;
@@ -22,7 +23,8 @@ public:
     bool state_initialized() const;
 public slots:
     QAbstractProxyModel* search_var(const QString&);
-    void show_variable_list(QModelIndex index) const;
+    void show_node(Node* node) const;
+    void set_model(QAbstractItemModel*);
 private:
     //widget where var are illustrated
     DockWidget* var_list_;

@@ -10,6 +10,8 @@ class NodeData: public QTableView, public ObjectFromSettings{
 public:
     NodeData(QWidget* parent);
     ~NodeData();
+
+
 private:
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;

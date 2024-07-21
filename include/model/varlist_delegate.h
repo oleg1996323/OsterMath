@@ -43,7 +43,7 @@ public:
     }
 
 signals:
-    void show_value(Node*) const;
+    void show_node(Node*) const;
 
 private:
 };

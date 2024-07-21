@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QStringView>
 #include <QDebug>
+#include <QSaveFile>
 
 namespace model{
 
@@ -29,6 +30,7 @@ int Variables::rowCount(const QModelIndex& parent = QModelIndex()) const {
 int Variables::columnCount(const QModelIndex &parent) const {
     //get from deserialized project settings
     return 5;
+
 }
 
 QVariant Variables::headerData(int section, Qt::Orientation orientation, int role) const {
@@ -66,7 +68,7 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::TYPE:{
-                return variables::names_of_types[(int)vars_.at(index.row()).type_];
+                return variables::names_of_types.value(vars_.at(index.row()).type_);
                 break;
             }
             case (int)HEADER::EXPRESSION:{
@@ -75,8 +77,9 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
             }
             case (int)HEADER::VALUE:{
                 if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
-                    if (vars_.at(index.row()).type_&
-                    (TYPE_VAL::ARRAY | TYPE_VAL::NUMERIC_ARRAY | TYPE_VAL::STRING_ARRAY))
+                    if (parent() && (vars_.at(index.row()).type_ == TYPE_VAL::ARRAY
+                            || vars_.at(index.row()).type_ == TYPE_VAL::NUMERIC_ARRAY
+                            || vars_.at(index.row()).type_ == TYPE_VAL::STRING_ARRAY))
                         return QString("...");
                     else{
                         std::stringstream stream;
@@ -114,14 +117,8 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::VALUE:{
-
-                if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
-                    std::stringstream stream;
-                    vars_.at(index.row()).var_->set_stream(stream);
-                    vars_.at(index.row()).var_->print_result();
-                    return QString::fromStdString(stream.str());
-                }
-                else return QString::fromUtf8(exceptions::get_except_abbr(vars_.at(index.row()).err_));
+            auto* p = vars_.at(index.row()).var_->result().get<Node*>();
+                return QVariant::fromValue(vars_.at(index.row()).var_->result());
                 break;
             }
             case (int)HEADER::REMARK:{
@@ -148,7 +145,7 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                             if(vars_.size()==index.row()){
                                 auto var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get();
                                 vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
-                                insertRow(rowCount());
+                                insertRow(rowCount(), QModelIndex());
                             }
                             else
                                 data_base_->rename_var(vars_.at(index.row()).var_->name(),value.toString().toStdString());
@@ -268,7 +265,7 @@ bool Variables::insertRows(int nRow, int nCount, const QModelIndex& parent = QMo
     if(parent.isValid())
         return false;
 
-    beginInsertRows(QModelIndex(),nRow,nRow+nCount-1);
+    beginInsertRows(parent,nRow,nRow+nCount-1);
     endInsertRows();
     return true;
 }

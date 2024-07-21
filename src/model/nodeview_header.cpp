@@ -3,6 +3,7 @@
 #include "types.h"
 #include "arithmetic_functions.h"
 #include <QStyle>
+#include <QAbstractItemModel>
 #include <memory>
 
 namespace model {
@@ -47,14 +48,28 @@ void NodeViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, 
 }
 
 void NodeViewHeader::paintSection(QPainter *painter, const QRect &rect, int logicalIndex) const{
-    const Variables *model =
-            qobject_cast<Variables *>(this->model());
+    if(rootIndex().isValid()){
+        const Variables *model =
+                qobject_cast<Variables *>(this->model());
+        assert(model);
+        ChildsMeasure section_sizes;
+        QModelIndex var = model->index(0,logicalIndex, rootIndex());
+        if(var.isValid()){
+            Result init = var.data(Qt::EditRole).value<Result>();
+            if(init.is_node() && init.get<Node*>()->is_array() && init.get<Node*>()->has_childs()){
+                define_section_subelements(section_sizes,reinterpret_cast<ArrayNode*>(init.get<Node*>()));
+                recurse_paintSection(painter,rect,logicalIndex,&section_sizes);
+            }
+        }
+    }
+}
 
-    ChildsMeasure section_sizes;
-    if(var_->is_array() && var_->node()->has_childs())
-        define_section_subelements(section_sizes,reinterpret_cast<ArrayNode*>(var_->node().get()));
-
-    recurse_paintSection(painter,rect,logicalIndex,&section_sizes);
+void NodeViewHeader::setModel(QAbstractItemModel* model){
+    _pd->initFromNewModel(orientation(), model);
+    QHeaderView::setModel(model);
+        int cnt=(orientation()==Qt::Horizontal ? model->columnCount() : model->rowCount());
+    if(cnt)
+        initializeSections(0, cnt-1);
 }
 
 void NodeViewHeader::__retranslate__(){

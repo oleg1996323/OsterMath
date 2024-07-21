@@ -3,13 +3,13 @@
 
 namespace dataview{
 
-Frame::Frame(QWidget* parent):QFrame(parent->parentWidget()){
+SearchLine::SearchLine(QWidget* parent):QFrame(parent->parentWidget()){
     __define_label__();
     __define_search_line__();
     __define_frame__();
 }
 
-void Frame::__retranslate__(){
+void SearchLine::__retranslate__(){
     label_search_var_list->setText(kernel::Application::translate("BookMath", "\320\237\320\276\320\270\321\201\320\272", nullptr));
     label_search_var_list->setFixedSize(
                     QSize(QFontMetrics(font()).horizontalAdvance(label_search_var_list->text()),
@@ -17,11 +17,11 @@ void Frame::__retranslate__(){
     search_var_list->setPlaceholderText(kernel::Application::translate("BookMath", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\320\267\320\262\320\260\320\275\320\270\320\265 \320\277\320\265\321\200\320\265\320\274\320\265\320\275\320\275\320\276\320\271", nullptr));
 }
 
-void Frame::set_model(model::Variables* var){
+void SearchLine::set_model(model::Variables* var){
     var_list_model_ = var;
 }
 
-void Frame::__define_label__(){
+void SearchLine::__define_label__(){
     label_search_var_list = new QLabel(this);
     QFont font1;
     font1.setFamily(QString::fromUtf8("FreeSans"));
@@ -35,7 +35,7 @@ void Frame::__define_label__(){
     label_search_var_list->setSizePolicy(sizepolicy);
 }
 
-void Frame::__define_frame__(){
+void SearchLine::__define_frame__(){
     setObjectName("VarListSearchLine");
     this->setContentsMargins(0,0,0,0);
     setFrameShadow(QFrame::Plain);
@@ -49,7 +49,7 @@ void Frame::__define_frame__(){
     setLayout(search_line);
 }
 
-void Frame::__define_search_line__(){
+void SearchLine::__define_search_line__(){
     search_var_list = new QLineEdit(this);
     QSizePolicy sizepolicy;
     sizepolicy.setRetainSizeWhenHidden(true);

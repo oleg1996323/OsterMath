@@ -4,21 +4,24 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QIcon>
+#include <QMap>
 #include <QStringList>
 #include <QArrayData>
+#include "../include/def.h"
 
 namespace files{
 constexpr std::array<const char*,3> format={".xlsx",".omb",".ods"};
 }
 
 namespace variables{
-static QList<QString> names_of_types = {
-        QT_TRANSLATE_NOOP("ModelItemsTypes","Unknown"),
-        QT_TRANSLATE_NOOP("ModelItemsTypes","String array"),
-        QT_TRANSLATE_NOOP("ModelItemsTypes","Numeric array"),
-        QT_TRANSLATE_NOOP("ModelItemsTypes","Value"),
-        QT_TRANSLATE_NOOP("ModelItemsTypes","String"),
-        QT_TRANSLATE_NOOP("ModelItemsTypes","Array")
+
+static QMap<TYPE_VAL,QString> names_of_types = {
+        {TYPE_VAL::UNKNOWN,QT_TRANSLATE_NOOP("ModelItemsTypes","Unknown")},
+        {TYPE_VAL::STRING_ARRAY,QT_TRANSLATE_NOOP("ModelItemsTypes","String array")},
+        {TYPE_VAL::NUMERIC_ARRAY,QT_TRANSLATE_NOOP("ModelItemsTypes","Numeric array")},
+        {TYPE_VAL::VALUE,QT_TRANSLATE_NOOP("ModelItemsTypes","Value")},
+        {TYPE_VAL::STRING,QT_TRANSLATE_NOOP("ModelItemsTypes","String")},
+        {TYPE_VAL::ARRAY,QT_TRANSLATE_NOOP("ModelItemsTypes","Array")}
     };
 }
 

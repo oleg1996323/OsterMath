@@ -10,7 +10,7 @@
 
 namespace dataview{
 
-class Frame;
+class SearchLine;
 class TitleBar;
 class View;
 
@@ -24,7 +24,7 @@ public:
 private:
 
     QSize dock_size_before_hidding;
-    Frame* frame_=nullptr;
+    SearchLine* search_line_= nullptr;
     Table* var_list_=nullptr;
     TitleBar* titlebar_=nullptr;
     bool closed = false;

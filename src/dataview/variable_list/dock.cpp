@@ -17,11 +17,11 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(
     titlebar_ = new TitleBar(this, Qt::Horizontal);
     QWidget* w = new QWidget(this);
     QVBoxLayout* layout = new QVBoxLayout(w);
-    frame_ = new Frame(this);
+    search_line_ = new SearchLine(this);
     var_list_ = new Table(this);
     layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
-    layout->addWidget(frame_);
+    layout->addWidget(search_line_);
     layout->addWidget(var_list_);
     this->setContentsMargins(0,0,0,0);
     this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable);
@@ -41,7 +41,7 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(
 }
 
 void DockWidget::__retranslate__(){
-    frame_->retranslate();
+    search_line_->retranslate();
     titlebar_->retranslate();
 }
 
@@ -142,6 +142,6 @@ void DockWidget::setData(model::Data* data){
 QSize DockWidget::sizeHint() const{
     if(widget()->isHidden())
         return titlebar_->size();
-    else return {var_list_->width(),var_list_->height()+frame_->height()};
+    else return {var_list_->width(),var_list_->height()+search_line_->height()};
 }
 }

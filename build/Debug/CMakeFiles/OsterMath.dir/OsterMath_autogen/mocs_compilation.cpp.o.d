@@ -943,12 +943,12 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/include/kernel/def.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/utilities/windows.h \
@@ -1084,6 +1084,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QSize \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
  /home/oster/OsterMath/include/dataview/variable_list/table.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemView \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
  /home/oster/OsterMath/include/model/varlist_delegate.h \
  /home/oster/OsterMath/include/model/varlist_header.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_search_line.cpp \

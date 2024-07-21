@@ -16,7 +16,9 @@ namespace model{
 
 VariablesDelegate::VariablesDelegate(QObject* parent):
     QStyledItemDelegate(parent)
-{}
+{
+    setObjectName("var_list_delegate");
+}
 
 QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
@@ -30,7 +32,7 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
         case (int)HEADER::TYPE:{
             if(index.model()->rowCount()-1>index.row()){
                 QComboBox *cb_types = new QComboBox(parent);
-                cb_types->addItems(QStringList(variables::names_of_types));
+                cb_types->addItems(QStringList(variables::names_of_types.values()));
                 cb_types->setEditable(false);
                 return cb_types;
             }
@@ -45,12 +47,14 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
         case (int)HEADER::VALUE:
             if(index.model()->rowCount()-1>index.row() &&
                     (index.siblingAtColumn((int)HEADER::TYPE).data(Qt::EditRole).value<TYPE_VAL>()&
-                    (TYPE_VAL::ARRAY | TYPE_VAL::NUMERIC_ARRAY | TYPE_VAL::STRING_ARRAY))){
+                    TYPE_VAL::ARRAY)){
                 //QModelIndex local_index = index;
                 QPushButton* see_var_data = new QPushButton("...",parent);
                 connect(see_var_data,&QPushButton::clicked,
-                this, [&](){
-                    emit(show_value(index.data(Qt::EditRole).value<Node*>()));
+                this, [index, this](){
+                    assert(index.model());
+                    assert(index.data(Qt::EditRole).value<Result>().is_node());
+                    emit show_node(index.data(Qt::EditRole).value<Result>().get<Node*>());
                 });
                 return see_var_data;
             }

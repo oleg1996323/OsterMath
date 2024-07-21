@@ -11,9 +11,8 @@ namespace model {
     public:
         NodeViewHeader(QWidget* parent);
         virtual void paintSection(QPainter *painter, const QRect &rect, int logicalIndex) const override;
-
+        virtual void setModel(QAbstractItemModel*) override;
     private:
-        std::unique_ptr<VariableBase> var_;
         void recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, ChildsMeasure* str_section) const;
         virtual void __retranslate__() override;
     };
