@@ -52,7 +52,7 @@ public:
 private:
     QList<SubNodes> openned_;
     std::unique_ptr<NodeView> child_;
-    MODE_REPRESENTATION mode_;
+    MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Sequential;
     std::vector<Node*> sequence_node_;
 };
 }

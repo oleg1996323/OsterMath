@@ -31,7 +31,7 @@ QAbstractProxyModel* View::search_var(const QString&){
 void View::set_model(QAbstractItemModel* model){
     data_view_->setModel(model);
     data_view_->setRootIndex(QModelIndex());
-    data_view_->horizontalHeader()->setRootIndex(QModelIndex());
+    data_view_->horizontalHeader()->setModel(model);
 }
 
 void View::__load_settings__(){
