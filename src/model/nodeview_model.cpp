@@ -5,7 +5,7 @@
 namespace model{
 
 NodeView::NodeView(QObject* parent):
-    QAbstractItemModel(parent)
+    QAbstractTableModel(parent)
 {
 
 }
@@ -70,12 +70,19 @@ int NodeView::rowCount(const QModelIndex &parent) const{
         return 0;
     else{
         if(!sequence_node_.empty()){
-            auto max = std::max_element(sequence_node_.back()->childs().begin(),sequence_node_.back()->childs().end(),[](const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs){
-                return lhs->childs().size()<rhs->childs().size();
-            });
-            if(max==sequence_node_.back()->childs().end())
+            if(mode_==MODE_REPRESENTATION::Table){
+                auto max = std::max_element(sequence_node_.back()->childs().begin(),sequence_node_.back()->childs().end(),[](const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs){
+                    return lhs->childs().size()<rhs->childs().size();
+                });
+                if(max==sequence_node_.back()->childs().end())
+                    return 1;
+                else if((*max)->childs().size()==0)
+                    return 1;
+                else return (*max)->childs().size();
+            }
+            else{
                 return 1;
-            else return (*max)->childs().size();
+            }
         }
         else return 0;
     }
@@ -94,7 +101,9 @@ int NodeView::columnCount(const QModelIndex &parent) const{
 void NodeView::set_representable_node(Node* node){
     sequence_node_.clear();
     sequence_node_.push_back(node);
-    emit dataChanged(createIndex(0,0),createIndex(0,columnCount()));
+    int rows = rowCount();
+    int columns = columnCount();
+    emit dataChanged(QModelIndex(),createIndex(rowCount(),columnCount()));
 }
 
 void NodeView::set_representable_child_node(size_t id){
@@ -125,7 +134,7 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
 }
 
 bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role){
-
+    return true;
 }
 
 Qt::ItemFlags NodeView::flags(const QModelIndex &index) const{
@@ -139,14 +148,6 @@ Qt::ItemFlags NodeView::flags(const QModelIndex &index) const{
     return flags;
 }
 
-bool NodeView::hasChildren(const QModelIndex &parent) const{
-    if(!parent.isValid())
-        return false;
-    else return parent.data(Qt::EditRole).value<Node*>()->has_childs();
-}
-bool NodeView::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role){
-
-}
 QVariant NodeView::headerData(int section, Qt::Orientation orientation, int role) const{
     if(role==Qt::DisplayRole){
         if(mode_==MODE_REPRESENTATION::Table){
@@ -165,7 +166,7 @@ QVariant NodeView::headerData(int section, Qt::Orientation orientation, int role
 
                 }
             }
-            else return 0;
+            else return QVariant();
         }
         else if(mode_==MODE_REPRESENTATION::Sequential){
             if(!sequence_node_.empty()){
@@ -186,12 +187,28 @@ QVariant NodeView::headerData(int section, Qt::Orientation orientation, int role
         }
         else throw std::runtime_error("Internal error. Prompt: undefined mode-representation.");
     }
-    else {
+    else if(role==Qt::EditRole){
+        if(sequence_node_.size()>1){
+            if(orientation&Qt::Horizontal){
+                Node* node = sequence_node_.at(sequence_node_.size()-2)->child(section).get();
+                if(node->type()==NODE_TYPE::VARIABLE)
+                    return QVariant::fromValue(reinterpret_cast<VariableNode*>(node)->variable()->name());
+                else return section;
+            }
+            else{
+                Node* node = sequence_node_.back()->child(section).get();
+                if(node->type()==NODE_TYPE::VARIABLE)
+                    return QVariant::fromValue(reinterpret_cast<VariableNode*>(node)->variable()->name());
+                else return section;
 
+            }
+        }
+        else return 0;
     }
+    else return QVariant();
 }
 bool NodeView::setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles){
-
+    return true;
 }
 
 QModelIndex NodeView::index(int row, int column, const QModelIndex &parent) const{
@@ -216,13 +233,20 @@ QModelIndex NodeView::index(int row, int column, const QModelIndex &parent) cons
     }
 }
 
-QModelIndex NodeView::parent(const QModelIndex &child) const{
-    Node* child_node = static_cast<Node*>(child.internalPointer());
-    if(child_node && child_node->has_parents()){
-        Node* parent = (*child_node->parents().begin());
-        return createIndex(0,0,parent);
-    }
-    else return QModelIndex();
+bool NodeView::insertRows(int nRow, int nCount, const QModelIndex& parent){
+    beginInsertRows(QModelIndex(),nRow,nRow+nCount-1);
+
+    endInsertRows();
+    return true;
+}
+bool NodeView::insertColumns(int column, int count, const QModelIndex &parent){
+    return true;
+}
+bool NodeView::removeRows(int nRow, int nCount, const QModelIndex& parent){
+    return true;
+}
+bool NodeView::removeColumns(int nRow, int nCount, const QModelIndex& parent){
+    return true;
 }
 
 }

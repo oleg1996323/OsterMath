@@ -8,7 +8,7 @@
 
 namespace model {
 
-NodeViewHeader::NodeViewHeader(QWidget* parent):HierarchicalHeaderView(Qt::Horizontal,parent){
+NodeViewHeader::NodeViewHeader(QWidget* parent):QHeaderView(Qt::Horizontal,parent){
 
 }
 

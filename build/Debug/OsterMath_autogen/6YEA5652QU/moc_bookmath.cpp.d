@@ -34,7 +34,6 @@
   /home/oster/OsterMath/include/model/manager.h \
   /home/oster/OsterMath/include/model/nodeview_header.h \
   /home/oster/OsterMath/include/model/nodeview_model.h \
-  /home/oster/OsterMath/include/model/utilities/hierarchicalheaderview.h \
   /home/oster/OsterMath/include/model/varlist_model.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \

@@ -2,12 +2,11 @@
 #include <QHeaderView>
 #include "kernel/def.h"
 #include "model/def.h"
-#include "model/utilities/hierarchicalheaderview.h"
 
 class VariableBase;
 
 namespace model {
-    class NodeViewHeader:public HierarchicalHeaderView, public Retranslatable{
+    class NodeViewHeader:public QHeaderView, public Retranslatable{
         Q_OBJECT
     public:
         NodeViewHeader(QWidget* parent);

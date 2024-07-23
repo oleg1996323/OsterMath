@@ -1137,7 +1137,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
@@ -2340,7 +2339,6 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
@@ -3456,7 +3454,6 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   ../../include/kernel/application.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
@@ -5601,7 +5598,6 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   ../../include/model/nodeview_header.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
@@ -6676,7 +6672,6 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   ../../include/kernel/application.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
@@ -7865,8 +7860,7 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   ../../include/model/varlist_header.h \
   ../../include/dataview/model_data/nodedataview.h \
   ../../include/model/nodeview_delegate.h \
-  ../../include/model/nodeview_header.h \
-  ../../include/model/utilities/hierarchicalheaderview.h
+  ../../include/model/nodeview_header.h
 
 CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/dataview/variable_list/dock.cpp \
   /usr/include/stdc-predef.h \
@@ -9024,7 +9018,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
   ../../include/model/nodeview_header.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
@@ -13509,7 +13502,6 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
-  ../../include/model/utilities/hierarchicalheaderview.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
@@ -14064,8 +14056,6 @@ OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel:
 
 ../../include/dataview/tabwidgetdataview.h:
-
-../../include/model/utilities/hierarchicalheaderview.h:
 
 /home/oster/Electrolisys/arithmetictree/include/types/range_node.h:
 

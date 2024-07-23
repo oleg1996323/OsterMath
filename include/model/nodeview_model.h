@@ -10,7 +10,7 @@
 
 namespace model{
 
-class NodeView:public QAbstractItemModel{
+class NodeView:public QAbstractTableModel{
     Q_OBJECT
     struct SubNodes{
         SubNodes(const SubNodes&) = default;
@@ -42,17 +42,19 @@ public:
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
-    virtual bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
-    virtual bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role) override;
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     virtual bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles) override;
     virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
-    virtual QModelIndex parent(const QModelIndex &child) const override;
+
+    virtual bool insertRows(int nRow, int nCount, const QModelIndex& parent) override;
+    virtual bool insertColumns(int column, int count, const QModelIndex &parent) override;
+    virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent) override;
+    virtual bool removeColumns(int nRow, int nCount, const QModelIndex& parent) override;
 
 private:
     QList<SubNodes> openned_;
     std::unique_ptr<NodeView> child_;
-    MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Sequential;
+    MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Table;
     std::vector<Node*> sequence_node_;
 };
 }

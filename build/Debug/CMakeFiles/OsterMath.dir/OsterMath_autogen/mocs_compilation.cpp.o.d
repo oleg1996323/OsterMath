@@ -1039,7 +1039,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
- /home/oster/OsterMath/include/model/utilities/hierarchicalheaderview.h \
  /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
