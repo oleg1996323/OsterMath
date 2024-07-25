@@ -86,6 +86,8 @@ public:
 
     }
 
+    bool contains(VariableBase*);
+
     void set_data(BaseData*);
 
     BaseData* get_data() const;

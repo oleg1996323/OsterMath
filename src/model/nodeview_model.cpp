@@ -71,7 +71,19 @@ int NodeView::rowCount(const QModelIndex &parent) const{
     else{
         if(!sequence_node_.empty()){
             if(mode_==MODE_REPRESENTATION::Table){
-                auto max = std::max_element(sequence_node_.back()->childs().begin(),sequence_node_.back()->childs().end(),[](const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs){
+                Node* node_to_show;
+
+                if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE){
+                    if(sequence_node_.back()->has_child(0))
+                        node_to_show = sequence_node_.back()->child(0).get();
+                    else {
+                        cached_row_count_=0;
+                        return cached_row_count_;
+                    }
+                }
+                else node_to_show = sequence_node_.back();
+
+                auto max = std::max_element(node_to_show->childs().begin(),node_to_show->childs().end(),[](const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs){
                     return lhs->childs().size()<rhs->childs().size();
                 });
                 if(max==sequence_node_.back()->childs().end())
@@ -93,8 +105,20 @@ int NodeView::columnCount(const QModelIndex &parent) const{
     if(parent.isValid())
         return 0;
     else {
-        if(!sequence_node_.empty())
-            cached_column_count_ = sequence_node_.back()->childs().size()+1;
+        if(!sequence_node_.empty()){
+            Node* node_to_show;
+
+            if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE){
+                if(sequence_node_.back()->has_child(0))
+                    node_to_show = sequence_node_.back()->child(0).get();
+                else {
+                    cached_row_count_=0;
+                    return cached_row_count_;
+                }
+            }
+            else node_to_show = sequence_node_.back();
+            cached_column_count_ = node_to_show->childs().size()+1;
+        }
         else cached_column_count_ = 1;
     }
     return cached_column_count_;
@@ -106,7 +130,7 @@ void NodeView::set_representable_node(Node* node){
     beginResetModel();
     int rows = rowCount();
     int columns = columnCount();
-    //emit dataChanged(createIndex(0,0),createIndex(0,0));
+    emit dataChanged(createIndex(0,0),createIndex(0,0));
     endResetModel();
 }
 
@@ -128,35 +152,62 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
     if(mode_==MODE_REPRESENTATION::Table){
         switch((Qt::ItemDataRole)role){
         case(Qt::DisplayRole):
-            if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE && sequence_node_.back()->has_childs()){
-                auto node_to_show = sequence_node_.back()->child(0);
-                if(node_to_show->type()==NODE_TYPE::VARIABLE)
-                    return QString::fromStdString(reinterpret_cast<VariableNode*>(node_to_show.get())->variable()->name());
-                else if(node_to_show->is_array())
+            Node* node_to_show;
 
+            if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE){
+                if(sequence_node_.back()->has_child(0))
+                    node_to_show = sequence_node_.back()->child(0).get();
+                else return QVariant();
             }
-            if(sequence_node_.back()->has_child(index.column())){
-                auto child = sequence_node_.back()->child(index.column());
-                if(child->is_array() && child->has_child(index.row())){
-                    if(index.row()+1<child->childs().size()){
-                        if(child->child(index.row())->is_array()){
-                            return QString("...");
-                        }
-                        else{
-                            std::stringstream stream;
-                            sequence_node_.back()->child(index.row())->print_result(stream);
-                            return QString::fromStdString(stream.str());
+            else {
+                if(sequence_node_.back()->has_child(index.column()))
+                    node_to_show = sequence_node_.back()->child(index.column()).get();
+                else return QVariant();
+            }
+
+            if(node_to_show->type()==NODE_TYPE::VARIABLE){
+                if(index.row()==0)
+                    return QString::fromStdString(reinterpret_cast<VariableNode*>(node_to_show)->variable()->name());
+                else return QVariant();
+            }
+            else if(node_to_show->is_array()){
+                if(node_to_show->has_child(index.column())){
+                    Node* column_child = node_to_show->child(index.column()).get();
+                    if(column_child->type()==NODE_TYPE::VARIABLE)
+                        return QString::fromStdString(reinterpret_cast<VariableNode*>(column_child)->variable()->name());
+                    else if(column_child->is_array()){
+                        Node* row_child;
+                        if(column_child->has_child(index.row())){
+                            row_child = column_child->child(index.row()).get();
+                            if(row_child->type()==NODE_TYPE::VARIABLE)
+                                return QString::fromStdString(reinterpret_cast<VariableNode*>(row_child)->variable()->name());
+                            else if(row_child->is_array())
+                                return QString("...");
+                            else {
+                                std::stringstream stream;
+                                row_child->print_result(stream);
+                                return QString::fromStdString(stream.str());
+                            }
                         }
                     }
-                    else return QVariant();
+                    else{
+                        if(index.row()==0){
+                            std::stringstream stream;
+                            column_child->print_result(stream);
+                            return QString::fromStdString(stream.str());
+                        }
+                        else return QVariant();
+                    }
                 }
-                else if(child->type()==NODE_TYPE::VARIABLE)
-                    return QString::fromStdString(reinterpret_cast<VariableNode*>(child.get())->variable()->name());
-                else {
+                else return QVariant();
+            }
+            else {
+                if(index.row()==0){
                     std::stringstream stream;
-                    sequence_node_.back()->print_result(stream);
+                    node_to_show->print_result(stream);
                     return QString::fromStdString(stream.str());
                 }
+                else return QVariant();
             }
             break;
         case(Qt::EditRole):

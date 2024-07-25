@@ -149,6 +149,17 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                             else
                                 data_base_->rename_var(vars_.at(index.row()).var_->name(),value.toString().toStdString());
                         }
+                        else{
+                            if(vars_.size()==index.row()){
+                                VariableBase* var_ptr = data_base_->get(value.toString().toStdString());
+                                if(!contains(var_ptr)){
+                                    vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
+                                    insertRow(rowCount(), QModelIndex());
+                                }
+                            }
+                            else
+                                data_base_->rename_var(vars_.at(index.row()).var_->name(),value.toString().toStdString());
+                        }
                         return true;
                     }
                     else{
@@ -306,6 +317,12 @@ BaseData* Variables::get_data() const{
 
 void Variables::set_data(BaseData* data_base){
     data_base_ = data_base;
+}
+
+bool Variables::contains(VariableBase* var){
+    return std::find_if(vars_.begin(),vars_.end(),[var](const VAR_STRUCT& var_data){
+       return var_data.var_==var;
+    })!=vars_.end();
 }
 
 }
