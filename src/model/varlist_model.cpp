@@ -117,8 +117,7 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::VALUE:{
-            auto* p = vars_.at(index.row()).var_->result().get<Node*>();
-                return QVariant::fromValue(vars_.at(index.row()).var_->result());
+                return QVariant::fromValue(reinterpret_cast<Node*>(vars_.at(index.row()).var_->node().get()));
                 break;
             }
             case (int)HEADER::REMARK:{

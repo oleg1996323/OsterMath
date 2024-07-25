@@ -53,8 +53,9 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
                 connect(see_var_data,&QPushButton::clicked,
                 this, [index, this](){
                     assert(index.model());
-                    assert(index.data(Qt::EditRole).value<Result>().is_node());
-                    emit show_node(index.data(Qt::EditRole).value<Result>().get<Node*>());
+                    Node* node = index.data(Qt::EditRole).value<Node*>();
+                    assert(node);
+                    emit show_node(node);
                 });
                 return see_var_data;
             }

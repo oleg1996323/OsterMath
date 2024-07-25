@@ -43,8 +43,7 @@ public:
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    virtual bool setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles) override;
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    //virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
 
     virtual bool insertRows(int nRow, int nCount, const QModelIndex& parent) override;
     virtual bool insertColumns(int column, int count, const QModelIndex &parent) override;
@@ -56,5 +55,7 @@ private:
     std::unique_ptr<NodeView> child_;
     MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Table;
     std::vector<Node*> sequence_node_;
+    mutable int cached_row_count_ = 0;
+    mutable int cached_column_count_ = 0;
 };
 }

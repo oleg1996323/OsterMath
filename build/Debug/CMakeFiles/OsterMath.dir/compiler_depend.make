@@ -4915,6 +4915,8 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
   /home/oster/Electrolisys/arithmetictree/include/types.h \

@@ -67,7 +67,7 @@ NodeView::NodeView(QObject* parent):
 
 int NodeView::rowCount(const QModelIndex &parent) const{
     if(parent.isValid())
-        return 0;
+        cached_row_count_ = 0;
     else{
         if(!sequence_node_.empty()){
             if(mode_==MODE_REPRESENTATION::Table){
@@ -75,17 +75,18 @@ int NodeView::rowCount(const QModelIndex &parent) const{
                     return lhs->childs().size()<rhs->childs().size();
                 });
                 if(max==sequence_node_.back()->childs().end())
-                    return 1;
+                    cached_row_count_ = 1;
                 else if((*max)->childs().size()==0)
-                    return 1;
-                else return (*max)->childs().size();
+                    cached_row_count_ = 2;
+                else cached_row_count_ = (*max)->childs().size()+1;
             }
             else{
-                return 1;
+                cached_row_count_ = 1;
             }
         }
-        else return 0;
+        else cached_row_count_ = 0;
     }
+    return cached_row_count_;
 }
 
 int NodeView::columnCount(const QModelIndex &parent) const{
@@ -93,17 +94,20 @@ int NodeView::columnCount(const QModelIndex &parent) const{
         return 0;
     else {
         if(!sequence_node_.empty())
-            return sequence_node_.back()->childs().size();
-        else return 0;
+            cached_column_count_ = sequence_node_.back()->childs().size()+1;
+        else cached_column_count_ = 1;
     }
+    return cached_column_count_;
 }
 
 void NodeView::set_representable_node(Node* node){
     sequence_node_.clear();
     sequence_node_.push_back(node);
+    beginResetModel();
     int rows = rowCount();
     int columns = columnCount();
-    emit dataChanged(QModelIndex(),createIndex(rowCount(),columnCount()));
+    //emit dataChanged(createIndex(0,0),createIndex(0,0));
+    endResetModel();
 }
 
 void NodeView::set_representable_child_node(size_t id){
@@ -112,24 +116,65 @@ void NodeView::set_representable_child_node(size_t id){
 }
 
 void NodeView::reset_representable_node(){
+    beginResetModel();
     sequence_node_.pop_back();
     emit dataChanged(createIndex(0,0),createIndex(0,columnCount()));
+    endResetModel();
 }
 
 QVariant NodeView::data(const QModelIndex &index, int role) const{
-    if(!index.isValid())
+    if(sequence_node_.empty() || !index.isValid())
         return QVariant();
+    if(mode_==MODE_REPRESENTATION::Table){
+        switch((Qt::ItemDataRole)role){
+        case(Qt::DisplayRole):
+            if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE && sequence_node_.back()->has_childs()){
+                auto node_to_show = sequence_node_.back()->child(0);
+                if(node_to_show->type()==NODE_TYPE::VARIABLE)
+                    return QString::fromStdString(reinterpret_cast<VariableNode*>(node_to_show.get())->variable()->name());
+                else if(node_to_show->is_array())
 
-    switch(role){
-    case(Qt::DisplayRole):
+            }
+            if(sequence_node_.back()->has_child(index.column())){
+                auto child = sequence_node_.back()->child(index.column());
+                if(child->is_array() && child->has_child(index.row())){
+                    if(index.row()+1<child->childs().size()){
+                        if(child->child(index.row())->is_array()){
+                            return QString("...");
+                        }
+                        else{
+                            std::stringstream stream;
+                            sequence_node_.back()->child(index.row())->print_result(stream);
+                            return QString::fromStdString(stream.str());
+                        }
+                    }
+                    else return QVariant();
+                }
+                else if(child->type()==NODE_TYPE::VARIABLE)
+                    return QString::fromStdString(reinterpret_cast<VariableNode*>(child.get())->variable()->name());
+                else {
+                    std::stringstream stream;
+                    sequence_node_.back()->print_result(stream);
+                    return QString::fromStdString(stream.str());
+                }
+            }
+            break;
+        case(Qt::EditRole):
+            if(sequence_node_.back()->has_child(index.column())){
+                auto child = sequence_node_.back()->child(index.column());
+                if(child->is_array() && child->has_child(index.row())){
+                    return QVariant::fromValue(child->child(index.row()).get());
+                }
+                else return QVariant::fromValue(child.get());
+            }
+            break;
+            break;
+        default:
+            return QVariant();
+        }
+    }
+    else if(mode_==MODE_REPRESENTATION::Sequential){
 
-        break;
-    case(Qt::EditRole):
-
-        break;
-
-    default:
-        return QVariant();
     }
 }
 
@@ -140,10 +185,7 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
 Qt::ItemFlags NodeView::flags(const QModelIndex &index) const{
     Qt::ItemFlags flags = QAbstractItemModel::flags(index);
     if(index.isValid()){
-        if(index.data(Qt::EditRole).value<TYPE_VAL>()&(ARRAY|NUMERIC_ARRAY|STRING_ARRAY))
-            return flags | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
-        else
-            return flags | Qt::ItemNeverHasChildren | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+        return flags | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
     }
     return flags;
 }
@@ -206,31 +248,6 @@ QVariant NodeView::headerData(int section, Qt::Orientation orientation, int role
         else return 0;
     }
     else return QVariant();
-}
-bool NodeView::setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles){
-    return true;
-}
-
-QModelIndex NodeView::index(int row, int column, const QModelIndex &parent) const{
-    if(row>0 && column>0){
-        Node* parent_node = static_cast<Node*>(parent.internalPointer());
-        if(parent_node){
-            if(mode_&MODE_REPRESENTATION::Sequential){
-                if(parent_node->has_child(column))
-                    return createIndex(1,column,parent_node->child(column).get());
-                else
-                    return QModelIndex();
-            }
-            else{
-                if(parent_node->has_child(column) && parent_node->child(column)->has_child(row))
-                    return createIndex(row,column,parent_node->child(column)->child(row).get());
-                else return QModelIndex();
-            }
-        }
-        else{
-            return QModelIndex();
-        }
-    }
 }
 
 bool NodeView::insertRows(int nRow, int nCount, const QModelIndex& parent){

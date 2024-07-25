@@ -2,6 +2,7 @@
 #include <QWidget>
 #include <QAbstractItemDelegate>
 #include <QMetaType>
+#include <QStyledItemDelegate>
 #include <QComboBox>
 #include "types.h"
 #include "kernel/settings.h"
@@ -17,7 +18,7 @@ class VariableBase;
 
 namespace model{
 
-class NodeViewDelegate:public QAbstractItemDelegate{
+class NodeViewDelegate:public QStyledItemDelegate{
     Q_OBJECT
 public:
 
@@ -33,7 +34,7 @@ public:
 
     virtual QSize sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const override;
 
-    virtual void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
+//    virtual void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
 
     void set_default_header_pos();
 
