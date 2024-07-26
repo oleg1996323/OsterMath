@@ -7,6 +7,7 @@ NodeData::NodeData(QWidget* parent):
     ObjectFromSettings(this)
 {
     setObjectName("nodedataview");
+    viewport()->setAttribute(Qt::WA_Hover);
     load_settings();
     setItemDelegate(new model::NodeViewDelegate(this));
     setHorizontalHeader(new model::NodeViewHeader(this));

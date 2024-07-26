@@ -9,7 +9,14 @@
 namespace model {
 
 NodeViewHeader::NodeViewHeader(QWidget* parent):QHeaderView(Qt::Horizontal,parent){
-
+    setFirstSectionMovable(false);
+    setStretchLastSection(false);
+    QFont font;
+    font.setFamily(QString::fromUtf8("Sans Serif"));
+    font.setPointSize(8);
+    font.setBold(true);
+    font.setWeight(75);
+    setFont(font);
 }
 
 //void NodeViewHeader::recurse_paintSection(QPainter *painter, const QRect &rect, int logicalIndex, ChildsMeasure* str_section) const{

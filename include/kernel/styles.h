@@ -40,6 +40,7 @@ public:
 
     const QPalette& palette() const{
         return *this;
+
     }
 };
 
