@@ -28,7 +28,6 @@
   /home/oster/OsterMath/include/kernel/settings.h \
   /home/oster/OsterMath/include/kernel/styles.h \
   /home/oster/OsterMath/include/menuwidgets/booktoolbar.h \
-  /home/oster/OsterMath/include/menuwidgets/toolbartabs.h \
   /home/oster/OsterMath/include/model/def.h \
   /home/oster/OsterMath/include/model/exception/exception.h \
   /home/oster/OsterMath/include/model/manager.h \
@@ -36,6 +35,7 @@
   /home/oster/OsterMath/include/model/nodeview_model.h \
   /home/oster/OsterMath/include/model/varlist_model.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
+  /home/oster/OsterMath/include/utilities/custom_widgets/tabbed_toolbox_group.h \
   /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \
   /home/oster/OsterMath/include/utilities/validators/validator.h \
   /home/oster/OsterMath/include/utilities/windows.h \

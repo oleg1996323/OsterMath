@@ -9,6 +9,8 @@
 #include <QArrayData>
 #include "../include/def.h"
 
+
+
 namespace files{
 constexpr std::array<const char*,3> format={".xlsx",".omb",".ods"};
 }

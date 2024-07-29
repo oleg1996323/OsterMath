@@ -147,6 +147,18 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/menuwidgets/groups/export.h",
+			"MU",
+			"V3S3SRHSHZ/moc_export.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/menuwidgets/groups/file.h",
+			"MU",
+			"V3S3SRHSHZ/moc_file.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/menuwidgets/toolbartabs.h",
 			"MU",
 			"6Q6C4MVPTR/moc_toolbartabs.cpp",
@@ -156,6 +168,18 @@
 			"/home/oster/OsterMath/include/utilities/custom_widgets/buttons.h",
 			"MU",
 			"K4XHVSUWZG/moc_buttons.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/custom_widgets/tabbed_toolbox_group.h",
+			"MU",
+			"K4XHVSUWZG/moc_tabbed_toolbox_group.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/utilities/custom_widgets/tool_group.h",
+			"MU",
+			"K4XHVSUWZG/moc_tool_group.cpp",
 			null
 		],
 		[
@@ -269,7 +293,7 @@
 		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 6,
+	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "/home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
@@ -317,6 +341,22 @@
 			null
 		],
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
+		[ "/home/oster/OsterMath/src/menuwidgets/booktoolbar.cpp", "MU", null ],
+		[
+			"/home/oster/OsterMath/src/utilities/custom_widgets/buttons.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/utilities/custom_widgets/tabbed_toolbox_group.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/utilities/custom_widgets/tool_group.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp",
 			"MU",

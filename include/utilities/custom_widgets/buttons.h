@@ -8,36 +8,16 @@ namespace button_states{
     };
 }
 
-
 class IconedButton:public QPushButton{
     Q_OBJECT
 public:
-    IconedButton(const QString& res_path,QWidget* parent):QPushButton(parent){
-        setIcon(QIcon(res_path));
-    }
-
-    IconedButton(const QIcon& icon,QWidget* parent):QPushButton(parent){
-        setIcon(icon);
-    }
-
-    IconedButton(QIcon&& icon,QWidget* parent):QPushButton(icon,"",parent){
-        setIcon(icon);
-    }
-
-    IconedButton(QWidget* parent):QPushButton(parent){}
+    IconedButton(const QString& res_path,QWidget* parent);
+    IconedButton(const QIcon& icon,QWidget* parent);
+    IconedButton(QIcon&& icon,QWidget* parent);
+    IconedButton(QWidget* parent);
 
 protected:
-    void paintEvent(QPaintEvent *event) override {
-            QPushButton::paintEvent(event); // Вызываем реализацию по умолчанию для отображения фона и текста
-            QPainter painter(this);
-
-            if (!icon().isNull()) {
-                painter.setRenderHint(QPainter::SmoothPixmapTransform); // Сглаживание для иконки
-                setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
-
-            }
-
-        }
+    void paintEvent(QPaintEvent *event) override;
 };
 
 template<typename ENUM_STATE>
@@ -61,9 +41,7 @@ public:
         setIcon(icons_.value(current_state_));
         assert(!icon().isNull());
     }
-
 protected:
-
     bool event(QEvent* event) override{
         switch(event->type()){
         case QEvent::MouseButtonPress:
@@ -84,72 +62,33 @@ protected:
         }
         return false;
     }
-
-    void paintEvent(QPaintEvent *event) override {
+    virtual void paintEvent(QPaintEvent *event) override{
         QPainter painter(this);
-
         if (!icon().isNull()) {
             painter.setRenderHint(QPainter::SmoothPixmapTransform); // Сглаживание для иконки
             setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
-
         }
-
     }
-
     virtual void changeState() = 0;
     ENUM_STATE current_state_;
     QMap<ENUM_STATE,QIcon> icons_;
 };
 
-
 class ToolButton:public IconedButton{
     Q_OBJECT
 public:
-    ToolButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
-//        setStyleSheet("image: url("+res_path+");"
-//                    "background-color: "+ parent->palette().color(QPalette::Button).name(QColor::HexRgb)+";");
-
-        setContentsMargins(0,0,0,0);
-        setFixedSize(35,35);
-    }
+    ToolButton(const QString& res_path,QWidget* parent);
 };
 
 class CloseButton:public IconedButton{
     Q_OBJECT
 public:
-    CloseButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
-        setContentsMargins(0,0,0,0);
-        setFixedSize(20,20);
-    }
+    CloseButton(const QString& res_path,QWidget* parent);
 };
-
 
 class CollapseButton:public MultiStateIconedButton<button_states::COLLAPSE_EXPAND_STATE>{
     Q_OBJECT
 public:
-    CollapseButton(button_states::COLLAPSE_EXPAND_STATE default_val,const QString& collapsed_icon,const QString& expanded_icon,QWidget* parent):MultiStateIconedButton(
-                    default_val,
-                    {{button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,collapsed_icon}, \
-                    {button_states::COLLAPSE_EXPAND_STATE::EXPANDED,expanded_icon}}, \
-                    parent)
-    {
-        setContentsMargins(0,0,0,0);
-        setFixedSize(20,20);
-    }
-
-    virtual void changeState() override{
-        using namespace button_states;
-        switch(current_state_){
-        case(COLLAPSE_EXPAND_STATE::COLLAPSED):
-            current_state_ = COLLAPSE_EXPAND_STATE::EXPANDED;
-            setIcon(icons_.value(COLLAPSE_EXPAND_STATE::EXPANDED));
-            break;
-        case(button_states::COLLAPSE_EXPAND_STATE::EXPANDED):
-            current_state_ = COLLAPSE_EXPAND_STATE::COLLAPSED;
-            setIcon(icons_.value(COLLAPSE_EXPAND_STATE::COLLAPSED));
-            break;
-        default:
-            break;
-        }
-    }
+    CollapseButton(button_states::COLLAPSE_EXPAND_STATE default_val,const QString& collapsed_icon,const QString& expanded_icon,QWidget* parent);
+    virtual void changeState() override;
 };

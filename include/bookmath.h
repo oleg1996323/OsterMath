@@ -8,6 +8,8 @@
 #include "dataview/expr_view_splitter.h"
 #include "data.h"
 
+namespace Book{
+
 namespace VarList{
     class DockWidget;
 }
@@ -41,7 +43,7 @@ private:
     QStatusBar *statusbar;
 
     //toolbar
-    BookToolBar* tool_bar;
+    Widgets::ToolBar* tool_bar;
 
     //utility window deactivating the book-window when openned
     AbstractSubWindowInterface* subwindow;
@@ -80,3 +82,4 @@ private slots:
     void insert_chart();
     void changed(bool);
 };
+}

@@ -927,20 +927,17 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/menuwidgets/toolbartabs.h \
+ /home/oster/OsterMath/include/utilities/custom_widgets/tabbed_toolbox_group.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+ /home/oster/OsterMath/include/kernel/def.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
- /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
- /home/oster/OsterMath/include/kernel/def.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
@@ -949,8 +946,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/utilities/windows.h \
  /home/oster/OsterMath/include/utilities/windows/createnew.h \
  /home/oster/OsterMath/include/utilities/windows/windef.h \
@@ -987,6 +982,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
  /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/dataview/expr_view_splitter.h \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter \
@@ -1066,6 +1063,9 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h \
+ /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expression_view.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/TBKUEERFDP/moc_nodedataview.cpp \
@@ -1103,7 +1103,11 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/QPaintDevice \
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6Q6C4MVPTR/moc_booktoolbar.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6Q6C4MVPTR/moc_toolbartabs.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/moc_export.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/../../../../include/menuwidgets/groups/export.h \
+ /home/oster/OsterMath/include/utilities/custom_widgets/tool_group.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/moc_file.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/../../../../include/menuwidgets/groups/file.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp \

@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    BookMath w;
+    Book::BookMath w;
     w.show();
     return a.exec();
 }

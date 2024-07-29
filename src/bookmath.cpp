@@ -4,6 +4,7 @@
 #include <QStatusBar>
 #include <QMenuBar>
 
+namespace Book{
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent), ObjectFromSettings(this)
 {
@@ -34,7 +35,7 @@ void BookMath::__define_status_bar__(){
 }
 
 void BookMath::__define_tool_bar__(){
-    tool_bar = new BookToolBar(this);
+    tool_bar = new Widgets::ToolBar(this);
     this->addToolBar(tool_bar);
 }
 
@@ -180,4 +181,5 @@ void BookMath::__save_settings__(){
 void BookMath::__book_initialization__(){
     pool_ = std::make_unique<DataPool>("Pool data 1");
     kernel::Application::set_active_pool(pool_.get());
+}
 }
