@@ -13,7 +13,7 @@
 namespace dataview{
 DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(this){
     setObjectName("dockwidget_var_list");
-
+    setAutoFillBackground(true);
     titlebar_ = new TitleBar(this, Qt::Horizontal);
     QWidget* w = new QWidget(this);
     QVBoxLayout* layout = new QVBoxLayout(w);
@@ -87,6 +87,7 @@ void DockWidget::__upload_language__(){
 }
 
 void DockWidget::collapse() {
+    titlebar_->updateGeometry();
     if (widget()->isHidden()) {
         // Отображение виджета
         widget()->setHidden(false);
@@ -105,6 +106,7 @@ void DockWidget::collapse() {
 //        }
 
         setFeatures(features() ^ QDockWidget::DockWidgetVerticalTitleBar);
+        titlebar_->updateGeometry();
     } else {
         // Сохранение текущего размера перед скрытием
         dock_size_before_hidding = size();

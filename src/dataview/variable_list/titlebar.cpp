@@ -85,12 +85,14 @@ void TitleBar::collapse(){
         label_var_list->set_orientation(Qt::Vertical);
         orientation_=Qt::Vertical;
         l->setDirection(QBoxLayout::BottomToTop);
+        label_var_list->updateGeometry();
     }
     else{
 //        setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Expanding);
         orientation_=Qt::Horizontal;
         label_var_list->set_orientation(Qt::Horizontal);
         l->setDirection(QBoxLayout::LeftToRight);
+        label_var_list->updateGeometry();
     }
     qobject_cast<DockWidget*>(parent())->collapse();
 
@@ -100,6 +102,8 @@ void TitleBar::collapse(){
 
 TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
     setContentsMargins(0,0,0,0);
+    setPalette(Themes::Palette::get());
+    setBackgroundRole(QPalette::Window);
     setObjectName(QString::fromUtf8("varlisttitlebar_label"));
     QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     setSizePolicy(sizePolicy);
@@ -120,7 +124,7 @@ void TitleBarLabel::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     painter.setPen(painter.pen());
     painter.setBrush(painter.brush());
-
+    qDebug()<<this->palette().currentColorGroup();
     if (orientation_ & Qt::Vertical) {
         qDebug()<<"Label geometry before"<<geometry();
         qDebug()<<"Titlebar geometry before"<<parentWidget()->geometry();
@@ -137,7 +141,6 @@ void TitleBarLabel::paintEvent(QPaintEvent* event) {
         painter.drawText(geometry(), alignment(), text());
 
     }
-    updateGeometry();
 }
 
 

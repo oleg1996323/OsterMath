@@ -1,4 +1,6 @@
 #include "kernel/application.h"
+#include <QStyle>
+#include <QStyleFactory>
 
 namespace kernel{
 
@@ -6,6 +8,7 @@ namespace kernel{
             QApplication(argc,argv){
             setOrganizationName("Oster-Industries");
             setApplicationName("OsterMath");
+            //setStyle(new Themes::CustomStyle);
             __load_settings__();
         }
 

@@ -40,13 +40,13 @@ NodeViewHeader::NodeViewHeader(QWidget* parent):QHeaderView(Qt::Horizontal,paren
 
 //        //QVariant bg = cellIndex.data(Qt::BackgroundRole);
 //        //QVariant fg = cellIndex.data(Qt::ForegroundRole);
-////        if (bg.canConvert<QBrush>()) {
-////            opt.palette.setBrush(QPalette::Button, bg.value<QBrush>());
-////            opt.palette.setBrush(QPalette::Window, bg.value<QBrush>());
-////        }
-////        if (fg.canConvert<QBrush>()) {
-////            opt.palette.setBrush(QPalette::ButtonText, fg.value<QBrush>());
-////        }
+//        if (bg.canConvert<QBrush>()) {
+//            opt.palette.setBrush(QPalette::Button, bg.value<QBrush>());
+//            opt.palette.setBrush(QPalette::Window, bg.value<QBrush>());
+//        }
+//        if (fg.canConvert<QBrush>()) {
+//            opt.palette.setBrush(QPalette::ButtonText, fg.value<QBrush>());
+//        }
 
 //        painter->save();
 //        style()->drawControl(QStyle::CE_Header, &opt, painter, this);

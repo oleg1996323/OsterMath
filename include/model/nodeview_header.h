@@ -12,6 +12,7 @@ namespace model {
         NodeViewHeader(QWidget* parent);
     private:
         virtual void __retranslate__() override;
+        static QPalette style_;
     };
 }
 

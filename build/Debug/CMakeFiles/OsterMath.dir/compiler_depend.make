@@ -999,6 +999,9 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
@@ -1028,9 +1031,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   ../../include/utilities/custom_widgets/buttons.h \
@@ -2201,6 +2201,9 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
@@ -2230,9 +2233,6 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   ../../include/utilities/custom_widgets/buttons.h \
@@ -2790,6 +2790,9 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/exception.h \
   ../../include/utilities/validators/validator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
@@ -2808,7 +2811,6 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
@@ -2816,8 +2818,6 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
@@ -5566,12 +5566,12 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
   ../../include/kernel/def.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
@@ -6008,6 +6008,9 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/exception.h \
   ../../include/utilities/validators/validator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
@@ -6026,7 +6029,6 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
@@ -6034,8 +6036,6 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
@@ -8266,6 +8266,9 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
@@ -8282,9 +8285,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
@@ -12762,6 +12762,9 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
@@ -13395,9 +13398,6 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
   ../../include/utilities/custom_widgets/buttons.h \
@@ -13943,6 +13943,9 @@ CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o: ../..
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
   ../../include/kernel/settings.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
@@ -16185,6 +16188,14 @@ OsterMath_autogen/VEZS5EH527/moc_search_line.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle:
+
+/usr/include/boost/preprocessor/seq/enum.hpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h:
+
 ../../include/kernel/settings.h:
 
 /usr/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp:
@@ -16222,14 +16233,6 @@ OsterMath_autogen/VEZS5EH527/moc_search_line.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle:
-
-/usr/include/boost/preprocessor/seq/enum.hpp:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap:
 

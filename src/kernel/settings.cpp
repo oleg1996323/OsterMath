@@ -13,7 +13,7 @@ namespace kernel{
 
     QSettings Program::sets_ = QSettings("Oster-Industries","OsterMath");
     uint8_t Program::font_size_inc = 0;
-    Themes::TYPE Program::style_theme = Themes::TYPE::Light;
+    Themes::TYPE Program::style_theme = Themes::TYPE::Dark;
     QLocale::Language Program::lang_ = QLocale::Language::English;
     bool Program::var_list_showed_ = true;
 
