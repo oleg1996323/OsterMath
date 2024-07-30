@@ -17,6 +17,7 @@ Table::Table(QWidget* parent):ObjectFromSettings(this){
     load_settings();
     setItemDelegate(new model::VariablesDelegate(this));
     setHorizontalHeader(new model::VariablesHeader(this));
+    setAlternatingRowColors(true);
     /*assert(header->itemDelegate());
     if (columnCount() < 3)
         setColumnCount(3);

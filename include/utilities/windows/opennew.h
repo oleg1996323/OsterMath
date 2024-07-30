@@ -1,6 +1,8 @@
 #pragma once
 #include "windef.h"
 
+namespace Book{
+namespace SecondairyWindows{
 
 class OpenNewBook:public QFileDialog,public AbstractSubWindowInterface{
     Q_OBJECT
@@ -37,4 +39,5 @@ private slots:
         this->~OpenNewBook();
     }
 };
-
+}
+}

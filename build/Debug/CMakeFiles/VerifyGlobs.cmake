@@ -168,7 +168,6 @@ set(OLD_GLOB
   "/home/oster/OsterMath/include/menuwidgets/booktoolbar.h"
   "/home/oster/OsterMath/include/menuwidgets/groups/export.h"
   "/home/oster/OsterMath/include/menuwidgets/groups/file.h"
-  "/home/oster/OsterMath/include/menuwidgets/toolbartabs.h"
   "/home/oster/OsterMath/include/model/def.h"
   "/home/oster/OsterMath/include/model/exception/exception.h"
   "/home/oster/OsterMath/include/model/manager.h"

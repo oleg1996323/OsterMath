@@ -11,8 +11,4 @@ void fullscreen(QWidget* widget){
     widget->resize(width,height);
 }
 
-void zero_margins(QWidget* widget){
-
-}
-
 }

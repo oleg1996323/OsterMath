@@ -46,7 +46,7 @@ private:
     Widgets::ToolBar* tool_bar;
 
     //utility window deactivating the book-window when openned
-    AbstractSubWindowInterface* subwindow;
+    SecondairyWindows::AbstractSubWindowInterface* subwindow;
     bool changed_ = false;
 
     void __define_window__();

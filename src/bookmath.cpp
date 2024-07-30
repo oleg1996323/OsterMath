@@ -36,7 +36,10 @@ void BookMath::__define_status_bar__(){
 
 void BookMath::__define_tool_bar__(){
     tool_bar = new Widgets::ToolBar(this);
-    this->addToolBar(tool_bar);
+    auto role = tool_bar->backgroundRole();
+    tool_bar->setBackgroundRole(QPalette::Window);
+    tool_bar->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    addToolBar(Qt::ToolBarArea::TopToolBarArea,tool_bar);
 }
 
 void BookMath::__define_menu__(){
@@ -65,7 +68,9 @@ void BookMath::__define_menu__(){
     menubar->addMenu(insert_menu);
     menubar->addMenu(view_menu);
     menubar->addAction(QObject::tr("Format"));
-    menubar->addAction(QObject::tr("Settings"));
+    QAction* act_settings = new QAction(QObject::tr("Settings"),menubar);
+    menubar->addAction(act_settings);
+    connect(act_settings,&QAction::triggered, this,&BookMath::settings);
     menubar->addAction(QObject::tr("About"));
     {
         using namespace kernel::settings;
@@ -109,20 +114,21 @@ dataview::Sheets* BookMath::get_sheets_handler() const{
 
 void BookMath::create_new_book(){
     setEnabled(false);
-    subwindow = new CreateNewBook(this);
-    connect(static_cast<CreateNewBook*>(subwindow),&CreateNewBook::closing,this,&QMainWindow::setEnabled);
+    subwindow = new SecondairyWindows::CreateNewBook(this);
+    connect(static_cast<SecondairyWindows::CreateNewBook*>(subwindow),&SecondairyWindows::CreateNewBook::closing,this,&QMainWindow::setEnabled);
 }
 
 void BookMath::open_new_book(){
     setEnabled(false);
-    subwindow = new OpenNewBook(this);
-    connect(static_cast<OpenNewBook*>(subwindow),&OpenNewBook::closing,this,&QMainWindow::setEnabled);
+    subwindow = new SecondairyWindows::OpenNewBook(this);
+    connect(static_cast<SecondairyWindows::OpenNewBook*>(subwindow),&SecondairyWindows::OpenNewBook::closing,this,&QMainWindow::setEnabled);
 }
 
 void BookMath::settings(){
     setEnabled(false);
-    subwindow = new OpenNewBook(this);
-    connect(static_cast<OpenNewBook*>(subwindow),&OpenNewBook::closing,this,&QMainWindow::setEnabled);
+    subwindow = new SecondairyWindows::Settings(this);
+    connect(static_cast<SecondairyWindows::Settings*>(subwindow),&SecondairyWindows::Settings::closing,this,&QMainWindow::setEnabled);
+
 }
 
 void BookMath::save_book(){

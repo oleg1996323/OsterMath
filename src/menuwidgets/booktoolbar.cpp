@@ -7,27 +7,33 @@ namespace Book{
 namespace Widgets{
 ToolBar::ToolBar(QWidget* parent):QToolBar(parent), ObjectFromSettings(this){
     __load_settings__();
+}
+
+void ToolBar::__default_init__(){
+    setAutoFillBackground(true);
     setFloatable(false);
     setMovable(false);
-    setContentsMargins(10,5,10,5);
+    setContentsMargins(0,0,0,0);
     setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    setBackgroundRole(QPalette::Window);
     QFont font;
 
     font.setFamily("FreeSans");
     font.setPointSize(8);
     font.setBold(true);
     setFont(font);
-
-    tabs_=new TabbedGroupedTools(this);
-    addWidget(tabs_);
-}
-
-void ToolBar::__default_init__(){
     tabs_ = new TabbedGroupedTools(this);
     QList<QGroupBox*> box;
     box.append(new Book::Widgets::toolbar::File(tabs_));
     box.append(new Book::Widgets::toolbar::Export(tabs_));
     tabs_->set_box(box, QObject::tr("Main"));
+    //TODO
+//    box.clear();
+//    box.append(new QGroupBox("Any_1",tabs_));
+//    box.append(new QGroupBox("Any_2",tabs_));
+//    tabs_->set_box(box, "Any");
+    tabs_->setLayoutsContentsMargins(0);
+    tabs_->setGroupsMargins(0,0,0,0);
     addWidget(tabs_);
 }
 

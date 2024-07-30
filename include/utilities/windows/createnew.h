@@ -1,6 +1,9 @@
 #pragma once
 #include "windef.h"
 
+namespace Book{
+namespace SecondairyWindows{
+
 class CreateNewBook:public QMainWindow, public AbstractSubWindowInterface{
     Q_OBJECT
 public:
@@ -26,4 +29,5 @@ private:
 signals:
     void closing(bool);
 };
-
+}
+}

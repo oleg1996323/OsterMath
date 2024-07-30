@@ -8,10 +8,14 @@
 #include <QList>
 #include "kernel/def.h"
 
+namespace Book{
+namespace SecondairyWindows{
+
 enum class SUBWINDOWTYPES{
     CREATE,
     OPEN,
-    SAVEAS
+    SAVEAS,
+    SETTINGS
 };
 
 class AbstractSubWindowInterface{
@@ -22,3 +26,5 @@ public:
 protected:
 
 };
+}
+}

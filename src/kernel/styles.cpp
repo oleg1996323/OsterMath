@@ -7,47 +7,46 @@ namespace Themes {
 
 QPalette Palette::dark_style=[](){
     QPalette res;
-    res.setColor(QPalette::Window,QColor(5, 25, 35));
-    res.setColor(QPalette::WindowText,QColor(230, 230, 230));
-    res.setColor(QPalette::Base,QColor(0, 53, 84));
-    res.setColor(QPalette::AlternateBase,QColor(0, 100, 148));
-    res.setColor(QPalette::ToolTipBase,QColor(0, 100, 148));
-    res.setColor(QPalette::ToolTipText,QColor(230, 230, 230));
-    res.setColor(QPalette::PlaceholderText,QColor(230,230,230));
-    res.setColor(QPalette::Text,QColor(230, 230, 230));
-    res.setColor(QPalette::Button,QColor(0, 100, 148));
-    res.setColor(QPalette::ButtonText,QColor(230,230,230));
-    res.setColor(QPalette::BrightText,QColor(5, 130, 202));
+    res.setColor(QPalette::Window,QColor(0, 92, 144));
+    res.setColor(QPalette::WindowText,QColor(255, 255, 255));
+    res.setColor(QPalette::Base,QColor(0, 92, 144));
+    res.setColor(QPalette::AlternateBase,QColor(0, 64, 104));
+    res.setColor(QPalette::ToolTipBase,QColor(0, 92, 144));
+    res.setColor(QPalette::ToolTipText,QColor(255, 255, 255));
+    res.setColor(QPalette::PlaceholderText,QColor(255,255,255));
+    res.setColor(QPalette::Text,QColor(255, 255, 255));
+    res.setColor(QPalette::Button,QColor(0, 92, 144));
+    res.setColor(QPalette::ButtonText,QColor(255,255,255));
+    res.setColor(QPalette::BrightText,QColor(255, 255, 255));
 
-    res.setColor(QPalette::Light,QColor(0, 166, 251));
-    res.setColor(QPalette::Midlight,QColor(5, 130, 202));
-    res.setColor(QPalette::Dark,QColor(0, 53, 84));
-    res.setColor(QPalette::Mid,QColor(0, 100, 148));
-    res.setColor(QPalette::Shadow,QColor(5, 25, 35));
-    res.setColor(QPalette::Highlight,QColor(5, 25, 35));
+    res.setColor(QPalette::Light,QColor(173, 232, 255));
+    res.setColor(QPalette::Midlight,QColor(144, 212, 244));
+    res.setColor(QPalette::Dark,QColor(0, 64, 104));
+    res.setColor(QPalette::Mid,QColor(0, 92, 144));
+    res.setColor(QPalette::Shadow,QColor(0, 0, 0));
     return res;
     }();
 
 
 QPalette Palette::light_style=[](){
     QPalette res;
-    res.setColor(QPalette::Window,QColor(173, 232, 244));
+    res.setColor(QPalette::Window,QColor(173, 232, 255));
     res.setColor(QPalette::WindowText,QColor(0,0,0));
-    res.setColor(QPalette::Base,QColor(144, 224, 239));
-    res.setColor(QPalette::AlternateBase,QColor(72, 202, 228));
-    res.setColor(QPalette::ToolTipBase,QColor(72, 202, 228));
+    res.setColor(QPalette::Base,QColor(173, 232, 255));
+    res.setColor(QPalette::AlternateBase,QColor(122, 188, 222));
+    res.setColor(QPalette::ToolTipBase,QColor(173, 232, 255));
     res.setColor(QPalette::ToolTipText,QColor(0,0,0));
     res.setColor(QPalette::PlaceholderText,QColor(0,0,0));
     res.setColor(QPalette::Text,QColor(0,0,0));
-    res.setColor(QPalette::Button,QColor(72, 202, 228));
+    res.setColor(QPalette::Button,QColor(122, 188, 222));
     res.setColor(QPalette::ButtonText,QColor(0,0,0));
-    res.setColor(QPalette::BrightText,QColor(72, 202, 228));
+    res.setColor(QPalette::BrightText,QColor(255, 255, 255));
 
-    res.setColor(QPalette::Light,QColor(202, 240, 248));
-    res.setColor(QPalette::Midlight,QColor(0, 180, 216));
-    res.setColor(QPalette::Dark,QColor(2, 62, 138));
-    res.setColor(QPalette::Mid,QColor(120,120,120));
-    res.setColor(QPalette::Shadow,QColor(3, 4, 94));
+    res.setColor(QPalette::Light,QColor(173, 232, 255));
+    res.setColor(QPalette::Midlight,QColor(144, 212, 244));
+    res.setColor(QPalette::Dark,QColor(0, 64, 104));
+    res.setColor(QPalette::Mid,QColor(0, 92, 144));
+    res.setColor(QPalette::Shadow,QColor(0, 0, 0));
     return res;
     }();
 
