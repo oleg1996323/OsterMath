@@ -1,7 +1,20 @@
+#include "styles/styles.h"
 #include "dataview/expression_view.h"
 #include <QDebug>
+#include "utilities/paths.h"
 
 namespace dataview{
+
+ExpressionButton::ExpressionButton(const QString& res_path,QWidget* parent):QPushButton("",parent){
+
+    setContentsMargins(0,0,0,0);
+    setFixedSize(30,30);
+    QPainterPath path;
+    path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
+    setIcon(paths::iconFromPath(path,QPixmap(res_path),size(),Qt::transparent));
+    setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
+}
+
 VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
     this->setContentsMargins(0,0,0,0);
     layout_ = new QHBoxLayout(this);
@@ -20,7 +33,7 @@ VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
 
     expand_collapse_expl_ = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,":common/common/expandexpr.png",":common/common/collapseexpr.png",this);
     expand_collapse_expl_->setObjectName("expand_collapse_expl"+parent->objectName());
-    expand_collapse_expl_->setFixedSize(45,45);
+    expand_collapse_expl_->setFixedSize(30,30);
 
     layout_->addWidget(formula_expl_);
     layout_->addWidget(expression_);

@@ -1,14 +1,23 @@
 #include "kernel/application.h"
 #include <QStyle>
 #include <QStyleFactory>
+#include <QDebug>
+#include "styles/styles.h"
 
 namespace kernel{
 Application::Application(int &argc, char** argv):
     QApplication(argc,argv){
     setOrganizationName("Oster-Industries");
     setApplicationName("OsterMath");
-    //setStyle(new Themes::CustomStyle);
+    //setStyle(QStyleFactory::create("Fusion"));
     __load_settings__();
+    setPalette(Themes::Palette::get());
+    QStyle* style_app = style();
+    qDebug()<<style_app;
+    QProxyStyle* s = new Themes::OsterStyle;
+    //s->setBaseStyle(QStyleFactory::create("QFusionStyle"));
+    setStyle(s);
+    //qDebug()<<style_app;
 }
 
 Application::~Application(){

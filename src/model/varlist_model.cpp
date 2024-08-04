@@ -166,7 +166,6 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                         if(!vars_.empty()){
                             QString name_var = data(index,Qt::DisplayRole).toString();
                             data_base_->erase(name_var.toStdString());
-                            assert(QMetaType::isRegistered(QMetaType::type("std::string")));
                             assert(!data_base_->exists(data(index,Qt::DisplayRole).toString().toStdString()));
                             removeRow(index.row());
                         }

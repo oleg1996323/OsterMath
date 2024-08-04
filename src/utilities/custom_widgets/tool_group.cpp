@@ -1,4 +1,6 @@
 #include "utilities/custom_widgets/tool_group.h"
+#include <QStylePainter>
+#include <QStyleOptionComboBox>
 
 Group::Group(const QString& title,QWidget* parent):QGroupBox(title,parent){
     setAlignment(Qt::AlignmentFlag::AlignHCenter);
@@ -26,3 +28,11 @@ QSize Group::sizeHint() const{
 QGridLayout* Group::grid_layout(){
     return layout_;
 }
+
+//void Group::paintEvent(QPaintEvent* event){
+//    Q_UNUSED(event);
+//    QStylePainter p(this);
+//    QStyleOptionGroupBox opt;
+//    opt.initFrom(this);
+//    p.drawPrimitive(QStyle::PE_FrameGroupBox,opt);
+//}

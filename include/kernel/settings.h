@@ -7,7 +7,7 @@
 #include <QLocale>
 #include <map>
 #include <array>
-#include "styles.h"
+#include "styles/styles.h"
 
 namespace kernel{
     namespace settings{
@@ -21,9 +21,19 @@ namespace kernel{
         }
     };
 
+    struct STYLES_DATA{
+        QString text_;
+        Themes::TYPE type_;
+    };
+
     constexpr std::array<LANG_DATA, 2> resource_langs = {
         ":lang_icon/rus","Русский", QLocale::Russian,
         ":lang_icon/eng","English", QLocale::English
+    };
+
+    static std::array<STYLES_DATA, 2> resource_styles = {
+        QObject::tr("Dark"), Themes::Dark,
+        QObject::tr("Light"), Themes::Light
     };
 
         class Program{
@@ -37,6 +47,8 @@ namespace kernel{
             static void init_settings();
 
             static Themes::TYPE get_theme();
+
+            static void set_theme(Themes::TYPE);
 
             static QSettings* get_settings();
 
@@ -53,6 +65,7 @@ namespace kernel{
             static bool variable_list_showed();
 
             static void set_variable_list_showed(bool);
+
         };
 
         class Project{

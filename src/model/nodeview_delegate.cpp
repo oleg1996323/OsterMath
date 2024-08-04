@@ -6,7 +6,7 @@
 #include <QTextItem>
 #include <QStyle>
 #include "model/nodeview_model.h"
-#include "kernel/styles.h"
+#include "styles/styles.h"
 
 namespace model{
 

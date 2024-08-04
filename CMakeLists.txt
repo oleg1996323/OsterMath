@@ -17,7 +17,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
-find_package(QT NAMES Qt5 COMPONENTS Core Widgets LinguistTools REQUIRED)
+find_package(QT NAMES Qt6 COMPONENTS Core Widgets LinguistTools REQUIRED)
 
 message(STATUS Qt${QT_VERSION_MAJOR})
 
@@ -39,6 +39,11 @@ file(GLOB_RECURSE PROJECT_SOURCES_KERNEL
 file(GLOB_RECURSE PROJECT_SOURCES_UTILITIES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/utilities/*.h
+    )
+
+file(GLOB_RECURSE PROJECT_SOURCES_STYLES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/styles/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/styles/*.h
     )
 
 file(GLOB_RECURSE VARMODEL_SOURCES_MODEL
@@ -98,13 +103,24 @@ include_directories(
         /usr/include/c++/11
         ${ARITHMTREE_DIR}/include)
 
+add_library(styles SHARED ${PROJECT_SOURCES_STYLES})
+
+target_include_directories(styles PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/styles
+				${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
+
+target_link_libraries(styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
+
+set_property(TARGET styles PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 add_library(app SHARED
     ${PROJECT_SOURCES_KERNEL})
 
 target_include_directories(app PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/kernel
-                                ${CMAKE_CURRENT_SOURCE_DIR}/include/kernel)
+				${CMAKE_CURRENT_SOURCE_DIR}/include/kernel
+				${CMAKE_CURRENT_SOURCE_DIR}/src/styles
+				${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
 
-target_link_libraries(app PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(app PUBLIC styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_property(TARGET app PROPERTY POSITION_INDEPENDENT_CODE ON)
 
@@ -123,13 +139,13 @@ target_include_directories(model
         ${ARITHMTREE_DIR}/include
         ${ARITHMTREE_DIR}/include/types)
 
-target_link_libraries(model PUBLIC app PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets PRIVATE ${ARITHMTREE_LIB} ${ARITHMTREE_EXC_LIB} ${ANTLR})
+target_link_libraries(model PUBLIC app styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets PRIVATE ${ARITHMTREE_LIB} ${ARITHMTREE_EXC_LIB} ${ANTLR})
 
 add_executable(OsterMath
     ${PROJECT_SOURCES}
 )
 
-qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+qt6_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 
 target_include_directories(OsterMath
     PUBLIC

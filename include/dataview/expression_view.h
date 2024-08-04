@@ -5,14 +5,10 @@
 
 namespace dataview{
 
-class ExpressionButton:public IconedButton{
+class ExpressionButton:public QPushButton{
     Q_OBJECT
 public:
-    ExpressionButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
-
-        setContentsMargins(0,0,0,0);
-        setFixedSize(45,45);
-    }
+    ExpressionButton(const QString& res_path,QWidget* parent);
 };
 
 class VarExpressionView:public QWidget{

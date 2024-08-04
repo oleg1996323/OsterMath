@@ -1,43 +1,59 @@
 #include "utilities/custom_widgets/buttons.h"
+#include <QPainterPath>
+#include "styles/styles.h"
+#include "utilities/paths.h"
+#include <QStylePainter>
+#include <QStyleOptionButton>
 
 IconedButton::IconedButton(const QString& res_path,QWidget* parent):QPushButton(parent){
     setIcon(QIcon(res_path));
 }
 
-IconedButton::IconedButton(const QIcon& icon,QWidget* parent):QPushButton(parent){
-    setIcon(icon);
+IconedButton::IconedButton(const QIcon& icon,QWidget* parent):QPushButton(icon,"",parent){
 }
 
 IconedButton::IconedButton(QIcon&& icon,QWidget* parent):QPushButton(icon,"",parent){
-    setIcon(icon);
 }
 
 IconedButton::IconedButton(QWidget* parent):QPushButton(parent){}
 
 void IconedButton::paintEvent(QPaintEvent *event){
-    QPushButton::paintEvent(event); // Вызываем реализацию по умолчанию для отображения фона и текста
-    QPainter painter(this);
-    if (!icon().isNull()) {
-        painter.setRenderHint(QPainter::SmoothPixmapTransform); // Сглаживание для иконки
-        setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
-    }
+    QPushButton::paintEvent(event);
+//    if(!icon_set_){
+//        QPainterPath path;
+//        path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
+//        setIcon(paths::iconFromPath(path,icon(),size(),Qt::transparent));
+//        icon_set_=true;
+//    }
 }
 
-ToolButton::ToolButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
+ToolButton::ToolButton(const QString& res_path,QWidget* parent):QPushButton(parent){
     setContentsMargins(0,0,0,0);
     setFixedSize(35,35);
+    QPainterPath path;
+    path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
+    setIcon(paths::iconFromPath(path,QPixmap(res_path),size(),Qt::transparent));
+    setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
 }
 
-CloseButton::CloseButton(const QString& res_path,QWidget* parent):IconedButton(res_path,parent){
+CloseButton::CloseButton(const QString& res_path,QWidget* parent):QPushButton(parent){
     setContentsMargins(0,0,0,0);
     setFixedSize(20,20);
+    QPainterPath path;
+    path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
+    setIcon(paths::iconFromPath(path,QPixmap(res_path),size(),Qt::transparent));
+    setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
+}
+
+void CloseButton::paintEvent(QPaintEvent* event){
+    QPushButton::paintEvent(event);
 }
 
 CollapseButton::CollapseButton(button_states::COLLAPSE_EXPAND_STATE default_val,const QString& collapsed_icon,const QString& expanded_icon,QWidget* parent):
 MultiStateIconedButton(
         default_val, \
-{{button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,collapsed_icon}, \
-{button_states::COLLAPSE_EXPAND_STATE::EXPANDED,expanded_icon}}, \
+{{button_states::COLLAPSE_EXPAND_STATE::COLLAPSED,QIcon(collapsed_icon)}, \
+{button_states::COLLAPSE_EXPAND_STATE::EXPANDED,QIcon(expanded_icon)}}, \
         parent)
 {
     setContentsMargins(0,0,0,0);
@@ -47,15 +63,25 @@ MultiStateIconedButton(
 void CollapseButton::changeState(){
     using namespace button_states;
     switch(current_state_){
-    case(COLLAPSE_EXPAND_STATE::COLLAPSED):
+    case(COLLAPSE_EXPAND_STATE::COLLAPSED):{
         current_state_ = COLLAPSE_EXPAND_STATE::EXPANDED;
-        setIcon(icons_.value(COLLAPSE_EXPAND_STATE::EXPANDED));
+        QPainterPath path;
+        path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
+        setIcon(paths::iconFromPath(path,icons_.value(COLLAPSE_EXPAND_STATE::EXPANDED),size(),Qt::transparent));
         break;
-    case(button_states::COLLAPSE_EXPAND_STATE::EXPANDED):
+    }
+    case(button_states::COLLAPSE_EXPAND_STATE::EXPANDED):{
         current_state_ = COLLAPSE_EXPAND_STATE::COLLAPSED;
-        setIcon(icons_.value(COLLAPSE_EXPAND_STATE::COLLAPSED));
+        QPainterPath path;
+        path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
+        setIcon(paths::iconFromPath(path,icons_.value(COLLAPSE_EXPAND_STATE::COLLAPSED),size(),Qt::transparent));
         break;
+    }
     default:
         break;
     }
+}
+
+void CollapseButton::paintEvent(QPaintEvent* event){
+    MultiStateIconedButton::paintEvent(event);
 }

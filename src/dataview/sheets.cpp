@@ -172,7 +172,6 @@ void Sheets::__load_settings__(){
 //        tabBarClicked(current);
 //        setCurrentIndex(current);
 //    }
-    setPalette(Themes::Palette::get());
     if(sets_->contains("winstate"))
         win_state_ = sets_->value("winstate").toByteArray();
     sets_->endGroup();
@@ -193,7 +192,7 @@ void Sheets::__upload_fonts__(){
 
 }
 void Sheets::__upload_style__(){
-    setPalette(Themes::Palette::get());
+
 }
 void Sheets::__upload_language__(){
 

@@ -8,7 +8,8 @@ class TabbedGroupedTools:public QTabWidget{
 public:
     TabbedGroupedTools(QWidget* parent, Qt::Orientation = Qt::Horizontal);
     void set_box(QList<QGroupBox*> tools, QString name, int id = -1);
-    void setLayoutsContentsMargins(int);
+    void setLayoutsContentsMargins(int, int, int, int);
+    void setLayoutsContentsMargins(QMargins);
     void setGroupsMargins(int,int,int,int);
     void setGroupsMargins(QMargins);
     signals:

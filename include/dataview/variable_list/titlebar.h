@@ -26,7 +26,7 @@ public:
     void set_orientation(Qt::Orientation);
 };
 
-class TitleBar:public QFrame, public Retranslatable, public ObjectFromSettings{
+class TitleBar:public QWidget, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT
 public:
     TitleBar(QWidget*, Qt::Orientation);
@@ -39,6 +39,8 @@ private:
     virtual void __upload_style__() override;
     virtual void __upload_language__() override;
     virtual void __retranslate__() override;
+    virtual void paintEvent(QPaintEvent*) override;
+    virtual QSize sizeHint() const override;
 
     TitleBarLabel *label_var_list;
     CollapseButton *collapse_var_list;

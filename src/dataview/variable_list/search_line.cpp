@@ -27,7 +27,7 @@ void SearchLine::__define_label__(){
     font1.setFamily(QString::fromUtf8("FreeSans"));
     font1.setPointSize(8);
     font1.setBold(true);
-    font1.setWeight(100);
+    font1.setWeight(QFont::Normal);
     label_search_var_list->setFont(font1);
     label_search_var_list->setAlignment(Qt::AlignCenter);
     QSizePolicy sizepolicy;
@@ -61,7 +61,7 @@ void SearchLine::__define_search_line__(){
     font2.setPointSize(9);
     font2.setBold(false);
     font2.setItalic(false);
-    font2.setWeight(50);
+    font2.setWeight(QFont::Normal);
     font2.setStyleStrategy(QFont::PreferDefault);
     search_var_list->setFont(font2);
     search_var_list->setLayoutDirection(Qt::LeftToRight);

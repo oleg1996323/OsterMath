@@ -40,6 +40,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/OsterMath.dir/src/utilities/custom_widgets/tool_group.cpp.o.d"
   "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o"
   "CMakeFiles/OsterMath.dir/src/utilities/functionalities/sz_functions.cpp.o.d"
+  "CMakeFiles/OsterMath.dir/src/utilities/paths.cpp.o"
+  "CMakeFiles/OsterMath.dir/src/utilities/paths.cpp.o.d"
   "OsterMath_autogen/PNK5WDWK6L/qrc_toolicons.cpp"
 )
 

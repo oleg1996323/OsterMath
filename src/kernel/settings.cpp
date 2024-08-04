@@ -1,4 +1,5 @@
 #include "kernel/settings.h"
+#include "kernel/application.h"
 
 namespace kernel{
     namespace settings{
@@ -23,6 +24,12 @@ namespace kernel{
         return res;
     }();
 
+    void Program::set_theme(Themes::TYPE theme){
+        style_theme = theme;
+        qobject_cast<kernel::Application*>(QApplication::instance())->setPalette(Themes::Palette::get());
+        emit qobject_cast<kernel::Application*>(kernel::Application::instance())->style_changed();
+    }
+
     Themes::TYPE Program::get_theme(){
         return style_theme;
     }
@@ -45,14 +52,15 @@ namespace kernel{
 
     void Program::__load_settings__(){
         sets_.beginGroup("common");
-            style_theme = sets_.value("style",Themes::Dark).value<Themes::TYPE>();
-            lang_ = sets_.value("language",QLocale::English).value<QLocale::Language>();
+            style_theme = (Themes::TYPE)sets_.value("style",Themes::Dark).value<int>();
+            lang_ = (QLocale::Language)sets_.value("language",QLocale::English).value<int>();
             font_size_inc = sets_.value("font_size_inc",0).value<uint8_t>();
         sets_.endGroup();
     }
 
     void Program::set_language(QLocale::Language lang){
         lang_ = lang;
+        emit qobject_cast<kernel::Application*>(kernel::Application::instance())->language_changed();
     }
 
     QLocale Program::get_language(){

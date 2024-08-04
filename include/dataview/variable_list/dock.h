@@ -38,6 +38,7 @@ private:
     virtual void __retranslate__() override;
     virtual void closeEvent(QCloseEvent *event) override;
     virtual void showEvent(QShowEvent *event) override;
+    virtual void paintEvent(QPaintEvent*) override;
 
 public slots:
     void setData(model::Data*);

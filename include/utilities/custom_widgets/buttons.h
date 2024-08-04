@@ -1,5 +1,6 @@
 #pragma once
 #include "kernel/def.h"
+#include <QMouseEvent>
 
 namespace button_states{
     enum class COLLAPSE_EXPAND_STATE{
@@ -7,6 +8,8 @@ namespace button_states{
         EXPANDED
     };
 }
+
+Q_DECLARE_METATYPE(button_states::COLLAPSE_EXPAND_STATE)
 
 class IconedButton:public QPushButton{
     Q_OBJECT
@@ -18,12 +21,14 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+private:
+    bool icon_set_ = false;
 };
 
 template<typename ENUM_STATE>
 struct IconPathByState{
     ENUM_STATE state;
-    QString path;
+    QIcon path;
 };
 
 #include <QMap>
@@ -40,50 +45,30 @@ public:
             icons_.insert(icon.state,QIcon(icon.path));
         setIcon(icons_.value(current_state_));
         assert(!icon().isNull());
+        setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
+        connect(this,&QPushButton::clicked,[&](){changeState();});
     }
 protected:
-    bool event(QEvent* event) override{
-        switch(event->type()){
-        case QEvent::MouseButtonPress:
-            return true;
-            break;
-        case QEvent::MouseButtonRelease:
-            changeState();
-            emit clicked(true);
-            return true;
-            break;
-        case QEvent::Leave:
-            return true;
-            break;
-        case QEvent::Paint:
-            QPushButton::paintEvent(reinterpret_cast<QPaintEvent*>(event));
-        default:
-            break;
-        }
-        return false;
-    }
+
     virtual void paintEvent(QPaintEvent *event) override{
-        QPainter painter(this);
-        if (!icon().isNull()) {
-            painter.setRenderHint(QPainter::SmoothPixmapTransform); // Сглаживание для иконки
-            setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
-        }
+        QPushButton::paintEvent(event);
     }
     virtual void changeState() = 0;
     ENUM_STATE current_state_;
     QMap<ENUM_STATE,QIcon> icons_;
 };
 
-class ToolButton:public IconedButton{
+class ToolButton:public QPushButton{
     Q_OBJECT
 public:
     ToolButton(const QString& res_path,QWidget* parent);
 };
 
-class CloseButton:public IconedButton{
+class CloseButton:public QPushButton{
     Q_OBJECT
 public:
     CloseButton(const QString& res_path,QWidget* parent);
+    virtual void paintEvent(QPaintEvent*) override;
 };
 
 class CollapseButton:public MultiStateIconedButton<button_states::COLLAPSE_EXPAND_STATE>{
@@ -91,4 +76,5 @@ class CollapseButton:public MultiStateIconedButton<button_states::COLLAPSE_EXPAN
 public:
     CollapseButton(button_states::COLLAPSE_EXPAND_STATE default_val,const QString& collapsed_icon,const QString& expanded_icon,QWidget* parent);
     virtual void changeState() override;
+    virtual void paintEvent(QPaintEvent*) override;
 };

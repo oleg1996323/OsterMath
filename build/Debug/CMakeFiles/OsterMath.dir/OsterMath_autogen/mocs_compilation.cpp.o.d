@@ -201,17 +201,17 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/bookmath.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMainWindow \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
  /usr/include/c++/11/cstddef /usr/include/assert.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtcore-config.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qconfig.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcore-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsystemdetection.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qprocessordetection.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcompilerdetection.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/ranges_algo.h \
  /usr/include/c++/11/bits/ranges_util.h \
  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
@@ -225,101 +225,20 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerfwd.h \
+ /usr/include/c++/11/variant /usr/include/c++/11/bits/parse_numbers.h \
+ /usr/include/c++/11/optional \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsysinfo.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlogging.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qatomic.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasicatomic.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qatomic_cxx11.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h \
  /usr/include/c++/11/atomic \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/11/stdlib.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringliteral.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h \
- /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
- /usr/include/c++/11/limits /usr/include/c++/11/pstl/glue_numeric_defs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
- /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
- /usr/include/c++/11/bits/list.tcc \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
- /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/bits/stl_map.h \
- /usr/include/c++/11/bits/stl_multimap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
- /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
- /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
- /home/oster/Electrolisys/arithmetictree/include/def.h \
- /usr/include/boost/multiprecision/cpp_dec_float.hpp \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobalstatic.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qnumeric.h \
  /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -330,7 +249,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
+ /usr/include/c++/11/tr1/gamma.tcc \
  /usr/include/c++/11/tr1/special_function_util.h \
  /usr/include/c++/11/tr1/bessel_function.tcc \
  /usr/include/c++/11/tr1/beta_function.tcc \
@@ -341,8 +261,104 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/c++/11/iomanip \
- /usr/include/c++/11/locale \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qnamespace.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs_impl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qchar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearray.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qrefcount.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpair.h /usr/include/string.h \
+ /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydatapointer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydataops.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainertools_impl.h \
+ /usr/include/c++/11/cstring \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayalgorithms.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayview.h \
+ /usr/include/c++/11/stdlib.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringliteral.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringalgorithms.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringtokenizer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h \
+ /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterator.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearraylist.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringlist.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringmatcher.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qscopedpointer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcompare.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qscopeguard.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetacontainer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerinfo.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtaggedpointer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmath.h \
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_tree.h /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/bits/stl_multimap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject_impl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbindingstorage.h \
+ /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
+ /usr/include/c++/11/ctime \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmargins.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpoint.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qcolor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qbrush.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qimage.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixelformat.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer_impl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontmetrics.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qfontinfo.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+ /home/oster/Electrolisys/arithmetictree/include/def.h \
+ /usr/include/boost/multiprecision/cpp_dec_float.hpp \
+ /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
  /usr/include/c++/11/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
@@ -385,7 +401,7 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/boost/throw_exception.hpp \
  /usr/include/boost/exception/exception.hpp \
  /usr/include/boost/assert/source_location.hpp \
- /usr/include/boost/current_function.hpp /usr/include/c++/11/cstring \
+ /usr/include/boost/current_function.hpp \
  /usr/include/c++/11/source_location /usr/include/boost/lexical_cast.hpp \
  /usr/include/boost/range/iterator_range_core.hpp \
  /usr/include/boost/iterator/iterator_traits.hpp \
@@ -876,139 +892,157 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/boost/math/special_functions/detail/gamma_inva.hpp \
  /usr/include/boost/math/special_functions/erf.hpp \
  /usr/include/boost/math/special_functions/detail/erf_inv.hpp \
- /usr/include/c++/11/variant \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/application.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QSettings \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/styles.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPalette \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QFont \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QColor \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QBrush \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyle \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPainter \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qeventloop.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata_impl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication_platform.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputmethod.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSettings \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsettings.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/kernel/settings.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QTranslator \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QLocale \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstring.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QCoreApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QFile \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qfile.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qfiledevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/c++/11/filesystem /usr/include/c++/11/bits/fs_fwd.h \
+ /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/codecvt \
+ /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QTranslator \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtranslator.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QLocale \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
+ /home/oster/OsterMath/include/styles/styles.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPalette \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QColor \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qcolor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QBrush \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qbrush.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyle \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPainter \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCommonStyle \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcommonstyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QProxyStyle \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qproxystyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCommonStyle \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/menuwidgets/booktoolbar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTabWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QToolBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtoolbar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
  /home/oster/OsterMath/include/utilities/custom_widgets/tabbed_toolbox_group.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGroupBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGroupBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgroupbox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
  /home/oster/OsterMath/include/kernel/def.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPixmap \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QMap \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QArrayData \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QMap \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QStringList \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringlist.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QArrayData \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/utilities/windows.h \
  /home/oster/OsterMath/include/utilities/windows/createnew.h \
  /home/oster/OsterMath/include/utilities/windows/windef.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QList \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFileDialog \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qfiledialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdir.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qfile.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qfileinfo.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatetime.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
  /home/oster/OsterMath/include/utilities/windows/opennew.h \
  /home/oster/OsterMath/include/utilities/windows/settings.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleoption.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractspinbox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qslider.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractslider.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QAction \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGridLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
  /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6YEA5652QU/../../../../include/dataview/expr_view_splitter.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSplitter \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsplitter.h \
  /home/oster/OsterMath/include/dataview/sheets.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSizePolicy \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSizePolicy \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h \
  /home/oster/OsterMath/include/kernel/exception.h \
  /home/oster/OsterMath/include/utilities/validators/validator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QValidator \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QRegularExpression \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qregularexpression.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QValidator \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qvalidator.h \
  /home/oster/OsterMath/include/model/nodeview_header.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHeaderView \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
  /home/oster/OsterMath/include/model/def.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
  /home/oster/Electrolisys/arithmetictree/include/types.h \
  /usr/include/c++/11/unordered_set \
  /usr/include/c++/11/bits/unordered_set.h \
@@ -1018,17 +1052,13 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/expr_parser.h \
  /home/oster/Electrolisys/arithmetictree/include/format.h \
  /home/oster/Electrolisys/arithmetictree/include/domain.h \
- /usr/include/c++/11/optional \
  /home/oster/Electrolisys/arithmetictree/include/types/node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
  /home/oster/Electrolisys/arithmetictree/include/serialize.h \
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/filesystem \
- /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
- /usr/include/c++/11/codecvt /usr/include/c++/11/bits/fs_dir.h \
- /usr/include/c++/11/bits/fs_ops.h \
+ /usr/include/c++/11/bits/fstream.tcc \
  /home/oster/Electrolisys/arithmetictree/include/arithmetic_types.h \
  /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h \
@@ -1037,71 +1067,84 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
  /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractProxyModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
  /home/oster/OsterMath/include/model/manager.h \
  /home/oster/OsterMath/include/model/nodeview_model.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractItemModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractItemModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
  /home/oster/OsterMath/include/model/varlist_model.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractTableModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QListView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QModelIndex \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStyledItemDelegate \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractTableModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QListView \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlistview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QModelIndex \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
  /home/oster/OsterMath/include/model/exception/exception.h \
  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/include/dataview/expression_view.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTextEdit \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputdevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expression_view.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/TBKUEERFDP/moc_nodedataview.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/TBKUEERFDP/../../../../include/dataview/model_data/nodedataview.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableView \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
  /home/oster/OsterMath/include/model/nodeview_delegate.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemDelegate \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemDelegate \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_sheets.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_tabwidgetdataview.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_dock.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/../../../../include/dataview/variable_list/dock.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDockWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QSize \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDockWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdockwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
  /home/oster/OsterMath/include/dataview/variable_list/table.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractItemView \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemView \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
  /home/oster/OsterMath/include/model/varlist_delegate.h \
  /home/oster/OsterMath/include/model/varlist_header.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_search_line.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/../../../../include/dataview/variable_list/search_line.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFrame \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_titlebar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/../../../../include/dataview/variable_list/titlebar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSpacerItem \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPaintEvent \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QPaintDevice \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSpacerItem \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintDevice \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6Q6C4MVPTR/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/moc_export.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/../../../../include/menuwidgets/groups/export.h \

@@ -1,7 +1,6 @@
 #pragma once
 #include <QApplication>
 #include <QSettings>
-#include "styles.h"
 #include "settings.h"
 
 namespace Book{

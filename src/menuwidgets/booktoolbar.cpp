@@ -32,7 +32,7 @@ void ToolBar::__default_init__(){
 //    box.append(new QGroupBox("Any_1",tabs_));
 //    box.append(new QGroupBox("Any_2",tabs_));
 //    tabs_->set_box(box, "Any");
-    tabs_->setLayoutsContentsMargins(0);
+    tabs_->setLayoutsContentsMargins(0,0,0,0);
     tabs_->setGroupsMargins(0,0,0,0);
     addWidget(tabs_);
 }

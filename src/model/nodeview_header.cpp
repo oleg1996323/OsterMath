@@ -15,7 +15,7 @@ NodeViewHeader::NodeViewHeader(QWidget* parent):QHeaderView(Qt::Horizontal,paren
     font.setFamily(QString::fromUtf8("Sans Serif"));
     font.setPointSize(8);
     font.setBold(true);
-    font.setWeight(75);
+    font.setWeight(QFont::Weight::Bold);
     setFont(font);
 }
 

@@ -1,27 +1,27 @@
 #include "dataview/variable_list/titlebar.h"
 #include "dataview/variable_list/dock.h"
 #include <QTimer>
+#include <utilities/paths.h>
+#include <QStylePainter>
 
 #include <QDebug>
 
 namespace dataview{
 
 TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
-    QFrame(parent),
+    QWidget(parent),
     ObjectFromSettings(this),
     orientation_(orientation)
 {
-    this->setContentsMargins(0,0,0,0);
-    setFrameShadow(QFrame::Plain);
-    setFrameShape(QFrame::StyledPanel);
-    setLineWidth(1);
-    setPalette(Themes::Palette::get());
     label_var_list = new TitleBarLabel(this);
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
                                            ":common/common/expand.png",
                                             ":common/common/collapse.png",
                                             this);
     collapse_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_collapse"));
+
+    if(!qobject_cast<QPushButton*>(collapse_var_list))
+        assert(false);
 
     close_var_list = new CloseButton(":common/common/close.png",this);
     close_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_close"));
@@ -33,7 +33,7 @@ TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
 void TitleBar::__init__(){
     QBoxLayout* layout_=new QBoxLayout(orientation_&Qt::Horizontal?QBoxLayout::LeftToRight:QBoxLayout::BottomToTop,this);
     layout_->setSpacing(0);
-    layout_->setContentsMargins(0,0,0,0);
+    layout_->setContentsMargins(Themes::frame_line_width_back,0,Themes::frame_line_width_back,0);
     layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
 
     layout_->addWidget(label_var_list);
@@ -67,7 +67,7 @@ void TitleBar::__upload_fonts__(){
 
 }
 void TitleBar::__upload_style__(){
-
+    repaint();
 }
 void TitleBar::__upload_language__(){
 
@@ -78,31 +78,64 @@ void TitleBar::collapse(){
     QBoxLayout* l = qobject_cast<QBoxLayout*>(layout());
     assert(l);
 
-    auto dir = l->direction();
     if(l->direction()==QBoxLayout::LeftToRight){
-//        setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
-
         label_var_list->set_orientation(Qt::Vertical);
         orientation_=Qt::Vertical;
         l->setDirection(QBoxLayout::BottomToTop);
         label_var_list->updateGeometry();
     }
     else{
-//        setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Expanding);
         orientation_=Qt::Horizontal;
         label_var_list->set_orientation(Qt::Horizontal);
         l->setDirection(QBoxLayout::LeftToRight);
         label_var_list->updateGeometry();
     }
     qobject_cast<DockWidget*>(parent())->collapse();
+}
 
+void TitleBar::paintEvent(QPaintEvent* event){
+//    Q_UNUSED(event);
+//    QPainter painter(this);
+//    QRect adjusted = rect().adjusted(1,1,-1,-1);
+//    QPainterPath path;
+//    painter.save();
+//    QBoxLayout* l = qobject_cast<QBoxLayout*>(layout());
+//    if(l->direction()==QBoxLayout::LeftToRight)
+//        path = paths::semiRoundedRect(paths::TOP, adjusted,Themes::border_round_common);
+//    else path = paths::semiRoundedRect(paths::LEFT,adjusted,Themes::border_round_common);
+//    painter.setRenderHint(QPainter::Antialiasing,true);
+//    painter.setClipPath(path);
+//    QPen middle = QPen(palette().dark().color());
+//    QPen back = QPen(palette().light().color());
+//    middle.setWidth(Themes::frame_line_width_mid);
+//    back.setWidth(Themes::frame_line_width_back);
+//    painter.fillPath(path,palette().window());
+//    painter.setPen(back);
+//    painter.drawPath(path);
+//    painter.setPen(middle);
+//    painter.drawPath(path);
+//    painter.restore();
+    QStylePainter p(this);
+    QStyleOption opt;
+    opt.initFrom(this);
+    p.drawControl(QStyle::CE_DockWidgetTitle,opt);
+}
 
-
+QSize TitleBar::sizeHint() const{
+    int max_height = 0;
+    for(QObject* child:children()){
+        QWidget* child_widget = qobject_cast<QWidget*>(child);
+        if(child_widget){
+            max_height = qMax(max_height,child_widget->sizeHint().height());
+        }
+    }
+    if(max_height!=0)
+        return QSize(width()+Themes::frame_line_width_back,max_height+Themes::frame_line_width_back);
+    else return QSize(width()+Themes::frame_line_width_back,height()+Themes::frame_line_width_back);
 }
 
 TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
     setContentsMargins(0,0,0,0);
-    setPalette(Themes::Palette::get());
     setBackgroundRole(QPalette::Window);
     setObjectName(QString::fromUtf8("varlisttitlebar_label"));
     QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -111,8 +144,7 @@ TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
     QFont font;
     font.setFamily("Sans");
     font.setPointSize(10);
-    font.setBold(true);
-    font.setWeight(100);
+    font.setWeight(QFont::DemiBold);
     setFont(font);
 }
 
@@ -122,9 +154,8 @@ TitleBarLabel::~TitleBarLabel(){
 void TitleBarLabel::paintEvent(QPaintEvent* event) {
     (void)event;
     QPainter painter(this);
-    painter.setPen(painter.pen());
-    painter.setBrush(painter.brush());
-    qDebug()<<this->palette().currentColorGroup();
+    painter.save();
+    qDebug()<<palette().text().color();
     if (orientation_ & Qt::Vertical) {
         qDebug()<<"Label geometry before"<<geometry();
         qDebug()<<"Titlebar geometry before"<<parentWidget()->geometry();
@@ -133,14 +164,15 @@ void TitleBarLabel::paintEvent(QPaintEvent* event) {
         painter.translate(0,QFontMetrics(font()).horizontalAdvance(text())+20);
         painter.rotate(-90);
         // Рисуем текст с учетом новой системы координат
-        painter.drawText(2,0,height(),width(), alignment(), text());
+        painter.drawText(0,0,height(),width(), alignment(), text());
         qDebug()<<"Label geometry after"<<geometry();
         qDebug()<<"Titlebar geometry after"<<parentWidget()->geometry();
 
     } else {
-        painter.drawText(geometry(), alignment(), text());
-
+        QRect geom(0,0,width(),height());
+        painter.drawText(geom, alignment(), text());
     }
+    painter.restore();
 }
 
 
@@ -154,10 +186,10 @@ QSize TitleBarLabel::sizeHint() const{
     QFontMetrics metrics(font());
     QSize s{metrics.size(Qt::TextSingleLine,text())};
     if(orientation_&Qt::Horizontal){
-        return {s.width()+separation_between_btns_and_label_,s.height()};
+        return {s.width()+separation_between_btns_and_label_+Themes::frame_line_width_back*2,s.height()+Themes::frame_line_width_back*2};
     }
     else
-        return {s.height(),s.width()+separation_between_btns_and_label_};
+        return {s.height()+Themes::frame_line_width_back*2,s.width()+separation_between_btns_and_label_+Themes::frame_line_width_back*2};
 }
 QSize TitleBarLabel::minimumSizeHint() const{
     QFontMetrics metrics(font());
@@ -168,32 +200,4 @@ QSize TitleBarLabel::minimumSizeHint() const{
     else
         return {s.height(),s.width()+separation_between_btns_and_label_};
 }
-
-//void TitleBar::Label::__load_settings__(){
-//    QSettings* sets_ = kernel::settings::Program::get_settings();
-//    sets_->beginGroup("varlist/dockwidget/titlebar/label");
-//    setGeometry(sets_->value("geometry").toRect());
-//    setVisible(!sets_->value("hidden").toBool());
-//    sets_->endGroup();
-//}
-
-//void TitleBar::Label::__save_settings__(){
-//    QSettings* sets_ = kernel::settings::Program::get_settings();
-//    sets_->beginGroup("varlist/dockwidget/titlebar/label");
-//    sets_->setValue("geometry",geometry());
-//    sets_->setValue("hidden",isHidden());
-//    sets_->endGroup();
-//}
-
-//void TitleBar::Label::upload_style(){
-//    if(kernel::settings::Program::get_theme() == Themes::Dark)
-//        setPalette(Themes::Palette::get());
-//    else setPalette(Themes::LightStyle().palette());
-//}
-//void TitleBar::Label::upload_fonts(){
-
-//}
-//void TitleBar::Label::upload_language(){
-
-//}
 }

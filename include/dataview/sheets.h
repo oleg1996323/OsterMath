@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QFont>
 #include <QSizePolicy>
-#include <kernel/styles.h>
+#include <styles/styles.h>
 #include "kernel/exception.h"
 #include "utilities/validators/validator.h"
 #include "model/nodeview_header.h"

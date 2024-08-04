@@ -8,7 +8,10 @@
 #include <QDebug>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QPainterPath>
 #include <QDebug>
+#include <QStyleOptionDockWidget>
+#include <QStylePainter>
 
 namespace dataview{
 DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(this){
@@ -23,7 +26,7 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(
     layout->setSpacing(0);
     layout->addWidget(search_line_);
     layout->addWidget(var_list_);
-    this->setContentsMargins(0,0,0,0);
+    this->setContentsMargins(Themes::border_round_common/2,Themes::border_round_common/2,Themes::border_round_common/2,Themes::border_round_common/2);
     this->setFeatures(DockWidgetFloatable | DockWidgetClosable | DockWidgetMovable);
     this->setTitleBarWidget(titlebar_);
     setAllowedAreas(Qt::LeftDockWidgetArea);
@@ -80,7 +83,7 @@ void DockWidget::__upload_fonts__(){
 
 }
 void DockWidget::__upload_style__(){
-    setPalette(Themes::Palette::get());
+
 }
 void DockWidget::__upload_language__(){
 
@@ -145,5 +148,14 @@ QSize DockWidget::sizeHint() const{
     if(widget()->isHidden())
         return titlebar_->size();
     else return {var_list_->width(),var_list_->height()+search_line_->height()};
+}
+
+void DockWidget::paintEvent(QPaintEvent* event){
+    Q_UNUSED(event);
+    QStylePainter p(this);
+    QStyleOptionDockWidget opt;
+    opt.initFrom(this);
+    p.drawPrimitive(QStyle::PE_FrameDockWidget,opt);
+    return;
 }
 }

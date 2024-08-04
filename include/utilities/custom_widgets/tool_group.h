@@ -8,6 +8,7 @@ public:
     QGridLayout* grid_layout();
 
     virtual QSize sizeHint() const override;
+//    virtual void paintEvent(QPaintEvent*) override;
 private:
     QGridLayout* layout_;
 };

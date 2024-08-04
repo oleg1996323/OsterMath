@@ -18,7 +18,7 @@ void TabbedGroupedTools::set_box(QList<QGroupBox*> tools, QString name, int id){
         layout->setAlignment(box,Qt::AlignLeft|Qt::AlignVCenter);
         boxes_.append(box);
     }
-    layout->setMargin(0);
+    layout->setContentsMargins(0,0,0,0);
     layout->setSpacing(0);
     layout->addStretch();
     widget->setLayout(layout);
@@ -41,10 +41,18 @@ void TabbedGroupedTools::setGroupsMargins(QMargins margins){
     }
 }
 
-void TabbedGroupedTools::setLayoutsContentsMargins(int margin){
+void TabbedGroupedTools::setLayoutsContentsMargins(int left,int top,int right,int bottom){
     for(int i = 0;i<count();++i){
         QWidget* w = widget(i);
         if(w)
-            w->layout()->setMargin(margin);
+            w->layout()->setContentsMargins(left,top,right,bottom);
+    }
+}
+
+void TabbedGroupedTools::setLayoutsContentsMargins(QMargins margins){
+    for(int i = 0;i<count();++i){
+        QWidget* w = widget(i);
+        if(w)
+            w->layout()->setContentsMargins(margins);
     }
 }

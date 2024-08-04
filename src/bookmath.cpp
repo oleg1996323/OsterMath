@@ -154,12 +154,11 @@ void BookMath::__upload_language__(){
 }
 void BookMath::__upload_fonts__(){
     using namespace kernel::settings;
-    setPalette(Themes::Palette::get());
     langs_->setIcon(QIcon(kernel::settings::Program::get_language_properties().path));
     retranslate();
 }
 void BookMath::__upload_style__(){
-    setPalette(Themes::Palette().get());
+
 }
 
 BookMath::~BookMath()
