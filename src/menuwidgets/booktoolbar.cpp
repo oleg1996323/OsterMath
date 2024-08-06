@@ -10,7 +10,6 @@ ToolBar::ToolBar(QWidget* parent):QToolBar(parent), ObjectFromSettings(this){
 }
 
 void ToolBar::__default_init__(){
-    setAutoFillBackground(true);
     setFloatable(false);
     setMovable(false);
     setContentsMargins(0,0,0,0);

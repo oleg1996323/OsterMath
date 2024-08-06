@@ -7,7 +7,6 @@ Group::Group(const QString& title,QWidget* parent):QGroupBox(title,parent){
     setBackgroundRole(QPalette::Window);
     setContentsMargins(0,0,0,0);
     setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Expanding);
-    setAutoFillBackground(true);
     layout_ = new QGridLayout(this);
 }
 

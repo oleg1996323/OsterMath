@@ -14,16 +14,16 @@ namespace dataview{
 
 class TitleBarLabel:public QLabel{
     Q_OBJECT
-    const int separation_between_btns_and_label_ = 20;
-    Qt::Orientation orientation_ = Qt::Horizontal;
-    virtual void paintEvent(QPaintEvent*) override;
-    virtual QSize sizeHint() const override;
-    virtual QSize minimumSizeHint() const override;
 
+    const int separation_between_btns_and_label_ = 20;
+    mutable Qt::Orientation orientation_ = Qt::Horizontal;
 public:
     TitleBarLabel(QWidget* parent);
     ~TitleBarLabel();
     void set_orientation(Qt::Orientation);
+    virtual void paintEvent(QPaintEvent*) override;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 };
 
 class TitleBar:public QWidget, public Retranslatable, public ObjectFromSettings{
@@ -31,7 +31,8 @@ class TitleBar:public QWidget, public Retranslatable, public ObjectFromSettings{
 public:
     TitleBar(QWidget*, Qt::Orientation);
     void __init__();
-
+    virtual void paintEvent(QPaintEvent*) override;
+    virtual QSize sizeHint() const override;
 private:
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;
@@ -39,8 +40,6 @@ private:
     virtual void __upload_style__() override;
     virtual void __upload_language__() override;
     virtual void __retranslate__() override;
-    virtual void paintEvent(QPaintEvent*) override;
-    virtual QSize sizeHint() const override;
 
     TitleBarLabel *label_var_list;
     CollapseButton *collapse_var_list;

@@ -39,6 +39,7 @@ private:
     virtual void closeEvent(QCloseEvent *event) override;
     virtual void showEvent(QShowEvent *event) override;
     virtual void paintEvent(QPaintEvent*) override;
+    virtual void resizeEvent(QResizeEvent*) override;
 
 public slots:
     void setData(model::Data*);

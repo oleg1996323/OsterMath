@@ -7,14 +7,13 @@ SearchLine::SearchLine(QWidget* parent):QFrame(parent->parentWidget()){
     __define_label__();
     __define_search_line__();
     __define_frame__();
+    retranslate();
 }
 
 void SearchLine::__retranslate__(){
-    label_search_var_list->setText(kernel::Application::translate("BookMath", "\320\237\320\276\320\270\321\201\320\272", nullptr));
-    label_search_var_list->setFixedSize(
-                    QSize(QFontMetrics(font()).horizontalAdvance(label_search_var_list->text()),
-                          QFontMetrics(font()).height()));
-    search_var_list->setPlaceholderText(kernel::Application::translate("BookMath", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\320\267\320\262\320\260\320\275\320\270\320\265 \320\277\320\265\321\200\320\265\320\274\320\265\320\275\320\275\320\276\320\271", nullptr));
+    label_search_var_list->setText(kernel::Application::translate("BookMath", "Search", nullptr));
+
+    search_var_list->setPlaceholderText(kernel::Application::translate("BookMath", "Enter variable name...", nullptr));
 }
 
 void SearchLine::set_model(model::Variables* var){
@@ -65,7 +64,6 @@ void SearchLine::__define_search_line__(){
     font2.setStyleStrategy(QFont::PreferDefault);
     search_var_list->setFont(font2);
     search_var_list->setLayoutDirection(Qt::LeftToRight);
-    search_var_list->setStyleSheet(QString::fromUtf8("font: 9pt \"Sans\";color:rgb(36, 31, 49)"));
     search_var_list->setFrame(true);
     search_var_list->setEchoMode(QLineEdit::Normal);
     search_var_list->setDragEnabled(false);
