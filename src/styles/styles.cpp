@@ -7,6 +7,8 @@
 #include <QPainterPath>
 #include <QPainter>
 #include <QBoxLayout>
+#include <QSplitter>
+#include <QStylePainter>
 #include <qdrawutil.h>
 
 namespace dataview{
@@ -171,21 +173,21 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
         break;
     }
     case PE_IndicatorDockWidgetResizeHandle:{
-        if(opt){
-            if(opt->state&QStyle::State_MouseOver){
-                p->save();
-                QPainterPath path = QPainterPath();
-                path.addEllipse(opt->rect.center(),20,opt->rect.height()/2);
-                p->setRenderHint(QPainter::Antialiasing,true);
-                p->setClipPath(path);
+//        if(opt){
+//            if(opt->state&QStyle::State_MouseOver){
+//                p->save();
+//                QPainterPath path = QPainterPath();
+//                path.addEllipse(opt->rect.center(),20,opt->rect.height()/2);
+//                p->setRenderHint(QPainter::Antialiasing,true);
+//                p->setClipPath(path);
 
-                p->strokePath(path,QPen(QBrush(opt->palette.color(QPalette::ColorRole::Base)),2,Qt::DashLine,Qt::RoundCap,Qt::RoundJoin));
-                p->fillPath(path,opt->palette.color(QPalette::Window));
-                p->drawPath(path);
-                p->restore();
-            }
-        }
-        else
+//                p->strokePath(path,QPen(QBrush(opt->palette.color(QPalette::ColorRole::Base)),2,Qt::DashLine,Qt::RoundCap,Qt::RoundJoin));
+//                p->fillPath(path,opt->palette.color(QPalette::Window));
+//                p->drawPath(path);
+//                p->restore();
+//            }
+//        }
+//        else
             QProxyStyle::drawPrimitive(element,opt,p,widget);
         break;
     }
@@ -201,34 +203,69 @@ void OsterStyle::drawControl(ControlElement element,
                              const QWidget* widget = nullptr) const{
     switch(element){
     case CE_Splitter:{
+//        if(const QSplitterHandle* handle = qobject_cast<const QSplitterHandle*>(widget)){
+//            p->save();
+//            QLinearGradient grad;
+//            grad.setColorAt(0,Qt::transparent);
+//            QColor color = kernel::settings::Program::get_theme()&Themes::Dark?handle->palette().light().color():handle->palette().dark().color();
+//            grad.setColorAt(0.5,color);
+//            color.setAlpha(255);
+//            grad.setColorAt(0.2,color);
+//            grad.setColorAt(0.8,color);
+//            grad.setColorAt(1,Qt::transparent);
+//            if(opt->state&QStyle::State_MouseOver){
+//                if(handle->orientation()&Qt::Horizontal){
+//                    grad.setStart(-handle->width(),handle->height()/2);
+//                    grad.setFinalStop(handle->width(),handle->height()/2);
+//                    p->fillRect(QRect(0,0,handle->width(),handle->height()),grad);
+//                }
+//                else{
+//                    grad.setStart(handle->width()/2,0);
+//                    grad.setFinalStop(handle->width()/2,handle->height()*4);
+//                    p->fillRect(QRect(0,0,handle->width(),handle->height()*4),grad);
+//                }
+//            }
+//            else{
+//                if(handle->orientation()&Qt::Horizontal){
+//                    grad.setStart(0,handle->height()/2);
+//                    grad.setFinalStop(handle->width(),handle->height()/2);
+//                    p->fillRect(QRect(0,0,handle->width(),handle->height()),grad);
+//                }
+//                else{
+//                    grad.setStart(handle->width()/2,0);
+//                    grad.setFinalStop(handle->width()/2,handle->height());
+//                    p->fillRect(QRect(0,0,handle->width(),handle->height()),grad);
+//                }
+//            }
+//            p->restore();
+//        }
         break;
     }
-//    case CE_DockWidgetTitle:{
-//        if(!widget)
-//            return;
-//        QPainterPath path;
-//        p->save();
-//        QBoxLayout* l = qobject_cast<QBoxLayout*>(widget->layout());
-//        if(l->direction()==QBoxLayout::LeftToRight){
-//            path = paths::semiRoundedRect(paths::TOP, opt->rect,Themes::border_round_common);
-//        }
-//        else {
-//            path = paths::semiRoundedRect(paths::LEFT, opt->rect,Themes::border_round_common);
-//        }
-//        p->setRenderHint(QPainter::Antialiasing,true);
-//        p->setClipPath(path);
-//        QPen middle = QPen(opt->palette.dark().color());
-//        QPen back = QPen(opt->palette.light().color());
-//        middle.setWidth(Themes::frame_line_width_mid);
-//        back.setWidth(Themes::frame_line_width_back);
-//        p->fillPath(path,opt->palette.window());
-//        p->setPen(back);
-//        p->drawPath(path);
-//        p->setPen(middle);
-//        p->drawPath(path);
-//        p->restore();
-//        break;
-//    }
+    case CE_DockWidgetTitle:{
+        if(!widget)
+            return;
+        if(opt->state&QStyle::State_MouseOver){
+            QPainterPath path;
+            p->save();
+            QLinearGradient grad;
+            grad.setStart(0,0);
+            grad.setFinalStop(opt->rect.width(),opt->rect.height());
+            grad.setColorAt(0,opt->palette.button().color());
+            grad.setColorAt(0.5,opt->palette.midlight().color());
+            grad.setColorAt(1,opt->palette.light().color());
+            p->setClipPath(path);
+            p->fillPath(path,grad);
+            p->restore();
+        }
+        else{
+            QPainterPath path;
+            p->save();
+            p->setClipPath(path);
+            p->fillPath(path,opt->palette.window());
+            p->restore();
+        }
+        break;
+    }
     default:
         QProxyStyle::drawControl(element,opt,p,widget);
     }
@@ -258,7 +295,7 @@ int OsterStyle::layoutSpacing(QSizePolicy::ControlType control1,
 int OsterStyle::pixelMetric(QStyle::PixelMetric m, const QStyleOption *opt = nullptr, const QWidget *widget = nullptr) const{
     switch(m){
     case(PM_SplitterWidth):{
-        return 0;
+        return 1;
         break;
     }
     default:{
@@ -273,15 +310,10 @@ void OsterStyle::polish(QApplication *app){
     QCommonStyle::polish(app);
 }
 void OsterStyle::polish(QWidget *widget){
-    {
-        QPushButton* btn = qobject_cast<QPushButton*>(widget);
-        if(btn)
-            btn->setAttribute(Qt::WA_Hover,true);
-    }
-    {
-        dataview::TitleBar* bar = qobject_cast<dataview::TitleBar*>(widget);
-        if(bar)
-            bar->setAttribute(Qt::WA_Hover,true);
+    if(QPushButton* btn = qobject_cast<QPushButton*>(widget))
+        btn->setAttribute(Qt::WA_Hover,true);
+    if(QSplitterHandle* handle = qobject_cast<QSplitterHandle*>(widget)){
+        handle->setAttribute(Qt::WA_Hover,true);
     }
     QCommonStyle::polish(widget);
 }
@@ -306,10 +338,19 @@ void OsterStyle::unpolish(QWidget *widget){
         if(btn)
             btn->setAttribute(Qt::WA_Hover,false);
     }
+    {
+        QSplitterHandle* spt = qobject_cast<QSplitterHandle*>(widget);
+        if(spt)
+            spt->setAttribute(Qt::WA_Hover,false);
+    }
     QCommonStyle::unpolish(widget);
 }
 void OsterStyle::unpolish(QApplication *application){
     QCommonStyle::unpolish(application);
+}
+
+bool OsterStyle::eventFilter(QObject *obj, QEvent *event){
+    return QProxyStyle::eventFilter(obj, event);
 }
 
 }

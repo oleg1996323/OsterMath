@@ -8,6 +8,8 @@
 #include <QCommonStyle>
 #include <QProxyStyle>
 
+class QSplitterHandle;
+
 namespace Themes{
 
 constexpr int border_round_common = 5;
@@ -144,6 +146,8 @@ public:
     virtual QRect	subElementRect(QStyle::SubElement sr, const QStyleOption *opt, const QWidget *widget) const override;
     virtual void	unpolish(QWidget *widget) override;
     virtual void	unpolish(QApplication *application) override;
+
+    virtual bool eventFilter(QObject *obj, QEvent *event) override;
 };
 
 }

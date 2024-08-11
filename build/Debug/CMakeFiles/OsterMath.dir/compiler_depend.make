@@ -3642,7 +3642,10 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStylePainter \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstylepainter.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h
 
 CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o: ../../src/dataview/expression_view.cpp \
   /usr/include/stdc-predef.h \
@@ -17937,8 +17940,6 @@ CMakeFiles/OsterMath.dir/src/utilities/paths.cpp.o: ../../src/utilities/paths.cp
 
 ../../src/dataview/variable_list/search_line.cpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstylepainter.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyleOptionDockWidget:
 
 ../../src/dataview/variable_list/dock.cpp:
@@ -17954,6 +17955,8 @@ CMakeFiles/OsterMath.dir/src/utilities/paths.cpp.o: ../../src/utilities/paths.cp
 ../../include/utilities/paths.h:
 
 ../../src/dataview/expression_view.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstylepainter.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmenu.h:
 

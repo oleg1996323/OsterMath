@@ -13,7 +13,7 @@ TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
     ObjectFromSettings(this),
     orientation_(orientation)
 {
-    setContentsMargins(Themes::frame_line_width_back,0,Themes::frame_line_width_back,0);
+    setContentsMargins(0,0,0,0);
     label_var_list = new TitleBarLabel(this);
     collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
                                            ":common/common/expand.png",
@@ -30,9 +30,11 @@ TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
 
 void TitleBar::__init__(){
     QBoxLayout* layout_=new QBoxLayout(orientation_&Qt::Horizontal?QBoxLayout::LeftToRight:QBoxLayout::BottomToTop,this);
-    layout_->setSpacing(0);
+    layout_->setContentsMargins(Themes::frame_line_width_back/2,Themes::frame_line_width_back/2,Themes::frame_line_width_back/2,Themes::frame_line_width_back/2);
+    layout_->setAlignment(Qt::AlignVCenter);
     layout_->setObjectName(QString::fromUtf8("varlisttitlebar_layout"));
     layout_->addWidget(label_var_list);
+    layout_->setSpacing(2);
     label_var_list->set_orientation(orientation_);
     layout_->addWidget(collapse_var_list);
     layout_->addWidget(close_var_list);
@@ -78,33 +80,38 @@ void TitleBar::collapse(){
         label_var_list->set_orientation(Qt::Horizontal);
         l->setDirection(QBoxLayout::LeftToRight); 
     }
-    label_var_list->updateGeometry();
     qobject_cast<DockWidget*>(parent())->collapse();
+    label_var_list->updateGeometry();
+
 }
 
 void TitleBar::paintEvent(QPaintEvent* event){
-    label_var_list->paintEvent(event);
-    close_var_list->paintEvent(event);
-    collapse_var_list->paintEvent(event);
+    QStylePainter p(this);
+    QStyleOption opt;
+    opt.initFrom(this);
+    p.drawControl(QStyle::CE_DockWidgetTitle,opt);
 }
 
 QSize TitleBar::sizeHint() const{
-    int max_height = 0;
-    for(QObject* child:children()){
-        QWidget* child_widget = qobject_cast<QWidget*>(child);
-        if(child_widget){
-            max_height = qMax(max_height,child_widget->sizeHint().height());
-        }
-    }
-    if(max_height!=0)
-        if(orientation_&Qt::Horizontal)
-            return QSize(width(),height());
-        else return QSize(height(),width());
-    else {
-        if(orientation_&Qt::Horizontal)
-            return QSize(width(),max_height);
-        else return QSize(max_height,width());
-    }
+//    int max_height = 0;
+//    for(QObject* child:children()){
+//        QWidget* child_widget = qobject_cast<QWidget*>(child);
+//        if(child_widget){
+//            max_height = qMax(max_height,child_widget->sizeHint().height());
+//        }
+//    }
+//    if(max_height==0){
+//        if(orientation_&Qt::Horizontal)
+//            return QSize(width(),height()-contentsMargins().top()-contentsMargins().bottom());
+//        else return QSize(height(),width());
+//    }
+//    else {
+//        QSize s = {width(),max_height};
+//        if(orientation_&Qt::Horizontal)
+//            return QSize(width(),max_height);
+//        else return QSize(max_height,width());
+//    }
+    return QWidget::sizeHint();
 }
 
 TitleBarLabel::TitleBarLabel(QWidget* parent):QLabel(parent){
@@ -128,21 +135,17 @@ void TitleBarLabel::paintEvent(QPaintEvent* event) {
     (void)event;
     QPainter painter(this);
     painter.save();
-
     if (orientation_ & Qt::Vertical) {
-        QSize s = size();
         painter.setRenderHints(QPainter::TextAntialiasing);
-        painter.translate(0,QFontMetrics(font()).horizontalAdvance(text())+20);
+        painter.translate(0,height()-qobject_cast<QWidget*>(parent())->layout()->contentsMargins().bottom());
         painter.rotate(-90);
-        QRect geom = geometry();
-        geom.setX(0);
-        geom.setY(0);
-        painter.drawText(geometry(), alignment(), text());
+        const QTransform& tr = painter.transform();
+        auto x = tr.dx();
+        auto y = tr.dy();
+        QRect g = geometry();
+        painter.drawText(QRect(0,0,height(),width()), alignment(), text());
 
     } else {
-        QRect geom = geometry();
-        geom.setX(0);
-        geom.setY(0);
         painter.setRenderHints(QPainter::TextAntialiasing);
         painter.drawText(geometry(), alignment(), text());
     }
@@ -157,14 +160,15 @@ void TitleBarLabel::TitleBarLabel::set_orientation(Qt::Orientation orientation){
 }
 
 QSize TitleBarLabel::sizeHint() const{
-//    QFontMetrics metrics(font());
-//    QSize s{metrics.size(Qt::TextSingleLine,text())};
-//    if(orientation_&Qt::Horizontal){
-//        return {s.width()+separation_between_btns_and_label_,s.height()};
-//    }
-//    else
-//        return {s.height(),s.width()+separation_between_btns_and_label_};
+    QFontMetrics metrics(font());
+    QSize s{metrics.size(Qt::TextSingleLine,text())};
+    if(orientation_&Qt::Horizontal){
+        return {s.width()+separation_between_btns_and_label_,s.height()};
+    }
+    else
+        return {s.height(),s.width()+separation_between_btns_and_label_};
     return {width(),height()};
+    //return QLabel::sizeHint();
 }
 QSize TitleBarLabel::minimumSizeHint() const{
     QFontMetrics metrics(font());
@@ -174,5 +178,16 @@ QSize TitleBarLabel::minimumSizeHint() const{
     }
     else
         return {s.height(),s.width()+separation_between_btns_and_label_};
+}
+
+bool TitleBar::event(QEvent* event){
+    switch(event->type()){
+    case QEvent::Polish:{
+        setAttribute(Qt::WA_Hover,true);
+    }
+    default:{
+        QWidget::event(event);
+    }
+    }
 }
 }

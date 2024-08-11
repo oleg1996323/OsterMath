@@ -45,6 +45,5 @@ public slots:
     void setData(model::Data*);
     void collapse();
     void close_from_titlebar();
-
 };
 }

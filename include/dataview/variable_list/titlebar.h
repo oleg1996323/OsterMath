@@ -40,6 +40,7 @@ private:
     virtual void __upload_style__() override;
     virtual void __upload_language__() override;
     virtual void __retranslate__() override;
+    virtual bool event(QEvent*) override;
 
     TitleBarLabel *label_var_list;
     CollapseButton *collapse_var_list;

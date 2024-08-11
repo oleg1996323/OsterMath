@@ -33,7 +33,6 @@ DockWidget::DockWidget(QWidget* parent):QDockWidget(parent), ObjectFromSettings(
     sizepolicy.setHorizontalPolicy(QSizePolicy::Expanding);
     sizepolicy.setVerticalPolicy(QSizePolicy::Expanding);
     w->setSizePolicy(sizepolicy);
-    sizepolicy.setRetainSizeWhenHidden(true);
     setSizePolicy(sizepolicy);
     w->setLayout(layout);
     setWidget(w);
@@ -52,8 +51,9 @@ DockWidget::~DockWidget(){
 void DockWidget::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
-    if(sets_->contains("geometry"))
+    if(sets_->contains("geometry")){
         restoreGeometry(sets_->value("geometry").toByteArray());
+    }
     if(sets_->value("hidden").toBool())
         collapse();
     if(sets_->contains("closed"))
@@ -85,16 +85,13 @@ void DockWidget::__upload_language__(){
 
 void DockWidget::collapse() {
     if (widget()->isHidden()) {
-        setFeatures(features() ^ QDockWidget::DockWidgetVerticalTitleBar);
         widget()->setHidden(false);
+        setFeatures(features() ^ QDockWidget::DockWidgetVerticalTitleBar);
         resize(dock_size_before_hidding);
-        qApp->processEvents();
-
     } else {
         dock_size_before_hidding = size();
-        setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features());
         widget()->setHidden(true);
-        qApp->processEvents();
+        setFeatures(QDockWidget::DockWidgetVerticalTitleBar | features());
     }
 }
 
@@ -136,6 +133,6 @@ void DockWidget::paintEvent(QPaintEvent* event){
 }
 
 void DockWidget::resizeEvent(QResizeEvent* event){
-    titlebar_->updateGeometry();
+    QDockWidget::resizeEvent(event);
 }
 }
