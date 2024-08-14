@@ -15,6 +15,7 @@ namespace dataview{
 class DockWidget;
 class NodeData;
 
+//TODO add variable search in model
 class View:public QMainWindow, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT
 public:

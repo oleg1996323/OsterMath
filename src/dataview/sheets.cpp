@@ -167,6 +167,7 @@ void Sheets::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     restoreGeometry(sets_->value("geometry").toByteArray());
+    //TODO
 //    if(sets_->contains("curId")){
 //        int current = sets_->value("curId").toInt();
 //        tabBarClicked(current);
@@ -182,7 +183,6 @@ void Sheets::__save_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
-    //sets_->setValue("curId",currentIndex());
     if(var_list_ && var_list_->parent())
         sets_->setValue("winstate",qobject_cast<View*>(var_list_->parent())->saveState());
     sets_->endGroup();

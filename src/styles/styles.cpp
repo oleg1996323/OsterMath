@@ -318,6 +318,8 @@ void OsterStyle::polish(QWidget *widget){
     QCommonStyle::polish(widget);
 }
 QSize OsterStyle::sizeFromContents(QStyle::ContentsType ct, const QStyleOption *opt, const QSize &csz, const QWidget *widget = nullptr) const{
+    if(ct==QStyle::CT_ItemViewItem)
+        return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
     return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
 }
 QPixmap	OsterStyle::standardPixmap(QStyle::StandardPixmap sp, const QStyleOption *option = nullptr, const QWidget *widget = nullptr) const{

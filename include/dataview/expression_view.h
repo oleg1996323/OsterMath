@@ -5,12 +5,17 @@
 
 namespace dataview{
 
+//TODO add signal to open auxiliairy window for formula selection/help
 class ExpressionButton:public QPushButton{
     Q_OBJECT
 public:
     ExpressionButton(const QString& res_path,QWidget* parent);
 };
 
+
+//TODO add signal to send text for parsing
+//add formula autocomplete
+//add formula highlight
 class VarExpressionView:public QWidget{
     Q_OBJECT
 public:
