@@ -3645,7 +3645,9 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStylePainter \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstylepainter.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainter.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QPainterPath \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h
 
 CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o: ../../src/dataview/expression_view.cpp \
   /usr/include/stdc-predef.h \
@@ -17950,11 +17952,11 @@ CMakeFiles/OsterMath.dir/src/utilities/paths.cpp.o: ../../src/utilities/paths.cp
 
 ../../src/dataview/model_data/nodedataview.cpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QPainterPath:
-
 ../../include/utilities/paths.h:
 
 ../../src/dataview/expression_view.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QPainterPath:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstylepainter.h:
 

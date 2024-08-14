@@ -16,7 +16,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
 find_package(QT NAMES Qt6 COMPONENTS Core Widgets LinguistTools REQUIRED)
 
 message(STATUS Qt${QT_VERSION_MAJOR})
@@ -106,7 +105,7 @@ include_directories(
 add_library(styles SHARED ${PROJECT_SOURCES_STYLES})
 
 target_include_directories(styles PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/styles
-				${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
+                                ${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
 
 target_link_libraries(styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 
@@ -116,9 +115,9 @@ add_library(app SHARED
     ${PROJECT_SOURCES_KERNEL})
 
 target_include_directories(app PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/kernel
-				${CMAKE_CURRENT_SOURCE_DIR}/include/kernel
-				${CMAKE_CURRENT_SOURCE_DIR}/src/styles
-				${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
+                                ${CMAKE_CURRENT_SOURCE_DIR}/include/kernel
+                                ${CMAKE_CURRENT_SOURCE_DIR}/src/styles
+                                ${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
 
 target_link_libraries(app PUBLIC styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 

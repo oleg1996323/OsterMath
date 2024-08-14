@@ -51,10 +51,6 @@ signals:
     void show_value();
 
 private:
-    static QPalette default_style_;
-    static QPalette select_style_;
-    static QPalette mouse_on_style_;
-
     virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
 };
 }

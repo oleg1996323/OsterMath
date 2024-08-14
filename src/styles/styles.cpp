@@ -295,7 +295,7 @@ int OsterStyle::layoutSpacing(QSizePolicy::ControlType control1,
 int OsterStyle::pixelMetric(QStyle::PixelMetric m, const QStyleOption *opt = nullptr, const QWidget *widget = nullptr) const{
     switch(m){
     case(PM_SplitterWidth):{
-        return 1;
+        return 0;
         break;
     }
     default:{
