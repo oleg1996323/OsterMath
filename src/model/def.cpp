@@ -72,4 +72,30 @@ std::vector<std::vector<Node*>> get_table_data(ArrayNode* root){
     }
     std::vector<std::vector<Node*>> data;
 }
+
+NODE_STRUCT parse_to_insert_item(const QString& expr){
+    assert(kernel::Application::get_active_pool()->exists("tmp_buffer"));
+    assert(kernel::Application::get_active_pool()->get("tmp_buffer")->exists("buffer"));
+    NODE_STRUCT var;
+    var.node_ = kernel::Application::get_active_pool()->get("tmp_buffer")->get("buffer")->node().get();
+    var.expr_=expr;
+    QString var_expr = QString("VAR(!('%1')#%2)").
+            arg("tmp_buffer").
+            arg("buffer")+
+            var.expr_;
+    std::stringstream stream;
+    stream<<var_expr.toStdString();
+
+    kernel::Application::get_active_pool()->get("tmp_buffer")->setstream(stream);
+    var.err_ = exception_handler([&]()->void{
+        kernel::Application::get_active_pool()->get("tmp_buffer")->read_new();
+    });
+    if(var.err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
+        var.err_=exception_handler([&]()->void{
+            var.node_->refresh();
+            var.type_ = var.node_->type_val();
+        });
+    }
+    return var;
+}
 }

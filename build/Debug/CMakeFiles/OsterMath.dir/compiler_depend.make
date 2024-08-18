@@ -1163,6 +1163,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
@@ -1182,10 +1186,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
   ../../include/dataview/expression_view.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
@@ -2411,6 +2411,10 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
@@ -2430,10 +2434,6 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
   ../../include/dataview/expression_view.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
@@ -3559,6 +3559,11 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/kernel/application.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
@@ -3610,11 +3615,6 @@ CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/dataview/expression_view.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
@@ -5812,6 +5812,12 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   ../../include/model/def.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+  ../../include/kernel/application.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputmethod.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
   ../../include/model/nodeview_header.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHeaderView \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
@@ -6909,6 +6915,11 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/kernel/application.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
@@ -6960,11 +6971,6 @@ CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cp
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/dataview/variable_list/dock.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDockWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdockwidget.h \
@@ -8076,6 +8082,11 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/model/nodeview_model.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractItemModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
@@ -8109,11 +8120,6 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/dataview/variable_list/table.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemView \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
@@ -9212,6 +9218,11 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/model/nodeview_model.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
@@ -9248,11 +9259,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/datavi
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/dataview/variable_list/table.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemView \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
@@ -11574,15 +11580,15 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/table.cpp.o: ../../src/datav
   ../../include/model/def.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
-  ../../include/model/varlist_header.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHeaderView \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
   ../../include/kernel/application.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputmethod.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
+  ../../include/model/varlist_header.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHeaderView \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
   ../../include/model/varlist_model.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractTableModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
@@ -12721,6 +12727,11 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/model/nodeview_model.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
@@ -12755,11 +12766,6 @@ CMakeFiles/OsterMath.dir/src/dataview/variable_list/titlebar.cpp.o: ../../src/da
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QComboBox \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcombobox.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
   ../../include/dataview/variable_list/table.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemView \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
@@ -13939,6 +13945,10 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+  ../../include/model/exception/exception.h \
+  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
   ../../include/dataview/tabwidgetdataview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
@@ -13958,10 +13968,6 @@ CMakeFiles/OsterMath.dir/src/main.cpp.o: ../../src/main.cpp \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
-  ../../include/model/exception/exception.h \
-  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
   ../../include/dataview/expression_view.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
@@ -18042,10 +18048,6 @@ OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp:
 
 ../../include/dataview/expression_view.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h:
-
-/home/oster/Electrolisys/arithmetictree/include/exception/exception.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QModelIndex:
@@ -18063,6 +18065,10 @@ OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel:
 
 ../../include/dataview/tabwidgetdataview.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h:
+
+/home/oster/Electrolisys/arithmetictree/include/exception/exception.h:
 
 /home/oster/Electrolisys/arithmetictree/include/types/bin_node.h:
 

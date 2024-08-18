@@ -1066,6 +1066,10 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/types/array_node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/func_node.h \
  /home/oster/Electrolisys/arithmetictree/include/types/range_node.h \
+ /home/oster/OsterMath/include/model/exception/exception.h \
+ /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
@@ -1085,10 +1089,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
- /home/oster/OsterMath/include/model/exception/exception.h \
- /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
  /home/oster/OsterMath/include/dataview/expression_view.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \

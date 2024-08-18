@@ -49,14 +49,6 @@ namespace model{
 class Variables:public QAbstractTableModel{
     Q_OBJECT
 public:
-    struct VAR_STRUCT{
-        QString expr_;
-        QString note_;
-        VariableBase* var_;
-        TYPE_VAL type_;
-        exceptions::EXCEPTION_TYPE err_;
-    };
-
     Variables(QObject* parent, BaseData* data_base);
 
     ~Variables() = default;
@@ -82,11 +74,7 @@ public:
     void __load_settings__();
     void __save_settings__();
 
-    void refresh(){
-
-    }
-
-    bool contains(VariableBase*);
+    bool contains(VariableNode*);
 
     void set_data(BaseData*);
 
@@ -94,9 +82,10 @@ public:
 
 signals:
     void show_value();
+//    void refresh(NODE_STRUCT);
 
 private:
-    std::deque<VAR_STRUCT> vars_;
+    std::deque<NODE_STRUCT> vars_;
     QMap<TYPE_VAL,uint8_t> header_pos_;
     BaseData* data_base_;
 };

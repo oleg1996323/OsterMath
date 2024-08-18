@@ -30,12 +30,12 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
         }
             break;
         case (int)HEADER::TYPE:{
-            if(index.model()->rowCount()-1>index.row()){
-                QComboBox *cb_types = new QComboBox(parent);
-                cb_types->addItems(QStringList(variables::names_of_types.values()));
-                cb_types->setEditable(false);
-                return cb_types;
-            }
+//            if(index.model()->rowCount()-1>index.row()){
+//                QComboBox *cb_types = new QComboBox(parent);
+//                cb_types->addItems(QStringList(variables::names_of_types.values()));
+//                cb_types->setEditable(false);
+//                return cb_types;
+//            }
             break;
         }
         case (int)HEADER::EXPRESSION:
@@ -83,22 +83,22 @@ void VariablesDelegate::setEditorData(QWidget *editor, const QModelIndex &index)
         }
             break;
         case (int)HEADER::TYPE:{
-            QComboBox *cb_types = static_cast<QComboBox*>(editor);
-            if(index.model()->rowCount()-1>index.row()){
-                //cb_types->setCurrentIndex((int)vars_.at(index.row())->type());
-                //qDebug()<<cb_types->currentIndex();
-                if(index.data(Qt::EditRole).value<TYPE_VAL>()!=TYPE_VAL::UNKNOWN){
-                    cb_types->setEnabled(false);
-                    cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
-                }
-                else {
-                    cb_types->setEnabled(true);
-                }
-            }
-            else{
-                cb_types->setEnabled(false);
-                cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
-            }
+//            QComboBox *cb_types = static_cast<QComboBox*>(editor);
+//            if(index.model()->rowCount()-1>index.row()){
+//                //cb_types->setCurrentIndex((int)vars_.at(index.row())->type());
+//                //qDebug()<<cb_types->currentIndex();
+//                if(index.data(Qt::EditRole).value<TYPE_VAL>()!=TYPE_VAL::UNKNOWN){
+//                    cb_types->setEnabled(false);
+//                    cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
+//                }
+//                else {
+//                    cb_types->setEnabled(true);
+//                }
+//            }
+//            else{
+//                cb_types->setEnabled(false);
+//                cb_types->setStyleSheet ("QComboBox::drop-down {border-width: 0px;} QComboBox::down-arrow {image: url(noimg); border-width: 0px;}");
+//            }
             break;
         }
         case (int)HEADER::EXPRESSION:
@@ -125,18 +125,18 @@ void VariablesDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
         switch (index.column()){
         case (int)HEADER::NAME:{
             QLineEdit* line_name = static_cast<QLineEdit*>(editor);
-            model->setData(index,line_name->text(),Qt::EditRole);
+            model->setData(index,line_name->text(),Qt::DisplayRole);
         }
             break;
         case (int)HEADER::TYPE:{
             QComboBox *cb_types = static_cast<QComboBox*>(editor);
-            model->setData(index,QVariant::fromValue((TYPE_VAL)cb_types->currentIndex()),Qt::EditRole);
+            model->setData(index,QVariant::fromValue((TYPE_VAL)cb_types->currentIndex()),Qt::DisplayRole);
             break;
         }
         case (int)HEADER::EXPRESSION:
             if(index.model()->rowCount()-1>index.row()){
                 QLineEdit* line_expr = static_cast<QLineEdit*>(editor);
-                model->setData(index,line_expr->text(),Qt::EditRole);
+                model->setData(index,line_expr->text(),Qt::DisplayRole);
             }
             break;
         case (int)HEADER::VALUE:
@@ -152,15 +152,15 @@ void VariablesDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
 }
 
 void VariablesDelegate::set_default_header_pos(){
-    QSettings* sets_ = kernel::settings::Program::get_settings();
-    //порядок колонок
-    sets_->beginGroup("VarListTable/header");
-    sets_->setValue("name",QVariant().fromValue(HEADER::NAME));
-    sets_->setValue("type",QVariant().fromValue(HEADER::TYPE));
-    sets_->setValue("value",QVariant().fromValue(HEADER::VALUE));
-    sets_->setValue("expression",QVariant().fromValue(HEADER::EXPRESSION));
-    sets_->setValue("remark",QVariant().fromValue(HEADER::REMARK));
-    sets_->endGroup();
+//    QSettings* sets_ = kernel::settings::Program::get_settings();
+//    //порядок колонок
+//    sets_->beginGroup("VarListTable/header");
+//    sets_->setValue("name",QVariant().fromValue(HEADER::NAME));
+//    sets_->setValue("type",QVariant().fromValue(HEADER::TYPE));
+//    sets_->setValue("value",QVariant().fromValue(HEADER::VALUE));
+//    sets_->setValue("expression",QVariant().fromValue(HEADER::EXPRESSION));
+//    sets_->setValue("remark",QVariant().fromValue(HEADER::REMARK));
+//    sets_->endGroup();
 }
 
 void VariablesDelegate::get_header_pos(){

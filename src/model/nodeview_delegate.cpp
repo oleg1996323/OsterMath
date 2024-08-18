@@ -4,17 +4,53 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QTextItem>
-#include <QStyle>
+#include <QLineEdit>
 #include "model/nodeview_model.h"
 #include "styles/styles.h"
 
 namespace model{
 
-NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){}
+NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){
+
+}
 
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
         Node* node = qobject_cast<const model::NodeView*>(index.model())->get_node();
+        if(node->type()==NODE_TYPE::VARIABLE){
+            if(node->has_child(0)){
+                node = node->child(0).get();
+                if(index.column()<node->childs().size()){
+                    if(index.row()==0)
+                        return new QLineEdit(parent);
+                    else if(index.row()==1 || node->has_child(index.column()) && node->child(index.column())->has_childs()){
+                        return new QLineEdit(parent);
+                    }
+                    else
+                        return nullptr;
+                }
+                else if(index.column()==node->childs().size()){
+                    if(index.row()==0)
+                        return new QLineEdit(parent);
+                    else if(node->has_child(index.column())){
+                        if(node->child(index.column())->has_childs() && index.row()<=node->child(index.column())->childs().size())
+                            return new QLineEdit(parent);
+                        else return nullptr;
+                    }
+                    else
+                        return nullptr;
+                }
+                else return nullptr;
+            }
+            else{
+               return nullptr;
+            }
+        }
+        else {
+            if(node->has_child(index.column()))
+                node = node->child(index.column()).get();
+            else return nullptr;
+        }
         if(node && node->has_child(index.column())){
             if(node->child(index.column())->is_array())
                 return new QPushButton("...",parent);
@@ -29,22 +65,23 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
 
 void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{
     if(index.isValid()){
-        Node* node = qobject_cast<const model::NodeView*>(index.model())->get_node();
-        if(node && node->has_child(index.column())){
-            if(!node->child(index.column())->is_array()){
-                auto ptr = qobject_cast<QLineEdit*>(editor);
-                std::stringstream stream;
-                node->child(index.column())->print_result(stream);
-                ptr->setText(QString::fromStdString(stream.str()));
-                ;
-            }
+        Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();
+        assert(node);
+        if(node){
+            QLineEdit* ptr = qobject_cast<QLineEdit*>(editor);
+            std::stringstream stream;
+            node->print_text(stream);
+            qDebug()<<QString::fromStdString(stream.str());
+            ptr->setText(QString::fromStdString(stream.str()));
         }
     }
 }
 
 void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
     if(index.isValid() && editor){
-
+        QLineEdit* ptr = qobject_cast<QLineEdit*>(editor);
+        model->setData(index,ptr->text(),Qt::DisplayRole);
+        //recursive call of printText() if changed in ArrayNode([1,1,1,1])
     }
 }
 
@@ -94,7 +131,7 @@ void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, 
 //    QStyledItemDelegate::paint(painter,option,index);
 //}
 
-//QSize NodeViewDelegate::sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const{
-//    return QSize(option.rect.width(), 55);
-//}
+QSize NodeViewDelegate::sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const{
+    return QSize(option.rect.width(), 55);
+}
 }

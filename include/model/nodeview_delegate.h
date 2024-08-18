@@ -29,12 +29,8 @@ public:
     virtual QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     virtual void setEditorData(QWidget *editor, const QModelIndex &index) const override;
     virtual void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
-    //virtual QSize sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const override;
+    virtual QSize sizeHint(const QStyleOptionViewItem &option,const QModelIndex &index) const override;
     //virtual void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index ) const override;
-
-    void set_default_header_pos();
-
-    void get_header_pos();
 
     void __load_settings__();
     void __save_settings__();
@@ -42,9 +38,6 @@ public:
     void refresh(){
 
     }
-
-signals:
-    void show_value();
 
 private:
     //virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;

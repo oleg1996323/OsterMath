@@ -1,6 +1,8 @@
 #include <numeric>
 #include "model/nodeview_model.h"
 #include "types.h"
+#include <QRegularExpression>
+#include <QtTest/QAbstractItemModelTester>
 
 namespace model{
 
@@ -68,10 +70,10 @@ int NodeView::columnCount(const QModelIndex &parent) const{
 }
 
 void NodeView::set_representable_node(Node* node){
+
+    beginResetModel();
     sequence_node_.clear();
     sequence_node_.push_back(node);
-    beginResetModel();
-    emit dataChanged(createIndex(0,0),createIndex(0,0));
     endResetModel();
 }
 
@@ -83,7 +85,6 @@ void NodeView::set_representable_child_node(size_t id){
 void NodeView::reset_representable_node(){
     beginResetModel();
     sequence_node_.pop_back();
-    emit dataChanged(createIndex(0,0),createIndex(0,columnCount()));
     endResetModel();
 }
 
@@ -115,14 +116,20 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
             else if(node_to_show->is_array()){
                 if(node_to_show->has_child(index.column())){
                     Node* column_child = node_to_show->child(index.column()).get();
-                    if(column_child->type()==NODE_TYPE::VARIABLE)
-                        return QString::fromStdString(reinterpret_cast<VariableNode*>(column_child)->variable()->name());
+                    if(column_child->type()==NODE_TYPE::VARIABLE){
+                        if(index.row()<node_to_show->childs().size())
+                            return QString::fromStdString(reinterpret_cast<VariableNode*>(column_child)->variable()->name());
+                        else return QVariant();
+                    }
                     else if(column_child->is_array()){
                         Node* row_child;
                         if(column_child->has_child(index.row())){
                             row_child = column_child->child(index.row()).get();
-                            if(row_child->type()==NODE_TYPE::VARIABLE)
-                                return QString::fromStdString(reinterpret_cast<VariableNode*>(row_child)->variable()->name());
+                            if(row_child->type()==NODE_TYPE::VARIABLE){
+                                if(index.row()<node_to_show->childs().size())
+                                    return QString::fromStdString(reinterpret_cast<VariableNode*>(row_child)->variable()->name());
+                                else return QVariant();
+                            }
                             else if(row_child->is_array())
                                 return QString("...");
                             else {
@@ -228,58 +235,27 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
                 else return false;
             }
 
-            if(node_to_show->type()==NODE_TYPE::VARIABLE){
-                if(index.row()==0){
-                    if(value.canConvert<QString>()){
-                        //check if variable exists
-                        //if exists, just add varnode to node_to_show index
-                        //else add variable to BaseData and add varnode to node_to_show index
+            NODE_STRUCT res = parse_to_insert_item(value.toString());
+            bool success = true;
+            success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
+            Node* node = res.node_;
+            if(res.node_->has_child(0)){
+                if(node_to_show->type_val()!=TYPE_VAL::ARRAY){
+                    res.node_->child(0).swap(node_to_show->child(0));
+                }
+                else{
+                    if(index.row()<=node_to_show->has_child(index.row())){
+                        if(node_to_show->has_child(index.row()) && res.node_->child(0)->has_child(index.row()))
+                            res.node_->child(0)->child(index.row()).swap(node_to_show->child(index.row()));
+                        else
+                            node_to_show->insert(res.node_->child(0)->child(index.row()));
                         return true;
                     }
-                    else if(value.canConvert<Value_t>()){
-                        //replace value by index
-                        return true;
-                    }
-                    else{
-                        return false;
-                    }
+                    else return false;
                 }
             }
-            else if(node_to_show->is_array()){
-                if(node_to_show->has_child(index.column())){
-                    Node* column_child = node_to_show->child(index.column()).get();
-                    if(column_child->type()==NODE_TYPE::VARIABLE)
-                        //check if variable exists
-                        //if exists, just add varnode to node_to_show index
-                        //else add variable to BaseData and add varnode to node_to_show index
-                        //maybe convert valuetype to arraytype if added to row=1
-                        return true;
-                    else if(column_child->is_array()){
-                        Node* row_child;
-                        if(column_child->has_child(index.row())){
-                            row_child = column_child->child(index.row()).get();
-                            if(row_child->type()==NODE_TYPE::VARIABLE)
-                                //check if variable exists
-                                //if exists, just add varnode to node_to_show index
-                                //else add variable to BaseData and add varnode to node_to_show index
-                                return true;
-                            else {
-                                //replace value by index
-                                return true;
-                            }
-                        }
-                    }
-                    else{
-                        //replace value by index
-                        return true;
-                    }
-                }
-                else return false;
-            }
-            else {
-                //replace value by index
-                return true;
-            }
+            emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
+            return success;
             break;
         }
         case(Qt::EditRole):
@@ -350,7 +326,7 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
 Qt::ItemFlags NodeView::flags(const QModelIndex &index) const{
     Qt::ItemFlags flags = QAbstractItemModel::flags(index);
     if(index.isValid()){
-        return flags | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+        return (index.isValid())?flags | Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable:flags;
     }
     return flags;
 }
@@ -389,5 +365,4 @@ bool NodeView::removeRows(int nRow, int nCount, const QModelIndex& parent){
 bool NodeView::removeColumns(int nRow, int nCount, const QModelIndex& parent){
     return true;
 }
-
 }

@@ -16,7 +16,7 @@ Variables::Variables(QObject* obj, BaseData* data_base):
     data_base_(data_base)
 {
     for(const auto& [var_name,var]:data_base->variables()){
-        vars_.push_back({QString(),QString(),var.get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
+        vars_.push_back({QString(),QString(),var->node().get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
     }
 }
 
@@ -64,7 +64,10 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
         if(index.row()<vars_.size()){
             switch (index.column()){
             case (int)HEADER::NAME:{
-                return QString::fromStdString(vars_.at(index.row()).var_->name());
+                VariableNode* var;
+                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                    return QVariant();
+                return QString::fromStdString(var->variable()->name());
                 break;
             }
             case (int)HEADER::TYPE:{
@@ -83,8 +86,11 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                         return QString("...");
                     else{
                         std::stringstream stream;
-                        vars_.at(index.row()).var_->set_stream(stream);
-                        vars_.at(index.row()).var_->print_result();
+                        VariableNode* var;
+                        if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                            return QVariant();
+                        var->variable()->set_stream(stream);
+                        var->variable()->print_result();
                         return QString::fromStdString(stream.str());
                     }
                 }
@@ -105,7 +111,10 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
     else if(nRole == Qt::EditRole){
         switch (index.column()){
             case (int)HEADER::NAME:{
-                return QVariant::fromValue(vars_.at(index.row()).var_);
+                VariableNode* var;
+                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                    return QVariant();
+                return QVariant::fromValue(var->variable());
                 break;
             }
             case (int)HEADER::TYPE:{
@@ -117,7 +126,9 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                 break;
             }
             case (int)HEADER::VALUE:{
-                return QVariant::fromValue(reinterpret_cast<Node*>(vars_.at(index.row()).var_->node().get()));
+                if(!vars_.at(index.row()).node_)
+                    return QVariant();
+                return QVariant::fromValue(vars_.at(index.row()).node_);
                 break;
             }
             case (int)HEADER::REMARK:{
@@ -135,41 +146,41 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
 bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRole) {
     if(index.isValid()){
         //for names
-        if(nRole == Qt::EditRole){
+        if(nRole == Qt::DisplayRole){
             switch (index.column()){
             case (int)HEADER::NAME:{
                 if(!value.isNull()){
                     if(value.toString()!=""){
                         if(!data_base_->exists(value.toString().toStdString())){
                             if(vars_.size()==index.row()){
-                                auto var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get();
+                                VariableNode* var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get()->node().get();
                                 vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
                                 insertRow(rowCount(), QModelIndex());
                             }
-                            else
-                                data_base_->rename_var(vars_.at(index.row()).var_->name(),value.toString().toStdString());
+                            else{
+                                VariableNode* var;
+                                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                                    return false;
+                                data_base_->rename_var(var->variable()->name(),value.toString().toStdString());
+                            }
                         }
                         else{
                             if(vars_.size()==index.row()){
-                                VariableBase* var_ptr = data_base_->get(value.toString().toStdString());
-                                if(!contains(var_ptr)){
-                                    vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
+                                VariableNode* var;
+                                if((var = dynamic_cast<VariableNode*>(data_base_->get(value.toString().toStdString())->node().get()))==nullptr)
+                                    return false;
+                                if(!contains(var)){
+                                    vars_.push_back({QString(),QString(),var,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
                                     insertRow(rowCount(), QModelIndex());
                                 }
                             }
                             else
-                                data_base_->rename_var(vars_.at(index.row()).var_->name(),value.toString().toStdString());
+                                data_base_->rename_var(dynamic_cast<VariableNode*>(vars_.at(index.row()).node_)->variable()->name(),value.toString().toStdString());
                         }
                         return true;
                     }
                     else{
-                        if(!vars_.empty()){
-                            QString name_var = data(index,Qt::DisplayRole).toString();
-                            data_base_->erase(name_var.toStdString());
-                            assert(!data_base_->exists(data(index,Qt::DisplayRole).toString().toStdString()));
-                            removeRow(index.row());
-                        }
-                        return true;
+                        return false;
                     }
                 }
                 return false;
@@ -178,44 +189,44 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
             case (int)HEADER::TYPE:{
                 switch(value.value<TYPE_VAL>()){
                 case TYPE_VAL::UNKNOWN:
-                    if(vars_.at(index.row()).var_->type()!=(TYPE_VAL)value.toInt()){
-                        vars_.at(index.row()).var_->node()->release_childs();
+                    if(vars_.at(index.row()).node_->type_val()!=(TYPE_VAL)value.toInt()){
+                        vars_.at(index.row()).node_->release_childs();
                         vars_.at(index.row()).type_ = TYPE_VAL::UNKNOWN;
                     }
                     return true;
                     break;
                 case TYPE_VAL::ARRAY:
-                    if(vars_.at(index.row()).var_->type()!=(TYPE_VAL)value.toInt()){
-                        vars_.at(index.row()).var_->node()->release_childs();
+                    if(vars_.at(index.row()).node_->type_val()!=(TYPE_VAL)value.toInt()){
+                        vars_.at(index.row()).node_->release_childs();
                         vars_.at(index.row()).type_ = TYPE_VAL::ARRAY;
                         //vars_.at(index.row())->node()->insert(std::make_shared<ArrayNode>());
                     }
                     return true;
                     break;
                 case TYPE_VAL::NUMERIC_ARRAY:
-                    if(vars_.at(index.row()).var_->type()!=(TYPE_VAL)value.toInt()){
-                        vars_.at(index.row()).var_->node()->release_childs();
+                    if(vars_.at(index.row()).node_->type_val()!=(TYPE_VAL)value.toInt()){
+                        vars_.at(index.row()).node_->release_childs();
                         vars_.at(index.row()).type_ = TYPE_VAL::NUMERIC_ARRAY;
                     }
                     return true;
                     break;
                 case TYPE_VAL::STRING_ARRAY:
-                    if(vars_.at(index.row()).var_->type()!=(TYPE_VAL)value.toInt()){
-                        vars_.at(index.row()).var_->node()->release_childs();
+                    if(vars_.at(index.row()).node_->type_val()!=(TYPE_VAL)value.toInt()){
+                        vars_.at(index.row()).node_->release_childs();
                         vars_.at(index.row()).type_ = TYPE_VAL::STRING_ARRAY;
                     }
                     return true;
                     break;
                 case TYPE_VAL::STRING:
-                    if(vars_.at(index.row()).var_->type()!=(TYPE_VAL)value.toInt()){
-                        vars_.at(index.row()).var_->node()->release_childs();
+                    if(vars_.at(index.row()).node_->type_val()!=(TYPE_VAL)value.toInt()){
+                        vars_.at(index.row()).node_->release_childs();
                         vars_.at(index.row()).type_ = TYPE_VAL::STRING;
                     }
                     return true;
                     break;
                 case TYPE_VAL::VALUE:
-                    if(vars_.at(index.row()).var_->type()!=(TYPE_VAL)value.toInt()){
-                        vars_.at(index.row()).var_->node()->release_childs();
+                    if(vars_.at(index.row()).node_->type_val()!=(TYPE_VAL)value.toInt()){
+                        vars_.at(index.row()).node_->release_childs();
                         vars_.at(index.row()).type_ = TYPE_VAL::VALUE;
                     }
                     return true;
@@ -227,26 +238,22 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                 break;
             }
             case (int)HEADER::EXPRESSION:{
-                vars_.at(index.row()).expr_=value.toString();
-                QString var_expr = QString("VAR(!('%1')#%2)").
-                        arg(data_base_->name().data()).
-                        arg(vars_.at(index.row()).var_->name().data())+
-                        vars_.at(index.row()).expr_;
-                std::stringstream stream;
-                stream<<var_expr.toStdString();
-                //qDebug()<<var_expr;
-                data_base_->setstream(stream);
-                vars_.at(index.row()).err_ = exception_handler([&]()->void{
-                    data_base_->read_new();
-                }/*, qobject_cast<QWidget*>(QAbstractItemModel::parent())*/);
-                //qDebug()<<"Parents size at"<<QString::fromStdString(vars_.at(index.row()).var_->name())<<": "<<vars_.at(index.row()).var_->node()->parents().size();
-                if(vars_.at(index.row()).err_==exceptions::EXCEPTION_TYPE::NOEXCEPT)
-                    vars_.at(index.row()).err_=exception_handler([&]()->void{
-                        vars_.at(index.row()).var_->refresh();
-                        vars_.at(index.row()).type_ = vars_.at(index.row()).var_->type();
-                    }/*, qobject_cast<QWidget*>(QAbstractItemModel::parent())*/);
+                NODE_STRUCT res = parse_to_insert_item(value.toString());
+                VariableNode* var;
+                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                    return false;
+                bool success = true;
+                success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
+                vars_.at(index.row()) = res;
+                vars_.at(index.row()).node_ = var;
+                if(res.node_->has_child(0)){
+                    if(vars_.at(index.row()).node_->has_child(0))
+                        vars_.at(index.row()).node_->child(0) = res.node_->child(0);
+                    else
+                        vars_.at(index.row()).node_->insert(res.node_->child(0));
+                }
                 emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
-                return true;
+                return success;
                 break;
             }
             case (int)HEADER::VALUE:{
@@ -267,7 +274,9 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
 
 Qt::ItemFlags Variables::flags(const QModelIndex& index) const {
     Qt::ItemFlags flags = QAbstractTableModel::flags(index);
-    return (index.isValid())?(flags | Qt::ItemIsEditable):flags;
+    if(index.column()!=(int)HEADER::TYPE || index.column()!=(int)HEADER::VALUE)
+        return (index.isValid())?(flags | Qt::ItemIsEditable):flags;
+    else return (index.isValid())?(flags):flags;
 }
 
 bool Variables::insertRows(int nRow, int nCount, const QModelIndex& parent = QModelIndex()) {
@@ -318,10 +327,14 @@ void Variables::set_data(BaseData* data_base){
     data_base_ = data_base;
 }
 
-bool Variables::contains(VariableBase* var){
-    return std::find_if(vars_.begin(),vars_.end(),[var](const VAR_STRUCT& var_data){
-       return var_data.var_==var;
+bool Variables::contains(VariableNode* var){
+    return std::find_if(vars_.begin(),vars_.end(),[var](const NODE_STRUCT& var_data){
+       return var_data.node_==var;
     })!=vars_.end();
 }
+
+//void Variables::refresh(NODE_STRUCT node_data){
+
+//}
 
 }

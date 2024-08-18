@@ -4,6 +4,8 @@
 #include "types.h"
 #include "arithmetic_types.h"
 #include "data.h"
+#include "exception/exception.h"
+#include "kernel/application.h"
 
 namespace model{
 enum class HEADER{
@@ -13,6 +15,15 @@ enum class HEADER{
     EXPRESSION,
     REMARK
 };
+
+struct NODE_STRUCT{
+    QString expr_;
+    QString note_;
+    Node* node_;
+    TYPE_VAL type_;
+    exceptions::EXCEPTION_TYPE err_;
+};
+//QRegularExpression reg(R"(^[ \t]*VAR\([ \t]*!\(\'[a-zA-Z0-9][^_^\(\)!,;#\' ]+\'\)[ \t]*#[a-zA-Z][a-zA-Z0-9\'\^\*]*[ \t]*\)|[ \t]*#[a-zA-Z][a-zA-Z0-9\'\^\*]*[ \t]*$)");
 
 class NodeView;
 class Variables;
@@ -47,6 +58,8 @@ std::vector<Node*> get_sequential_data(ArrayNode* root);
 std::vector<std::vector<Node*>> get_table_data(std::vector<std::vector<Node*>>& data, ArrayNode* root);
 
 std::vector<std::vector<Node*>> get_table_data(ArrayNode* root);
+
+NODE_STRUCT parse_to_insert_item(const QString& expr);
 }
 
 Q_DECLARE_METATYPE(TYPE_VAL)
