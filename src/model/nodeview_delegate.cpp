@@ -66,7 +66,6 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
 void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{
     if(index.isValid()){
         Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();
-        assert(node);
         if(node){
             QLineEdit* ptr = qobject_cast<QLineEdit*>(editor);
             std::stringstream stream;
@@ -79,8 +78,13 @@ void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) 
 
 void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
     if(index.isValid() && editor){
-        QLineEdit* ptr = qobject_cast<QLineEdit*>(editor);
-        model->setData(index,ptr->text(),Qt::DisplayRole);
+        if(QLineEdit* ptr = qobject_cast<QLineEdit*>(editor))
+            model->setData(index,ptr->text(),Qt::DisplayRole);
+        else if(QPushButton* ptr = qobject_cast<QPushButton*>(editor)){
+            Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();
+            assert(node->has_child(index.row()));
+            model->setData(index,QVariant::fromValue(node->child(index.row()).get()),Qt::EditRole);
+        }
         //recursive call of printText() if changed in ArrayNode([1,1,1,1])
     }
 }

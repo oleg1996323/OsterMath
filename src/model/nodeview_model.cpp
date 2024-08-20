@@ -33,7 +33,7 @@ int NodeView::rowCount(const QModelIndex &parent) const{
                 });
                 if(max==sequence_node_.back()->childs().end())
                     cached_row_count_ = 1;
-                else if((*max)->childs().size()==0)
+                else if(*max && (*max)->childs().size()==0)
                     cached_row_count_ = 2;
                 else cached_row_count_ = (*max)->childs().size()+1;
             }
@@ -96,7 +96,6 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
         case(Qt::DisplayRole):
         {
             Node* node_to_show;
-
             if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE){
                 if(sequence_node_.back()->has_child(0))
                     node_to_show = sequence_node_.back()->child(0).get();
@@ -223,36 +222,13 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
         switch((Qt::ItemDataRole)role){
         case(Qt::DisplayRole):
         {
-            Node* node_to_show;
-            if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE){
-                if(sequence_node_.back()->has_child(0))
-                    node_to_show = sequence_node_.back()->child(0).get();
-                else return false;
-            }
-            else {
-                if(sequence_node_.back()->has_child(index.column()))
-                    node_to_show = sequence_node_.back()->child(index.column()).get();
-                else return false;
-            }
+            std::shared_ptr<Node>& node_to_show = get_showed_node(index);
 
             NODE_STRUCT res = parse_to_insert_item(value.toString());
             bool success = true;
-            success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
-            Node* node = res.node_;
+            success = res.err_==exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
             if(res.node_->has_child(0)){
-                if(node_to_show->type_val()!=TYPE_VAL::ARRAY){
-                    res.node_->child(0).swap(node_to_show->child(0));
-                }
-                else{
-                    if(index.row()<=node_to_show->has_child(index.row())){
-                        if(node_to_show->has_child(index.row()) && res.node_->child(0)->has_child(index.row()))
-                            res.node_->child(0)->child(index.row()).swap(node_to_show->child(index.row()));
-                        else
-                            node_to_show->insert(res.node_->child(0)->child(index.row()));
-                        return true;
-                    }
-                    else return false;
-                }
+                node_to_show.swap(res.node_->child(0));
             }
             emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
             return success;
@@ -364,5 +340,45 @@ bool NodeView::removeRows(int nRow, int nCount, const QModelIndex& parent){
 }
 bool NodeView::removeColumns(int nRow, int nCount, const QModelIndex& parent){
     return true;
+}
+
+std::shared_ptr<Node>& NodeView::get_showed_node(QModelIndex index) const{
+    static std::shared_ptr<Node> no_result;
+    if(sequence_node_.back()->type()==NODE_TYPE::VARIABLE){
+        if(sequence_node_.back()->has_child(0)){
+            if(sequence_node_.back()->child(0)->is_array()){
+                if(index.column()<sequence_node_.back()->child(0)->childs().size()){
+                    if(sequence_node_.back()->child(0)->child(index.column())->is_array()){
+                        if(index.row()<sequence_node_.back()->child(0)->child(index.column())->childs().size())
+                            return sequence_node_.back()->child(0)->child(index.column())->child(index.row());
+                        else return no_result;
+                    }
+                    else{
+                        std::shared_ptr<Node>& res = sequence_node_.back()->child(0)->child(index.column());
+                        return res;
+                    }
+                }
+                else return no_result;
+            }
+        }
+        else return no_result;
+    }
+    else {
+        if(sequence_node_.back()->is_array()){
+            if(index.column()<sequence_node_.back()->childs().size()){
+                    if(sequence_node_.back()->child(index.column())->is_array()){
+                        if(index.row()<sequence_node_.back()->child(index.column())->childs().size())
+                            return sequence_node_.back()->child(index.column())->child(index.row());
+                        else return no_result;
+                    }
+                    else{
+                        return sequence_node_.back()->child(index.column());
+                    }
+                }
+                else return no_result;
+        }
+        else return no_result;
+    }
+    return no_result;
 }
 }

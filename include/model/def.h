@@ -19,7 +19,7 @@ enum class HEADER{
 struct NODE_STRUCT{
     QString expr_;
     QString note_;
-    Node* node_;
+    std::shared_ptr<Node> node_;
     TYPE_VAL type_;
     exceptions::EXCEPTION_TYPE err_;
 };

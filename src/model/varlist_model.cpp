@@ -16,7 +16,7 @@ Variables::Variables(QObject* obj, BaseData* data_base):
     data_base_(data_base)
 {
     for(const auto& [var_name,var]:data_base->variables()){
-        vars_.push_back({QString(),QString(),var->node().get(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
+        vars_.push_back({QString(),QString(),var->node(),var->type(),exceptions::EXCEPTION_TYPE::NOEXCEPT});
     }
 }
 
@@ -64,10 +64,10 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
         if(index.row()<vars_.size()){
             switch (index.column()){
             case (int)HEADER::NAME:{
-                VariableNode* var;
-                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                const std::shared_ptr<Node>& var=vars_.at(index.row()).node_;
+                if(!var || var->type()!=NODE_TYPE::VARIABLE)
                     return QVariant();
-                return QString::fromStdString(var->variable()->name());
+                return QString::fromStdString(dynamic_cast<VariableNode*>(var.get())->variable()->name());
                 break;
             }
             case (int)HEADER::TYPE:{
@@ -86,11 +86,11 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
                         return QString("...");
                     else{
                         std::stringstream stream;
-                        VariableNode* var;
-                        if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                        const std::shared_ptr<Node>& var=vars_.at(index.row()).node_;
+                        if(!var || var->type()!=NODE_TYPE::VARIABLE)
                             return QVariant();
-                        var->variable()->set_stream(stream);
-                        var->variable()->print_result();
+                        dynamic_cast<VariableNode*>(var.get())->variable()->set_stream(stream);
+                        dynamic_cast<VariableNode*>(var.get())->variable()->print_result();
                         return QString::fromStdString(stream.str());
                     }
                 }
@@ -111,10 +111,10 @@ QVariant Variables::data(const QModelIndex& index,int nRole) const {
     else if(nRole == Qt::EditRole){
         switch (index.column()){
             case (int)HEADER::NAME:{
-                VariableNode* var;
-                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                const std::shared_ptr<Node>& var=vars_.at(index.row()).node_;
+                if(!var || var->type()!=NODE_TYPE::VARIABLE)
                     return QVariant();
-                return QVariant::fromValue(var->variable());
+                return QVariant::fromValue(dynamic_cast<VariableNode*>(var.get())->variable());
                 break;
             }
             case (int)HEADER::TYPE:{
@@ -153,21 +153,21 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                     if(value.toString()!=""){
                         if(!data_base_->exists(value.toString().toStdString())){
                             if(vars_.size()==index.row()){
-                                VariableNode* var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get()->node().get();
+                                const std::shared_ptr<Node>& var_ptr = data_base_->add_variable(std::move(value.toString().toStdString())).get()->node();
                                 vars_.push_back({QString(),QString(),var_ptr,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
                                 insertRow(rowCount(), QModelIndex());
                             }
                             else{
-                                VariableNode* var;
-                                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
+                                const std::shared_ptr<Node>& var = vars_.at(index.row()).node_;
+                                if(!var || var->type()!=NODE_TYPE::VARIABLE)
                                     return false;
-                                data_base_->rename_var(var->variable()->name(),value.toString().toStdString());
+                                data_base_->rename_var(dynamic_cast<VariableNode*>(var.get())->variable()->name(),value.toString().toStdString());
                             }
                         }
                         else{
                             if(vars_.size()==index.row()){
-                                VariableNode* var;
-                                if((var = dynamic_cast<VariableNode*>(data_base_->get(value.toString().toStdString())->node().get()))==nullptr)
+                                const std::shared_ptr<Node>& var = data_base_->get(value.toString().toStdString())->node();
+                                if((!var || var->type()!=NODE_TYPE::VARIABLE))
                                     return false;
                                 if(!contains(var)){
                                     vars_.push_back({QString(),QString(),var,TYPE_VAL::UNKNOWN,exceptions::EXCEPTION_TYPE::NOEXCEPT});
@@ -175,7 +175,7 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                                 }
                             }
                             else
-                                data_base_->rename_var(dynamic_cast<VariableNode*>(vars_.at(index.row()).node_)->variable()->name(),value.toString().toStdString());
+                                data_base_->rename_var(dynamic_cast<VariableNode*>(vars_.at(index.row()).node_.get())->variable()->name(),value.toString().toStdString());
                         }
                         return true;
                     }
@@ -239,19 +239,13 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
             }
             case (int)HEADER::EXPRESSION:{
                 NODE_STRUCT res = parse_to_insert_item(value.toString());
-                VariableNode* var;
-                if((var = dynamic_cast<VariableNode*>(vars_.at(index.row()).node_))==nullptr)
-                    return false;
                 bool success = true;
                 success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
                 vars_.at(index.row()) = res;
-                vars_.at(index.row()).node_ = var;
-                if(res.node_->has_child(0)){
-                    if(vars_.at(index.row()).node_->has_child(0))
-                        vars_.at(index.row()).node_->child(0) = res.node_->child(0);
-                    else
-                        vars_.at(index.row()).node_->insert(res.node_->child(0));
-                }
+                if(vars_.at(index.row()).node_->has_child(0))
+                    vars_.at(index.row()).node_->child(0)=std::move(res.node_);
+                else
+                    vars_.at(index.row()).node_->insert(std::move(res.node_));
                 emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
                 return success;
                 break;
@@ -327,9 +321,9 @@ void Variables::set_data(BaseData* data_base){
     data_base_ = data_base;
 }
 
-bool Variables::contains(VariableNode* var){
+bool Variables::contains(const std::shared_ptr<Node>& var) const{
     return std::find_if(vars_.begin(),vars_.end(),[var](const NODE_STRUCT& var_data){
-       return var_data.node_==var;
+       return var_data.node_.get()==var.get() && var->type()==NODE_TYPE::VARIABLE;
     })!=vars_.end();
 }
 

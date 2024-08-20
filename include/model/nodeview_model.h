@@ -57,5 +57,7 @@ private:
     std::vector<Node*> sequence_node_;
     mutable int cached_row_count_ = 0;
     mutable int cached_column_count_ = 0;
+
+    std::shared_ptr<Node>& get_showed_node(QModelIndex index) const;
 };
 }

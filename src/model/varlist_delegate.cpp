@@ -53,7 +53,7 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
                 connect(see_var_data,&QPushButton::clicked,
                 this, [index, this](){
                     assert(index.model());
-                    Node* node = index.data(Qt::EditRole).value<Node*>();
+                    Node* node = index.data(Qt::EditRole).value<std::shared_ptr<Node>>().get();
                     assert(node);
                     emit show_node(node);
                 });

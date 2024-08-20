@@ -74,7 +74,7 @@ public:
     void __load_settings__();
     void __save_settings__();
 
-    bool contains(VariableNode*);
+    bool contains(const std::shared_ptr<Node>&) const;
 
     void set_data(BaseData*);
 

@@ -77,8 +77,10 @@ NODE_STRUCT parse_to_insert_item(const QString& expr){
     assert(kernel::Application::get_active_pool()->exists("tmp_buffer"));
     assert(kernel::Application::get_active_pool()->get("tmp_buffer")->exists("buffer"));
     NODE_STRUCT var;
-    var.node_ = kernel::Application::get_active_pool()->get("tmp_buffer")->get("buffer")->node().get();
-    var.expr_=expr;
+    var.node_ = kernel::Application::get_active_pool()->get("tmp_buffer")->get("buffer")->node();
+    if(!expr.isEmpty() && expr[0]!='=')
+        var.expr_='='+expr;
+    else var.expr_=expr;
     QString var_expr = QString("VAR(!('%1')#%2)").
             arg("tmp_buffer").
             arg("buffer")+
@@ -94,6 +96,8 @@ NODE_STRUCT parse_to_insert_item(const QString& expr){
         var.err_=exception_handler([&]()->void{
             var.node_->refresh();
             var.type_ = var.node_->type_val();
+            if(var.node_->has_child(0))
+                var.node_ = std::move(var.node_->child(0));
         });
     }
     return var;
