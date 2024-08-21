@@ -245,7 +245,7 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                 if(vars_.at(index.row()).node_->has_child(0))
                     vars_.at(index.row()).node_->child(0)=std::move(res.node_);
                 else
-                    vars_.at(index.row()).node_->insert(std::move(res.node_));
+                    vars_.at(index.row()).node_->insert_back(std::move(res.node_));
                 emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
                 return success;
                 break;
