@@ -75,29 +75,30 @@ std::vector<std::vector<Node*>> get_table_data(ArrayNode* root){
 
 NODE_STRUCT parse_to_insert_item(const QString& expr){
     assert(kernel::Application::get_active_pool()->exists("tmp_buffer"));
-    assert(kernel::Application::get_active_pool()->get("tmp_buffer")->exists("buffer"));
     NODE_STRUCT var;
-    var.node_ = kernel::Application::get_active_pool()->get("tmp_buffer")->get("buffer")->node();
+    std::shared_ptr<Node> buffer = kernel::Application::get_active_data()->get_buffer()->node();
     if(!expr.isEmpty() && expr[0]!='=')
         var.expr_='='+expr;
     else var.expr_=expr;
     QString var_expr = QString("VAR(!('%1')#%2)").
-            arg("tmp_buffer").
+            arg(kernel::Application::get_active_data()->name().data()).
             arg("buffer")+
             var.expr_;
     std::stringstream stream;
     stream<<var_expr.toStdString();
 
-    kernel::Application::get_active_pool()->get("tmp_buffer")->setstream(stream);
+    kernel::Application::get_active_data()->setstream(stream);
     var.err_ = exception_handler([&]()->void{
-        kernel::Application::get_active_pool()->get("tmp_buffer")->read_new();
+        kernel::Application::get_active_data()->read_new();
     });
     if(var.err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
         var.err_=exception_handler([&]()->void{
-            var.node_->refresh();
-            var.type_ = var.node_->type_val();
-            if(var.node_->has_child(0))
-                var.node_ = std::move(var.node_->child(0));
+            buffer->refresh();
+            if(buffer->has_child(0)){
+                var.node_ = buffer->child(0);
+                var.type_ = var.node_->type_val();
+            }
+            buffer->release_childs();
         });
     }
     return var;

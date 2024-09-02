@@ -241,7 +241,10 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                 NODE_STRUCT res = parse_to_insert_item(value.toString());
                 bool success = true;
                 success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
+                const std::shared_ptr<VariableNode>& node = static_cast<VariableNode*>(vars_.at(index.row()).node_.get())->variable()->node();
                 vars_.at(index.row()) = res;
+                node->insert_back(res.node_);
+                vars_.at(index.row()).node_ = node;
                 if(vars_.at(index.row()).node_->has_child(0))
                     vars_.at(index.row()).node_->child(0)=std::move(res.node_);
                 else

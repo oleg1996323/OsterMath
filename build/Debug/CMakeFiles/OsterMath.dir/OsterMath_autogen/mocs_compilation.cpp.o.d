@@ -1119,9 +1119,16 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/TBKUEERFDP/../../../../include/dataview/model_data/nodedataview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableView \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QActionGroup \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h \
  /home/oster/OsterMath/include/model/nodeview_delegate.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemDelegate \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
+ /home/oster/OsterMath/include/model/nodeview_select.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_sheets.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_tabwidgetdataview.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_dock.cpp \

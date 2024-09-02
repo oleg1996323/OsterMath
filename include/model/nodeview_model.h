@@ -34,7 +34,9 @@ public:
     void set_representable_child_node(size_t id);
     void reset_representable_node();
     Node* get_node() const{
-        return sequence_node_.back();
+        if(!sequence_node_.empty())
+            return sequence_node_.back();
+        else return nullptr;
     }
 
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -50,6 +52,14 @@ public:
     virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent) override;
     virtual bool removeColumns(int nRow, int nCount, const QModelIndex& parent) override;
 
+    int get_rows_cached_count() const;
+    int get_columns_cached_count() const;
+
+    bool insert_row_before(int nRow, int nCount);
+    bool insert_column_before(int nCol, int nCount);
+    bool insert_row_after(int nRow, int nCount);
+    bool insert_column_after(int nCol, int nCount);
+
 private:
     QList<SubNodes> openned_;
     std::unique_ptr<NodeView> child_;
@@ -57,7 +67,8 @@ private:
     std::vector<Node*> sequence_node_;
     mutable int cached_row_count_ = 0;
     mutable int cached_column_count_ = 0;
+    mutable int id_max_row_childs_ = -1;
 
-    std::shared_ptr<Node>& get_showed_node(QModelIndex index) const;
+    INFO_NODE get_showed_node(QModelIndex index) const;
 };
 }

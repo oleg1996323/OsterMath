@@ -1216,9 +1216,16 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: OsterMath_aut
   ../../include/dataview/model_data/nodedataview.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableView \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtableview.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QActionGroup \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h \
   ../../include/model/nodeview_delegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemDelegate \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
+  ../../include/model/nodeview_select.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
   OsterMath_autogen/FWWZ35XHKZ/moc_sheets.cpp \
   OsterMath_autogen/FWWZ35XHKZ/moc_tabwidgetdataview.cpp \
   OsterMath_autogen/VEZS5EH527/moc_dock.cpp \
@@ -5142,6 +5149,9 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QActionGroup \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
   ../../include/model/nodeview_delegate.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
@@ -5821,6 +5831,37 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   ../../include/model/nodeview_header.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHeaderView \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
+  ../../include/model/nodeview_select.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputdevice.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
+  ../../include/model/nodeview_model.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractItemModel \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+  ../../include/kernel/exception.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMenu \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmenu.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h
 
@@ -8130,8 +8171,33 @@ CMakeFiles/OsterMath.dir/src/dataview/tabwidgetdataview.cpp.o: ../../src/datavie
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
   ../../include/model/varlist_header.h \
   ../../include/dataview/model_data/nodedataview.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QActionGroup \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qaction.h \
   ../../include/model/nodeview_delegate.h \
-  ../../include/model/nodeview_header.h
+  ../../include/model/nodeview_header.h \
+  ../../include/model/nodeview_select.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvector2d.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpointingdevice.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputdevice.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qscreen.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel
 
 CMakeFiles/OsterMath.dir/src/dataview/variable_list/dock.cpp.o: ../../src/dataview/variable_list/dock.cpp \
   /usr/include/stdc-predef.h \
@@ -18010,6 +18076,12 @@ OsterMath_autogen/FWWZ35XHKZ/moc_tabwidgetdataview.cpp:
 
 OsterMath_autogen/FWWZ35XHKZ/moc_sheets.cpp:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemDelegate:
 
 ../../include/dataview/model_data/nodedataview.h:
@@ -18276,6 +18348,8 @@ OsterMath_autogen/TBKUEERFDP/moc_nodedataview.cpp:
 
 /usr/include/boost/type_traits/is_volatile.hpp:
 
+../../include/model/nodeview_select.h:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/QPalette:
@@ -18469,6 +18543,8 @@ OsterMath_autogen/VEZS5EH527/moc_dock.cpp:
 /usr/include/boost/type_traits/declval.hpp:
 
 /usr/include/c++/11/tr1/special_function_util.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMenu:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasicatomic.h:
 
@@ -19670,6 +19746,8 @@ OsterMath_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar:
 
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QActionGroup:
+
 /usr/include/boost/iterator/detail/facade_iterator_category.hpp:
 
 /usr/include/boost/numeric/conversion/detail/sign_mixture.hpp:
@@ -19773,6 +19851,8 @@ OsterMath_autogen/mocs_compilation.cpp:
 /usr/include/c++/11/pstl/glue_memory_defs.h:
 
 /usr/include/boost/type_traits/is_base_and_derived.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qactiongroup.h:
 
 /usr/include/boost/multiprecision/detail/precision.hpp:
 
