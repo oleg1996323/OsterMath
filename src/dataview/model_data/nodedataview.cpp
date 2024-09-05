@@ -2,6 +2,7 @@
 #include "model/nodeview_model.h"
 #include <QMenu>
 #include <QDebug>
+#include "model/def.h"
 
 namespace dataview{
 NodeData::NodeData(QWidget* parent):
@@ -110,6 +111,11 @@ void NodeData::createActions()
 
     removeColumnAct= new QAction(QObject::tr("Remove column"),this);
     connect(removeColumnAct, &QAction::triggered, this, &NodeData::delete_column);
+
+    insertSomeRowsAct = new QAction(QObject::tr("Insert rows ..."),this);
+    insertSomeColumnsAct = new QAction(QObject::tr("Insert columns ..."),this);
+    removeSomeRowsAct = new QAction(QObject::tr("Remove rows ..."),this);
+    removeSomeColumnsAct = new QAction(QObject::tr("Remove columns ..."),this);
 }
 
 void NodeData::contextMenuEvent(QContextMenuEvent* event){
@@ -118,31 +124,48 @@ void NodeData::contextMenuEvent(QContextMenuEvent* event){
     if(m->get_node()){
         QMenu menu(this);
         QModelIndexList indexes = selectedIndexes();
-        if(!indexes.empty()){
-            std::sort(indexes.begin(),indexes.end());
-            if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
-                if(m->get_rows_cached_count()-1==indexes.begin()->row()){
-                    insertRowAfterAct->setEnabled(false);
-                }
-                else insertRowAfterAct->setEnabled(true);
-                if(m->get_columns_cached_count()-1==indexes.begin()->column()){
-                    insertColumnAfterAct->setEnabled(false);
-                }
-                else insertColumnAfterAct->setEnabled(true);
-            }
-        }
+
         menu.addAction(undoAct);
         menu.addAction(redoAct);
         menu.addAction(cutAct);
         menu.addAction(copyAct);
         menu.addAction(pasteAct);
         menu.addSeparator();
+
         menu.addMenu(insertRowMenu);
         menu.addMenu(insertColumnMenu);
         menu.addMenu(removeMenu);
         menu.addSeparator();
         menu.addMenu(fontMenu);
         menu.addMenu(alignMenu);
+        if(!indexes.empty()){
+            std::sort(indexes.begin(),indexes.end());
+            if(model::is_row_or_column_selection(indexes)){
+                if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
+                    if(m->get_rows_cached_count()-1==indexes.begin()->row()){
+                        insertRowAfterAct->setEnabled(false);
+                    }
+                    else insertRowAfterAct->setEnabled(true);
+                    if(m->get_columns_cached_count()-1==indexes.begin()->column()){
+                        insertColumnAfterAct->setEnabled(false);
+                    }
+                    else insertColumnAfterAct->setEnabled(true);
+                }
+                insertRowMenu->setEnabled(true);
+                insertColumnMenu->setEnabled(true);
+                removeMenu->setEnabled(true);
+            }
+            else{
+                insertRowMenu->setEnabled(false);
+                insertColumnMenu->setEnabled(false);
+                removeMenu->setEnabled(false);
+            }
+        }
+        else{
+            insertRowMenu->setEnabled(false);
+            insertColumnMenu->setEnabled(false);
+            removeMenu->setEnabled(false);
+        }
         menu.exec(event->globalPos());
     }
 }

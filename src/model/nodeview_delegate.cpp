@@ -83,7 +83,6 @@ void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, 
         else if(QPushButton* ptr = qobject_cast<QPushButton*>(editor)){
             Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();
             assert(node->has_child(index.row()));
-            model->setData(index,QVariant::fromValue(node->child(index.row()).get()),Qt::EditRole);
         }
         //recursive call of printText() if changed in ArrayNode([1,1,1,1])
     }

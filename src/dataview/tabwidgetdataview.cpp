@@ -19,7 +19,7 @@ View::~View(){
 }
 
 void View::show_node(Node* node) const{
-    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_node(node);
+    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_node(node,0);
     //qobject_cast<model::NodeView*>(data_view_->model())->(node);
 
 }

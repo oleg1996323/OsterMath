@@ -33,6 +33,13 @@ class NodeData: public QTableView, public ObjectFromSettings{
     QAction *insertColumnAfterAct;
     QAction *removeRowAct;
     QAction *removeColumnAct;
+
+    QAction *insertSomeRowsAct;
+    QAction *insertSomeColumnsAct;
+    QAction *removeSomeRowsAct;
+    QAction *removeSomeColumnsAct;
+
+
 public:
     NodeData(QWidget* parent);
     ~NodeData();

@@ -6,6 +6,7 @@
 #include "data.h"
 #include "exception/exception.h"
 #include "kernel/application.h"
+#include <QModelIndexList>
 
 namespace model{
 enum class HEADER{
@@ -59,7 +60,13 @@ std::vector<std::vector<Node*>> get_table_data(std::vector<std::vector<Node*>>& 
 
 std::vector<std::vector<Node*>> get_table_data(ArrayNode* root);
 
-NODE_STRUCT parse_to_insert_item(const QString& expr);
+exceptions::EXCEPTION_TYPE parse_to_insert_item(QString expr, const std::vector<INFO_NODE>& sequence_ID);
+
+NODE_STRUCT define_variable(const QString& expr, VariableNode* node);
+
+std::vector<INFO_NODE>::const_iterator last_Variable(const std::vector<INFO_NODE>& sequence);
+
+bool is_row_or_column_selection(const QModelIndexList&);
 }
 
 Q_DECLARE_METATYPE(TYPE_VAL)

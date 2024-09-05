@@ -30,12 +30,12 @@ public:
     NodeView(QObject* parent);
 
     void rename(const QString& name) noexcept;
-    void set_representable_node(Node*);
+    void set_representable_node(Node*, size_t);
     void set_representable_child_node(size_t id);
     void reset_representable_node();
     Node* get_node() const{
         if(!sequence_node_.empty())
-            return sequence_node_.back();
+            return sequence_node_.back().parent;
         else return nullptr;
     }
 
@@ -61,14 +61,15 @@ public:
     bool insert_column_after(int nCol, int nCount);
 
 private:
-    QList<SubNodes> openned_;
     std::unique_ptr<NodeView> child_;
     MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Table;
-    std::vector<Node*> sequence_node_;
+    std::vector<INFO_NODE> sequence_node_;
     mutable int cached_row_count_ = 0;
     mutable int cached_column_count_ = 0;
     mutable int id_max_row_childs_ = -1;
 
     INFO_NODE get_showed_node(QModelIndex index) const;
+    std::vector<INFO_NODE> get_sequence_ids_at_set_data(QModelIndex index);
+    bool __convert_value_to_array__(Node* parent,int id,size_t sz,bool before);
 };
 }

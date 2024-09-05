@@ -238,17 +238,9 @@ bool Variables::setData(const QModelIndex& index, const QVariant& value, int nRo
                 break;
             }
             case (int)HEADER::EXPRESSION:{
-                NODE_STRUCT res = parse_to_insert_item(value.toString());
-                bool success = true;
-                success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
-                const std::shared_ptr<VariableNode>& node = static_cast<VariableNode*>(vars_.at(index.row()).node_.get())->variable()->node();
+                NODE_STRUCT res = define_variable(value.toString(),static_cast<VariableNode*>(vars_.at(index.row()).node_.get()));
+                bool success = res.err_&exceptions::EXCEPTION_TYPE::NOEXCEPT?true:false;
                 vars_.at(index.row()) = res;
-                node->insert_back(res.node_);
-                vars_.at(index.row()).node_ = node;
-                if(vars_.at(index.row()).node_->has_child(0))
-                    vars_.at(index.row()).node_->child(0)=std::move(res.node_);
-                else
-                    vars_.at(index.row()).node_->insert_back(std::move(res.node_));
                 emit dataChanged(createIndex(0,0), createIndex(rowCount(),0));
                 return success;
                 break;

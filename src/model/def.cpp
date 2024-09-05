@@ -73,34 +73,84 @@ std::vector<std::vector<Node*>> get_table_data(ArrayNode* root){
     std::vector<std::vector<Node*>> data;
 }
 
-NODE_STRUCT parse_to_insert_item(const QString& expr){
-    assert(kernel::Application::get_active_pool()->exists("tmp_buffer"));
+exceptions::EXCEPTION_TYPE parse_to_insert_item(QString expr, const std::vector<INFO_NODE>& sequence_ID){
+    if(sequence_ID.empty())
+        return exceptions::NODE_DONT_EXISTS;
+    if(!expr.isEmpty() && expr[0]!='=')
+        expr="="+expr;
+    else expr=expr;
+    QString ids;
+    {
+        bool first = true;
+        for(const INFO_NODE& info:sequence_ID){
+            if(!first)
+                ids+=";";
+            else {
+                if(info.parent && info.parent->type()==NODE_TYPE::VARIABLE)
+                    continue;
+                else
+                    first=false;
+            }
+            ids+=QString::number(info.id);
+        }
+    }
+    QString var_full_name;
+
+    if(sequence_ID.begin()->parent && sequence_ID.begin()->parent->type()==NODE_TYPE::VARIABLE){
+        VariableNode* var_node = static_cast<VariableNode*>(sequence_ID.begin()->parent);
+        var_full_name = QString::fromStdString(var_node->variable()->full_name());
+    }
+    else return exceptions::VARIABLE_DONT_EXISTS;
+
+    expr = QString(var_full_name+"("+ids+")")+
+            expr;
+    std::stringstream stream;
+    stream<<expr.toStdString();
+
+    kernel::Application::get_active_data()->setstream(stream);
+    return exception_handler([&]()->void{
+        kernel::Application::get_active_data()->read_new();
+    });
+}
+
+NODE_STRUCT define_variable(const QString& expr, VariableNode* node){
     NODE_STRUCT var;
-    std::shared_ptr<Node> buffer = kernel::Application::get_active_data()->get_buffer()->node();
+    if(!node)
+        return var;
+
+    var.node_ = node->variable()->node();
     if(!expr.isEmpty() && expr[0]!='=')
         var.expr_='='+expr;
     else var.expr_=expr;
-    QString var_expr = QString("VAR(!('%1')#%2)").
-            arg(kernel::Application::get_active_data()->name().data()).
-            arg("buffer")+
-            var.expr_;
     std::stringstream stream;
-    stream<<var_expr.toStdString();
+    std::string expr_check = node->variable()->full_name()+var.expr_.toStdString();
+    stream<<node->variable()->full_name()<<
+            var.expr_.toStdString();
 
     kernel::Application::get_active_data()->setstream(stream);
     var.err_ = exception_handler([&]()->void{
         kernel::Application::get_active_data()->read_new();
     });
-    if(var.err_==exceptions::EXCEPTION_TYPE::NOEXCEPT){
-        var.err_=exception_handler([&]()->void{
-            buffer->refresh();
-            if(buffer->has_child(0)){
-                var.node_ = buffer->child(0);
-                var.type_ = var.node_->type_val();
-            }
-            buffer->release_childs();
-        });
-    }
+    var.type_ = var.node_->type_val();
     return var;
+}
+
+std::vector<INFO_NODE>::const_iterator last_Variable(const std::vector<INFO_NODE>& sequence){
+    std::vector<INFO_NODE>::const_iterator begin = sequence.begin();
+    for(std::vector<INFO_NODE>::const_iterator info_iter=sequence.end()-1;info_iter>=sequence.begin();--info_iter){
+        if(info_iter->parent && info_iter->id!=-1){
+            if(info_iter->parent->has_child(info_iter->id) &&
+                    info_iter->parent->child(info_iter->id) &&
+                    info_iter->parent->child(info_iter->id)->type()==NODE_TYPE::VARIABLE)
+                begin = info_iter;
+        }
+    }
+    return begin;
+}
+
+bool is_row_or_column_selection(const QModelIndexList& indexes){
+    return std::all_of(indexes.begin(),indexes.end(),[&indexes](QModelIndex index){
+        return index.row() == indexes.begin()->row() || index.column() == indexes.begin()->column();
+    });
 }
 }

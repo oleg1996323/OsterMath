@@ -19,6 +19,7 @@ public:
     }
 
     void Build(){
+        this->setWindowModality(Qt::WindowModal);
         this->setWindowTitle(QObject::tr("Settings"));
         using namespace kernel;
         lang_label_ = new QLabel(QObject::tr("Language"), this);
