@@ -3,6 +3,9 @@
 #include <QMenu>
 #include <QDebug>
 #include "model/def.h"
+#include "dataview/model_data/aux_windows/insert_columns.h"
+#include "dataview/model_data/aux_windows/insert_rows.h"
+#include "model/nodeview_select.h"
 
 namespace dataview{
 NodeData::NodeData(QWidget* parent):
@@ -13,7 +16,6 @@ NodeData::NodeData(QWidget* parent):
     load_settings();
     setItemDelegate(new model::NodeViewDelegate(this));
     setSelectionMode(QAbstractItemView::SelectionMode::ExtendedSelection);
-    setSelectionModel(new model::NodeViewSelectionModel);
     setHorizontalHeader(new model::NodeViewHeader(this));
     setContentsMargins(5,0,5,0);
     createActions();
@@ -46,7 +48,6 @@ void NodeData::createMenus(){
 
 void NodeData::createActions()
 {
-
     undoAct = new QAction(QObject::tr("Undo"),this);
     undoAct->setShortcuts(QKeySequence::Undo);
     connect(undoAct, &QAction::triggered, this, &NodeData::undo);
@@ -106,24 +107,33 @@ void NodeData::createActions()
     insertColumnAfterAct= new QAction(QObject::tr("After"),this);
     connect(insertColumnAfterAct, &QAction::triggered, this, &NodeData::insert_column_after);
 
-    removeRowAct= new QAction(QObject::tr("Remove row"),this);
+    removeRowAct= new QAction(QObject::tr("Remove selected rows"),this);
     connect(removeRowAct, &QAction::triggered, this, &NodeData::delete_row);
 
-    removeColumnAct= new QAction(QObject::tr("Remove column"),this);
+    removeColumnAct= new QAction(QObject::tr("Remove selected columns"),this);
     connect(removeColumnAct, &QAction::triggered, this, &NodeData::delete_column);
 
     insertSomeRowsAct = new QAction(QObject::tr("Insert rows ..."),this);
+    connect(insertSomeRowsAct,&QAction::triggered,[this](){
+        aux_window_ = new InsertRows(selectedIndexes(),this);
+        connect(aux_window_,&RowColumnInsertInterface::close,[this](){
+            this->insert_some_rows(aux_window_->get_value());
+        });
+    });
     insertSomeColumnsAct = new QAction(QObject::tr("Insert columns ..."),this);
-    removeSomeRowsAct = new QAction(QObject::tr("Remove rows ..."),this);
-    removeSomeColumnsAct = new QAction(QObject::tr("Remove columns ..."),this);
+    connect(insertSomeColumnsAct,&QAction::triggered,[this](){
+        aux_window_ = new InsertColumns(selectedIndexes(),this);
+        connect(aux_window_,&RowColumnInsertInterface::close,[this](){
+            this->insert_some_columns(aux_window_->get_value());
+        });
+    });
 }
 
 void NodeData::contextMenuEvent(QContextMenuEvent* event){
     Q_UNUSED(event);
     model::NodeView* m = qobject_cast<model::NodeView*>(model());
-    if(m->get_node()){
+    if(m->get_node().node()){
         QMenu menu(this);
-        QModelIndexList indexes = selectedIndexes();
 
         menu.addAction(undoAct);
         menu.addAction(redoAct);
@@ -138,34 +148,80 @@ void NodeData::contextMenuEvent(QContextMenuEvent* event){
         menu.addSeparator();
         menu.addMenu(fontMenu);
         menu.addMenu(alignMenu);
-        if(!indexes.empty()){
-            std::sort(indexes.begin(),indexes.end());
-            if(model::is_row_or_column_selection(indexes)){
+        if(model::NodeViewSelectionModel* sel = qobject_cast<model::NodeViewSelectionModel*>(selectionModel())){
+            if(!sel->is_empty()){
+                cutAct->setEnabled(true);
+                copyAct->setEnabled(true);
+                pasteAct->setEnabled(true);
+                fontMenu->setEnabled(true);
+                alignMenu->setEnabled(true);
                 if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
-                    if(m->get_rows_cached_count()-1==indexes.begin()->row()){
+                    if(sel->is_columns()){
+                        if(m->get_columns_cached_count()-1==sel->first_index().column()){
+                            insertColumnAfterAct->setEnabled(false);
+                        }
+                        else insertColumnAfterAct->setEnabled(true);
                         insertRowAfterAct->setEnabled(false);
+                        insertRowBeforeAct->setEnabled(false);
+
+                        insertRowMenu->setEnabled(false);
+                        insertColumnMenu->setEnabled(true);
+                        removeRowAct->setEnabled(false);
+                        removeColumnAct->setEnabled(true);
+                        removeMenu->setEnabled(true);
                     }
-                    else insertRowAfterAct->setEnabled(true);
-                    if(m->get_columns_cached_count()-1==indexes.begin()->column()){
+                    else if(sel->is_rows()){
+                        if(m->get_rows_cached_count()-1==sel->first_index().row()){
+                            insertRowAfterAct->setEnabled(false);
+                        }
+                        else insertRowAfterAct->setEnabled(true);
                         insertColumnAfterAct->setEnabled(false);
+                        insertColumnBeforeAct->setEnabled(false);
+
+                        insertRowMenu->setEnabled(true);
+                        insertColumnMenu->setEnabled(false);
+                        removeRowAct->setEnabled(true);
+                        removeColumnAct->setEnabled(false);
+                        removeMenu->setEnabled(true);
                     }
-                    else insertColumnAfterAct->setEnabled(true);
+                    else if(sel->is_range()){
+                        if(m->get_rows_cached_count()-1==sel->first_index().row()){
+                            insertRowAfterAct->setEnabled(false);
+                        }
+                        else insertRowAfterAct->setEnabled(true);
+                        if(m->get_columns_cached_count()-1==sel->first_index().column()){
+                            insertColumnAfterAct->setEnabled(false);
+                        }
+                        else insertColumnAfterAct->setEnabled(true);
+
+                        insertColumnBeforeAct->setEnabled(true);
+
+                        insertRowMenu->setEnabled(true);
+                        insertColumnMenu->setEnabled(true);
+                        removeRowAct->setEnabled(true);
+                        removeColumnAct->setEnabled(true);
+                        removeMenu->setEnabled(true);
+                    }
+                    else{
+                        insertRowMenu->setEnabled(false);
+                        insertColumnMenu->setEnabled(false);
+                        removeMenu->setEnabled(false);
+                    }
                 }
-                insertRowMenu->setEnabled(true);
-                insertColumnMenu->setEnabled(true);
-                removeMenu->setEnabled(true);
+                else qFatal("Model nodeview implementation error (Item Model)");
             }
             else{
+                cutAct->setEnabled(false);
+                copyAct->setEnabled(false);
+                pasteAct->setEnabled(false);
+                fontMenu->setEnabled(false);
+                alignMenu->setEnabled(false);
                 insertRowMenu->setEnabled(false);
                 insertColumnMenu->setEnabled(false);
                 removeMenu->setEnabled(false);
             }
         }
-        else{
-            insertRowMenu->setEnabled(false);
-            insertColumnMenu->setEnabled(false);
-            removeMenu->setEnabled(false);
-        }
+        else qFatal("Model nodeview implementation error (Selection model");
         menu.exec(event->globalPos());
     }
 }
@@ -211,28 +267,15 @@ void NodeData::center_align(){
 }
 
 void NodeData::justify_align(){
-
+    QModelIndexList indexes = selectedIndexes();
 }
 
 void NodeData::insert_row_before(){
-    QModelIndexList indexes = selectedIndexes();
-    if(!indexes.empty()){
-        std::sort(indexes.begin(),indexes.end());
-        if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
-            m->insert_row_before(indexes.begin()->row(),1);
-        }
-    }
+    insert_some_rows({1, true});
 }
 
 void NodeData::insert_row_after(){
-    QModelIndexList indexes = selectedIndexes();
-    if(!indexes.empty()){
-        std::sort(indexes.begin(),indexes.end());
-        if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
-            if(m->get_rows_cached_count()-1!=indexes.begin()->row())
-                m->insert_row_after(indexes.begin()->row()+1,1);
-        }
-    }
+    insert_some_rows({1, false});
 }
 
 void NodeData::delete_row(){
@@ -241,28 +284,40 @@ void NodeData::delete_row(){
 }
 
 void NodeData::insert_column_before(){
-    QModelIndexList indexes = selectedIndexes();
-    if(!indexes.empty()){
-        std::sort(indexes.begin(),indexes.end());
-        if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
-            m->insert_column_before(indexes.begin()->column(),1);
-        }
-    }
+    insert_some_columns({1, true});
 }
 
 void NodeData::insert_column_after(){
-    QModelIndexList indexes = selectedIndexes();
-    if(!indexes.empty()){
-        std::sort(indexes.begin(),indexes.end());
-        if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
-            m->insert_column_after(indexes.begin()->column()+1,1);
-        }
-    }
+    insert_some_columns({1, false});
 }
 
 void NodeData::delete_column(){
     QModelIndexList indexes = selectedIndexes();
     std::sort(indexes.begin(),indexes.end());
+}
+
+void NodeData::insert_some_rows(std::pair<int,bool> args){
+    QModelIndexList indexes = selectedIndexes();
+    if(!indexes.empty()){
+        std::sort(indexes.begin(),indexes.end());
+        if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
+            if(args.second)
+                m->insert_row_before(indexes.begin()->row(),args.first);
+            else m->insert_row_before(indexes.begin()->row()+1,args.first);
+        }
+    }
+}
+
+void NodeData::insert_some_columns(std::pair<int,bool> args){
+    QModelIndexList indexes = selectedIndexes();
+    if(!indexes.empty()){
+        std::sort(indexes.begin(),indexes.end());
+        if(model::NodeView* m = qobject_cast<model::NodeView*>(model())){
+            if(args.second)
+                m->insert_column_before(indexes.begin()->column(),args.first);
+            else m->insert_column_before(indexes.begin()->column()+1,args.first);
+        }
+    }
 }
 
 void NodeData::__load_settings__(){

@@ -6,7 +6,7 @@
 #include <QPushButton>
 
 namespace dataview{
-InsertColumns::InsertColumns(QModelIndex first_index, QWidget* parent):RowColumnInsertInterface(parent){
+InsertColumns::InsertColumns(QModelIndexList&& first_index, QWidget* parent):RowColumnInsertInterface(parent){
     spin_label_->setText(QObject::tr("Number inserted columns:"));
 }
 }

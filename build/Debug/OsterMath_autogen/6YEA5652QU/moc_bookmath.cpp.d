@@ -32,6 +32,7 @@
   /home/oster/OsterMath/include/model/manager.h \
   /home/oster/OsterMath/include/model/nodeview_header.h \
   /home/oster/OsterMath/include/model/nodeview_model.h \
+  /home/oster/OsterMath/include/model/nodeview_select.h \
   /home/oster/OsterMath/include/model/varlist_model.h \
   /home/oster/OsterMath/include/styles/styles.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
@@ -391,11 +392,14 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QFile \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QLocale \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QMap \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QMetaType \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QModelIndex \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QModelIndexList \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QRect \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QRegularExpression \
@@ -508,6 +512,7 @@
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QAction \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QBrush \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QColor \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \

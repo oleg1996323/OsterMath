@@ -2,11 +2,11 @@
 #include "dataview/expression_view.h"
 #include <QDebug>
 #include "utilities/paths.h"
+#include "dataview/expression_text_edit.h"
 
 namespace dataview{
 
 ExpressionButton::ExpressionButton(const QString& res_path,QWidget* parent):QPushButton("",parent){
-
     setContentsMargins(0,0,0,0);
     setFixedSize(30,30);
     QPainterPath path;
@@ -21,13 +21,7 @@ VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
     layout_->setContentsMargins(0,0,0,0);
     layout_->setSpacing(0);
 
-    expression_ = new QTextEdit(this);
-    expression_->setObjectName("expression"+parent->objectName());
-    expression_->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Minimum);
-    expression_->setMinimumHeight(QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-    expression_->setGeometry(pos().x(),pos().y(),width(),QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom());
-    //qDebug()<<QFontMetrics(expression_->font()).height()+expression_->contentsMargins().top()+expression_->contentsMargins().bottom();
-
+    expression_ = new ExpressionTextEdit(this);
     formula_expl_ = new ExpressionButton(":booktool/icons/expr.png",this);
     formula_expl_->setObjectName("formula_expl"+parent->objectName());
 

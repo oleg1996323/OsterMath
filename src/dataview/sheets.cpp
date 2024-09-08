@@ -107,8 +107,11 @@ void Sheets::tabInserted(int id){
 void Sheets::__change_model__(int id){
     std::string str = tabText(id).toStdString();
     BaseData* data = kernel::Application::get_active_pool()->get(tabText(id).toStdString());
-    var_list_->setData(manager_.get_data(data));
-    qobject_cast<View*>(widget(id))->set_model(manager_.get_data(data)->data_model.get());
+    var_list_->set_data(manager_.get_data(data));
+    if(View* v = qobject_cast<View*>(widget(id))){
+        v->set_model(manager_.get_data(data)->data_model.get());
+        v->set_selection(manager_.get_data(data)->selection_model.get());
+    }
 }
 
 void Sheets::__change_dock_to__(View* tab_window) {
@@ -167,15 +170,10 @@ void Sheets::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup(objectName());
     restoreGeometry(sets_->value("geometry").toByteArray());
-    //TODO
-//    if(sets_->contains("curId")){
-//        int current = sets_->value("curId").toInt();
-//        tabBarClicked(current);
-//        setCurrentIndex(current);
-//    }
     if(sets_->contains("winstate"))
         win_state_ = sets_->value("winstate").toByteArray();
     sets_->endGroup();
+    //TODO
     //add loading settings from project
 }
 

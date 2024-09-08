@@ -9,6 +9,6 @@ namespace dataview{
     class InsertRows:public RowColumnInsertInterface{
         Q_OBJECT
     public:
-        InsertRows(QModelIndex first_index, QWidget* parent);
+        InsertRows(QModelIndexList&& first_index, QWidget* parent);
     };
 }

@@ -42,7 +42,7 @@ private:
     virtual void resizeEvent(QResizeEvent*) override;
 
 public slots:
-    void setData(model::Data*);
+    void set_data(model::Data*);
     void collapse();
     void close_from_titlebar();
 };

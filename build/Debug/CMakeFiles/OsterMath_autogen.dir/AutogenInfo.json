@@ -321,9 +321,39 @@
 			null
 		],
 		[
+			"/home/oster/OsterMath/include/dataview/expression_text_edit.h",
+			"MU",
+			"FWWZ35XHKZ/moc_expression_text_edit.cpp",
+			null
+		],
+		[
 			"/home/oster/OsterMath/include/dataview/expression_view.h",
 			"MU",
 			"FWWZ35XHKZ/moc_expression_view.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/model_data/aux_windows/AuxiliairyWindowInterface.h",
+			"MU",
+			"LAU3HA5X3L/moc_AuxiliairyWindowInterface.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/model_data/aux_windows/RowColumnInsertInterface.h",
+			"MU",
+			"LAU3HA5X3L/moc_RowColumnInsertInterface.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/model_data/aux_windows/insert_columns.h",
+			"MU",
+			"LAU3HA5X3L/moc_insert_columns.cpp",
+			null
+		],
+		[
+			"/home/oster/OsterMath/include/dataview/model_data/aux_windows/insert_rows.h",
+			"MU",
+			"LAU3HA5X3L/moc_insert_rows.cpp",
 			null
 		],
 		[
@@ -545,7 +575,32 @@
 			"MU",
 			null
 		],
+		[
+			"/home/oster/OsterMath/src/dataview/expression_text_edit.cpp",
+			"MU",
+			null
+		],
 		[ "/home/oster/OsterMath/src/dataview/expression_view.cpp", "MU", null ],
+		[
+			"/home/oster/OsterMath/src/dataview/model_data/aux_windows/AuxiliairyWindowInterface.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/model_data/aux_windows/RowColumInsertInterface.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/model_data/aux_windows/insert_columns.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/oster/OsterMath/src/dataview/model_data/aux_windows/insert_rows.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/oster/OsterMath/src/dataview/model_data/nodedataview.cpp",
 			"MU",

@@ -16,51 +16,47 @@ NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){
 
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
-        Node* node = qobject_cast<const model::NodeView*>(index.model())->get_node();
-        if(node->type()==NODE_TYPE::VARIABLE){
-            if(node->has_child(0)){
-                node = node->child(0).get();
-                if(index.column()<node->childs().size()){
-                    if(index.row()==0)
-                        return new QLineEdit(parent);
-                    else if(index.row()==1 || node->has_child(index.column()) && node->child(index.column())->has_childs()){
+        std::shared_ptr<Node> node = qobject_cast<const model::NodeView*>(index.model())->get_node().node();
+        if(node){
+            if(index.column()<node->childs().size()){
+                if(node->has_child(index.column())){
+                    if(node->child(index.column())->is_array()){
+                        if(node->child(index.column())->has_child(index.row())){
+                            if(node->child(index.column())->child(index.row())->is_array()){
+                                return new QPushButton("...",parent);
+                            }
+                            else return new QLineEdit(parent);
+                        }
+                        else{
+                            if(index.row()==node->child(index.column())->childs().size()){
+                                if(index.row()==0)
+                                    return new QPushButton("...",parent);
+                                else
+                                    return new QLineEdit(parent);
+                            }
+                            else return nullptr;
+                        }
+                    }
+                    else if(index.row()<=1){
                         return new QLineEdit(parent);
                     }
-                    else
-                        return nullptr;
+                    else return nullptr;
                 }
-                else if(index.column()==node->childs().size()){
-                    if(index.row()==0)
+                else{
+                    if(index.row()==0 && index.column()==node->childs().size()){
                         return new QLineEdit(parent);
-                    else if(node->has_child(index.column())){
-                        if(node->child(index.column())->has_childs() && index.row()<=node->child(index.column())->childs().size())
-                            return new QLineEdit(parent);
-                        else return nullptr;
                     }
-                    else
-                        return nullptr;
+                    else return nullptr;
                 }
-                else return nullptr;
             }
-            else{
-               return nullptr;
-            }
-        }
-        else {
-            if(node->has_child(index.column()))
-                node = node->child(index.column()).get();
-            else return nullptr;
-        }
-        if(node && node->has_child(index.column())){
-            if(node->child(index.column())->is_array())
-                return new QPushButton("...",parent);
-            else{
+            else if(index.row()==0 && index.column()==node->childs().size()){
                 return new QLineEdit(parent);
             }
+            else return nullptr;
         }
-        else return new QLineEdit(parent);
+        else return nullptr;
     }
-    return nullptr;
+    else return nullptr;
 }
 
 void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{

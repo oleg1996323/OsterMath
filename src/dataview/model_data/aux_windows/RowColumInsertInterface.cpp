@@ -31,8 +31,8 @@ RowColumnInsertInterface::RowColumnInsertInterface(QWidget* parent):
     setLayout(main_layout_);
 }
 
-int RowColumnInsertInterface::get_value() const{
-    return __get_value__().value<int>();
+std::pair<int,bool> RowColumnInsertInterface::get_value() const{
+    return __get_value__().value<std::pair<int,bool>>();
 }
 
 QVariant RowColumnInsertInterface::__get_value__() const{

@@ -3,6 +3,7 @@
 #include "model/def.h"
 #include "model/nodeview_model.h"
 #include "model/varlist_model.h"
+#include "model/nodeview_select.h"
 
 namespace model{
 

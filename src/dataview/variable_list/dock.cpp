@@ -112,7 +112,7 @@ void DockWidget::showEvent(QShowEvent *event){
     Q_UNUSED(event);
 }
 
-void DockWidget::setData(model::Data* data){
+void DockWidget::set_data(model::Data* data){
     if(data->var_model)
         var_list_->setModel(data->var_model.get());
 }

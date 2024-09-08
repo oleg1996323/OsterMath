@@ -1070,15 +1070,18 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/Electrolisys/arithmetictree/include/exception/exception.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QModelIndexList \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
  /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
  /home/oster/OsterMath/include/model/manager.h \
  /home/oster/OsterMath/include/model/nodeview_model.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractItemModel \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
  /home/oster/OsterMath/include/model/varlist_model.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractTableModel \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
@@ -1089,11 +1092,8 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmetatype.h \
- /home/oster/OsterMath/include/dataview/expression_view.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
- /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
+ /home/oster/OsterMath/include/model/nodeview_select.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qevent.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpointer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qeventpoint.h \
@@ -1111,10 +1111,33 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
+ /home/oster/OsterMath/include/dataview/expression_view.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
+ /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expression_text_edit.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/../../../../include/dataview/expression_text_edit.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QFocusEvent \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expression_view.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/moc_RowColumnInsertInterface.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/../../../../include/dataview/model_data/aux_windows/RowColumnInsertInterface.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/../../../../include/dataview/model_data/aux_windows/AuxiliairyWindowInterface.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialogButtonBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialogbuttonbox.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDialog \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QCloseEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSpinBox \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qspinbox.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/moc_insert_columns.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/../../../../include/dataview/model_data/aux_windows/insert_columns.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/moc_insert_rows.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/../../../../include/dataview/model_data/aux_windows/insert_rows.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/TBKUEERFDP/moc_nodedataview.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/TBKUEERFDP/../../../../include/dataview/model_data/nodedataview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTableView \
@@ -1124,11 +1147,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/include/model/nodeview_delegate.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemDelegate \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
- /home/oster/OsterMath/include/model/nodeview_select.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_sheets.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_tabwidgetdataview.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_dock.cpp \

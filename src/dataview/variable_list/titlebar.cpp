@@ -184,9 +184,11 @@ bool TitleBar::event(QEvent* event){
     switch(event->type()){
     case QEvent::Polish:{
         setAttribute(Qt::WA_Hover,true);
+        return QWidget::event(event);
+        break;
     }
     default:{
-        QWidget::event(event);
+        return QWidget::event(event);
     }
     }
 }

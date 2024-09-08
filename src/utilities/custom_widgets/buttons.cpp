@@ -5,28 +5,19 @@
 #include <QStylePainter>
 #include <QStyleOptionButton>
 
+//TODO add namespace utilities and make refactoring
+//TODO make individual library for these buttons
 IconedButton::IconedButton(const QString& res_path,QWidget* parent):QPushButton(parent){
     setIcon(QIcon(res_path));
 }
-
 IconedButton::IconedButton(const QIcon& icon,QWidget* parent):QPushButton(icon,"",parent){
 }
-
 IconedButton::IconedButton(QIcon&& icon,QWidget* parent):QPushButton(icon,"",parent){
 }
-
 IconedButton::IconedButton(QWidget* parent):QPushButton(parent){}
-
 void IconedButton::paintEvent(QPaintEvent *event){
     QPushButton::paintEvent(event);
-//    if(!icon_set_){
-//        QPainterPath path;
-//        path.addRoundedRect(rect(),Themes::border_round_common,Themes::border_round_common);
-//        setIcon(paths::iconFromPath(path,icon(),size(),Qt::transparent));
-//        icon_set_=true;
-//    }
 }
-
 ToolButton::ToolButton(const QString& res_path,QWidget* parent):QPushButton(parent){
     setContentsMargins(0,0,0,0);
     setFixedSize(35,35);
@@ -35,7 +26,6 @@ ToolButton::ToolButton(const QString& res_path,QWidget* parent):QPushButton(pare
     setIcon(paths::iconFromPath(path,QPixmap(res_path),size(),Qt::transparent));
     setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
 }
-
 CloseButton::CloseButton(const QString& res_path,QWidget* parent):QPushButton(parent){
     setContentsMargins(0,0,0,0);
     setFixedSize(20,20);
@@ -44,11 +34,9 @@ CloseButton::CloseButton(const QString& res_path,QWidget* parent):QPushButton(pa
     setIcon(paths::iconFromPath(path,QPixmap(res_path),size(),Qt::transparent));
     setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
 }
-
 void CloseButton::paintEvent(QPaintEvent* event){
     QPushButton::paintEvent(event);
 }
-
 CollapseButton::CollapseButton(button_states::COLLAPSE_EXPAND_STATE default_val,const QString& collapsed_icon,const QString& expanded_icon,QWidget* parent):
 MultiStateIconedButton(
         default_val, \
@@ -59,7 +47,6 @@ MultiStateIconedButton(
     setContentsMargins(0,0,0,0);
     setFixedSize(20,20);
 }
-
 void CollapseButton::changeState(){
     using namespace button_states;
     switch(current_state_){
@@ -81,7 +68,6 @@ void CollapseButton::changeState(){
         break;
     }
 }
-
 void CollapseButton::paintEvent(QPaintEvent* event){
     MultiStateIconedButton::paintEvent(event);
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <QMainWindow>
 #include <QAbstractProxyModel>
+#include <QItemSelectionModel>
 #include "kernel/def.h"
 
 class BaseData;
@@ -26,6 +27,7 @@ public slots:
     QAbstractProxyModel* search_var(const QString&);
     void show_node(Node* node) const;
     void set_model(QAbstractItemModel*);
+    void set_selection(QItemSelectionModel*);
 private:
     //widget where var are illustrated
     DockWidget* var_list_;

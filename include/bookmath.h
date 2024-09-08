@@ -20,10 +20,8 @@ class BookMath : public QMainWindow, public Retranslatable, public ObjectFromSet
 public:
     BookMath(QWidget *parent = nullptr);
     ~BookMath();
-
-
-
     dataview::Sheets* get_sheets_handler() const;
+    dataview::ExpressionTextEdit* get_expression_editor() const;
 
 private:
     std::unique_ptr<DataPool> pool_;

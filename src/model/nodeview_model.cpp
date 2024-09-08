@@ -46,9 +46,15 @@ int NodeView::rowCount(const QModelIndex &parent) const{
                     }
                 }
             }
-            else{
-                //if sequential representation TODO further
+            else if(mode_==MODE_REPRESENTATION::Sequential){
+                //TODO
+                qFatal("Not available in this OsterMath version");
+                throw std::runtime_error("Not available in this OsterMath version");
                 cached_row_count_ = 1;
+            }
+            else{
+                qFatal("Unknown format representation");
+                throw std::runtime_error("Unknown format representation");
             }
         }
         else {
@@ -166,7 +172,9 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
         }
     }
     else if(mode_==MODE_REPRESENTATION::Sequential){
-        //next version TODO
+        //TODO
+        qFatal("Not available in this OsterMath version");
+        throw std::runtime_error("Not available in this OsterMath version");
     }
     return QVariant();
 }
@@ -248,13 +256,12 @@ std::vector<INFO_NODE> NodeView::get_sequence_ids_at_set_data(QModelIndex index)
     return res;
 }
 
-//TODO optimize code
 bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role){
     if(!index.isValid())
         return false;
     if(mode_==MODE_REPRESENTATION::Table){
         switch((Qt::ItemDataRole)role){
-        case(Qt::DisplayRole):
+        case(Qt::DisplayRole | Qt::EditRole):
         {
             if(sequence_node_.empty())
                 return false;
@@ -262,7 +269,6 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
             if(!node_to_show){
                 return false;
             }
-
             std::vector<INFO_NODE> arg = get_sequence_ids_at_set_data(index);
             if(arg.empty())
                 return false;
@@ -276,7 +282,9 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
         }
     }
     else if(mode_==MODE_REPRESENTATION::Sequential){
-        //another solution for setting (future)
+        //TODO another solution for setting (future)
+        qFatal("Not available in this OsterMath version");
+        throw std::runtime_error("Not available in this OsterMath version");
     }
     return false;
 }
@@ -306,6 +314,12 @@ QVariant NodeView::headerData(int section, Qt::Orientation orientation, int role
             return QVariant();
         }
     }
+    else if(mode_==MODE_REPRESENTATION::Sequential){
+        //TODO
+        qFatal("Not available in this OsterMath version");
+        throw std::runtime_error("Not available in this OsterMath version");
+    }
+    else return QVariant();
 }
 
 bool NodeView::insertRows(int nRow, int nCount, const QModelIndex& parent){
@@ -407,6 +421,7 @@ bool NodeView::insert_row_after(int nRow, int nCount){
                 else return false;
             }
             endInsertRows();
+            return true;
         }
         else return false;
     }
@@ -433,10 +448,14 @@ bool NodeView::insert_column_after(int nCol, int nCount){
 }
 
 bool NodeView::removeRows(int nRow, int nCount, const QModelIndex& parent){
+    beginRemoveRows(parent,nRow,nRow+nCount-1);
     return true;
+    endRemoveRows();
 }
-bool NodeView::removeColumns(int nRow, int nCount, const QModelIndex& parent){
+bool NodeView::removeColumns(int nCol, int nCount, const QModelIndex& parent){
+    beginRemoveColumns(parent,nCol,nCol+nCount-1);
     return true;
+    endRemoveColumns();
 }
 
 int NodeView::get_rows_cached_count() const{

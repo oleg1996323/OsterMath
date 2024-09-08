@@ -4,6 +4,7 @@
 #include "model/nodeview_delegate.h"
 #include "model/nodeview_header.h"
 #include "model/nodeview_select.h"
+#include "aux_windows/RowColumnInsertInterface.h"
 
 namespace dataview{
 
@@ -36,9 +37,8 @@ class NodeData: public QTableView, public ObjectFromSettings{
 
     QAction *insertSomeRowsAct;
     QAction *insertSomeColumnsAct;
-    QAction *removeSomeRowsAct;
-    QAction *removeSomeColumnsAct;
 
+    RowColumnInsertInterface* aux_window_;
 
 public:
     NodeData(QWidget* parent);
@@ -53,7 +53,6 @@ private:
     virtual void __upload_fonts__() override;
     virtual void __upload_style__() override;
     virtual void __upload_language__() override;
-
 private slots:
     void undo();
     void redo();
@@ -70,6 +69,8 @@ private slots:
     void insert_column_before();
     void insert_row_after();
     void insert_column_after();
+    void insert_some_rows(std::pair<int,bool>);
+    void insert_some_columns(std::pair<int,bool>);
     void delete_row();
     void delete_column();
 };

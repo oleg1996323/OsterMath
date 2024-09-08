@@ -3,7 +3,7 @@
 #include <QScreen>
 #include <QStatusBar>
 #include <QMenuBar>
-
+#include "dataview/expression_text_edit.h"
 namespace Book{
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent), ObjectFromSettings(this)
@@ -110,6 +110,16 @@ void BookMath::__retranslate__(){
 
 dataview::Sheets* BookMath::get_sheets_handler() const{
     return centralwidget->sheets();
+}
+
+dataview::ExpressionTextEdit* BookMath::get_expression_editor() const{
+    if(dataview::ExpressionTextEdit* p = findChild<dataview::ExpressionTextEdit*>("expressionEditor")){
+        return p;
+    }
+    else{
+        qFatal("Not defined expression editor");
+        throw std::runtime_error("Not defined expression editor");
+    }
 }
 
 void BookMath::create_new_book(){

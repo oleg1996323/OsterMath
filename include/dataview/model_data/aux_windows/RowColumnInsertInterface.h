@@ -4,11 +4,12 @@
 class QGridLayout;
 namespace dataview{
 class RowColumnInsertInterface:public AuxiliairyWindowInterface{
+    Q_OBJECT
 public:
     RowColumnInsertInterface(QWidget* parent);
     virtual ~RowColumnInsertInterface(){}
     using type_val = int;
-    int get_value() const;
+    std::pair<int,bool> get_value() const;
 protected:
     QSpinBox* spin_;
     QComboBox* before_after_;

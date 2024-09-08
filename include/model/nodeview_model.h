@@ -12,14 +12,8 @@ namespace model{
 
 class NodeView:public QAbstractTableModel{
     Q_OBJECT
-    struct SubNodes{
-        SubNodes(const SubNodes&) = default;
-        int id_;
-        Node* node_;
-        QList<SubNodes> openned_;
-    };
-
 public:
+    //TODO
     enum MODE_REPRESENTATION{
         Table,
         Sequential
@@ -33,10 +27,10 @@ public:
     void set_representable_node(Node*, size_t);
     void set_representable_child_node(size_t id);
     void reset_representable_node();
-    Node* get_node() const{
+    INFO_NODE get_node() const{
         if(!sequence_node_.empty())
-            return sequence_node_.back().parent;
-        else return nullptr;
+            return sequence_node_.back();
+        else return INFO_NODE();
     }
 
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -45,8 +39,6 @@ public:
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    //virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
-
     virtual bool insertRows(int nRow, int nCount, const QModelIndex& parent) override;
     virtual bool insertColumns(int column, int count, const QModelIndex &parent) override;
     virtual bool removeRows(int nRow, int nCount, const QModelIndex& parent) override;
@@ -61,7 +53,6 @@ public:
     bool insert_column_after(int nCol, int nCount);
 
 private:
-    std::unique_ptr<NodeView> child_;
     MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Table;
     std::vector<INFO_NODE> sequence_node_;
     mutable int cached_row_count_ = 0;
