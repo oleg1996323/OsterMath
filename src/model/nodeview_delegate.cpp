@@ -18,23 +18,19 @@ NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){
 
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
-        std::shared_ptr<Node> node = qobject_cast<const model::NodeView*>(index.model())->get_node().node();
-        if(node){
-            if(index.column()<node->childs().size()+1){
-                if(node->has_child(index.column())){
-                    if(index.row()<=node->child(index.column())->childs().size()+1){
-                        utilities::DelegateNodeEditor* editor = new utilities::DelegateNodeEditor(parent,index,true);
-                        if(node->is_array())
-                            connect(editor,&utilities::DelegateNodeEditor::show_node,
-                            this, [index, this](Node* node){
-                                //if row()==childs().size() insert_back
-                                emit show_node(node,index.row());
-                            });
+        INFO_NODE info = qobject_cast<const model::NodeView*>(index.model())->get_node();
+        utilities::DelegateNodeEditor* editor;
+        if(info.node()){
+            //case when child exists
+            if(index.column()<info.node()->childs().size()){
+                if(info.node()->has_child(index.column())){
+                    if(index.row()<info.node()->child(index.column())->childs().size()){
+                        if(info.node()->is_array())
+                        {
+                            info={qobject_cast<NodeView*>(index.model())->get_node().node().get(),index.column()};
+                        }
                         else{
-                            connect(editor,&utilities::DelegateNodeEditor::show_node,
-                            this, [index, this](Node* node){
-                                emit show_node(node,index.column());
-                            });
+
                         }
                         return editor;
                     }
@@ -42,28 +38,24 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
                 }
                 else{
                     if(index.row()==0){
-                        utilities::DelegateNodeEditor* editor = new utilities::DelegateNodeEditor(parent,index,true);
-                        connect(editor,&utilities::DelegateNodeEditor::show_node,
-                        this, [index, this](Node* node){
-                            //insert_back
-                            emit show_node(node);
-                        });
-                        return editor;
+                        info={qobject_cast<NodeView*>(index.model())->get_node().node().get(),index.column()};
                     }
                     else return nullptr;
                 }
             }
-            else if(index.column()==node->childs().size()){
-                utilities::DelegateNodeEditor* editor = new utilities::DelegateNodeEditor(parent,index,true);
-                connect(editor,&utilities::DelegateNodeEditor::show_node,
-                this, [index, this](Node* node){
-                    emit show_node(node);
-                });
-                return editor;
+            //case when child don't exists
+            else if(index.column()==info.node()->childs().size()){
+                info={qobject_cast<NodeView*>(index.model())->get_node().node().get(),index.column()};
             }
             else return nullptr;
         }
         else return nullptr;
+        editor = new utilities::DelegateNodeEditor(parent,std::move(info),true);
+        connect(editor,&utilities::DelegateNodeEditor::show_node,
+        this, [this](Node* parent,size_t id){
+            emit show_node(parent,id);
+        });
+        return editor;
     }
     else return nullptr;
 }

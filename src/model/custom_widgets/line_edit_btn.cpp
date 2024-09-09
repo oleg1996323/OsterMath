@@ -4,9 +4,9 @@
 #include "arithmetic_types.h"
 
 namespace model::utilities {
-DelegateNodeEditor::DelegateNodeEditor(QWidget* parent,const QModelIndex& index,bool btn_active):
+DelegateNodeEditor::DelegateNodeEditor(QWidget* parent,std::unique_ptr<INFO_NODE> info,bool btn_active):
 QWidget(parent),
-index_(index)
+info_(std::move(info))
 {
     QHBoxLayout* layout_ = new QHBoxLayout(this);
     expr_edit_ = new QLineEdit(this);
@@ -14,18 +14,16 @@ index_(index)
     if(btn_active){
         btn_view_node_ = new QPushButton(this);
         connect(btn_view_node_,&QPushButton::clicked,
-        this, [&index,this](){
-            assert(index.model());
-            Node* node = index.data(Qt::EditRole).value<std::shared_ptr<Node>>().get();
-            assert(node);
-            emit show_node(node);
+        this, [this](){
+            assert(info_->parent);
+            emit show_node(info_->parent,info_->id);
         });
         layout_->addWidget(btn_view_node_);
     }
 }
-DelegateNodeEditor::DelegateNodeEditor(QString line_text,QWidget* parent,const QModelIndex& index,bool btn_active):
+DelegateNodeEditor::DelegateNodeEditor(QString line_text,QWidget* parent,std::unique_ptr<INFO_NODE> info,bool btn_active):
 QWidget(parent),
-index_(index)
+info_(std::move(info))
 {
     QHBoxLayout* layout_ = new QHBoxLayout(this);
     expr_edit_ = new QLineEdit(line_text,this);
@@ -33,11 +31,9 @@ index_(index)
     if(btn_active){
         btn_view_node_ = new QPushButton(this);
         connect(btn_view_node_,&QPushButton::clicked,
-        this, [&index,this](){
-            assert(index.model());
-            Node* node = index.data(Qt::EditRole).value<std::shared_ptr<Node>>().get();
-            assert(node);
-            emit show_node(node);
+        this, [this](){
+            assert(info_->parent);
+            emit show_node(info_->parent,info_->id);
         });
         layout_->addWidget(btn_view_node_);
     }

@@ -2496,7 +2496,9 @@ CMakeFiles/OsterMath.dir/src/bookmath.cpp.o: ../../src/bookmath.cpp \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstatusbar.h \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMenuBar \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmenubar.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmenu.h
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmenu.h \
+  ../../include/dataview/expression_text_edit.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFocusEvent
 
 CMakeFiles/OsterMath.dir/src/dataview/expr_view_splitter.cpp.o: ../../src/dataview/expr_view_splitter.cpp \
   /usr/include/stdc-predef.h \
@@ -4130,7 +4132,18 @@ CMakeFiles/OsterMath.dir/src/dataview/expression_text_edit.cpp.o: ../../src/data
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QSizeF \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QTransform \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnativeinterface.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qeventloop.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication_platform.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qinputmethod.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h
 
 CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o: ../../src/dataview/expression_view.cpp \
   /usr/include/stdc-predef.h \
@@ -5191,7 +5204,9 @@ CMakeFiles/OsterMath.dir/src/dataview/expression_view.cpp.o: ../../src/dataview/
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
   ../../include/utilities/paths.h \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QPainterPath \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpainterpath.h \
+  ../../include/dataview/expression_text_edit.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFocusEvent
 
 CMakeFiles/OsterMath.dir/src/dataview/model_data/aux_windows/AuxiliairyWindowInterface.cpp.o: ../../src/dataview/model_data/aux_windows/AuxiliairyWindowInterface.cpp \
   /usr/include/stdc-predef.h \
