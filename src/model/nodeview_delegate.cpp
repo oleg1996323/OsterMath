@@ -5,52 +5,61 @@
 #include <QLineEdit>
 #include <QTextItem>
 #include <QLineEdit>
+#include <bookmath.h>
 #include "model/nodeview_model.h"
 #include "styles/styles.h"
+#include "model/custom_widgets/line_edit_btn.h"
 
 namespace model{
 
 NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){
-
+    setObjectName("node_view_delegate");
 }
 
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
         std::shared_ptr<Node> node = qobject_cast<const model::NodeView*>(index.model())->get_node().node();
         if(node){
-            if(index.column()<node->childs().size()){
+            if(index.column()<node->childs().size()+1){
                 if(node->has_child(index.column())){
-                    if(node->child(index.column())->is_array()){
-                        if(node->child(index.column())->has_child(index.row())){
-                            if(node->child(index.column())->child(index.row())->is_array()){
-                                return new QPushButton("...",parent);
-                            }
-                            else return new QLineEdit(parent);
-                        }
+                    if(index.row()<=node->child(index.column())->childs().size()+1){
+                        utilities::DelegateNodeEditor* editor = new utilities::DelegateNodeEditor(parent,index,true);
+                        if(node->is_array())
+                            connect(editor,&utilities::DelegateNodeEditor::show_node,
+                            this, [index, this](Node* node){
+                                //if row()==childs().size() insert_back
+                                emit show_node(node,index.row());
+                            });
                         else{
-                            if(index.row()==node->child(index.column())->childs().size()){
-                                if(index.row()==0)
-                                    return new QPushButton("...",parent);
-                                else
-                                    return new QLineEdit(parent);
-                            }
-                            else return nullptr;
+                            connect(editor,&utilities::DelegateNodeEditor::show_node,
+                            this, [index, this](Node* node){
+                                emit show_node(node,index.column());
+                            });
                         }
-                    }
-                    else if(index.row()<=1){
-                        return new QLineEdit(parent);
+                        return editor;
                     }
                     else return nullptr;
                 }
                 else{
-                    if(index.row()==0 && index.column()==node->childs().size()){
-                        return new QLineEdit(parent);
+                    if(index.row()==0){
+                        utilities::DelegateNodeEditor* editor = new utilities::DelegateNodeEditor(parent,index,true);
+                        connect(editor,&utilities::DelegateNodeEditor::show_node,
+                        this, [index, this](Node* node){
+                            //insert_back
+                            emit show_node(node);
+                        });
+                        return editor;
                     }
                     else return nullptr;
                 }
             }
-            else if(index.row()==0 && index.column()==node->childs().size()){
-                return new QLineEdit(parent);
+            else if(index.column()==node->childs().size()){
+                utilities::DelegateNodeEditor* editor = new utilities::DelegateNodeEditor(parent,index,true);
+                connect(editor,&utilities::DelegateNodeEditor::show_node,
+                this, [index, this](Node* node){
+                    emit show_node(node);
+                });
+                return editor;
             }
             else return nullptr;
         }

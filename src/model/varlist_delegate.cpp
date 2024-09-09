@@ -55,7 +55,7 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
                     assert(index.model());
                     Node* node = index.data(Qt::EditRole).value<std::shared_ptr<Node>>().get();
                     assert(node);
-                    emit show_node(node);
+                    emit show_node(node,0);
                 });
                 return see_var_data;
             }

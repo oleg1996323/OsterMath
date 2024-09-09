@@ -4,13 +4,28 @@
 #include "arithmetic_types.h"
 
 namespace model::utilities {
-DelegateNodeEditor::DelegateNodeEditor(QWidget* parent,QModelIndex index,bool btn_active):
-QWidget(parent)
+DelegateNodeEditor::DelegateNodeEditor(QWidget* parent,const QModelIndex& index,bool btn_active):
+QWidget(parent),
+index_(index)
 {
+    QHBoxLayout* layout_ = new QHBoxLayout(this);
     expr_edit_ = new QLineEdit(this);
+    layout_->addWidget(expr_edit_);
+    if(btn_active){
+        btn_view_node_ = new QPushButton(this);
+        connect(btn_view_node_,&QPushButton::clicked,
+        this, [&index,this](){
+            assert(index.model());
+            Node* node = index.data(Qt::EditRole).value<std::shared_ptr<Node>>().get();
+            assert(node);
+            emit show_node(node);
+        });
+        layout_->addWidget(btn_view_node_);
+    }
 }
-DelegateNodeEditor::DelegateNodeEditor(QString line_text,QWidget* parent,QModelIndex index,bool btn_active):
-QWidget(parent)
+DelegateNodeEditor::DelegateNodeEditor(QString line_text,QWidget* parent,const QModelIndex& index,bool btn_active):
+QWidget(parent),
+index_(index)
 {
     QHBoxLayout* layout_ = new QHBoxLayout(this);
     expr_edit_ = new QLineEdit(line_text,this);

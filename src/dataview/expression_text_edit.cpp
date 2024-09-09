@@ -37,4 +37,8 @@ void ExpressionTextEdit::enable(bool val){
 void ExpressionTextEdit::focus_from_nodeview_item_edit(QLineEdit* item_editor){
     ptr_editor = item_editor;
 }
+
+void ExpressionTextEdit::editor_destroyed(){
+    //clear ExpressionEditor
+}
 }

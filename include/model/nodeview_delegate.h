@@ -38,7 +38,8 @@ public:
     void refresh(){
 
     }
-
+signals:
+    void show_node(Node*,size_t) const;
 private:
     //virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
 };

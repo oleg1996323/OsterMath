@@ -22,8 +22,11 @@ Sheets::Sheets(QWidget* parent):
 
     for(int i=0;i<4;++i)
         add_default_sheet(i);
-    connect(findChild<::model::VariablesDelegate*>("var_list_delegate"), &::model::VariablesDelegate::show_node,[this](Node* node){
-        qobject_cast<View*>(currentWidget())->show_node(node);
+    connect(findChild<::model::VariablesDelegate*>("var_list_delegate"), &::model::VariablesDelegate::show_node,[this](Node* parent,size_t id){
+        qobject_cast<View*>(currentWidget())->show_node(parent,id);
+    });
+    connect(findChild<::model::VariablesDelegate*>("node_view_delegate"), &::model::VariablesDelegate::show_node,[this](Node* parent,size_t id){
+        qobject_cast<View*>(currentWidget())->show_node(parent,id);
     });
 }
 
@@ -84,9 +87,7 @@ View* Sheets::__create_default_tab__(QString& name){
 void Sheets::add_default_sheet(int id){
     QString name;
     View* view = __create_default_tab__(name);
-    //qDebug()<<"Before inserting"<<id;
     insertTab(id,view,name);
-    //qDebug()<<"After inserting"<<id;
     __change_dock_to__(view);
     __change_model__(id);
     setCurrentIndex(id);
@@ -116,8 +117,6 @@ void Sheets::__change_model__(int id){
 
 void Sheets::__change_dock_to__(View* tab_window) {
     if (tab_window) {
-
-        //initialization
         if(!var_list_){
             var_list_ = new DockWidget(tab_window);
 
@@ -138,7 +137,6 @@ void Sheets::__change_dock_to__(View* tab_window) {
         else{
             if(var_list_->parent()){
                 save_last_window_state(qobject_cast<View*>(var_list_->parent())->saveState());
-                //qobject_cast<View*>(var_list_->parent())->removeDockWidget(var_list_);
             }
             if(!win_state_.isEmpty()){
                 QTimer::singleShot(0,[this, tab_window]{
@@ -164,6 +162,10 @@ void Sheets::save_last_window_state(QByteArray&& state){
 
 const QByteArray& Sheets::get_last_window_state() const{
     return win_state_;
+}
+
+NodeData* Sheets::active_sheet_node_data_viewer() const{
+    return qobject_cast<View*>(currentWidget())->data_viewer();
 }
 
 void Sheets::__load_settings__(){

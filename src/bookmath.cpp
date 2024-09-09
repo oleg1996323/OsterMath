@@ -197,4 +197,8 @@ void BookMath::__book_initialization__(){
     pool_ = std::make_unique<DataPool>("Pool data 1");
     kernel::Application::set_active_pool(pool_.get());
 }
+
+dataview::NodeData* BookMath::current_node_data_viewer() const{
+    return qobject_cast<dataview::Sheets*>(get_sheets_handler())->active_sheet_node_data_viewer();
+}
 }

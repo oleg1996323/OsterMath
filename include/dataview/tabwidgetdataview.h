@@ -13,7 +13,6 @@ class NodeViewDelegate;
 class NodeViewHeader;
 }
 namespace dataview{
-class DockWidget;
 class NodeData;
 
 //TODO add variable search in model
@@ -25,16 +24,13 @@ public:
     bool state_initialized() const;
 public slots:
     QAbstractProxyModel* search_var(const QString&);
-    void show_node(Node* node) const;
+    void show_node(Node*,size_t) const;
     void set_model(QAbstractItemModel*);
     void set_selection(QItemSelectionModel*);
+    NodeData* data_viewer() const;
 private:
     //widget where var are illustrated
-    DockWidget* var_list_;
     NodeData* data_view_;
-
-    model::NodeViewDelegate* node_view_delegate_;
-    model::NodeViewHeader* node_view_header_;
     bool state_initialized_ = false;
 
     virtual void __load_settings__() override;

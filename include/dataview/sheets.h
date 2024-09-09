@@ -17,6 +17,7 @@
 #include <QMessageBox>
 
 namespace dataview{
+class DockWidget;
 class Sheets:public QTabWidget, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT
 public:
@@ -33,8 +34,8 @@ public:
     void add_default_sheet();
     void save_last_window_state(QByteArray&&);
     const QByteArray& get_last_window_state() const;
+    dataview::NodeData* active_sheet_node_data_viewer() const;
 private:
-
     void __init__(){
         setTabPosition(QTabWidget::South);
     }

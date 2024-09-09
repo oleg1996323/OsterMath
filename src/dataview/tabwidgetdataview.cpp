@@ -15,8 +15,8 @@ View::View(QWidget* parent, BaseData* data):QMainWindow(parent, Qt::Widget|Qt::W
 View::~View(){
     save_settings();
 }
-void View::show_node(Node* node) const{
-    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_node(node,0);
+void View::show_node(Node* parent, size_t id) const{
+    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_node(parent,id);
 }
 QAbstractProxyModel* View::search_var(const QString&){
     //TODO
@@ -30,6 +30,9 @@ void View::set_model(QAbstractItemModel* model){
 void View::set_selection(QItemSelectionModel* sel){
     if(data_view_->model())
         data_view_->setSelectionModel(sel);
+}
+NodeData* View::data_viewer() const{
+    return data_view_;
 }
 void View::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();

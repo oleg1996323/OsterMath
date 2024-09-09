@@ -66,10 +66,10 @@ private:
     void __book_initialization__();
 
     virtual void __retranslate__() override;
-
     virtual void __upload_language__() override;
     virtual void __upload_fonts__() override;
     virtual void __upload_style__() override;
+    dataview::NodeData* current_node_data_viewer() const;
 
 private slots:
     void create_new_book();
