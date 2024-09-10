@@ -580,6 +580,7 @@
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSizePolicy \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSplitter \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyle \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyleOption \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTabWidget \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \

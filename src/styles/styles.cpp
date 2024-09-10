@@ -83,10 +83,6 @@ OsterStyle::OsterStyle(){
 
 void OsterStyle::drawComplexControl(QStyle::ComplexControl cc, const QStyleOptionComplex *opt, QPainter *p, const QWidget *widget = nullptr) const{
     switch(cc){
-    case CC_CustomBase:{
-        QProxyStyle::drawComplexControl(cc,opt,p,widget);
-        break;
-    }
     default:{
         QProxyStyle::drawComplexControl(cc,opt,p,widget);
         break;
@@ -149,7 +145,9 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
         p->restore();
         break;
     }
-    case PE_PanelToolBar:{}
+    case PE_PanelToolBar:{
+        break;
+    }
     case PE_PanelButtonCommand:{
         if(!widget)
             return;
@@ -162,11 +160,10 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
             grad.setColorAt(1,opt->palette.light().color());
             if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
                 if(btn_opt->borders){
-                    if(btn_opt->rounded_borders){
-                        QPainterPath path;
-                        path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
-                        p->setClipPath(path);
-                        p->fillPath(path,grad);
+                    if(btn_opt->rounded()){
+                        btn_opt->path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
+                        p->setClipPath(btn_opt->path);
+                        p->fillPath(btn_opt->path,grad);
                     }
                     else p->drawRect(btn_opt->rect);
                 }
@@ -188,7 +185,22 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
         break;
     }
     case PE_FrameButtonBevel:{
-
+        if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
+            if(btn_opt->borders){
+                if(btn_opt->rounded()){
+                    btn_opt->path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
+                    p->setClipPath(btn_opt->path);
+                    p->drawPath(btn_opt->path);
+                    p->strokePath(btn_opt->path,QPen(btn_opt->palette.dark().color()));
+                }
+                else {
+                    qDrawShadeRect(p, opt->rect, opt->palette, true, 1, 0, nullptr);
+                }
+            }
+        }
+        else
+            QProxyStyle::drawPrimitive(element,opt,p,widget);
+        break;
     }
     case PE_IndicatorDockWidgetResizeHandle:{
 //        if(opt){
@@ -211,9 +223,11 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
     }
     case PE_PanelLineEdit:{
         QProxyStyle::drawPrimitive(element,opt,p,widget);
+        break;
     }
     case PE_FrameLineEdit:{
         QProxyStyle::drawPrimitive(element,opt,p,widget);
+        break;
     }
     default:
         QProxyStyle::drawPrimitive(element,opt,p,widget);
@@ -287,6 +301,128 @@ void OsterStyle::drawControl(ControlElement element,
             p->setClipPath(path);
             p->fillPath(path,opt->palette.window());
             p->restore();
+        }
+        break;
+    }
+    case CE_PushButton:{
+        if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
+            p->save();
+            proxy()->drawControl(CE_PushButtonBevel, btn_opt, p, widget);
+            QStyleOptionButton subopt = *btn_opt;
+            subopt.rect = subElementRect(SE_PushButtonContents, btn_opt, widget);
+            proxy()->drawControl(CE_PushButtonLabel, &subopt, p, widget);
+            if (btn_opt->state & State_HasFocus) {
+                QStyleOptionFocusRect fropt;
+                fropt.QStyleOption::operator=(*btn_opt);
+                fropt.rect = subElementRect(SE_PushButtonFocusRect, btn_opt, widget);
+                proxy()->drawPrimitive(PE_FrameFocusRect, &fropt, p, widget);
+            }
+            p->restore();
+        }
+        else if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+            QProxyStyle::drawControl(element,opt,p,widget);
+            break;
+        }
+        else return;
+        break;
+    }
+    case CE_PushButtonBevel:{
+        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
+            QRect br = btn_opt->rect;
+            int dbi = proxy()->pixelMetric(PM_ButtonDefaultIndicator, btn_opt, widget);
+            if (btn_opt->features & QStyleOptionButton::DefaultButton)
+                proxy()->drawPrimitive(PE_FrameDefaultButton, opt, p, widget);
+            if (btn_opt->features & QStyleOptionButton::AutoDefaultButton)
+                br.setCoords(br.left() + dbi, br.top() + dbi, br.right() - dbi, br.bottom() - dbi);
+            if (!(btn_opt->features & (QStyleOptionButton::Flat | QStyleOptionButton::CommandLinkButton))
+                    || btn_opt->state & (State_Sunken | State_On)
+                    || (btn_opt->features & QStyleOptionButton::CommandLinkButton && btn_opt->state & State_MouseOver)) {
+                QStyleOptionButton tmpBtn = *btn_opt;
+                tmpBtn.rect = br;
+                proxy()->drawPrimitive(PE_PanelButtonCommand, &tmpBtn, p, widget);
+            }
+            if (btn_opt->features & QStyleOptionButton::HasMenu) {
+                int mbi = proxy()->pixelMetric(PM_MenuButtonIndicator, btn_opt, widget);
+                QRect ir = btn_opt->rect;
+                QStyleOptionButton newBtn = *btn_opt;
+                newBtn.rect = QRect(ir.right() - mbi - 2, ir.height()/2 - mbi/2 + 3, mbi - 6, mbi - 6);
+                newBtn.rect = visualRect(btn_opt->direction, br, newBtn.rect);
+                proxy()->drawPrimitive(PE_IndicatorArrowDown, &newBtn, p, widget);
+            }
+        }
+        else{
+            QProxyStyle::drawControl(element,opt,p,widget);
+            break;
+        }
+        break;
+    }
+    case CE_PushButtonLabel:{
+        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
+            QRect textRect = btn_opt->rect;
+            int tf = Qt::AlignVCenter | Qt::TextShowMnemonic;
+            if (!proxy()->styleHint(SH_UnderlineShortcut, btn_opt, widget))
+                tf |= Qt::TextHideMnemonic;
+
+            if (btn_opt->features & QStyleOptionButton::HasMenu) {
+                int indicatorSize = proxy()->pixelMetric(PM_MenuButtonIndicator, btn_opt, widget);
+                if (btn_opt->direction == Qt::LeftToRight)
+                    textRect = textRect.adjusted(0, 0, -indicatorSize, 0);
+                else
+                    textRect = textRect.adjusted(indicatorSize, 0, 0, 0);
+            }
+
+            if (!btn_opt->icon.isNull()) {
+                //Center both icon and text
+                QIcon::Mode mode = btn_opt->state & State_Enabled ? QIcon::Normal : QIcon::Disabled;
+                if (mode == QIcon::Normal && btn_opt->state & State_HasFocus)
+                    mode = QIcon::Active;
+                QIcon::State state = QIcon::Off;
+                if (btn_opt->state & State_On)
+                    state = QIcon::On;
+                QPixmap pixmap = btn_opt->icon.pixmap(btn_opt->iconSize, p->device()->devicePixelRatio(), mode, state);
+                int pixmapWidth = pixmap.width() / pixmap.devicePixelRatio();
+                int pixmapHeight = pixmap.height() / pixmap.devicePixelRatio();
+                int labelWidth = pixmapWidth;
+                int labelHeight = pixmapHeight;
+                int iconSpacing = 4;//### 4 is currently hardcoded in QPushButton::sizeHint()
+                if (!btn_opt->text.isEmpty()) {
+                    int textWidth = btn_opt->fontMetrics.boundingRect(opt->rect, tf, btn_opt->text).width();
+                    labelWidth += (textWidth + iconSpacing);
+                }
+
+                QRect iconRect = QRect(textRect.x() + (textRect.width() - labelWidth) / 2,
+                                       textRect.y() + (textRect.height() - labelHeight) / 2,
+                                       pixmapWidth, pixmapHeight);
+
+                iconRect = visualRect(btn_opt->direction, textRect, iconRect);
+
+                if (btn_opt->direction == Qt::RightToLeft)
+                    textRect.setRight(iconRect.left() - iconSpacing / 2);
+                else
+                    textRect.setLeft(iconRect.left() + iconRect.width() + iconSpacing / 2);
+
+                // qt_format_text reverses again when  painter->layoutDirection is also RightToLeft
+                if (p->layoutDirection() == btn_opt->direction)
+                    tf |= Qt::AlignLeft;
+                else
+                    tf |= Qt::AlignRight;
+
+                if (btn_opt->state & (State_On | State_Sunken))
+                    iconRect.translate(proxy()->pixelMetric(PM_ButtonShiftHorizontal, opt, widget),
+                                       proxy()->pixelMetric(PM_ButtonShiftVertical, opt, widget));
+                p->drawPixmap(iconRect, pixmap);
+            } else {
+                tf |= Qt::AlignHCenter;
+            }
+            if (btn_opt->state & (State_On | State_Sunken))
+                textRect.translate(proxy()->pixelMetric(PM_ButtonShiftHorizontal, opt, widget),
+                                   proxy()->pixelMetric(PM_ButtonShiftVertical, opt, widget));
+
+            proxy()->drawItemText(p, textRect, tf, btn_opt->palette, (btn_opt->state & State_Enabled),
+                                  btn_opt->text, QPalette::ButtonText);
+        }
+        else{
+            QProxyStyle::drawControl(element,opt,p,widget);
         }
         break;
     }

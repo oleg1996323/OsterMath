@@ -22,6 +22,10 @@ enum TYPE{
     Dark
 };
 
+enum StyleOptionTypes{
+    SO_AdvancedPushButton = QStyleOption::SO_CustomBase + 1
+};
+
 class Palette:public QPalette{
 public:
     static const QPalette& get();

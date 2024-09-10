@@ -69,7 +69,7 @@ void __sub_widgets__::Button::paintEvent(QPaintEvent* event){
     QStylePainter p(this);
     style_options::ButtonStyleOption opt;
     opt.initFrom(this);
-    opt.rounded_borders = false;
+    opt.set_rounded(false);
     p.drawControl(QStyle::CE_PushButton,opt);
 }
 void __sub_widgets__::LineEdit::paintEvent(QPaintEvent* event){
@@ -77,7 +77,7 @@ void __sub_widgets__::LineEdit::paintEvent(QPaintEvent* event){
     QStylePainter p(this);
     style_options::ButtonStyleOption opt;
     opt.initFrom(this);
-    opt.rounded_borders = false;
+    opt.set_rounded(false);
     p.drawPrimitive(QStyle::PE_FrameLineEdit,opt);
     p.drawPrimitive(QStyle::PE_PanelLineEdit,opt);
 }
