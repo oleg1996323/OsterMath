@@ -7,11 +7,11 @@
 #include <QPainter>
 #include <QCommonStyle>
 #include <QProxyStyle>
+#include <QStyleOption>
 
 class QSplitterHandle;
 
 namespace Themes{
-
 constexpr int border_round_common = 5;
 constexpr int frame_line_width_back = 6;
 constexpr int frame_line_width_submid = 4;

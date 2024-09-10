@@ -18,43 +18,68 @@ NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){
 
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
-        INFO_NODE info = qobject_cast<const model::NodeView*>(index.model())->get_node();
-        utilities::DelegateNodeEditor* editor;
-        if(info.node()){
+        std::shared_ptr<Node> node = qobject_cast<const model::NodeView*>(index.model())->get_node().node();
+        INFO_NODE info;
+        bool btn_need=false;
+        utilities::DelegateNodeEditor* editor = nullptr;
+        if(node){
             //case when child exists
-            if(index.column()<info.node()->childs().size()){
-                if(info.node()->has_child(index.column())){
-                    if(index.row()<info.node()->child(index.column())->childs().size()){
-                        if(info.node()->is_array())
-                        {
-                            info={qobject_cast<NodeView*>(index.model())->get_node().node().get(),index.column()};
+            if(!node->has_childs()){
+                if(index.row()==0 && index.column()==0)
+                    btn_need=false;
+                else return nullptr;
+            }
+            else if(node->is_array()){
+                if(index.column()<node->childs().size()){
+                    if(node->child(index.column())->is_array()){
+                        if(index.row()<=node->child(index.column())->childs().size()){
+                            btn_need = true;
+                            info={node->child(index.column()).get(),index.row()};
                         }
-                        else{
-
-                        }
-                        return editor;
+                        else return nullptr;
                     }
-                    else return nullptr;
+                    else{
+                        if(index.row()==0){
+                            btn_need = true;
+                            info={node->child(index.column()).get(),index.column()};
+                        }
+                        else if(index.row()==1){
+                            btn_need = false;
+                        }
+                        else return nullptr;
+                    }
                 }
-                else{
+                else if(index.column()==node->childs().size()){
                     if(index.row()==0){
-                        info={qobject_cast<NodeView*>(index.model())->get_node().node().get(),index.column()};
+                        btn_need = true;
+                        info={node.get(),index.column()};
                     }
                     else return nullptr;
                 }
+                else return nullptr;
             }
-            //case when child don't exists
-            else if(index.column()==info.node()->childs().size()){
-                info={qobject_cast<NodeView*>(index.model())->get_node().node().get(),index.column()};
+            else{
+                if(index.column()==0)
+                    if(index.row()<=1){
+                        btn_need = false;
+                    }
+                    else return nullptr;
+                else if(index.column()==1){
+                    if(index.row()==0){
+                        btn_need = false;
+                    }
+                    else return nullptr;
+                }
+                else return nullptr;
             }
-            else return nullptr;
         }
         else return nullptr;
-        editor = new utilities::DelegateNodeEditor(parent,std::move(info),true);
-        connect(editor,&utilities::DelegateNodeEditor::show_node,
-        this, [this](Node* parent,size_t id){
-            emit show_node(parent,id);
-        });
+        editor = new utilities::DelegateNodeEditor(parent,std::make_unique<INFO_NODE>(info),btn_need);
+        if(btn_need)
+            connect(editor,&utilities::DelegateNodeEditor::show_node,
+            this, [this](Node* parent,size_t id){
+                emit show_node(parent,id);
+            });
         return editor;
     }
     else return nullptr;
@@ -62,20 +87,20 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
 
 void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const{
     if(index.isValid()){
-        Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();
-        if(node){
-            QLineEdit* ptr = qobject_cast<QLineEdit*>(editor);
-            std::stringstream stream;
-            node->print_text(stream);
-            qDebug()<<QString::fromStdString(stream.str());
-            ptr->setText(QString::fromStdString(stream.str()));
+        if(Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>()){
+            if(utilities::DelegateNodeEditor* ptr = qobject_cast<utilities::DelegateNodeEditor*>(editor)){
+                std::stringstream stream;
+                node->print_text(stream);
+                qDebug()<<QString::fromStdString(stream.str());
+                ptr->set_text(QString::fromStdString(stream.str()));
+            }
         }
     }
 }
 
 void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
     if(index.isValid() && editor){
-        if(QLineEdit* ptr = qobject_cast<QLineEdit*>(editor))
+        if(utilities::DelegateNodeEditor* ptr = qobject_cast<utilities::DelegateNodeEditor*>(editor))
             model->setData(index,ptr->text(),Qt::DisplayRole);
         else if(QPushButton* ptr = qobject_cast<QPushButton*>(editor)){
             Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();

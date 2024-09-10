@@ -2,6 +2,7 @@
 #include "kernel/application.h"
 #include "dataview/variable_list/dock.h"
 #include <QTimer>
+#include "model/nodeview_delegate.h"
 
 namespace dataview{
 
@@ -25,7 +26,7 @@ Sheets::Sheets(QWidget* parent):
     connect(findChild<::model::VariablesDelegate*>("var_list_delegate"), &::model::VariablesDelegate::show_node,[this](Node* parent,size_t id){
         qobject_cast<View*>(currentWidget())->show_node(parent,id);
     });
-    connect(findChild<::model::VariablesDelegate*>("node_view_delegate"), &::model::VariablesDelegate::show_node,[this](Node* parent,size_t id){
+    connect(findChild<::model::NodeViewDelegate*>("node_view_delegate"), &::model::NodeViewDelegate::show_node,[this](Node* parent,size_t id){
         qobject_cast<View*>(currentWidget())->show_node(parent,id);
     });
 }

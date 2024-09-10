@@ -10,6 +10,7 @@
 #include <QSplitter>
 #include <QStylePainter>
 #include <qdrawutil.h>
+#include "styles/button_style_option.h"
 
 namespace dataview{
 class TitleBar;
@@ -159,10 +160,24 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
             grad.setColorAt(0,opt->palette.button().color());
             grad.setColorAt(0.5,opt->palette.midlight().color());
             grad.setColorAt(1,opt->palette.light().color());
-            QPainterPath path;
-            path.addRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
-            p->setClipPath(path);
-            p->fillPath(path,grad);
+            if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
+                if(btn_opt->borders){
+                    if(btn_opt->rounded_borders){
+                        QPainterPath path;
+                        path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
+                        p->setClipPath(path);
+                        p->fillPath(path,grad);
+                    }
+                    else p->drawRect(btn_opt->rect);
+                }
+                p->fillRect(btn_opt->rect,grad);
+            }
+            else{
+                QPainterPath path;
+                path.addRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
+                p->setClipPath(path);
+                p->fillPath(path,grad);
+            }
         }
         else{
             QPainterPath path;
@@ -171,6 +186,9 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
             p->fillPath(path,opt->palette.button());
         }
         break;
+    }
+    case PE_FrameButtonBevel:{
+
     }
     case PE_IndicatorDockWidgetResizeHandle:{
 //        if(opt){
@@ -190,6 +208,12 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
 //        else
             QProxyStyle::drawPrimitive(element,opt,p,widget);
         break;
+    }
+    case PE_PanelLineEdit:{
+        QProxyStyle::drawPrimitive(element,opt,p,widget);
+    }
+    case PE_FrameLineEdit:{
+        QProxyStyle::drawPrimitive(element,opt,p,widget);
     }
     default:
         QProxyStyle::drawPrimitive(element,opt,p,widget);
