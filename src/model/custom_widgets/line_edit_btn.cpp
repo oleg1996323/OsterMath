@@ -4,6 +4,7 @@
 #include <QPainter>
 #include "arithmetic_types.h"
 #include "styles/button_style_option.h"
+#include "styles/line_edit_style_option.h"
 #include <QStylePainter>
 
 namespace model::utilities {
@@ -81,10 +82,30 @@ void __sub_widgets__::Button::paintEvent(QPaintEvent* event){
 void __sub_widgets__::LineEdit::paintEvent(QPaintEvent* event){
     Q_UNUSED(event);
     QStylePainter p(this);
-    style_options::ButtonStyleOption opt;
+    style_options::LineEditStyleOption opt;
     opt.initFrom(this);
     opt.set_rounded(false);
-    p.drawPrimitive(QStyle::PE_FrameLineEdit,opt);
+    opt.lineWidth = 0;
+    opt.borders = false;
     p.drawPrimitive(QStyle::PE_PanelLineEdit,opt);
+}
+
+bool __sub_widgets__::LineEdit::borders() const{
+    return borders_;
+}
+void __sub_widgets__::LineEdit::setBorders(bool a){
+    borders_ = a;
+}
+int __sub_widgets__::LineEdit::border_radius() const{
+    return border_radius_;
+}
+void __sub_widgets__::LineEdit::setBorder_radius(int a){
+    border_radius_ = a;
+}
+bool __sub_widgets__::LineEdit::rounded_borders() const{
+    return rounded_borders_;
+}
+void __sub_widgets__::LineEdit::setRounded_borders(bool a){
+    rounded_borders_ = a;
 }
 }

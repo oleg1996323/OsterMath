@@ -23,7 +23,8 @@ enum TYPE{
 };
 
 enum StyleOptionTypes{
-    SO_AdvancedPushButton = QStyleOption::SO_CustomBase + 1
+    SO_AdvancedPushButton = QStyleOption::SO_CustomBase + 1,
+    SO_AdvancedLineEdit = SO_AdvancedPushButton +1
 };
 
 class Palette:public QPalette{

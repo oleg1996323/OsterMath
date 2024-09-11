@@ -11,6 +11,7 @@
 #include <QStylePainter>
 #include <qdrawutil.h>
 #include "styles/button_style_option.h"
+#include "styles/line_edit_style_option.h"
 
 namespace dataview{
 class TitleBar;
@@ -220,11 +221,61 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
         break;
     }
     case PE_PanelLineEdit:{
-        QProxyStyle::drawPrimitive(element,opt,p,widget);
+        if(!widget)
+            return;
+
+        if(const style_options::LineEditStyleOption* panel = qstyleoption_cast<const style_options::LineEditStyleOption*>(opt)){
+            p->save();
+            QRect adj;
+            p->setBrush(panel->palette.light());
+            if(panel->borders){
+                adj = panel->rect.adjusted(panel->lineWidth, panel->lineWidth, -panel->lineWidth, -panel->lineWidth);
+                if(panel->rounded()){
+                    p->drawRoundedRect(adj,panel->border_radius,panel->border_radius);
+                }
+                else p->drawRect(adj);
+                p->restore();
+                drawPrimitive(PE_FrameLineEdit, panel, p, widget);
+                break;
+            }
+            else{
+                p->setPen(QPen(QBrush(),0));
+                if(panel->rounded()){
+                    p->drawRoundedRect(panel->rect,panel->border_radius,panel->border_radius);
+                }
+                else p->drawRect(panel->rect);
+            }
+            p->restore();
+            break;
+        }
+        else if (const QStyleOptionFrame *panel = qstyleoption_cast<const QStyleOptionFrame *>(opt)) {
+            QProxyStyle::drawPrimitive(element,opt,p,widget);
+        }
+        break;
+    }
+    case PE_Frame:{
+        if(!widget)
+            return;
+        if(const style_options::LineEditStyleOption* panel = qstyleoption_cast<const style_options::LineEditStyleOption*>(opt)){
+            p->save();
+            QRect adj;
+            if(panel->borders){
+                p->setPen(QPen(opt->palette.dark(),panel->lineWidth));
+                if(panel->rounded()){
+                    p->drawRoundedRect(adj,panel->border_radius,panel->border_radius);
+                }
+                else p->drawRect(adj);
+            }
+            p->restore();
+            break;
+        }
+        else if (const QStyleOptionFrame *panel = qstyleoption_cast<const QStyleOptionFrame *>(opt)) {
+            QProxyStyle::drawPrimitive(element,opt,p,widget);
+        }
         break;
     }
     case PE_FrameLineEdit:{
-        QProxyStyle::drawPrimitive(element,opt,p,widget);
+        drawPrimitive(PE_Frame, opt, p, widget);
         break;
     }
     default:
@@ -396,21 +447,23 @@ int OsterStyle::layoutSpacing(QSizePolicy::ControlType control1,
 
 int OsterStyle::pixelMetric(QStyle::PixelMetric m, const QStyleOption *opt = nullptr, const QWidget *widget = nullptr) const{
     switch(m){
-    case PM_SplitterWidth:{
-        return 0;
-        break;
+        case PM_SplitterWidth:{
+            return 0;
+            break;
+        }
+        default:{
+            if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
+                QStyleOptionButton tmp_opt= *btn_opt;
+                QProxyStyle::pixelMetric(m,&tmp_opt,widget);
+                break;
+            }
+            else{
+                return QProxyStyle::pixelMetric(m,opt,widget);
+                break;
+            }
+        }
     }
-    case PM_ButtonDefaultIndicator:
-        return 0;
-        break;
-    case PM_ButtonMargin:{
-        return 0;
-        break;
-    }
-    default:{
-        return baseStyle()->pixelMetric(m,opt,widget);
-    }
-    }
+    return baseStyle()->pixelMetric(m,opt,widget);
 }
 void OsterStyle::polish(QPalette &pal){
     baseStyle()->polish(pal);
