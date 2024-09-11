@@ -16,6 +16,7 @@ info_(std::move(info))
     layout_->setContentsMargins(0,0,0,0);
     layout_->setSpacing(0);
     expr_edit_ = new __sub_widgets__::LineEdit(this);
+    expr_edit_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
     layout_->addWidget(expr_edit_);
     if(btn_active){
         btn_view_node_ = new __sub_widgets__::Button("...",this);
@@ -24,6 +25,7 @@ info_(std::move(info))
             assert(info_->parent);
             emit show_node(info_->parent,info_->id);
         });
+        btn_view_node_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
         layout_->addWidget(btn_view_node_);
     }
     setLayout(layout_);
@@ -37,6 +39,7 @@ info_(std::move(info))
     layout_->setContentsMargins(0,0,0,0);
     layout_->setSpacing(0);
     expr_edit_ = new __sub_widgets__::LineEdit(line_text,this);
+    expr_edit_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
     layout_->addWidget(expr_edit_);
     if(btn_active){
         btn_view_node_ = new __sub_widgets__::Button("...",this);
@@ -45,6 +48,7 @@ info_(std::move(info))
             assert(info_->parent);
             emit show_node(info_->parent,info_->id);
         });
+        btn_view_node_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
         layout_->addWidget(btn_view_node_);
     }
     setLayout(layout_);
@@ -59,16 +63,18 @@ void DelegateNodeEditor::enable_btn(bool arg){
 void DelegateNodeEditor::enable_editing(bool arg){
     expr_edit_->setEnabled(arg);
 }
-
 QString DelegateNodeEditor::text() const noexcept{
     return expr_edit_->text();
 }
-
 void __sub_widgets__::Button::paintEvent(QPaintEvent* event){
     Q_UNUSED(event);
     QStylePainter p(this);
     style_options::ButtonStyleOption opt;
     opt.initFrom(this);
+    opt.text = text();
+    opt.icon = icon();
+    opt.iconSize = iconSize();
+    opt.features = QStyleOptionButton::DefaultButton;
     opt.set_rounded(false);
     p.drawControl(QStyle::CE_PushButton,opt);
 }

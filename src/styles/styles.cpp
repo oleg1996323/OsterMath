@@ -158,29 +158,26 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
             grad.setColorAt(0,opt->palette.button().color());
             grad.setColorAt(0.5,opt->palette.midlight().color());
             grad.setColorAt(1,opt->palette.light().color());
+            p->setBrush(grad);
+            p->setPen(QPen(opt->palette.dark(),1));
             if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
-                if(btn_opt->borders){
-                    if(btn_opt->rounded()){
-                        btn_opt->path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
-                        p->setClipPath(btn_opt->path);
-                        p->fillPath(btn_opt->path,grad);
-                    }
-                    else p->drawRect(btn_opt->rect);
-                }
-                p->fillRect(btn_opt->rect,grad);
+                if(btn_opt->rounded())
+                    p->drawRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
+                else p->drawRect(btn_opt->rect);
             }
-            else{
-                QPainterPath path;
-                path.addRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
-                p->setClipPath(path);
-                p->fillPath(path,grad);
-            }
+            else
+                p->drawRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
         }
         else{
-            QPainterPath path;
-            path.addRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
-            p->setClipPath(path);
-            p->fillPath(path,opt->palette.button());
+            p->setBrush(opt->palette.button());
+            p->setPen(QPen(opt->palette.dark(),1));
+            if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
+                if(btn_opt->rounded())
+                    p->drawRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
+                else p->drawRect(btn_opt->rect);
+            }
+            else
+                p->drawRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
         }
         break;
     }
@@ -191,9 +188,10 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
                     btn_opt->path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
                     p->setClipPath(btn_opt->path);
                     p->drawPath(btn_opt->path);
-                    p->strokePath(btn_opt->path,QPen(btn_opt->palette.dark().color()));
+                    p->strokePath(btn_opt->path,QPen(btn_opt->palette.dark().color(),1));
                 }
                 else {
+                    p->setPen(QPen(opt->palette.dark(),1));
                     qDrawShadeRect(p, opt->rect, opt->palette, true, 1, 0, nullptr);
                 }
             }
@@ -308,7 +306,7 @@ void OsterStyle::drawControl(ControlElement element,
         if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
             p->save();
             proxy()->drawControl(CE_PushButtonBevel, btn_opt, p, widget);
-            QStyleOptionButton subopt = *btn_opt;
+            style_options::ButtonStyleOption subopt = *btn_opt;
             subopt.rect = subElementRect(SE_PushButtonContents, btn_opt, widget);
             proxy()->drawControl(CE_PushButtonLabel, &subopt, p, widget);
             if (btn_opt->state & State_HasFocus) {
@@ -330,21 +328,23 @@ void OsterStyle::drawControl(ControlElement element,
         if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
             QRect br = btn_opt->rect;
             int dbi = proxy()->pixelMetric(PM_ButtonDefaultIndicator, btn_opt, widget);
-            if (btn_opt->features & QStyleOptionButton::DefaultButton)
+            if (btn_opt->borders){
                 proxy()->drawPrimitive(PE_FrameDefaultButton, opt, p, widget);
+                proxy()->drawPrimitive(PE_FrameButtonBevel, opt, p, widget);
+            }
             if (btn_opt->features & QStyleOptionButton::AutoDefaultButton)
                 br.setCoords(br.left() + dbi, br.top() + dbi, br.right() - dbi, br.bottom() - dbi);
             if (!(btn_opt->features & (QStyleOptionButton::Flat | QStyleOptionButton::CommandLinkButton))
                     || btn_opt->state & (State_Sunken | State_On)
                     || (btn_opt->features & QStyleOptionButton::CommandLinkButton && btn_opt->state & State_MouseOver)) {
-                QStyleOptionButton tmpBtn = *btn_opt;
+                style_options::ButtonStyleOption tmpBtn = *btn_opt;
                 tmpBtn.rect = br;
                 proxy()->drawPrimitive(PE_PanelButtonCommand, &tmpBtn, p, widget);
             }
             if (btn_opt->features & QStyleOptionButton::HasMenu) {
                 int mbi = proxy()->pixelMetric(PM_MenuButtonIndicator, btn_opt, widget);
                 QRect ir = btn_opt->rect;
-                QStyleOptionButton newBtn = *btn_opt;
+                style_options::ButtonStyleOption newBtn = *btn_opt;
                 newBtn.rect = QRect(ir.right() - mbi - 2, ir.height()/2 - mbi/2 + 3, mbi - 6, mbi - 6);
                 newBtn.rect = visualRect(btn_opt->direction, br, newBtn.rect);
                 proxy()->drawPrimitive(PE_IndicatorArrowDown, &newBtn, p, widget);
@@ -358,76 +358,18 @@ void OsterStyle::drawControl(ControlElement element,
     }
     case CE_PushButtonLabel:{
         if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-            QRect textRect = btn_opt->rect;
-            int tf = Qt::AlignVCenter | Qt::TextShowMnemonic;
-            if (!proxy()->styleHint(SH_UnderlineShortcut, btn_opt, widget))
-                tf |= Qt::TextHideMnemonic;
-
-            if (btn_opt->features & QStyleOptionButton::HasMenu) {
-                int indicatorSize = proxy()->pixelMetric(PM_MenuButtonIndicator, btn_opt, widget);
-                if (btn_opt->direction == Qt::LeftToRight)
-                    textRect = textRect.adjusted(0, 0, -indicatorSize, 0);
-                else
-                    textRect = textRect.adjusted(indicatorSize, 0, 0, 0);
-            }
-
-            if (!btn_opt->icon.isNull()) {
-                //Center both icon and text
-                QIcon::Mode mode = btn_opt->state & State_Enabled ? QIcon::Normal : QIcon::Disabled;
-                if (mode == QIcon::Normal && btn_opt->state & State_HasFocus)
-                    mode = QIcon::Active;
-                QIcon::State state = QIcon::Off;
-                if (btn_opt->state & State_On)
-                    state = QIcon::On;
-                QPixmap pixmap = btn_opt->icon.pixmap(btn_opt->iconSize, p->device()->devicePixelRatio(), mode, state);
-                int pixmapWidth = pixmap.width() / pixmap.devicePixelRatio();
-                int pixmapHeight = pixmap.height() / pixmap.devicePixelRatio();
-                int labelWidth = pixmapWidth;
-                int labelHeight = pixmapHeight;
-                int iconSpacing = 4;//### 4 is currently hardcoded in QPushButton::sizeHint()
-                if (!btn_opt->text.isEmpty()) {
-                    int textWidth = btn_opt->fontMetrics.boundingRect(opt->rect, tf, btn_opt->text).width();
-                    labelWidth += (textWidth + iconSpacing);
-                }
-
-                QRect iconRect = QRect(textRect.x() + (textRect.width() - labelWidth) / 2,
-                                       textRect.y() + (textRect.height() - labelHeight) / 2,
-                                       pixmapWidth, pixmapHeight);
-
-                iconRect = visualRect(btn_opt->direction, textRect, iconRect);
-
-                if (btn_opt->direction == Qt::RightToLeft)
-                    textRect.setRight(iconRect.left() - iconSpacing / 2);
-                else
-                    textRect.setLeft(iconRect.left() + iconRect.width() + iconSpacing / 2);
-
-                // qt_format_text reverses again when  painter->layoutDirection is also RightToLeft
-                if (p->layoutDirection() == btn_opt->direction)
-                    tf |= Qt::AlignLeft;
-                else
-                    tf |= Qt::AlignRight;
-
-                if (btn_opt->state & (State_On | State_Sunken))
-                    iconRect.translate(proxy()->pixelMetric(PM_ButtonShiftHorizontal, opt, widget),
-                                       proxy()->pixelMetric(PM_ButtonShiftVertical, opt, widget));
-                p->drawPixmap(iconRect, pixmap);
-            } else {
-                tf |= Qt::AlignHCenter;
-            }
-            if (btn_opt->state & (State_On | State_Sunken))
-                textRect.translate(proxy()->pixelMetric(PM_ButtonShiftHorizontal, opt, widget),
-                                   proxy()->pixelMetric(PM_ButtonShiftVertical, opt, widget));
-
-            proxy()->drawItemText(p, textRect, tf, btn_opt->palette, (btn_opt->state & State_Enabled),
-                                  btn_opt->text, QPalette::ButtonText);
+            QStyleOptionButton tmp_opt= *btn_opt;
+            QProxyStyle::drawControl(element,&tmp_opt,p,widget);
+            break;
         }
         else{
             QProxyStyle::drawControl(element,opt,p,widget);
+            break;
         }
-        break;
     }
     default:
         QProxyStyle::drawControl(element,opt,p,widget);
+        break;
     }
 }
 
@@ -454,7 +396,14 @@ int OsterStyle::layoutSpacing(QSizePolicy::ControlType control1,
 
 int OsterStyle::pixelMetric(QStyle::PixelMetric m, const QStyleOption *opt = nullptr, const QWidget *widget = nullptr) const{
     switch(m){
-    case(PM_SplitterWidth):{
+    case PM_SplitterWidth:{
+        return 0;
+        break;
+    }
+    case PM_ButtonDefaultIndicator:
+        return 0;
+        break;
+    case PM_ButtonMargin:{
         return 0;
         break;
     }
@@ -464,10 +413,10 @@ int OsterStyle::pixelMetric(QStyle::PixelMetric m, const QStyleOption *opt = nul
     }
 }
 void OsterStyle::polish(QPalette &pal){
-    QCommonStyle::polish(pal);
+    baseStyle()->polish(pal);
 }
 void OsterStyle::polish(QApplication *app){
-    QCommonStyle::polish(app);
+    baseStyle()->polish(app);
 }
 void OsterStyle::polish(QWidget *widget){
     if(QPushButton* btn = qobject_cast<QPushButton*>(widget))
@@ -475,12 +424,23 @@ void OsterStyle::polish(QWidget *widget){
     if(QSplitterHandle* handle = qobject_cast<QSplitterHandle*>(widget)){
         handle->setAttribute(Qt::WA_Hover,true);
     }
-    QCommonStyle::polish(widget);
+    baseStyle()->polish(widget);
 }
 QSize OsterStyle::sizeFromContents(QStyle::ContentsType ct, const QStyleOption *opt, const QSize &csz, const QWidget *widget = nullptr) const{
-    if(ct==QStyle::CT_ItemViewItem)
-        return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
-    return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
+    switch(ct){
+        case CT_PushButton:{
+            if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
+                QStyleOptionButton tmp_opt= *btn_opt;
+                return QProxyStyle::sizeFromContents(ct,&tmp_opt,csz,widget);
+            }
+            else
+                return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
+            break;
+        }
+        default:{
+            return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
+        }
+    }
 }
 QPixmap	OsterStyle::standardPixmap(QStyle::StandardPixmap sp, const QStyleOption *option = nullptr, const QWidget *widget = nullptr) const{
     return QProxyStyle::standardPixmap(sp,option,widget);
@@ -492,7 +452,30 @@ QRect OsterStyle::subControlRect(QStyle::ComplexControl cc, const QStyleOptionCo
     return QProxyStyle::subControlRect(cc,opt,sc,widget);
 }
 QRect OsterStyle::subElementRect(QStyle::SubElement sr, const QStyleOption *opt, const QWidget *widget = nullptr) const{
-    return QProxyStyle::subElementRect(sr,opt,widget);
+    switch(sr){
+    case SE_PushButtonContents:{
+        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
+            QStyleOptionButton tmp_opt= *btn_opt;
+            return QProxyStyle::subElementRect(sr,&tmp_opt,widget);
+        }
+        else
+            return QProxyStyle::subElementRect(sr,opt,widget);
+        break;
+    }
+    case SE_PushButtonFocusRect:{
+        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
+            QStyleOptionButton tmp_opt= *btn_opt;
+            return QProxyStyle::subElementRect(sr,&tmp_opt,widget);
+        }
+        else
+            return QProxyStyle::subElementRect(sr,opt,widget);
+        break;
+    }
+    default:{
+        return QProxyStyle::subElementRect(sr,opt,widget);
+        break;
+    }
+    }
 }
 void OsterStyle::unpolish(QWidget *widget){
     {
