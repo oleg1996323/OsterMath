@@ -30,6 +30,11 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_LIST_DIR}/lib/Debug)
 
 message(STATUS ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG})
 
+file(GLOB_RECURSE OSTER_WIDGETS
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/widgets/*.h
+    )
+
 file(GLOB_RECURSE PROJECT_SOURCES_KERNEL
     ${CMAKE_CURRENT_SOURCE_DIR}/src/kernel/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/kernel/*.h
@@ -102,10 +107,12 @@ include_directories(
         /usr/include/c++/11
         ${ARITHMTREE_DIR}/include)
 
-add_library(styles SHARED ${PROJECT_SOURCES_STYLES})
+add_library(styles SHARED ${PROJECT_SOURCES_STYLES} ${OSTER_WIDGETS})
 
 target_include_directories(styles PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/styles
-                                ${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
+					${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
+					${CMAKE_CURRENT_SOURCE_DIR}/include/styles
+					${CMAKE_CURRENT_SOURCE_DIR}/include/widgets)
 
 target_link_libraries(styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 

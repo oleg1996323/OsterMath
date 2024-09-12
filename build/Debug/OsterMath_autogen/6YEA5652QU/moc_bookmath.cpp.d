@@ -44,6 +44,8 @@
   /home/oster/OsterMath/include/utilities/windows/opennew.h \
   /home/oster/OsterMath/include/utilities/windows/settings.h \
   /home/oster/OsterMath/include/utilities/windows/windef.h \
+  /home/oster/OsterMath/include/widgets/PushButton.h \
+  /home/oster/OsterMath/include/widgets/__borders_interface__.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \

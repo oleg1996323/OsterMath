@@ -180,7 +180,7 @@ void BookMath::__load_settings__(){
     QSettings* sets_ = kernel::settings::Program::get_settings();
     sets_->beginGroup("bookmath");
         if(sets_->value("geometry").isNull())
-            functional::fullscreen(this);
+            resize(functional::fullscreen_size());
         else
             setGeometry(sets_->value("geometry").toRect());
     sets_->endGroup();

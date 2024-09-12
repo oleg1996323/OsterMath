@@ -527,6 +527,8 @@
 		"/home/oster/OsterMath/include/kernel",
 		"/home/oster/OsterMath/src/styles",
 		"/home/oster/OsterMath/include/styles",
+		"/home/oster/OsterMath/src/widgets",
+		"/home/oster/OsterMath/include/widgets",
 		"/usr/include/x86_64-linux-gnu/qt6/QtCore",
 		"/usr/include/x86_64-linux-gnu/qt6",
 		"/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++",

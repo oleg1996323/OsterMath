@@ -10,8 +10,8 @@
 #include <QSplitter>
 #include <QStylePainter>
 #include <qdrawutil.h>
-#include "styles/button_style_option.h"
-#include "styles/line_edit_style_option.h"
+#include "PushButton.h"
+#include "LineEdit.h"
 
 namespace dataview{
 class TitleBar;
@@ -161,10 +161,10 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
             grad.setColorAt(1,opt->palette.light().color());
             p->setBrush(grad);
             p->setPen(QPen(opt->palette.dark(),1));
-            if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
-                if(btn_opt->rounded())
-                    p->drawRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
-                else p->drawRect(btn_opt->rect);
+            if(const PushButton* btn = qobject_cast<const PushButton*>(widget)){
+                if(btn->rounded_borders())
+                    p->drawRoundedRect(opt->rect,btn->border_radius(),btn->border_radius());
+                else p->drawRect(opt->rect);
             }
             else
                 p->drawRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
@@ -172,10 +172,10 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
         else{
             p->setBrush(opt->palette.button());
             p->setPen(QPen(opt->palette.dark(),1));
-            if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
-                if(btn_opt->rounded())
-                    p->drawRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
-                else p->drawRect(btn_opt->rect);
+            if(const PushButton* btn = qobject_cast<const PushButton*>(widget)){
+                if(btn->rounded_borders())
+                    p->drawRoundedRect(opt->rect,btn->border_radius(),btn->border_radius());
+                else p->drawRect(opt->rect);
             }
             else
                 p->drawRoundedRect(opt->rect,Themes::border_round_common,Themes::border_round_common);
@@ -183,13 +183,11 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
         break;
     }
     case PE_FrameButtonBevel:{
-        if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
-            if(btn_opt->borders){
-                if(btn_opt->rounded()){
-                    btn_opt->path.addRoundedRect(btn_opt->rect,btn_opt->border_radius,btn_opt->border_radius);
-                    p->setClipPath(btn_opt->path);
-                    p->drawPath(btn_opt->path);
-                    p->strokePath(btn_opt->path,QPen(btn_opt->palette.dark().color(),1));
+        if(const PushButton* btn = qobject_cast<const PushButton*>(widget)){
+            if(btn->borders()){
+                if(btn->rounded_borders()){
+                    p->setPen(QPen(opt->palette.dark(),1)); //TODO add to pixelmetric
+                    p->drawRoundedRect(opt->rect,btn->border_radius(),btn->border_radius());
                 }
                 else {
                     p->setPen(QPen(opt->palette.dark(),1));
@@ -223,54 +221,57 @@ void OsterStyle::drawPrimitive(PrimitiveElement element,
     case PE_PanelLineEdit:{
         if(!widget)
             return;
-
-        if(const style_options::LineEditStyleOption* panel = qstyleoption_cast<const style_options::LineEditStyleOption*>(opt)){
-            p->save();
-            QRect adj;
-            p->setBrush(panel->palette.light());
-            if(panel->borders){
-                adj = panel->rect.adjusted(panel->lineWidth, panel->lineWidth, -panel->lineWidth, -panel->lineWidth);
-                if(panel->rounded()){
-                    p->drawRoundedRect(adj,panel->border_radius,panel->border_radius);
+        if(const QStyleOptionFrame* line_opt = qstyleoption_cast<const QStyleOptionFrame*>(opt)){
+            if(const LineEdit* panel = qobject_cast<const LineEdit*>(widget)){
+                p->save();
+                QRect adj;
+                p->setBrush(opt->palette.light());
+                if(panel->borders()){
+                    adj = line_opt->rect.adjusted(line_opt->lineWidth, line_opt->lineWidth, -line_opt->lineWidth, -line_opt->lineWidth);
+                    if(panel->rounded_borders()){
+                        p->drawRoundedRect(adj,panel->border_radius(),panel->border_radius());
+                    }
+                    else p->drawRect(adj);
+                    p->restore();
+                    drawPrimitive(PE_FrameLineEdit, opt, p, widget);
+                    break;
                 }
-                else p->drawRect(adj);
+                else{
+                    p->setPen(QPen(QBrush(),0));
+                    if(panel->rounded_borders()){
+                        p->drawRoundedRect(line_opt->rect,panel->border_radius(),panel->border_radius());
+                    }
+                    else p->drawRect(line_opt->rect);
+                }
                 p->restore();
-                drawPrimitive(PE_FrameLineEdit, panel, p, widget);
                 break;
             }
-            else{
-                p->setPen(QPen(QBrush(),0));
-                if(panel->rounded()){
-                    p->drawRoundedRect(panel->rect,panel->border_radius,panel->border_radius);
-                }
-                else p->drawRect(panel->rect);
+            else if (const QStyleOptionFrame *panel = qstyleoption_cast<const QStyleOptionFrame *>(opt)) {
+                QProxyStyle::drawPrimitive(element,opt,p,widget);
             }
-            p->restore();
-            break;
-        }
-        else if (const QStyleOptionFrame *panel = qstyleoption_cast<const QStyleOptionFrame *>(opt)) {
-            QProxyStyle::drawPrimitive(element,opt,p,widget);
         }
         break;
     }
     case PE_Frame:{
         if(!widget)
             return;
-        if(const style_options::LineEditStyleOption* panel = qstyleoption_cast<const style_options::LineEditStyleOption*>(opt)){
-            p->save();
-            QRect adj;
-            if(panel->borders){
-                p->setPen(QPen(opt->palette.dark(),panel->lineWidth));
-                if(panel->rounded()){
-                    p->drawRoundedRect(adj,panel->border_radius,panel->border_radius);
+        if(const QStyleOptionFrame* line_opt = qstyleoption_cast<const QStyleOptionFrame*>(opt)){
+            if(const LineEdit* panel = qobject_cast<const LineEdit*>(widget)){
+                p->save();
+                QRect adj;
+                if(panel->borders()){
+                    p->setPen(QPen(opt->palette.dark(),line_opt->lineWidth));
+                    if(panel->rounded_borders()){
+                        p->drawRoundedRect(adj,panel->border_radius(),panel->border_radius());
+                    }
+                    else p->drawRect(adj);
                 }
-                else p->drawRect(adj);
+                p->restore();
+                break;
             }
-            p->restore();
-            break;
-        }
-        else if (const QStyleOptionFrame *panel = qstyleoption_cast<const QStyleOptionFrame *>(opt)) {
-            QProxyStyle::drawPrimitive(element,opt,p,widget);
+            else if (const QStyleOptionFrame *panel = qstyleoption_cast<const QStyleOptionFrame *>(opt)) {
+                QProxyStyle::drawPrimitive(element,opt,p,widget);
+            }
         }
         break;
     }
@@ -354,21 +355,7 @@ void OsterStyle::drawControl(ControlElement element,
         break;
     }
     case CE_PushButton:{
-        if(const style_options::ButtonStyleOption* btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption*>(opt)){
-            p->save();
-            proxy()->drawControl(CE_PushButtonBevel, btn_opt, p, widget);
-            style_options::ButtonStyleOption subopt = *btn_opt;
-            subopt.rect = subElementRect(SE_PushButtonContents, btn_opt, widget);
-            proxy()->drawControl(CE_PushButtonLabel, &subopt, p, widget);
-            if (btn_opt->state & State_HasFocus) {
-                QStyleOptionFocusRect fropt;
-                fropt.QStyleOption::operator=(*btn_opt);
-                fropt.rect = subElementRect(SE_PushButtonFocusRect, btn_opt, widget);
-                proxy()->drawPrimitive(PE_FrameFocusRect, &fropt, p, widget);
-            }
-            p->restore();
-        }
-        else if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+        if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
             QProxyStyle::drawControl(element,opt,p,widget);
             break;
         }
@@ -376,41 +363,15 @@ void OsterStyle::drawControl(ControlElement element,
         break;
     }
     case CE_PushButtonBevel:{
-        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-            QRect br = btn_opt->rect;
-            int dbi = proxy()->pixelMetric(PM_ButtonDefaultIndicator, btn_opt, widget);
-            if (btn_opt->borders){
-                proxy()->drawPrimitive(PE_FrameDefaultButton, opt, p, widget);
-                proxy()->drawPrimitive(PE_FrameButtonBevel, opt, p, widget);
-            }
-            if (btn_opt->features & QStyleOptionButton::AutoDefaultButton)
-                br.setCoords(br.left() + dbi, br.top() + dbi, br.right() - dbi, br.bottom() - dbi);
-            if (!(btn_opt->features & (QStyleOptionButton::Flat | QStyleOptionButton::CommandLinkButton))
-                    || btn_opt->state & (State_Sunken | State_On)
-                    || (btn_opt->features & QStyleOptionButton::CommandLinkButton && btn_opt->state & State_MouseOver)) {
-                style_options::ButtonStyleOption tmpBtn = *btn_opt;
-                tmpBtn.rect = br;
-                proxy()->drawPrimitive(PE_PanelButtonCommand, &tmpBtn, p, widget);
-            }
-            if (btn_opt->features & QStyleOptionButton::HasMenu) {
-                int mbi = proxy()->pixelMetric(PM_MenuButtonIndicator, btn_opt, widget);
-                QRect ir = btn_opt->rect;
-                style_options::ButtonStyleOption newBtn = *btn_opt;
-                newBtn.rect = QRect(ir.right() - mbi - 2, ir.height()/2 - mbi/2 + 3, mbi - 6, mbi - 6);
-                newBtn.rect = visualRect(btn_opt->direction, br, newBtn.rect);
-                proxy()->drawPrimitive(PE_IndicatorArrowDown, &newBtn, p, widget);
-            }
-        }
-        else{
-            QProxyStyle::drawControl(element,opt,p,widget);
+        if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+            QProxyStyle::drawControl(element,btn_opt,p,widget);
             break;
         }
         break;
     }
     case CE_PushButtonLabel:{
-        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-            QStyleOptionButton tmp_opt= *btn_opt;
-            QProxyStyle::drawControl(element,&tmp_opt,p,widget);
+        if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+            QProxyStyle::drawControl(element,btn_opt,p,widget);
             break;
         }
         else{
@@ -452,9 +413,8 @@ int OsterStyle::pixelMetric(QStyle::PixelMetric m, const QStyleOption *opt = nul
             break;
         }
         default:{
-            if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-                QStyleOptionButton tmp_opt= *btn_opt;
-                QProxyStyle::pixelMetric(m,&tmp_opt,widget);
+            if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+                QProxyStyle::pixelMetric(m,btn_opt,widget);
                 break;
             }
             else{
@@ -482,9 +442,8 @@ void OsterStyle::polish(QWidget *widget){
 QSize OsterStyle::sizeFromContents(QStyle::ContentsType ct, const QStyleOption *opt, const QSize &csz, const QWidget *widget = nullptr) const{
     switch(ct){
         case CT_PushButton:{
-            if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-                QStyleOptionButton tmp_opt= *btn_opt;
-                return QProxyStyle::sizeFromContents(ct,&tmp_opt,csz,widget);
+            if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+                return QProxyStyle::sizeFromContents(ct,btn_opt,csz,widget);
             }
             else
                 return QProxyStyle::sizeFromContents(ct,opt,csz,widget);
@@ -507,18 +466,16 @@ QRect OsterStyle::subControlRect(QStyle::ComplexControl cc, const QStyleOptionCo
 QRect OsterStyle::subElementRect(QStyle::SubElement sr, const QStyleOption *opt, const QWidget *widget = nullptr) const{
     switch(sr){
     case SE_PushButtonContents:{
-        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-            QStyleOptionButton tmp_opt= *btn_opt;
-            return QProxyStyle::subElementRect(sr,&tmp_opt,widget);
+        if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+            return QProxyStyle::subElementRect(sr,btn_opt,widget);
         }
         else
             return QProxyStyle::subElementRect(sr,opt,widget);
         break;
     }
     case SE_PushButtonFocusRect:{
-        if (const style_options::ButtonStyleOption *btn_opt = qstyleoption_cast<const style_options::ButtonStyleOption *>(opt)) {
-            QStyleOptionButton tmp_opt= *btn_opt;
-            return QProxyStyle::subElementRect(sr,&tmp_opt,widget);
+        if(const QStyleOptionButton* btn_opt = qstyleoption_cast<const QStyleOptionButton*>(opt)){
+            return QProxyStyle::subElementRect(sr,btn_opt,widget);
         }
         else
             return QProxyStyle::subElementRect(sr,opt,widget);

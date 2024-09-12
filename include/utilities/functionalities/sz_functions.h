@@ -4,6 +4,5 @@
 #include <QScreen>
 
 namespace functional {
-    void fullscreen(QWidget* widget);
-    void zero_margins(QWidget* widget);
+    QSize fullscreen_size();
 }

@@ -3,12 +3,12 @@
 
 namespace functional{
 
-void fullscreen(QWidget* widget){
+QSize fullscreen_size(){
     QScreen *screen = kernel::Application::primaryScreen();
     QRect  screenGeometry = screen->geometry();
     int height = screenGeometry.height();
     int width = screenGeometry.width();
-    widget->resize(width,height);
+    return {width,height};
 }
 
 }

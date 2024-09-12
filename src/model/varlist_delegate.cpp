@@ -50,8 +50,10 @@ QWidget* VariablesDelegate::createEditor(QWidget *parent, const QStyleOptionView
                     (index.siblingAtColumn((int)HEADER::TYPE).data(Qt::EditRole).value<TYPE_VAL>()&
                     TYPE_VAL::ARRAY)){
                 //QModelIndex local_index = index;
-                model::utilities::__sub_widgets__::Button* see_var_data = new model::utilities::__sub_widgets__::Button("...",parent);
-                connect(see_var_data,&model::utilities::__sub_widgets__::Button::clicked,
+                PushButton* see_var_data = new PushButton("...",parent);
+                see_var_data->setBorders(false);
+                see_var_data->setRounded_borders(false);
+                connect(see_var_data,&PushButton::clicked,
                 this, [index, this](){
                     assert(index.model());
                     Node* node = index.data(Qt::EditRole).value<std::shared_ptr<Node>>().get();

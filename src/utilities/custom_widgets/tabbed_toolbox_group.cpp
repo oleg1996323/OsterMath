@@ -35,10 +35,7 @@ void TabbedGroupedTools::setGroupsMargins(int left,int top,int right,int bottom)
 }
 
 void TabbedGroupedTools::setGroupsMargins(QMargins margins){
-    for(auto box:boxes_){
-        if(box)
-            box->setContentsMargins(margins);
-    }
+    setGroupsMargins(margins.left(),margins.top(),margins.right(),margins.bottom());
 }
 
 void TabbedGroupedTools::setLayoutsContentsMargins(int left,int top,int right,int bottom){
@@ -50,9 +47,5 @@ void TabbedGroupedTools::setLayoutsContentsMargins(int left,int top,int right,in
 }
 
 void TabbedGroupedTools::setLayoutsContentsMargins(QMargins margins){
-    for(int i = 0;i<count();++i){
-        QWidget* w = widget(i);
-        if(w)
-            w->layout()->setContentsMargins(margins);
-    }
+    setLayoutsContentsMargins(margins.left(),margins.top(),margins.right(),margins.bottom());
 }

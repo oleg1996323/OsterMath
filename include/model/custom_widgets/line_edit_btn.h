@@ -3,41 +3,13 @@
 #include <QPushButton>
 #include <QWidget>
 #include <QHBoxLayout>
+#include "PushButton.h"
+#include "LineEdit.h"
 
 class Node;
 class INFO_NODE;
 namespace model::utilities {
 namespace __sub_widgets__{
-class LineEdit:public QLineEdit{
-    Q_OBJECT
-    Q_PROPERTY(bool borders_ READ borders WRITE setBorders)
-    Q_PROPERTY(int border_radius_ READ border_radius WRITE setBorder_radius)
-    Q_PROPERTY(bool rounded_borders_ READ rounded_borders WRITE setRounded_borders)
-public:
-    LineEdit(QWidget* parent):QLineEdit(parent){}
-    LineEdit(QString text,QWidget* parent):QLineEdit(text,parent){}
-    bool borders() const;
-    void setBorders(bool);
-    int border_radius() const;
-    void setBorder_radius(int);
-    bool rounded_borders() const;
-    void setRounded_borders(bool);
-protected:
-    virtual void paintEvent(QPaintEvent*) override;
-private:
-    int border_radius_;
-    bool borders_;
-    bool rounded_borders_;
-};
-
-class Button:public QPushButton{
-    Q_OBJECT
-public:
-    Button(QString text,QWidget* parent):QPushButton(text,parent){}
-    Button(QWidget* parent):QPushButton(parent){}
-protected:
-    virtual void paintEvent(QPaintEvent*) override;
-};
 }
 class DelegateNodeEditor:public QWidget{
     Q_OBJECT
@@ -54,8 +26,8 @@ signals:
 private:
 
     //TODO connect with ExpressionTextEdit
-    __sub_widgets__::Button* btn_view_node_;
-    __sub_widgets__::LineEdit* expr_edit_;
+    PushButton* btn_view_node_;
+    LineEdit* expr_edit_;
     std::unique_ptr<INFO_NODE> info_;
 };
 }
