@@ -7,6 +7,8 @@
 	"INCLUDE_DIR" : "/home/oster/OsterMath/build/Debug/OsterMath_autogen/include",
 	"INPUTS" : 
 	[
+		"/home/oster/OsterMath/res/node_view/show_node_dark.png",
+		"/home/oster/OsterMath/res/node_view/show_node_light.png",
 		"/home/oster/OsterMath/res/icons/lang/eng_lang.png",
 		"/home/oster/OsterMath/res/icons/lang/rus_lang.png",
 		"/home/oster/OsterMath/res/common/expandexpr.png",

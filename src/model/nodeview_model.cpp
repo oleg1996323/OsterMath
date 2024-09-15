@@ -261,7 +261,7 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
         return false;
     if(mode_==MODE_REPRESENTATION::Table){
         switch((Qt::ItemDataRole)role){
-        case(Qt::DisplayRole | Qt::EditRole):
+        case(Qt::DisplayRole):
         {
             if(sequence_node_.empty())
                 return false;
@@ -276,6 +276,9 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
             emit dataChanged(createIndex(0,0), createIndex(cached_row_count_-1,cached_column_count_-1));
             return err_h==exceptions::NOEXCEPT;
             break;
+        }
+        case(Qt::EditRole):{
+            setData(index,value,Qt::EditRole);
         }
         default:
             return false;

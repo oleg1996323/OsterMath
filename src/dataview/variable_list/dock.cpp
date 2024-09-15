@@ -56,8 +56,6 @@ void DockWidget::__load_settings__(){
     }
     if(sets_->value("hidden").toBool())
         collapse();
-    if(sets_->contains("closed"))
-        closed = sets_->value("closed").toBool();
     if(sets_->contains("floating"))
         setFloating(sets_->value("floating").toBool());
     sets_->endGroup();
@@ -68,7 +66,6 @@ void DockWidget::__save_settings__(){
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
     sets_->setValue("hidden",!isHidden() && widget()->isHidden());
-    sets_->setValue("closed",closed);
     sets_->setValue("floating", isFloating());
     sets_->endGroup();
 }

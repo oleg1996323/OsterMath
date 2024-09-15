@@ -1,6 +1,7 @@
 #pragma once
 #include "utilities/custom_widgets/tool_group.h"
-#include "utilities/custom_widgets/buttons.h"
+#include <PushButton.h>
+#include "styles.h"
 
 namespace Book{
 namespace Widgets{
@@ -41,9 +42,9 @@ public:
         this->setLayout(grid_layout());
     }
 private:
-    ToolButton *new_file;
-    ToolButton *save_file;
-    ToolButton *save_copy;
-    ToolButton *print;
+    IconedButton *new_file;
+    IconedButton *save_file;
+    IconedButton *save_copy;
+    IconedButton *print;
 };
 }}}

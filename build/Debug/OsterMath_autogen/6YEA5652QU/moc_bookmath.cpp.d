@@ -17,6 +17,11 @@
   /home/oster/Electrolisys/arithmetictree/include/types/unary_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/val_node.h \
   /home/oster/Electrolisys/arithmetictree/include/types/var_node.h \
+  /home/oster/OsterMath/include/OsterLib/styles/styles.h \
+  /home/oster/OsterMath/include/OsterLib/widgets/CollapsibleButton.h \
+  /home/oster/OsterMath/include/OsterLib/widgets/MultiStatePushButton.h \
+  /home/oster/OsterMath/include/OsterLib/widgets/PushButton.h \
+  /home/oster/OsterMath/include/OsterLib/widgets/aux/__borders_interface__.h \
   /home/oster/OsterMath/include/bookmath.h \
   /home/oster/OsterMath/include/dataview/expr_view_splitter.h \
   /home/oster/OsterMath/include/dataview/expression_view.h \
@@ -34,8 +39,6 @@
   /home/oster/OsterMath/include/model/nodeview_model.h \
   /home/oster/OsterMath/include/model/nodeview_select.h \
   /home/oster/OsterMath/include/model/varlist_model.h \
-  /home/oster/OsterMath/include/styles/styles.h \
-  /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
   /home/oster/OsterMath/include/utilities/custom_widgets/tabbed_toolbox_group.h \
   /home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h \
   /home/oster/OsterMath/include/utilities/validators/validator.h \
@@ -44,8 +47,6 @@
   /home/oster/OsterMath/include/utilities/windows/opennew.h \
   /home/oster/OsterMath/include/utilities/windows/settings.h \
   /home/oster/OsterMath/include/utilities/windows/windef.h \
-  /home/oster/OsterMath/include/widgets/PushButton.h \
-  /home/oster/OsterMath/include/widgets/__borders_interface__.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
@@ -392,7 +393,6 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QArrayData \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QCoreApplication \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QFile \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelection \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
@@ -517,7 +517,6 @@
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QContextMenuEvent \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon \
-  /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QPainter \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QPalette \
   /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \

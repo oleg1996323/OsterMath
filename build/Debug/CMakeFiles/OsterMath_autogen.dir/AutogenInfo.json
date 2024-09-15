@@ -417,18 +417,6 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/utilities/custom_widgets/buttons.h",
-			"MU",
-			"K4XHVSUWZG/moc_buttons.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/utilities/custom_widgets/multistateicon.h",
-			"MU",
-			"K4XHVSUWZG/moc_multistateicon.cpp",
-			null
-		],
-		[
 			"/home/oster/OsterMath/include/utilities/custom_widgets/tabbed_toolbox_group.h",
 			"MU",
 			"K4XHVSUWZG/moc_tabbed_toolbox_group.cpp",
@@ -441,27 +429,9 @@
 			null
 		],
 		[
-			"/home/oster/OsterMath/include/utilities/functionalities/sz_functions.h",
-			"MU",
-			"EMAERB5APV/moc_sz_functions.cpp",
-			null
-		],
-		[
 			"/home/oster/OsterMath/include/utilities/layouts/primitive_layouts.h",
 			"MU",
 			"RDDYZ3QB4T/moc_primitive_layouts.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/utilities/paths.h",
-			"MU",
-			"RKC3QKYJT2/moc_paths.cpp",
-			null
-		],
-		[
-			"/home/oster/OsterMath/include/utilities/serialization/serial_omb.h",
-			"MU",
-			"RNOEDKGOQU/moc_serial_omb.cpp",
 			null
 		],
 		[
@@ -525,10 +495,14 @@
 		"/home/oster/Electrolisys/arithmetictree/include/types",
 		"/home/oster/OsterMath/src/kernel",
 		"/home/oster/OsterMath/include/kernel",
-		"/home/oster/OsterMath/src/styles",
-		"/home/oster/OsterMath/include/styles",
-		"/home/oster/OsterMath/src/widgets",
-		"/home/oster/OsterMath/include/widgets",
+		"/home/oster/OsterMath/src/OsterLib",
+		"/home/oster/OsterMath/include/OsterLib",
+		"/home/oster/OsterMath/src/OsterLib/widgets",
+		"/home/oster/OsterMath/include/OsterLib/widgets",
+		"/home/oster/OsterMath/src/OsterLib/utilities",
+		"/home/oster/OsterMath/include/OsterLib/utilities",
+		"/home/oster/OsterMath/src/OsterLib/styles",
+		"/home/oster/OsterMath/include/OsterLib/styles",
 		"/usr/include/x86_64-linux-gnu/qt6/QtCore",
 		"/usr/include/x86_64-linux-gnu/qt6",
 		"/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++",
@@ -557,9 +531,9 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
+		"/home/oster/OsterMath/build/Debug/OsterLib_autogen/mocs_compilation.cpp",
 		"/home/oster/OsterMath/build/Debug/app_autogen/mocs_compilation.cpp",
-		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp",
-		"/home/oster/OsterMath/build/Debug/styles_autogen/mocs_compilation.cpp"
+		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 6,
@@ -637,11 +611,6 @@
 		[ "/home/oster/OsterMath/src/main.cpp", "MU", null ],
 		[ "/home/oster/OsterMath/src/menuwidgets/booktoolbar.cpp", "MU", null ],
 		[
-			"/home/oster/OsterMath/src/utilities/custom_widgets/buttons.cpp",
-			"MU",
-			null
-		],
-		[
 			"/home/oster/OsterMath/src/utilities/custom_widgets/tabbed_toolbox_group.cpp",
 			"MU",
 			null
@@ -650,21 +619,15 @@
 			"/home/oster/OsterMath/src/utilities/custom_widgets/tool_group.cpp",
 			"MU",
 			null
-		],
-		[
-			"/home/oster/OsterMath/src/utilities/functionalities/sz_functions.cpp",
-			"MU",
-			null
-		],
-		[ "/home/oster/OsterMath/src/utilities/paths.cpp", "MU", null ]
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "/home/oster/OsterMath/ui" ],
 	"UIC_SKIP" : 
 	[
+		"/home/oster/OsterMath/build/Debug/OsterLib_autogen/mocs_compilation.cpp",
 		"/home/oster/OsterMath/build/Debug/app_autogen/mocs_compilation.cpp",
-		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp",
-		"/home/oster/OsterMath/build/Debug/styles_autogen/mocs_compilation.cpp"
+		"/home/oster/OsterMath/build/Debug/model_autogen/mocs_compilation.cpp"
 	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0

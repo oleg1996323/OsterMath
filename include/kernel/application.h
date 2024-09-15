@@ -30,13 +30,11 @@ namespace kernel{
         static void set_model_manager(model::Manager*);
     public slots:
         void set_language(const settings::LANG_DATA&);
-        void set_variable_list_showed(bool);
     public:
         signals:
         void language_changed();
         void font_inc_changed();
         void style_changed();
-        bool variable_list_showed(bool);
     private:
         static void __save_settings__();
         static void __load_settings__();

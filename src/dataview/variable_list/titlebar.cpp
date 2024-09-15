@@ -15,14 +15,24 @@ TitleBar::TitleBar(QWidget* parent, Qt::Orientation orientation):
 {
     setContentsMargins(0,0,0,0);
     label_var_list = new TitleBarLabel(this);
-    collapse_var_list = new CollapseButton(button_states::COLLAPSE_EXPAND_STATE::EXPANDED,
+    collapse_var_list = new CollapseButton(CollapseButtonState::EXPANDED,
                                            ":common/common/expand.png",
                                             ":common/common/collapse.png",
                                             this);
+    collapse_var_list->setBorders(true);
+    collapse_var_list->setRounded_borders(Themes::border_round_common);
+    collapse_var_list->setLine_width(1);
+    collapse_var_list->set_size({20,20});
     collapse_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_collapse"));
-    close_var_list = new CloseButton(":common/common/close.png",this);
+    close_var_list = new IconedButton(QIcon(":common/common/close.png"),this);
+    close_var_list->setContentsMargins(0,0,0,0);
+    close_var_list->setFixedSize({20,20});
+    close_var_list->setBorders(true);
+    close_var_list->setRounded_borders(Themes::border_round_common);
+    close_var_list->setLine_width(1);
+    close_var_list->set_size({20,20});
     close_var_list->setObjectName(QString::fromUtf8("varlisttitlebar_close"));
-    connect(close_var_list,&CloseButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close_from_titlebar);
+    connect(close_var_list,&PushButton::clicked,qobject_cast<DockWidget*>(parent),&DockWidget::close_from_titlebar);
     connect(collapse_var_list,&CollapseButton::clicked,this,&TitleBar::collapse);
     __init__();
     retranslate();
@@ -140,9 +150,6 @@ void TitleBarLabel::paintEvent(QPaintEvent* event) {
         painter.translate(0,height()-qobject_cast<QWidget*>(parent())->layout()->contentsMargins().bottom());
         painter.rotate(-90);
         const QTransform& tr = painter.transform();
-        auto x = tr.dx();
-        auto y = tr.dy();
-        QRect g = geometry();
         painter.drawText(QRect(0,0,height(),width()), alignment(), text());
 
     } else {

@@ -38,6 +38,18 @@ public:
     void refresh(){
 
     }
+protected:
+
+//    virtual void paint(QPainter *painter, const QStyleOptionViewItem &option,
+//                   const QModelIndex &index) const override {
+//            // Пример: только четные строки будут нарисованы с кастомным фоном
+//            if (index.data().isNull()) {
+//                return;
+//            }
+
+//            // Вызов стандартной реализации для остальной части рисования
+//            QStyledItemDelegate::paint(painter, option, index);
+//        }
 signals:
     void show_node(Node*,size_t) const;
 private:

@@ -1,9 +1,10 @@
 #include "bookmath.h"
-#include "utilities/functionalities/sz_functions.h"
+#include "sz_functions.h"
 #include <QScreen>
 #include <QStatusBar>
 #include <QMenuBar>
 #include "dataview/expression_text_edit.h"
+#include "dataview/variable_list/dock.h"
 namespace Book{
 BookMath::BookMath(QWidget *parent)
     : QMainWindow(parent), ObjectFromSettings(this)
@@ -62,7 +63,7 @@ void BookMath::__define_menu__(){
     insert_menu->addAction(QIcon(":booktool/icons/chart.png"),QObject::tr("Insert chart"),this,&BookMath::insert_chart);
 
     view_menu = new QMenu(menubar);
-    view_menu->addAction(QObject::tr("Show variables"),qobject_cast<kernel::Application*>(kernel::Application::instance()),&kernel::Application::set_variable_list_showed);
+    view_menu->addAction(QObject::tr("Show variables"),findChild<dataview::DockWidget*>("dockwidget_var_list"),&dataview::DockWidget::show);
 
     menubar->addMenu(file_menu);
     menubar->addMenu(insert_menu);
@@ -95,8 +96,8 @@ void BookMath::__define_data_view__(){
 }
 
 void BookMath::__define_signals_slots__(){
-    connect(findChild<ToolButton*>("createnewbook"),&ToolButton::clicked,this,&BookMath::create_new_book);
-    connect(findChild<ToolButton*>("savebook"),&ToolButton::clicked,this,&BookMath::save_book);
+    connect(findChild<PushButton*>("createnewbook"),&PushButton::clicked,this,&BookMath::create_new_book);
+    connect(findChild<PushButton*>("savebook"),&PushButton::clicked,this,&BookMath::save_book);
     //
 }
 

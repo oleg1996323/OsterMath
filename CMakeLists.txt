@@ -30,9 +30,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_LIST_DIR}/lib/Debug)
 
 message(STATUS ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG})
 
-file(GLOB_RECURSE OSTER_WIDGETS
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/widgets/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/widgets/*.h
+file(GLOB_RECURSE OSTER_LIB
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/OsterLib/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/OsterLib/*.h
     )
 
 file(GLOB_RECURSE PROJECT_SOURCES_KERNEL
@@ -43,11 +43,6 @@ file(GLOB_RECURSE PROJECT_SOURCES_KERNEL
 file(GLOB_RECURSE PROJECT_SOURCES_UTILITIES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/utilities/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/utilities/*.h
-    )
-
-file(GLOB_RECURSE PROJECT_SOURCES_STYLES
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/styles/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/styles/*.h
     )
 
 file(GLOB_RECURSE VARMODEL_SOURCES_MODEL
@@ -74,12 +69,6 @@ file(GLOB PROJECT_SOURCES_RESOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/res/*.qrc
     ${TS_FILES}
 )
-#file(GLOB_RECURSE PROJECT_SOURCES
-#    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
-#    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
-#    ${CMAKE_CURRENT_SOURCE_DIR}/res/*.qrc
-#    ${TS_FILES}
-#    )
 
 set(VARMODEL_SOURCES ${VARMODEL_SOURCES_MODEL})
 set(PROJECT_SOURCES ${PROJECT_SOURCES_UTILITIES}
@@ -87,8 +76,6 @@ set(PROJECT_SOURCES ${PROJECT_SOURCES_UTILITIES}
     ${PROJECT_SOURCES_RESOURCES}
     ${MENUWIDGETS_SOURCES_MODEL}
     ${DATAVIEW_SOURCES_MODEL})
-
-
 
 set(ARITHMTREE_DIR $ENV{HOME}/Electrolisys/arithmetictree)
 find_library(ARITHMTREE_LIB NAMES libarithmetictree.a arithmetictree PATHS ${ARITHMTREE_DIR}/lib/ui/${CMAKE_BUILD_TYPE} REQUIRED)
@@ -107,26 +94,30 @@ include_directories(
         /usr/include/c++/11
         ${ARITHMTREE_DIR}/include)
 
-add_library(styles SHARED ${PROJECT_SOURCES_STYLES} ${OSTER_WIDGETS})
+add_library(OsterLib SHARED ${OSTER_LIB})
 
-target_include_directories(styles PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/styles
-					${CMAKE_CURRENT_SOURCE_DIR}/src/widgets
-					${CMAKE_CURRENT_SOURCE_DIR}/include/styles
-					${CMAKE_CURRENT_SOURCE_DIR}/include/widgets)
+target_include_directories(OsterLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/OsterLib
+					${CMAKE_CURRENT_SOURCE_DIR}/include/OsterLib
+					${CMAKE_CURRENT_SOURCE_DIR}/src/OsterLib/widgets
+					${CMAKE_CURRENT_SOURCE_DIR}/include/OsterLib/widgets
+					${CMAKE_CURRENT_SOURCE_DIR}/src/OsterLib/utilities
+					${CMAKE_CURRENT_SOURCE_DIR}/include/OsterLib/utilities
+					${CMAKE_CURRENT_SOURCE_DIR}/src/OsterLib/styles
+					${CMAKE_CURRENT_SOURCE_DIR}/include/OsterLib/styles)
 
-target_link_libraries(styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(OsterLib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 
-set_property(TARGET styles PROPERTY POSITION_INDEPENDENT_CODE ON)
+set_property(TARGET OsterLib PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 add_library(app SHARED
     ${PROJECT_SOURCES_KERNEL})
 
 target_include_directories(app PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/kernel
                                 ${CMAKE_CURRENT_SOURCE_DIR}/include/kernel
-                                ${CMAKE_CURRENT_SOURCE_DIR}/src/styles
-                                ${CMAKE_CURRENT_SOURCE_DIR}/include/styles)
+				${CMAKE_CURRENT_SOURCE_DIR}/src/OsterLib
+				${CMAKE_CURRENT_SOURCE_DIR}/include/OsterLib)
 
-target_link_libraries(app PUBLIC styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(app PUBLIC OsterLib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_property(TARGET app PROPERTY POSITION_INDEPENDENT_CODE ON)
 
@@ -145,7 +136,7 @@ target_include_directories(model
         ${ARITHMTREE_DIR}/include
         ${ARITHMTREE_DIR}/include/types)
 
-target_link_libraries(model PUBLIC app styles PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets PRIVATE ${ARITHMTREE_LIB} ${ARITHMTREE_EXC_LIB} ${ANTLR})
+target_link_libraries(model PUBLIC app  PRIVATE OsterLib Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets PRIVATE ${ARITHMTREE_LIB} ${ARITHMTREE_EXC_LIB} ${ANTLR})
 
 add_executable(OsterMath
     ${PROJECT_SOURCES}

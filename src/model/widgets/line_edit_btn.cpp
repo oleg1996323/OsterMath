@@ -5,6 +5,7 @@
 #include "arithmetic_types.h"
 #include "styles/button_style_option.h"
 #include "styles/line_edit_style_option.h"
+#include "kernel/application.h"
 #include <QStylePainter>
 
 namespace model::utilities {
@@ -17,16 +18,21 @@ info_(std::move(info))
     layout_->setContentsMargins(0,0,0,0);
     layout_->setSpacing(0);
     expr_edit_ = new LineEdit(this);
+    expr_edit_->setMinimumSize({0,0});
     expr_edit_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
     layout_->addWidget(expr_edit_);
     if(btn_active){
-        btn_view_node_ = new PushButton("...",this);
+        if(kernel::settings::Program::get_theme()==Themes::Dark)
+            btn_view_node_ = new IconedButton(":/nodeview/node_view/show_node_dark.png",this);
+        else
+            btn_view_node_ = new IconedButton(":/nodeview/node_view/show_node_light.png",this);
+        btn_view_node_->setBorders(false);
+        btn_view_node_->set_size({DelegateNodeEditor::height(),DelegateNodeEditor::height()});
         connect(btn_view_node_,&PushButton::clicked,
         this, [this](){
             assert(info_->parent);
             emit show_node(info_->parent,info_->id);
         });
-        btn_view_node_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
         layout_->addWidget(btn_view_node_);
     }
     setLayout(layout_);
@@ -43,7 +49,12 @@ info_(std::move(info))
     expr_edit_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
     layout_->addWidget(expr_edit_);
     if(btn_active){
-        btn_view_node_ = new PushButton("...",this);
+        if(kernel::settings::Program::get_theme()==Themes::Dark)
+            btn_view_node_ = new IconedButton("nodeview/node_view/show_node_dark.png",this);
+        else
+            btn_view_node_ = new IconedButton("nodeview/node_view/show_node_light.png",this);
+        btn_view_node_->setBorders(false);
+        btn_view_node_->set_size({DelegateNodeEditor::height(),DelegateNodeEditor::height()});
         connect(btn_view_node_,&PushButton::clicked,
         this, [this](){
             assert(info_->parent);
@@ -66,5 +77,14 @@ void DelegateNodeEditor::enable_editing(bool arg){
 }
 QString DelegateNodeEditor::text() const noexcept{
     return expr_edit_->text();
+}
+LineEdit* DelegateNodeEditor::editor() const{
+    return expr_edit_;
+}
+bool DelegateNodeEditor::event(QEvent* event){
+    if(event->type()==QEvent::KeyPress){
+        return expr_edit_->event(event);
+    }
+    else return QWidget::event(event);
 }
 }

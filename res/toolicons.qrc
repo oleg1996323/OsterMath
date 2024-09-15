@@ -26,4 +26,8 @@
         <file alias="rus">icons/lang/rus_lang.png</file>
         <file alias="eng">icons/lang/eng_lang.png</file>
     </qresource>
+    <qresource prefix="/nodeview">
+        <file>node_view/show_node_dark.png</file>
+        <file>node_view/show_node_light.png</file>
+    </qresource>
 </RCC>

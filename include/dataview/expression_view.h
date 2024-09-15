@@ -1,12 +1,13 @@
 #pragma once
 #include <QHBoxLayout>
 #include <QTextEdit>
-#include <utilities/custom_widgets/buttons.h>
+#include <PushButton.h>
+#include <CollapsibleButton.h>
 
 namespace dataview{
 class ExpressionTextEdit;
 //TODO add signal to open auxiliairy window for formula selection/help
-class ExpressionButton:public QPushButton{
+class ExpressionButton:public PushButton{
     Q_OBJECT
 public:
     ExpressionButton(const QString& res_path,QWidget* parent);
@@ -23,7 +24,7 @@ private:
     QHBoxLayout* layout_;
     ExpressionTextEdit* expression_;
     ExpressionButton* formula_expl_;
-    QPushButton* expand_collapse_expl_;
+    CollapseButton* expand_collapse_expl_;
 
 private slots:
     void expand_collapse();

@@ -7,8 +7,8 @@
 #include <QPalette>
 #include <QPaintEvent>
 #include <QPaintDevice>
-#include "utilities/custom_widgets/buttons.h"
-#include "kernel/application.h"
+#include "CollapsibleButton.h"
+#include "kernel/def.h"
 
 namespace dataview{
 
@@ -44,7 +44,7 @@ private:
 
     TitleBarLabel *label_var_list;
     CollapseButton *collapse_var_list;
-    CloseButton *close_var_list;
+    IconedButton *close_var_list;
     Qt::Orientation orientation_;
     QVBoxLayout* vertical_;
     QHBoxLayout* horizontal_;

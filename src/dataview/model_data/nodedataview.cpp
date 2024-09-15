@@ -2,6 +2,9 @@
 #include "model/nodeview_model.h"
 #include <QMenu>
 #include <QDebug>
+#include <QPoint>
+#include <QModelIndex>
+#include <QBitArray>
 #include "model/def.h"
 #include "dataview/model_data/aux_windows/insert_columns.h"
 #include "dataview/model_data/aux_windows/insert_rows.h"
@@ -132,7 +135,8 @@ void NodeData::createActions()
 void NodeData::contextMenuEvent(QContextMenuEvent* event){
     Q_UNUSED(event);
     model::NodeView* m = qobject_cast<model::NodeView*>(model());
-    if(m->get_node().node()){
+    INFO_NODE info = m->get_node();
+    if(info.parent && info.id>=0 && info.node()){
         QMenu menu(this);
 
         menu.addAction(undoAct);
@@ -224,6 +228,21 @@ void NodeData::contextMenuEvent(QContextMenuEvent* event){
         else qFatal("Model nodeview implementation error (Selection model");
         menu.exec(event->globalPos());
     }
+}
+
+void NodeData::keyPressEvent(QKeyEvent* event){
+    if(event->key() == Qt::Key::Key_Enter || event->key()==Qt::Key::Key_Return){
+        if(model::NodeViewSelectionModel* sel = qobject_cast<model::NodeViewSelectionModel*>(selectionModel())){
+            if(state()==EditingState || state()==NoState){
+                qDebug()<<isPersistentEditorOpen(sel->currentIndex());
+                sel->next_from_selection();
+            }
+            else QTableView::keyPressEvent(event);
+        }
+        else
+            QTableView::keyPressEvent(event);
+    }
+    else QTableView::keyPressEvent(event);
 }
 
 void NodeData::undo(){

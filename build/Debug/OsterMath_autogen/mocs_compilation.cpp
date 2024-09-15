@@ -15,7 +15,6 @@
 #include "6Q6C4MVPTR/moc_booktoolbar.cpp"
 #include "V3S3SRHSHZ/moc_export.cpp"
 #include "V3S3SRHSHZ/moc_file.cpp"
-#include "K4XHVSUWZG/moc_buttons.cpp"
 #include "6V6KTULG6S/moc_createnew.cpp"
 #include "6V6KTULG6S/moc_opennew.cpp"
 #include "6V6KTULG6S/moc_settings.cpp"

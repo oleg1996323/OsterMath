@@ -32,8 +32,12 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
             else if(node->is_array()){
                 if(index.column()<node->childs().size()){
                     if(node->child(index.column())->is_array()){
-                        if(index.row()<=node->child(index.column())->childs().size()){
+                        if(index.row()<node->child(index.column())->childs().size()){
                             btn_need = true;
+                            info={node->child(index.column()).get(),index.row()};
+                        }
+                        else if(index.row()==node->child(index.column())->childs().size()){
+                            btn_need = false;
                             info={node->child(index.column()).get(),index.row()};
                         }
                         else return nullptr;
@@ -50,8 +54,12 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
                     }
                 }
                 else if(index.column()==node->childs().size()){
-                    if(index.row()==0){
+                    if(index.row()==0 && index.column()==0){
                         btn_need = true;
+                        info={node.get(),index.column()};
+                    }
+                    else if(index.row()==0 && index.column()!=0){
+                        btn_need = false;
                         info={node.get(),index.column()};
                     }
                     else return nullptr;
@@ -100,11 +108,9 @@ void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) 
 
 void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
     if(index.isValid() && editor){
-        if(utilities::DelegateNodeEditor* ptr = qobject_cast<utilities::DelegateNodeEditor*>(editor))
+        if(utilities::DelegateNodeEditor* ptr = qobject_cast<utilities::DelegateNodeEditor*>(editor)){
+            qDebug()<<ptr->text();
             model->setData(index,ptr->text(),Qt::DisplayRole);
-        else if(QPushButton* ptr = qobject_cast<QPushButton*>(editor)){
-            Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>();
-            assert(node->has_child(index.row()));
         }
         //recursive call of printText() if changed in ArrayNode([1,1,1,1])
     }

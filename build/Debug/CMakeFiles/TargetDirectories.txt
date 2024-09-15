@@ -1,10 +1,10 @@
-/home/oster/OsterMath/build/Debug/CMakeFiles/styles.dir
+/home/oster/OsterMath/build/Debug/CMakeFiles/OsterLib.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/app.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/model.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/edit_cache.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/rebuild_cache.dir
-/home/oster/OsterMath/build/Debug/CMakeFiles/styles_autogen.dir
+/home/oster/OsterMath/build/Debug/CMakeFiles/OsterLib_autogen.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/app_autogen.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/model_autogen.dir
 /home/oster/OsterMath/build/Debug/CMakeFiles/OsterMath_autogen.dir

@@ -15,7 +15,8 @@ public:
         COLUMNS_SELECTION = 0x0002,
         ALL_SELECTION = 0x0004,
         RANGE_SELECTION = 0x0008,
-        CUSTOM_SELECTION = 0x0010
+        CUSTOM_SELECTION = 0x0010,
+        SINGLE_SELECTION = 0x0020
     };
     NodeViewSelectionModel(QAbstractItemModel* model = nullptr):QItemSelectionModel(model){}
     ~NodeViewSelectionModel() = default;
@@ -26,7 +27,10 @@ public:
     bool is_rows() const;
     bool is_range() const;
     bool is_empty() const;
+    bool is_single() const;
     QModelIndex first_index() const;
+
+    void next_from_selection();
 private:
     ModeSelection mode_ = ModeSelection::NONE;
 };

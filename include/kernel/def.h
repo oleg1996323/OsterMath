@@ -60,5 +60,3 @@ public slots:
     void changed_font();
     void changed_style();
 };
-
-QIcon negativeIcon(const QIcon &icon);

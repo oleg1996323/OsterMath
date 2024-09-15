@@ -20,13 +20,16 @@ public:
     void enable_btn(bool);
     void enable_editing(bool);
     QString text() const noexcept;
+    LineEdit* editor() const;
 
 signals:
     void show_node(Node*,size_t);
+protected:
+    virtual bool event(QEvent*) override;
 private:
 
     //TODO connect with ExpressionTextEdit
-    PushButton* btn_view_node_;
+    IconedButton* btn_view_node_;
     LineEdit* expr_edit_;
     std::unique_ptr<INFO_NODE> info_;
 };

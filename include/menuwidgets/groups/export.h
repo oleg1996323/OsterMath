@@ -1,6 +1,5 @@
 #pragma once
 #include "utilities/custom_widgets/tool_group.h"
-#include "utilities/custom_widgets/buttons.h"
 
 namespace Book{
 namespace Widgets{
@@ -42,9 +41,9 @@ public:
 
     }
 private:
-    ToolButton *to_excel;
-    ToolButton *to_word;
-    ToolButton *to_pdf;
-    ToolButton *to_image;
+    IconedButton *to_excel;
+    IconedButton *to_word;
+    IconedButton *to_pdf;
+    IconedButton *to_image;
 };
 }}}

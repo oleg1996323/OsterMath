@@ -69,11 +69,6 @@ void Application::__load_settings__(){
     settings::Program::__load_settings__();
 }
 
-void Application::set_variable_list_showed(bool b){
-    settings::Program::set_variable_list_showed(b);
-    emit variable_list_showed(b);
-}
-
 BaseData* Application::active_data_ = nullptr;
 DataPool* Application::active_pool_ = nullptr;
 Book::BookMath* Application::active_book_ui_ = nullptr;

@@ -931,7 +931,7 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtranslator.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QLocale \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
- /home/oster/OsterMath/include/styles/styles.h \
+ /home/oster/OsterMath/include/OsterLib/styles/styles.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QPalette \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFont \
@@ -1114,15 +1114,13 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/include/dataview/expression_view.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h \
- /home/oster/OsterMath/include/utilities/custom_widgets/buttons.h \
- /home/oster/OsterMath/include/widgets/PushButton.h \
+ /home/oster/OsterMath/include/OsterLib/widgets/PushButton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
- /home/oster/OsterMath/include/widgets/__borders_interface__.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreevent.h \
+ /home/oster/OsterMath/include/OsterLib/widgets/aux/__borders_interface__.h \
+ /home/oster/OsterMath/include/OsterLib/widgets/CollapsibleButton.h \
+ /home/oster/OsterMath/include/OsterLib/widgets/MultiStatePushButton.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expr_view_splitter.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expression_text_edit.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/../../../../include/dataview/expression_text_edit.h \
@@ -1180,7 +1178,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/include/utilities/custom_widgets/tool_group.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/moc_file.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/../../../../include/menuwidgets/groups/file.h \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/K4XHVSUWZG/moc_buttons.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_createnew.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_opennew.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6V6KTULG6S/moc_settings.cpp

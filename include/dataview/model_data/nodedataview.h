@@ -39,12 +39,18 @@ class NodeData: public QTableView, public ObjectFromSettings{
     QAction *insertSomeColumnsAct;
 
     RowColumnInsertInterface* aux_window_;
+    class ItemStyleOption:public QStyleOptionViewItem{
+    public:
+        bool to_draw_;
+    };
 
 public:
     NodeData(QWidget* parent);
     ~NodeData();
 
     virtual void contextMenuEvent(QContextMenuEvent* event) override;
+protected:
+    virtual void keyPressEvent(QKeyEvent*) override;
 private:
     void createMenus();
     void createActions();
