@@ -1,0 +1,44 @@
+Qt::ItemFlags NodeView::flags(const QModelIndex &index) const{
+    Qt::ItemFlags flags = QAbstractItemModel::flags(index);
+    if(index.isValid()){
+        if(!sequence_node_.back().parent || sequence_node_.back().id<0)
+            return flags;
+        std::shared_ptr<Node> node_to_show = sequence_node_.back().node();
+        if(!node_to_show){
+            if(index.column()==0 && index.row()==0)
+                return flags | Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+            else return flags;
+        }
+
+    if(node_to_show->is_array()){
+        if(node_to_show->has_child(index.column())){
+            if(node_to_show->child(index.column())->is_array()){
+                if(node_to_show->child(index.column())->has_child(index.row()) ||
+                        node_to_show->child(index.column())->childs().size()==index.row())
+                    return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+                else return flags;
+            }
+            else{
+                if(index.row()==0 || index.row()==1)
+                    return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+                else return flags;
+            }
+        }
+        else if(index.column()==node_to_show->childs().size()){
+            return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+        }
+        else return flags;
+    }
+    else{
+        if(index.column()==0)
+            if(index.row()<=1)
+                return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+            else return flags;
+        else if(index.column()==1 && index.row()==0){
+            return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+        }
+        else return flags;
+    }
+    }
+    else return flags;
+}

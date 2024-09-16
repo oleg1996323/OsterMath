@@ -42,6 +42,7 @@ public:
 exceptions::EXCEPTION_TYPE parse_to_insert_item(QString expr, const std::vector<INFO_NODE>& sequence_ID);
 NODE_STRUCT define_variable(const QString& expr, VariableNode* node);
 std::vector<INFO_NODE>::const_iterator last_Variable(const std::vector<INFO_NODE>& sequence);
+bool __convert_value_to_array__(Node* parent,int id,size_t sz,bool before);
 }
 
 Q_DECLARE_METATYPE(TYPE_VAL)

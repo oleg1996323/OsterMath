@@ -24,7 +24,7 @@ public:
     bool state_initialized() const;
 public slots:
     QAbstractProxyModel* search_var(const QString&);
-    void show_node(Node*,size_t) const;
+    void show_variable(Node*,size_t) const;
     void set_model(QAbstractItemModel*);
     void set_selection(QItemSelectionModel*);
     NodeData* data_viewer() const;

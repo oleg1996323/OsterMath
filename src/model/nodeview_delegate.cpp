@@ -18,8 +18,8 @@ NodeViewDelegate::NodeViewDelegate(QObject* parent):QStyledItemDelegate(parent){
 
 QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     if(index.isValid()){
+        INFO_NODE info = qobject_cast<const model::NodeView*>(index.model())->get_node();
         std::shared_ptr<Node> node = qobject_cast<const model::NodeView*>(index.model())->get_node().node();
-        INFO_NODE info;
         bool btn_need=false;
         utilities::DelegateNodeEditor* editor = nullptr;
         if(node){
@@ -49,6 +49,7 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
                         }
                         else if(index.row()==1){
                             btn_need = false;
+                            info=INFO_NODE();
                         }
                         else return nullptr;
                     }
@@ -70,23 +71,32 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
                 if(index.column()==0)
                     if(index.row()<=1){
                         btn_need = false;
+                        info=INFO_NODE();
                     }
                     else return nullptr;
                 else if(index.column()==1){
                     if(index.row()==0){
                         btn_need = false;
+                        info=INFO_NODE();
                     }
                     else return nullptr;
                 }
                 else return nullptr;
             }
         }
-        else return nullptr;
+        else if(info.parent){
+            btn_need = false;
+            info=INFO_NODE();
+        }
+        else{
+            throw std::runtime_error("");
+        }
         editor = new utilities::DelegateNodeEditor(parent,std::make_unique<INFO_NODE>(info),btn_need);
         if(btn_need)
-            connect(editor,&utilities::DelegateNodeEditor::show_node,
-            this, [this](Node* parent,size_t id){
-                emit show_node(parent,id);
+            connect(editor,&utilities::DelegateNodeEditor::show_node,[this,info, index](Node* node, size_t id){
+                if(const NodeView* this_view = qobject_cast<const NodeView*>(index.model())){
+                    const_cast<NodeView*>(this_view)->set_representable_child_node(info.parent,info.id);
+                }
             });
         return editor;
     }
@@ -101,20 +111,40 @@ void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) 
                 node->print_text(stream);
                 qDebug()<<QString::fromStdString(stream.str());
                 ptr->set_text(QString::fromStdString(stream.str()));
+
             }
         }
-    }
-}
+        else {
+            INFO_NODE info = qobject_cast<const model::NodeView*>(index.model())->get_node();
+            if(info.parent){
+                if(info.parent->type()!=NODE_TYPE::ARRAY){
+                    if(info.parent->type()==NODE_TYPE::VARIABLE){
+                        info.parent
+                    }
+                    else{ //value,function etc.
 
+                    }
+                }
+                else{
+                    if(info.id>-1 && info.parent->childs().size()==info.id){
+
+                    }
+                    else    //TODO add logging
+                        throw std::runtime_error("");
+                }
+            }
+            else{
+                //TODO add logging
+                throw std::runtime_error("");
+            }
+        }
+}}
 void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
     if(index.isValid() && editor){
         if(utilities::DelegateNodeEditor* ptr = qobject_cast<utilities::DelegateNodeEditor*>(editor)){
             qDebug()<<ptr->text();
             model->setData(index,ptr->text(),Qt::DisplayRole);
-        }
-        //recursive call of printText() if changed in ArrayNode([1,1,1,1])
-    }
-}
+        }}}
 
 //void NodeViewDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const{
 //    QStyledItemDelegate::initStyleOption(option,index);

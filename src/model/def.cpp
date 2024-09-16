@@ -16,6 +16,8 @@ exceptions::EXCEPTION_TYPE parse_to_insert_item(QString expr, const std::vector<
         return exceptions::NODE_DONT_EXISTS;
     if(!expr.isEmpty() && expr[0]!='=')
         expr="="+expr;
+    else if(expr.isEmpty())
+        expr = "=";
     else expr=expr;
     QString ids;
     {
@@ -84,5 +86,24 @@ std::vector<INFO_NODE>::const_iterator last_Variable(const std::vector<INFO_NODE
         }
     }
     return begin;
+}
+bool __convert_value_to_array__(Node* parent,int id, size_t sz, bool before){
+    if(parent && id!=-1 && parent->has_child(id)){
+        std::shared_ptr<Node> new_node = std::make_shared<ArrayNode>(sz);
+        parent->child(id)->parents().erase(parent);
+        if(!before){
+            new_node->insert_back(parent->child(id));
+            for(size_t i = 1; i<sz;++i)
+                new_node->insert_back(std::make_shared<Node>());
+        }
+        else{
+            for(size_t i = 1; i<sz;++i)
+                new_node->insert_back(std::make_shared<Node>());
+            new_node->insert_back(std::make_shared<Node>());
+        }
+        parent->replace(id,new_node);
+        return true;
+    }
+    else return false;
 }
 }

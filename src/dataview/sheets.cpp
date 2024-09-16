@@ -24,10 +24,10 @@ Sheets::Sheets(QWidget* parent):
     for(int i=0;i<4;++i)
         add_default_sheet(i);
     connect(findChild<::model::VariablesDelegate*>("var_list_delegate"), &::model::VariablesDelegate::show_node,[this](Node* parent,size_t id){
-        qobject_cast<View*>(currentWidget())->show_node(parent,id);
+        qobject_cast<View*>(currentWidget())->show_variable(parent,id);
     });
     connect(findChild<::model::NodeViewDelegate*>("node_view_delegate"), &::model::NodeViewDelegate::show_node,[this](Node* parent,size_t id){
-        qobject_cast<View*>(currentWidget())->show_node(parent,id);
+        qobject_cast<View*>(currentWidget())->show_variable(parent,id);
     });
 }
 

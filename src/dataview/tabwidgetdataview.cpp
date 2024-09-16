@@ -15,8 +15,9 @@ View::View(QWidget* parent, BaseData* data):QMainWindow(parent, Qt::Widget|Qt::W
 View::~View(){
     save_settings();
 }
-void View::show_node(Node* parent, size_t id) const{
-    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_node(parent,id);
+void View::show_variable(Node* parent, size_t id) const{
+    //TODO add arrows with link buttons without frame and panel
+    qobject_cast<model::NodeView*>(data_view_->model())->set_representable_variable(parent,id);
 }
 QAbstractProxyModel* View::search_var(const QString&){
     //TODO

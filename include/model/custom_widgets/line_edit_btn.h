@@ -9,8 +9,6 @@
 class Node;
 class INFO_NODE;
 namespace model::utilities {
-namespace __sub_widgets__{
-}
 class DelegateNodeEditor:public QWidget{
     Q_OBJECT
 public:

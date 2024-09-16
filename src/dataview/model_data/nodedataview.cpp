@@ -9,6 +9,7 @@
 #include "dataview/model_data/aux_windows/insert_columns.h"
 #include "dataview/model_data/aux_windows/insert_rows.h"
 #include "model/nodeview_select.h"
+#include "model/custom_widgets/line_edit_btn.h"
 
 namespace dataview{
 NodeData::NodeData(QWidget* parent):
@@ -79,7 +80,6 @@ void NodeData::createActions()
     italicAct= new QAction(QObject::tr("Italic"),this);
     italicAct->setShortcuts(QKeySequence::Italic);
     connect(italicAct, &QAction::triggered, this, &NodeData::italic_font);
-
 
     alignmentGroup = new QActionGroup(this);
     leftAlignAct= new QAction(QObject::tr("Left"),this);
@@ -231,11 +231,43 @@ void NodeData::contextMenuEvent(QContextMenuEvent* event){
 }
 
 void NodeData::keyPressEvent(QKeyEvent* event){
-    if(event->key() == Qt::Key::Key_Enter || event->key()==Qt::Key::Key_Return){
-        if(model::NodeViewSelectionModel* sel = qobject_cast<model::NodeViewSelectionModel*>(selectionModel())){
-            if(state()==EditingState || state()==NoState){
-                qDebug()<<isPersistentEditorOpen(sel->currentIndex());
+    if(model::NodeViewSelectionModel* sel = qobject_cast<model::NodeViewSelectionModel*>(selectionModel())){
+        qDebug()<<event->key();
+        if(event->key() == Qt::Key::Key_Enter || event->key()==Qt::Key::Key_Return){
+            if(state()==EditingState){
+                commitData(indexWidget(sel->currentIndex()));
+                closeEditor(indexWidget(sel->currentIndex()),
+                QAbstractItemDelegate::EndEditHint::NoHint);
                 sel->next_from_selection();
+            }
+            else if(state()==NoState){
+                sel->next_from_selection();
+            }
+            else QTableView::keyPressEvent(event);
+        }
+        else if(event->key() == Qt::Key::Key_Backspace){
+            //erasing item
+            QTableView::keyPressEvent(event);
+        }
+        else if(event->key() == Qt::Key::Key_Delete){
+            edit(sel->currentIndex());
+            if(model::utilities::DelegateNodeEditor* editor = qobject_cast<model::utilities::DelegateNodeEditor*>(indexWidget(sel->currentIndex()))){
+                editor->set_text("");
+                commitData(editor);
+                closeEditor(editor,
+                QAbstractItemDelegate::EndEditHint::NoHint);
+            }
+            else QTableView::keyPressEvent(event);
+        }
+        else if(event->count()>1 && event->text().front().isPrint()){
+            if(state()!=EditingState){
+                edit(sel->currentIndex());
+                if(model::utilities::DelegateNodeEditor* editor = qobject_cast<model::utilities::DelegateNodeEditor*>(indexWidget(sel->currentIndex()))){
+                    editor->set_text(event->text().front());
+                    commitData(editor);
+                }
+                else
+                    QTableView::keyPressEvent(event);
             }
             else QTableView::keyPressEvent(event);
         }
@@ -243,6 +275,23 @@ void NodeData::keyPressEvent(QKeyEvent* event){
             QTableView::keyPressEvent(event);
     }
     else QTableView::keyPressEvent(event);
+//    else if(event->key() == Qt::Key::Key_Down ||
+//            event->key()==Qt::Key::Key_Up ||
+//            event->key()==Qt::Key::Key_Left ||
+//            event->key()==Qt::Key::Key_Right){
+//        if(model::NodeViewSelectionModel* sel = qobject_cast<model::NodeViewSelectionModel*>(selectionModel())){
+//            if(state()==EditingState){
+//                commitData(indexWidget(sel->currentIndex()));
+//                closeEditor(indexWidget(sel->currentIndex()),
+//                QAbstractItemDelegate::EndEditHint::NoHint);
+//                QTableView::keyPressEvent(event);
+//            }
+//            else if(state()==NoState)
+//                QTableView::keyPressEvent(event);
+//        }
+//        else QTableView::keyPressEvent(event);
+//    }
+
 }
 
 void NodeData::undo(){
@@ -256,6 +305,7 @@ void NodeData::redo(){
 void NodeData::cut(){
 
 }
+
 
 void NodeData::copy(){
 

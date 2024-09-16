@@ -24,8 +24,8 @@ public:
     NodeView(QObject* parent);
 
     void rename(const QString& name) noexcept;
-    void set_representable_node(Node*, size_t);
-    void set_representable_child_node(size_t id);
+    void set_representable_variable(Node*,int);
+    void set_representable_child_node(Node*,int);
     void reset_representable_node();
     INFO_NODE get_node() const{
         if(!sequence_node_.empty())
@@ -61,6 +61,5 @@ private:
 
     INFO_NODE get_showed_node(QModelIndex index) const;
     std::vector<INFO_NODE> get_sequence_ids_at_set_data(QModelIndex index);
-    bool __convert_value_to_array__(Node* parent,int id,size_t sz,bool before);
 };
 }

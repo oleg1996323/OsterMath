@@ -83,21 +83,21 @@ int NodeView::columnCount(const QModelIndex &parent) const{
     return cached_column_count_;
 }
 
-void NodeView::set_representable_node(Node* parent, size_t id_child){
+void NodeView::set_representable_variable(Node* parent, int id_child){
     beginResetModel();
     sequence_node_.clear();
     sequence_node_.push_back({parent,(int)id_child});
     endResetModel();
 }
 
-void NodeView::set_representable_child_node(size_t id){
+void NodeView::set_representable_child_node(Node* parent,int id){
+    beginResetModel();
     if(sequence_node_.empty())
         return;
     std::shared_ptr<Node> current_node = sequence_node_.back().node();
-    if(current_node &&
-        current_node->has_child(id) &&
-        current_node->child(id))
-        sequence_node_.push_back({current_node.get(),(int)id});
+    if(parent && id>-1)
+        sequence_node_.push_back({parent,id});
+    endResetModel();
 }
 
 void NodeView::reset_representable_node(){
@@ -179,26 +179,6 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
     return QVariant();
 }
 
-bool NodeView::__convert_value_to_array__(Node* parent,int id, size_t sz, bool before){
-    if(parent && id!=-1 && parent->has_child(id)){
-        std::shared_ptr<Node> new_node = std::make_shared<ArrayNode>(sz);
-        parent->child(id)->parents().erase(parent);
-        if(!before){
-            new_node->insert_back(parent->child(id));
-            for(size_t i = 1; i<sz;++i)
-                new_node->insert_back(std::make_shared<Node>());
-        }
-        else{
-            for(size_t i = 1; i<sz;++i)
-                new_node->insert_back(std::make_shared<Node>());
-            new_node->insert_back(std::make_shared<Node>());
-        }
-        parent->replace(id,new_node);
-        return true;
-    }
-    else return false;
-}
-
 std::vector<INFO_NODE> NodeView::get_sequence_ids_at_set_data(QModelIndex index){
     std::vector<INFO_NODE>::const_iterator begin = last_Variable(sequence_node_);
     if(begin==sequence_node_.end())
@@ -278,7 +258,7 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
             break;
         }
         case(Qt::EditRole):{
-            setData(index,value,Qt::EditRole);
+            setData(index,value,Qt::DisplayRole);
         }
         default:
             return false;

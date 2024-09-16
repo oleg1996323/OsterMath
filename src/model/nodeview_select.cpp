@@ -16,14 +16,8 @@ NodeViewSelectionModel::ModeSelection operator^(NodeViewSelectionModel::ModeSele
 
 void NodeViewSelectionModel::select(const QItemSelection &sel, QItemSelectionModel::SelectionFlags command){
     QItemSelectionModel::select(sel,command);
-
-    for(auto i:selection()){
-        qDebug()<<i;
-    }
-
     if (command == NoUpdate)
         return;
-
     if (command&Rows){
         mode_ = ROWS_SELECTION;
     }
@@ -66,8 +60,6 @@ QModelIndex NodeViewSelectionModel::first_index() const{
     if(!is_empty() && mode_^CUSTOM_SELECTION){
         auto sel = selection().indexes();
         return *std::min(sel.cbegin(),sel.cend(),[](auto lhs, auto rhs){
-            qDebug()<<lhs;
-            qDebug()<<rhs;
             return lhs->row()<rhs->row() || lhs->column()<rhs->column();
         });
     }
@@ -93,38 +85,36 @@ void NodeViewSelectionModel::next_from_selection(){
                 if(view_node.node()){
                     if(view_node.node()->has_child(currentIndex().column())){
                         if(view_node.node()->child(currentIndex().column())->is_array()){
-                            if(view_node.node()->child(currentIndex().column())->has_child(currentIndex().row()+1) ||
-                                    currentIndex().row()+1==m->get_rows_cached_count()){
-                                setCurrentIndex(currentIndex().siblingAtRow(currentIndex().row()+1), SelectCurrent);
-                            }
-                            else if(view_node.node()->has_child(currentIndex().column()+1) ||
-                                    currentIndex().column()+1==m->get_columns_cached_count()){
-                                setCurrentIndex(currentIndex().sibling(0,currentIndex().column()+1), SelectCurrent);
+                            //for array type
+                            if(currentIndex().row()+1<=view_node.node()->child(currentIndex().column())->childs().size()){
+                                setCurrentIndex(currentIndex().sibling(currentIndex().row()+1,currentIndex().column()),ClearAndSelect);
                             }
                             else{
-                                setCurrentIndex(currentIndex().sibling(0,0),SelectCurrent);
+                                setCurrentIndex(currentIndex().sibling(0,currentIndex().column()+1),ClearAndSelect);
                             }
                         }
-                        else if(view_node.node()->has_child(currentIndex().column()+1 ||
-                            currentIndex().column()+1==m->get_columns_cached_count())){
-                            setCurrentIndex(currentIndex().sibling(0,currentIndex().column()+1),SelectCurrent);
-                        }
                         else{
-                            setCurrentIndex(currentIndex().sibling(0,0),SelectCurrent);
+                            //for value type
+                            if(currentIndex().row()<=view_node.node()->child(currentIndex().column())->childs().size()){
+                                setCurrentIndex(currentIndex().sibling(currentIndex().row()+1,currentIndex().column()),ClearAndSelect);
+                            }
+                            else{
+                                setCurrentIndex(currentIndex().sibling(0,currentIndex().column()+1),ClearAndSelect);
+                            }
                         }
                     }
                     else if(currentIndex().column()+1==m->get_columns_cached_count()){
-                        setCurrentIndex(currentIndex().sibling(0,0),SelectCurrent);
+                        setCurrentIndex(currentIndex().sibling(0,0),ClearAndSelect);
                     }
                     else{
-                        setCurrentIndex(m->index(0,0,QModelIndex()),SelectCurrent);
+                        setCurrentIndex(m->index(0,0,QModelIndex()),ClearAndSelect);
                     }
                 }
-                else setCurrentIndex(m->index(0,0,QModelIndex()),SelectCurrent);
+                else setCurrentIndex(m->index(0,0,QModelIndex()),ClearAndSelect);
             }
-            else setCurrentIndex(QModelIndex(),SelectCurrent);
+            else setCurrentIndex(QModelIndex(),Clear);
         }
     }
-    else setCurrentIndex(QModelIndex(),SelectCurrent);
+    else setCurrentIndex(QModelIndex(),Clear);
 }
 }
