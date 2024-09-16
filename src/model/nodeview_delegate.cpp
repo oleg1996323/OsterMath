@@ -85,8 +85,9 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
             }
         }
         else if(info.parent){
+            //parent->child(id)==nullptr (if entering value)
             btn_need = false;
-            info=INFO_NODE();
+            info=INFO_NODE({info.parent,0});
         }
         else{
             throw std::runtime_error("");
@@ -119,7 +120,8 @@ void NodeViewDelegate::setEditorData(QWidget *editor, const QModelIndex &index) 
             if(info.parent){
                 if(info.parent->type()!=NODE_TYPE::ARRAY){
                     if(info.parent->type()==NODE_TYPE::VARIABLE){
-                        info.parent
+                        __convert_value_to_array__(info.parent,0,2,false);
+                        info.parent->replace();
                     }
                     else{ //value,function etc.
 
