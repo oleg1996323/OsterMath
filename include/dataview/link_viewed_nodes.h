@@ -7,7 +7,7 @@ namespace dataview{
 class LinkViewedNodes:public QWidget{
     Q_OBJECT
 public:
-    LinkViewedNodes(QWidget* parent):QWidget(parent){}
+    LinkViewedNodes(QWidget* parent);
 
     void add_button(INFO_NODE*);
 private:

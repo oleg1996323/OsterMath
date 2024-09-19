@@ -115,7 +115,7 @@ void NodeView::set_representable_child_node(const std::vector<INFO_NODE>& sequen
     for(const INFO_NODE& info:sequence_info){
         if(info.parent && info.id>-1){
             sequence_node_.push_back({info.parent,info.id});
-            emit add_link(info);
+            emit add_link(&info);
         }
         else qFatal("Incorrect input sequence data");
     }
