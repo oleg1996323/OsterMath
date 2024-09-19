@@ -259,7 +259,7 @@ void NodeData::keyPressEvent(QKeyEvent* event){
             }
             else QTableView::keyPressEvent(event);
         }
-        else if(event->count()>1 && event->text().front().isPrint()){
+        else if(!event->text().isEmpty() && event->text().at(0).isPrint()){
             if(state()!=EditingState){
                 edit(sel->currentIndex());
                 if(model::utilities::DelegateNodeEditor* editor = qobject_cast<model::utilities::DelegateNodeEditor*>(indexWidget(sel->currentIndex()))){
@@ -271,8 +271,10 @@ void NodeData::keyPressEvent(QKeyEvent* event){
             }
             else QTableView::keyPressEvent(event);
         }
-        else
+        else{
+            qDebug()<<event->text();
             QTableView::keyPressEvent(event);
+        }
     }
     else QTableView::keyPressEvent(event);
 //    else if(event->key() == Qt::Key::Key_Down ||

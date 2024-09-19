@@ -87,7 +87,7 @@ std::vector<INFO_NODE>::const_iterator last_Variable(const std::vector<INFO_NODE
     }
     return begin;
 }
-bool __convert_value_to_array__(Node* parent,int id, size_t sz, bool before){
+Node* __convert_value_to_array__(Node* parent,int id, size_t sz, bool before){
     if(parent && id!=-1 && parent->has_child(id)){
         std::shared_ptr<Node> new_node = std::make_shared<ArrayNode>(sz);
         parent->child(id)->parents().erase(parent);
@@ -102,8 +102,48 @@ bool __convert_value_to_array__(Node* parent,int id, size_t sz, bool before){
             new_node->insert_back(std::make_shared<Node>());
         }
         parent->replace(id,new_node);
-        return true;
+        return parent->child(id).get();
     }
-    else return false;
+    else return nullptr;
+}
+INFO_NODE get_child_node(INFO_NODE from, int child_node_id){ //not QModelIndex for simplification of function
+    if(!from.parent || from.id<0)
+        return INFO_NODE();
+    std::shared_ptr<Node> node = from.node();
+    if(node){
+        //case when child exists
+        if(node->type()==NODE_TYPE::ARRAY){
+            if(!node->has_childs()){
+                return {from.parent,from.id};
+            }
+            else{
+                if(node->has_child(child_node_id) || child_node_id==node->childs().size())
+                    return {node.get(),child_node_id};
+                else
+                    return INFO_NODE();
+            }
+        }
+        else if(node->type()==NODE_TYPE::VALUE){
+            if(child_node_id==0 || child_node_id==1)
+                return {from.parent,from.id};
+            else return INFO_NODE();
+        }
+        else if(node->type()==NODE_TYPE::VARIABLE){
+            if(child_node_id==0){
+                return {from.parent,from.id};
+            }
+            else return INFO_NODE();
+        }
+        else{
+            if(node->has_child(child_node_id) || child_node_id==node->childs().size())
+                return {node.get(),child_node_id};
+            else
+                return INFO_NODE();
+        }
+    }
+    else{
+        return INFO_NODE({from.parent,0});
+    }
+    return INFO_NODE();
 }
 }

@@ -12,16 +12,16 @@ namespace model::utilities {
 class DelegateNodeEditor:public QWidget{
     Q_OBJECT
 public:
-    DelegateNodeEditor(QWidget* parent,std::unique_ptr<INFO_NODE>,bool);
-    DelegateNodeEditor(QString,QWidget* parent,std::unique_ptr<INFO_NODE>,bool);
+    DelegateNodeEditor(QWidget* parent,std::vector<INFO_NODE>&&,bool);
+    DelegateNodeEditor(QString,QWidget* parent,std::vector<INFO_NODE>&&,bool);
     void set_text(QString);
     void enable_btn(bool);
     void enable_editing(bool);
     QString text() const noexcept;
     LineEdit* editor() const;
-
+    const std::vector<INFO_NODE>& info() const;
 signals:
-    void show_node(Node*,size_t);
+    void show_node(const std::vector<INFO_NODE>&);
 protected:
     virtual bool event(QEvent*) override;
 private:
@@ -29,6 +29,6 @@ private:
     //TODO connect with ExpressionTextEdit
     IconedButton* btn_view_node_;
     LineEdit* expr_edit_;
-    std::unique_ptr<INFO_NODE> info_;
+    std::vector<INFO_NODE> info_;
 };
 }

@@ -7743,7 +7743,21 @@ CMakeFiles/OsterMath.dir/src/dataview/model_data/nodedataview.cpp.o: ../../src/d
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QBitArray \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qbitarray.h \
   ../../include/dataview/model_data/aux_windows/insert_columns.h \
-  ../../include/dataview/model_data/aux_windows/insert_rows.h
+  ../../include/dataview/model_data/aux_windows/insert_rows.h \
+  ../../include/model/custom_widgets/line_edit_btn.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+  ../../include/OsterLib/widgets/PushButton.h \
+  ../../include/OsterLib/widgets/aux/__borders_interface__.h \
+  ../../include/OsterLib/widgets/LineEdit.h
 
 CMakeFiles/OsterMath.dir/src/dataview/sheets.cpp.o: ../../src/dataview/sheets.cpp \
   /usr/include/stdc-predef.h \
@@ -18481,6 +18495,8 @@ OsterMath_autogen/VEZS5EH527/moc_dock.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qrgb.h:
 
+../../include/OsterLib/widgets/LineEdit.h:
+
 /usr/include/boost/lexical_cast/bad_lexical_cast.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsize.h:
@@ -18970,6 +18986,8 @@ OsterMath_autogen/6YEA5652QU/moc_bookmath.cpp:
 /usr/include/c++/11/exception:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h:
+
+../../include/model/custom_widgets/line_edit_btn.h:
 
 ../../include/bookmath.h:
 

@@ -9,7 +9,7 @@
 #include <QStylePainter>
 
 namespace model::utilities {
-DelegateNodeEditor::DelegateNodeEditor(QWidget* parent,std::unique_ptr<INFO_NODE> info,bool btn_active):
+DelegateNodeEditor::DelegateNodeEditor(QWidget* parent,std::vector<INFO_NODE>&& info,bool btn_active):
 QWidget(parent),
 info_(std::move(info))
 {
@@ -30,14 +30,14 @@ info_(std::move(info))
         btn_view_node_->set_size({DelegateNodeEditor::height(),DelegateNodeEditor::height()});
         connect(btn_view_node_,&PushButton::clicked,
         this, [this](){
-            assert(info_->parent);
-            emit show_node(info_->parent,info_->id);
+            assert(!info_.empty());
+            emit show_node(info_);
         });
         layout_->addWidget(btn_view_node_);
     }
     setLayout(layout_);
 }
-DelegateNodeEditor::DelegateNodeEditor(QString line_text,QWidget* parent,std::unique_ptr<INFO_NODE> info,bool btn_active):
+DelegateNodeEditor::DelegateNodeEditor(QString line_text,QWidget* parent,std::vector<INFO_NODE>&& info,bool btn_active):
 QWidget(parent),
 info_(std::move(info))
 {
@@ -57,8 +57,8 @@ info_(std::move(info))
         btn_view_node_->set_size({DelegateNodeEditor::height(),DelegateNodeEditor::height()});
         connect(btn_view_node_,&PushButton::clicked,
         this, [this](){
-            assert(info_->parent);
-            emit show_node(info_->parent,info_->id);
+            assert(!info_.empty());
+            emit show_node(info_);
         });
         btn_view_node_->setSizePolicy({QSizePolicy::Expanding,QSizePolicy::Expanding});
         layout_->addWidget(btn_view_node_);
@@ -86,5 +86,9 @@ bool DelegateNodeEditor::event(QEvent* event){
         return expr_edit_->event(event);
     }
     else return QWidget::event(event);
+}
+
+const std::vector<INFO_NODE>& DelegateNodeEditor::info() const{
+    return info_;
 }
 }

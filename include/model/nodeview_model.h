@@ -25,7 +25,7 @@ public:
 
     void rename(const QString& name) noexcept;
     void set_representable_variable(Node*,int);
-    void set_representable_child_node(Node*,int);
+    void set_representable_child_node(const std::vector<INFO_NODE>&);
     void reset_representable_node();
     INFO_NODE get_node() const{
         if(!sequence_node_.empty())
@@ -46,12 +46,12 @@ public:
 
     int get_rows_cached_count() const;
     int get_columns_cached_count() const;
-
     bool insert_row_before(int nRow, int nCount);
     bool insert_column_before(int nCol, int nCount);
     bool insert_row_after(int nRow, int nCount);
     bool insert_column_after(int nCol, int nCount);
-
+signals:
+    void add_link(INFO_NODE*);
 private:
     MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Table;
     std::vector<INFO_NODE> sequence_node_;

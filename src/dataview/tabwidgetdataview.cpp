@@ -4,13 +4,22 @@
 #include "data.h"
 #include "dataview/variable_list/dock.h"
 #include "dataview/model_data/nodedataview.h"
+#include "dataview/link_viewed_nodes.h"
+#include <QVBoxLayout>
 
 namespace dataview{
 View::View(QWidget* parent, BaseData* data):QMainWindow(parent, Qt::Widget|Qt::WindowTitleHint), ObjectFromSettings(this){
     setObjectName("sheet_window");
     load_settings();
+    QWidget* central = new QWidget(this);
+    QVBoxLayout* central_layout = new QVBoxLayout(this);
+    link_viewed_nodes_ = new LinkViewedNodes(this);
     data_view_ = new NodeData(parent);
+    central_layout->addWidget(link_viewed_nodes_);
+    central_layout->addWidget(data_view_);
+    central->setLayout(central_layout);
     setCentralWidget(data_view_);
+    //TODO connect signals between data_view model and link_viewed_nodes_;
 }
 View::~View(){
     save_settings();

@@ -15,6 +15,15 @@ int NodeView::rowCount(const QModelIndex &parent) const{
         cached_row_count_ = 0;
     else{
         if(!sequence_node_.empty()){
+            if(!sequence_node_.back().parent->has_child(sequence_node_.back().id)){
+                if(sequence_node_.back().parent->type()==NODE_TYPE::VALUE ||
+                    sequence_node_.back().parent->type()==NODE_TYPE::VARIABLE ||
+                        sequence_node_.back().parent->type()==NODE_TYPE::UNDEF){
+                    cached_row_count_=1;
+                    return cached_row_count_;
+                }
+            }
+
             std::shared_ptr<Node> node_to_show = sequence_node_.back().node();
             if(!node_to_show){
                 cached_row_count_=1;
@@ -70,6 +79,14 @@ int NodeView::columnCount(const QModelIndex &parent) const{
         return 0;
     else {
         if(!sequence_node_.empty()){
+            if(!sequence_node_.back().parent->has_child(sequence_node_.back().id)){
+                if(sequence_node_.back().parent->type()==NODE_TYPE::VALUE ||
+                    sequence_node_.back().parent->type()==NODE_TYPE::VARIABLE ||
+                        sequence_node_.back().parent->type()==NODE_TYPE::UNDEF)
+                    cached_column_count_=2;
+                else cached_column_count_=1;
+                return cached_column_count_;
+            }
             std::shared_ptr<Node> node_to_show = sequence_node_.back().node();
             if(!node_to_show){
                 cached_column_count_=1;
@@ -77,6 +94,7 @@ int NodeView::columnCount(const QModelIndex &parent) const{
             }
             else
                 cached_column_count_ = node_to_show->childs().size()+1;
+
         }
         else cached_column_count_ = 1;
     }
@@ -90,13 +108,17 @@ void NodeView::set_representable_variable(Node* parent, int id_child){
     endResetModel();
 }
 
-void NodeView::set_representable_child_node(Node* parent,int id){
+void NodeView::set_representable_child_node(const std::vector<INFO_NODE>& sequence_info){
     beginResetModel();
     if(sequence_node_.empty())
         return;
-    std::shared_ptr<Node> current_node = sequence_node_.back().node();
-    if(parent && id>-1)
-        sequence_node_.push_back({parent,id});
+    for(const INFO_NODE& info:sequence_info){
+        if(info.parent && info.id>-1){
+            sequence_node_.push_back({info.parent,info.id});
+            emit add_link(info);
+        }
+        else qFatal("Incorrect input sequence data");
+    }
     endResetModel();
 }
 
@@ -126,6 +148,14 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
                 return QString("...");
             }
             else {
+                if(node_to_show->type()==NODE_TYPE::VALUE ||
+                        node_to_show->type()==NODE_TYPE::UNDEF){
+                    if(index.row()==0 && index.column()==0){
+                        std::stringstream stream;
+                        node_to_show->print_result(stream);
+                        return QString::fromStdString(stream.str());
+                    }
+                }
                 if(index.row()+1<cached_row_count_){
                     std::stringstream stream;
                     node_to_show->print_result(stream);
@@ -138,6 +168,17 @@ QVariant NodeView::data(const QModelIndex &index, int role) const{
         {
             if(sequence_node_.empty())
                 return QVariant();
+
+            if(!sequence_node_.back().parent->has_child(sequence_node_.back().id)){
+                if(index.column()==0 && index.row()==0){
+                    if(sequence_node_.back().parent->type()==NODE_TYPE::VALUE ||
+                        sequence_node_.back().parent->type()==NODE_TYPE::VARIABLE ||
+                            sequence_node_.back().parent->type()==NODE_TYPE::UNDEF)
+                        return QVariant::fromValue(sequence_node_.back().parent);
+                    else return QVariant();
+                }
+                else return QVariant();
+            }
 
             std::shared_ptr<Node> node_to_show = sequence_node_.back().node();
             if(!node_to_show){
@@ -193,6 +234,7 @@ std::vector<INFO_NODE> NodeView::get_sequence_ids_at_set_data(QModelIndex index)
                 res.back().node()->insert_back(std::make_shared<Node>());
             else{
                 __convert_value_to_array__(res.back().parent, res.back().id, 2, false);
+                insertRow(cached_row_count_,QModelIndex());
             }
             res.push_back({res.back().node().get(),index.column()});
             if(index.column()==cached_column_count_-1){
@@ -245,13 +287,46 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
         {
             if(sequence_node_.empty())
                 return false;
-            std::shared_ptr<Node> node_to_show = sequence_node_.back().node();
+
+            if(!sequence_node_.back().parent->has_child(sequence_node_.back().id)){
+                if(!value.isNull()){
+                    switch(sequence_node_.back().parent->type()){
+                        case (NODE_TYPE::VALUE):{
+                            assert(sequence_node_.size()>1);
+                            assert((sequence_node_.end()-2)->parent);
+                            assert((sequence_node_.end()-2)->id>-1);
+                            assert(index.row()==0);
+                            if(index.column()==1)
+                                sequence_node_.back().parent = __convert_value_to_array__((sequence_node_.end()-2)->parent,(sequence_node_.end()-2)->id,1,false);
+                            break;
+                        }
+                        case(NODE_TYPE::ARRAY):{
+                        break;
+                        }
+                    default:{
+                        qFatal("Impossible to set data to this node type");
+                    }
+                    }
+                }
+                else return false;
+            }
+
+            std::shared_ptr<Node> node_to_show;
+            if(sequence_node_.back().parent->has_child(sequence_node_.back().id))
+                node_to_show = sequence_node_.back().node();
+            else node_to_show.reset(sequence_node_.back().parent);
+
             if(!node_to_show){
                 return false;
             }
             std::vector<INFO_NODE> arg = get_sequence_ids_at_set_data(index);
             if(arg.empty())
                 return false;
+
+            if(node_to_show.get() == sequence_node_.back().parent){
+                arg.pop_back();
+            }
+
             exceptions::EXCEPTION_TYPE err_h = parse_to_insert_item(value.toString(),arg);
             emit dataChanged(createIndex(0,0), createIndex(cached_row_count_-1,cached_column_count_-1));
             return err_h==exceptions::NOEXCEPT;

@@ -42,7 +42,8 @@ public:
 exceptions::EXCEPTION_TYPE parse_to_insert_item(QString expr, const std::vector<INFO_NODE>& sequence_ID);
 NODE_STRUCT define_variable(const QString& expr, VariableNode* node);
 std::vector<INFO_NODE>::const_iterator last_Variable(const std::vector<INFO_NODE>& sequence);
-bool __convert_value_to_array__(Node* parent,int id,size_t sz,bool before);
+Node* __convert_value_to_array__(Node* parent,int id,size_t sz,bool before);
+INFO_NODE get_child_node(INFO_NODE from, int child_id); //not QModelIndex for simplification of function (may be called twice)
 }
 
 Q_DECLARE_METATYPE(TYPE_VAL)

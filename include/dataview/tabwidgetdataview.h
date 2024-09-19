@@ -5,6 +5,7 @@
 #include "kernel/def.h"
 
 class BaseData;
+struct INFO_NODE;
 class Node;
 namespace model{
 class VariablesDelegate;
@@ -14,6 +15,7 @@ class NodeViewHeader;
 }
 namespace dataview{
 class NodeData;
+class LinkViewedNodes;
 
 //TODO add variable search in model
 class View:public QMainWindow, public Retranslatable, public ObjectFromSettings{
@@ -22,6 +24,9 @@ public:
     View(QWidget* parent, BaseData* data);
     ~View();
     bool state_initialized() const;
+signals:
+    void add_link(INFO_NODE*);
+    void delete_link(INFO_NODE*);
 public slots:
     QAbstractProxyModel* search_var(const QString&);
     void show_variable(Node*,size_t) const;
@@ -31,6 +36,7 @@ public slots:
 private:
     //widget where var are illustrated
     NodeData* data_view_;
+    LinkViewedNodes* link_viewed_nodes_;
     bool state_initialized_ = false;
 
     virtual void __load_settings__() override;
