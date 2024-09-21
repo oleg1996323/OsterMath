@@ -74,3 +74,4 @@ arithmetictree/grammar/antlr4_runtime
 arithmetictree/grammar/bin
 arithmetictree/grammar/lib
 /lib
+/build
