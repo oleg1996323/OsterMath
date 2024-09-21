@@ -12,7 +12,7 @@ namespace dataview{
 
 class SearchLine;
 class TitleBar;
-class View;
+class WindowView;
 
 class DockWidget:public QDockWidget, public Retranslatable, public ObjectFromSettings{
     Q_OBJECT

@@ -16,7 +16,7 @@ Sheets::Sheets(QWidget* parent):
 
     connect(this,&Sheets::tabBarClicked,[this](int id){
         int current = currentIndex();
-        __change_dock_to__(qobject_cast<View*>(widget(id)));
+        __change_dock_to__(qobject_cast<WindowView*>(widget(id)));
         __change_model__(id);
         setCurrentIndex(id);
     });
@@ -24,10 +24,10 @@ Sheets::Sheets(QWidget* parent):
     for(int i=0;i<4;++i)
         add_default_sheet(i);
     connect(findChild<::model::VariablesDelegate*>("var_list_delegate"), &::model::VariablesDelegate::show_node,[this](Node* parent,size_t id){
-        qobject_cast<View*>(currentWidget())->show_variable(parent,id);
+        qobject_cast<WindowView*>(currentWidget())->show_variable(parent,id);
     });
     connect(findChild<::model::NodeViewDelegate*>("node_view_delegate"), &::model::NodeViewDelegate::show_node,[this](Node* parent,size_t id){
-        qobject_cast<View*>(currentWidget())->show_variable(parent,id);
+        qobject_cast<WindowView*>(currentWidget())->show_variable(parent,id);
     });
 }
 
@@ -76,18 +76,18 @@ void Sheets::change_sheet_name(QString&& name, int tab_id){
     }
 }
 
-View* Sheets::__create_default_tab__(QString& name){
+WindowView* Sheets::__create_default_tab__(QString& name){
     name = tr("Sheet")+QString::number(kernel::Application::get_active_pool()->size()).toUtf8();
     DataPool* pool = kernel::Application::get_active_pool();
     ::BaseData* data = pool->add_data(name.toStdString());
     manager_.add_data(this,data); //check the parent object
     kernel::Application::set_active_data(data);
-    return new View(this,data);
+    return new WindowView(this,data);
 }
 
 void Sheets::add_default_sheet(int id){
     QString name;
-    View* view = __create_default_tab__(name);
+    WindowView* view = __create_default_tab__(name);
     insertTab(id,view,name);
     __change_dock_to__(view);
     __change_model__(id);
@@ -96,7 +96,7 @@ void Sheets::add_default_sheet(int id){
 
 void Sheets::add_default_sheet(){
     QString name;
-    View* view = __create_default_tab__(name);
+    WindowView* view = __create_default_tab__(name);
     int new_id = addTab(view,name);
     __change_dock_to__(view);
     __change_model__(new_id);
@@ -110,13 +110,13 @@ void Sheets::__change_model__(int id){
     std::string str = tabText(id).toStdString();
     BaseData* data = kernel::Application::get_active_pool()->get(tabText(id).toStdString());
     var_list_->set_data(manager_.get_data(data));
-    if(View* v = qobject_cast<View*>(widget(id))){
+    if(WindowView* v = qobject_cast<WindowView*>(widget(id))){
         v->set_model(manager_.get_data(data)->data_model.get());
         v->set_selection(manager_.get_data(data)->selection_model.get());
     }
 }
 
-void Sheets::__change_dock_to__(View* tab_window) {
+void Sheets::__change_dock_to__(WindowView* tab_window) {
     if (tab_window) {
         if(!var_list_){
             var_list_ = new DockWidget(tab_window);
@@ -137,7 +137,7 @@ void Sheets::__change_dock_to__(View* tab_window) {
         }
         else{
             if(var_list_->parent()){
-                save_last_window_state(qobject_cast<View*>(var_list_->parent())->saveState());
+                save_last_window_state(qobject_cast<WindowView*>(var_list_->parent())->saveState());
             }
             if(!win_state_.isEmpty()){
                 QTimer::singleShot(0,[this, tab_window]{
@@ -166,7 +166,7 @@ const QByteArray& Sheets::get_last_window_state() const{
 }
 
 NodeData* Sheets::active_sheet_node_data_viewer() const{
-    return qobject_cast<View*>(currentWidget())->data_viewer();
+    return qobject_cast<WindowView*>(currentWidget())->data_viewer();
 }
 
 void Sheets::__load_settings__(){
@@ -185,7 +185,7 @@ void Sheets::__save_settings__(){
     sets_->beginGroup(objectName());
     sets_->setValue("geometry",saveGeometry());
     if(var_list_ && var_list_->parent())
-        sets_->setValue("winstate",qobject_cast<View*>(var_list_->parent())->saveState());
+        sets_->setValue("winstate",qobject_cast<WindowView*>(var_list_->parent())->saveState());
     sets_->endGroup();
 }
 

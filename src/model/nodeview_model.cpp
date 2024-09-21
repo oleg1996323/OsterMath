@@ -113,21 +113,30 @@ void NodeView::set_representable_child_node(const std::vector<INFO_NODE>& sequen
     if(sequence_node_.empty())
         return;
     for(const INFO_NODE& info:sequence_info){
-        if(info.parent && info.id>-1){
-            sequence_node_.push_back({info.parent,info.id});
-            emit add_link(&info);
+        if(info.is_valid()){
+            sequence_node_.push_back(info);
+            emit add_link(info);
         }
         else qFatal("Incorrect input sequence data");
     }
     endResetModel();
 }
-
+void NodeView::set_sequence(const std::vector<INFO_NODE>& sequence_info){
+    reset();
+    beginResetModel();
+    sequence_node_ = sequence_info;
+    endResetModel();
+}
+void NodeView::reset(){
+    beginResetModel();
+    sequence_node_.clear();
+    endResetModel();
+}
 void NodeView::reset_representable_node(){
     beginResetModel();
     sequence_node_.pop_back();
     endResetModel();
 }
-
 QVariant NodeView::data(const QModelIndex &index, int role) const{
     if(sequence_node_.empty() || !index.isValid())
         return QVariant();
@@ -226,6 +235,7 @@ std::vector<INFO_NODE> NodeView::get_sequence_ids_at_set_data(QModelIndex index)
         return std::vector<INFO_NODE>();
     std::vector<INFO_NODE> res(begin,sequence_node_.cend());
     if(!res.empty()){
+        //TODO if valuenode then exception
         if(res.back().node()->has_child(index.column())){
             res.push_back({res.back().node().get(),index.column()});
         }
@@ -288,7 +298,11 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
             if(sequence_node_.empty())
                 return false;
 
+            bool is_one_val = false;
+            bool converted = false;
+
             if(!sequence_node_.back().parent->has_child(sequence_node_.back().id)){
+                is_one_val = true;
                 if(!value.isNull()){
                     switch(sequence_node_.back().parent->type()){
                         case (NODE_TYPE::VALUE):{
@@ -296,8 +310,10 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
                             assert((sequence_node_.end()-2)->parent);
                             assert((sequence_node_.end()-2)->id>-1);
                             assert(index.row()==0);
-                            if(index.column()==1)
+                            if(index.column()==1){
                                 sequence_node_.back().parent = __convert_value_to_array__((sequence_node_.end()-2)->parent,(sequence_node_.end()-2)->id,1,false);
+                                converted = true;
+                            }
                             break;
                         }
                         case(NODE_TYPE::ARRAY):{
@@ -311,23 +327,23 @@ bool NodeView::setData(const QModelIndex &index, const QVariant &value, int role
                 else return false;
             }
 
-            std::shared_ptr<Node> node_to_show;
-            if(sequence_node_.back().parent->has_child(sequence_node_.back().id))
-                node_to_show = sequence_node_.back().node();
-            else node_to_show.reset(sequence_node_.back().parent);
-
-            if(!node_to_show){
-                return false;
+            std::vector<INFO_NODE> arg;
+            if(sequence_node_.back().parent->is_array() || index.column()==1) /*!is_one_val || converted*/
+                arg = get_sequence_ids_at_set_data(index);
+            else{
+                arg = sequence_node_;
+                arg.pop_back();
             }
-            std::vector<INFO_NODE> arg = get_sequence_ids_at_set_data(index);
             if(arg.empty())
                 return false;
 
-            if(node_to_show.get() == sequence_node_.back().parent){
-                arg.pop_back();
-            }
-
             exceptions::EXCEPTION_TYPE err_h = parse_to_insert_item(value.toString(),arg);
+            if(is_one_val && !converted){
+                //if value node at sequence_node_ was last and was edited
+                //simple replacing by new created pointer is needed
+                sequence_node_.pop_back();
+                sequence_node_.push_back({sequence_node_.back().node().get(),0});
+            }
             emit dataChanged(createIndex(0,0), createIndex(cached_row_count_-1,cached_column_count_-1));
             return err_h==exceptions::NOEXCEPT;
             break;

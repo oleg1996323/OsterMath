@@ -81,7 +81,7 @@ void NodeViewSelectionModel::next_from_selection(){
             //for single selection
             model::NodeView* m = qobject_cast<NodeView*>(model());
             INFO_NODE view_node = m->get_node();
-            if(view_node.parent && view_node.id>=-1){
+            if(view_node.has_node()){
                 if(view_node.node()){
                     if(view_node.node()->has_child(currentIndex().column())){
                         if(view_node.node()->child(currentIndex().column())->is_array()){
@@ -111,6 +111,13 @@ void NodeViewSelectionModel::next_from_selection(){
                     }
                 }
                 else setCurrentIndex(m->index(0,0,QModelIndex()),ClearAndSelect);
+            }
+            else if(view_node.is_valid()){
+                if(currentIndex().column()+1==m->get_columns_cached_count())
+                    setCurrentIndex(currentIndex().sibling(0,0),ClearAndSelect);
+                else{
+                    setCurrentIndex(currentIndex().sibling(0,1),ClearAndSelect);
+                }
             }
             else setCurrentIndex(QModelIndex(),Clear);
         }

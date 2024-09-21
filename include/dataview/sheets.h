@@ -11,7 +11,7 @@
 #include "utilities/validators/validator.h"
 #include "model/nodeview_header.h"
 #include "kernel/application.h"
-#include "dataview/tabwidgetdataview.h"
+#include "dataview/window_view.h"
 #include "model/manager.h"
 
 #include <QMessageBox>
@@ -39,7 +39,7 @@ private:
     void __init__(){
         setTabPosition(QTabWidget::South);
     }
-    View* __create_default_tab__(QString&);
+    WindowView* __create_default_tab__(QString&);
     void __change_model__(int id);
     virtual void __load_settings__() override;
     virtual void __save_settings__() override;
@@ -51,6 +51,6 @@ private:
     QByteArray win_state_;
     DockWidget* var_list_ = nullptr;
 private slots:
-    void __change_dock_to__(View*);
+    void __change_dock_to__(WindowView*);
 };
 }

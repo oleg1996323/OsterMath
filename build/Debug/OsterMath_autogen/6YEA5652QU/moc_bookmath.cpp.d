@@ -26,7 +26,7 @@
   /home/oster/OsterMath/include/dataview/expr_view_splitter.h \
   /home/oster/OsterMath/include/dataview/expression_view.h \
   /home/oster/OsterMath/include/dataview/sheets.h \
-  /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
+  /home/oster/OsterMath/include/dataview/window_view.h \
   /home/oster/OsterMath/include/kernel/application.h \
   /home/oster/OsterMath/include/kernel/def.h \
   /home/oster/OsterMath/include/kernel/exception.h \

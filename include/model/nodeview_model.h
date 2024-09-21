@@ -27,6 +27,7 @@ public:
     void set_representable_variable(Node*,int);
     void set_representable_child_node(const std::vector<INFO_NODE>&);
     void reset_representable_node();
+    void reset();
     INFO_NODE get_node() const{
         if(!sequence_node_.empty())
             return sequence_node_.back();
@@ -51,7 +52,9 @@ public:
     bool insert_row_after(int nRow, int nCount);
     bool insert_column_after(int nCol, int nCount);
 signals:
-    void add_link(INFO_NODE*);
+    void add_link(INFO_NODE);
+public slots:
+    void set_sequence(const std::vector<INFO_NODE>&);
 private:
     MODE_REPRESENTATION mode_ = MODE_REPRESENTATION::Table;
     std::vector<INFO_NODE> sequence_node_;

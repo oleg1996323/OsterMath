@@ -1071,7 +1071,7 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QModelIndexList \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
- /home/oster/OsterMath/include/dataview/tabwidgetdataview.h \
+ /home/oster/OsterMath/include/dataview/window_view.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QAbstractProxyModel \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QItemSelectionModel \
@@ -1126,6 +1126,11 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/../../../../include/dataview/expression_text_edit.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QFocusEvent \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_expression_view.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_link_viewed_nodes.cpp \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/../../../../include/dataview/link_viewed_nodes.h \
+ /home/oster/OsterMath/include/OsterLib/widgets/PushLabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QSignalMapper \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qsignalmapper.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/moc_RowColumnInsertInterface.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/../../../../include/dataview/model_data/aux_windows/RowColumnInsertInterface.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/LAU3HA5X3L/../../../../include/dataview/model_data/aux_windows/AuxiliairyWindowInterface.h \
@@ -1150,7 +1155,6 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QAbstractItemDelegate \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_sheets.cpp \
- /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_tabwidgetdataview.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/moc_dock.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/VEZS5EH527/../../../../include/dataview/variable_list/dock.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QDockWidget \
@@ -1172,6 +1176,7 @@ CMakeFiles/OsterMath.dir/OsterMath_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintDevice \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h \
+ /home/oster/OsterMath/build/Debug/OsterMath_autogen/FWWZ35XHKZ/moc_window_view.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/6Q6C4MVPTR/moc_booktoolbar.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/moc_export.cpp \
  /home/oster/OsterMath/build/Debug/OsterMath_autogen/V3S3SRHSHZ/../../../../include/menuwidgets/groups/export.h \

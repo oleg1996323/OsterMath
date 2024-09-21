@@ -127,7 +127,12 @@ void NodeViewDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, 
         if(utilities::DelegateNodeEditor* ptr = qobject_cast<utilities::DelegateNodeEditor*>(editor)){
             if(Node* node = qobject_cast<const model::NodeView*>(index.model())->data(index,Qt::EditRole).value<Node*>()){
                 qDebug()<<ptr->text();
-                model->setData(index,ptr->text(),Qt::DisplayRole);
+                std::stringstream stream;
+                stream<<'=';
+                node->print_text(stream);
+                if(ptr->text()!=QString::fromStdString(stream.str()))
+                    model->setData(index,ptr->text(),Qt::DisplayRole);
+                else return;
             }
             else{
                 if(!ptr->text().isEmpty()){
