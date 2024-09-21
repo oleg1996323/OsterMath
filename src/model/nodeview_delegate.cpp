@@ -40,7 +40,8 @@ QWidget* NodeViewDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
                         if(index.row()<node->child(index.column())->childs().size() &&
                                 (node->child(index.column())->child(index.row())->type()==NODE_TYPE::ARRAY ||
                                  node->child(index.column())->child(index.row())->type()==NODE_TYPE::VALUE ||
-                                 node->child(index.column())->child(index.row())->type()==NODE_TYPE::VARIABLE)){
+                                 node->child(index.column())->child(index.row())->type()==NODE_TYPE::VARIABLE ||
+                                 node->child(index.column())->child(index.row())->type()==NODE_TYPE::UNDEF)){
                             btn_need = true;
                             sequence_info.push_back({node.get(),index.column()});
                             sequence_info.push_back({node->child(index.column()).get(),index.row()});

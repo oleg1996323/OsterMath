@@ -6,4 +6,8 @@ class PushLabel:public QLabel{
 public:
     PushLabel(QString text, QWidget* parent);
     PushLabel(QWidget* parent);
+signals:
+    void clicked();
+protected:
+    virtual void mousePressEvent(QMouseEvent* event) override;
 };

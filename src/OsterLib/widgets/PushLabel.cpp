@@ -8,8 +8,6 @@ PushLabel::PushLabel(QString text, QWidget* parent):QLabel(text,parent,Qt::Widge
                             Qt::TextInteractionFlag::TextBrowserInteraction);
     setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
     setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    setMouseTracking(false);
-    setFixedSize(minimumSizeHint());
     setContentsMargins(0,0,0,0);
     setOpenExternalLinks(true);
     QFont font;
@@ -25,13 +23,16 @@ PushLabel::PushLabel(QWidget* parent):QLabel(parent,Qt::Widget){
                             Qt::TextInteractionFlag::TextBrowserInteraction);
     setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
     setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-    setMouseTracking(false);
-    setFixedSize(minimumSizeHint());
     setContentsMargins(0,0,0,0);
-    setOpenExternalLinks(false);
+    setOpenExternalLinks(true);
     QFont font;
     font.setFamily(this->font().family());
     font.setItalic(true);
     font.setBold(false);
     setFont(font);
+}
+
+void PushLabel::mousePressEvent(QMouseEvent* event){
+    QLabel::mousePressEvent(event);
+    emit clicked();
 }

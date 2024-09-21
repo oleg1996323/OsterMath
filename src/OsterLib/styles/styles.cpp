@@ -12,6 +12,7 @@
 #include <qdrawutil.h>
 #include "PushButton.h"
 #include "LineEdit.h"
+#include "PushLabel.h"
 
 namespace dataview{
 class TitleBar;
@@ -584,6 +585,9 @@ void OsterStyle::polish(QWidget *widget){
     if(QSplitterHandle* handle = qobject_cast<QSplitterHandle*>(widget)){
         handle->setAttribute(Qt::WA_Hover,true);
     }
+    if(PushLabel* label = qobject_cast<PushLabel*>(widget)){
+        label->setAttribute(Qt::WA_Hover,true);
+    }
     baseStyle()->polish(widget);
 }
 QSize OsterStyle::sizeFromContents(QStyle::ContentsType ct, const QStyleOption *opt, const QSize &csz, const QWidget *widget = nullptr) const{
@@ -635,16 +639,12 @@ QRect OsterStyle::subElementRect(QStyle::SubElement sr, const QStyleOption *opt,
     }
 }
 void OsterStyle::unpolish(QWidget *widget){
-    {
-        QPushButton* btn = qobject_cast<QPushButton*>(widget);
-        if(btn)
-            btn->setAttribute(Qt::WA_Hover,false);
-    }
-    {
-        QSplitterHandle* spt = qobject_cast<QSplitterHandle*>(widget);
-        if(spt)
-            spt->setAttribute(Qt::WA_Hover,false);
-    }
+    if(QPushButton* btn = qobject_cast<QPushButton*>(widget))
+        btn->setAttribute(Qt::WA_Hover,false);
+    if(QSplitterHandle* spt = qobject_cast<QSplitterHandle*>(widget))
+        spt->setAttribute(Qt::WA_Hover,false);
+    if(PushLabel* label = qobject_cast<PushLabel*>(widget))
+        label->setAttribute(Qt::WA_Hover,false);
     QCommonStyle::unpolish(widget);
 }
 void OsterStyle::unpolish(QApplication *application){

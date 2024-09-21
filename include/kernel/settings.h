@@ -45,36 +45,25 @@ namespace kernel{
             static bool var_list_showed_;
         public:
             static void init_settings();
-
             static Themes::TYPE get_theme();
-
             static void set_theme(Themes::TYPE);
-
             static QSettings* get_settings();
-
             static void set_language(QLocale::Language);
-
             static QLocale get_language();
-
+            static uint8_t get_font_inc();
+            static void set_font_inc(uint8_t);
             static const LANG_DATA& get_language_properties();
-
             static void __save_settings__();
-
             static void __load_settings__();
-
             static bool variable_list_showed();
-
             static void set_variable_list_showed(bool);
-
         };
 
         class Project{
             static QSettings* sets_;
         public:
             static void __open_settings__(const QString& path, QObject* parent);
-
             static QSettings* get_settings();
-
         };
     }
 }
