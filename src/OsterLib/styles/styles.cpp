@@ -423,16 +423,19 @@ void OsterStyle::drawControl(ControlElement element,
                     int pixmapWidth = pixmap.width() / pixmap.devicePixelRatio();
                     int pixmapHeight = pixmap.height() / pixmap.devicePixelRatio();
                     int iconSpacing = 0;
-
                     QRect iconRect = QRect(-iconSpacing,
                                            -iconSpacing,
                                            pixmapWidth+iconSpacing, pixmapHeight+iconSpacing);
 
                     if(btn_w->rounded_borders()){
                         if(btn_w->border_radius()>0){
-                            p->setBrush(QBrush(pixmap));
+                            QPainterPath path;
                             p->setPen(QPen(QBrush(),0));
-                            p->drawRoundedRect(iconRect,btn_w->border_radius(),btn_w->border_radius());
+                            path.addRoundedRect(iconRect,btn_w->border_radius(),btn_w->border_radius());
+                            p->setClipPath(path);
+                            p->drawPixmap(btn_w->width()/2-btn_opt->iconSize.width()/2, btn_w->height()/2-btn_opt->iconSize.height()/2, pixmap);
+                            p->setPen(QPen(QBrush(),0));
+                            //p->drawRoundedRect(iconRect,btn_w->border_radius(),btn_w->border_radius());
                         }
                         else
                             p->drawPixmap(iconRect, pixmap);

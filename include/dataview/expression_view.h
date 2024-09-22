@@ -3,14 +3,23 @@
 #include <QTextEdit>
 #include <PushButton.h>
 #include <CollapsibleButton.h>
+#include <kernel/def.h>
 
 namespace dataview{
 class ExpressionTextEdit;
 //TODO add signal to open auxiliairy window for formula selection/help
-class ExpressionButton:public PushButton{
+class ExpressionButton:public IconedButton, public ObjectFromSettings{
     Q_OBJECT
 public:
     ExpressionButton(const QString& res_path,QWidget* parent);
+public:
+    void open_at_clicked();
+private:
+    virtual void __load_settings__() override;
+    virtual void __save_settings__() override;
+    virtual void __upload_fonts__() override;
+    virtual void __upload_style__() override;
+    virtual void __upload_language__() override;
 };
 
 //TODO add signal to send text for parsing

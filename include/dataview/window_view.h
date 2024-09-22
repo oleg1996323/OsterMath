@@ -13,6 +13,9 @@ class VariablesHeader;
 class NodeViewDelegate;
 class NodeViewHeader;
 }
+namespace utilities::windows{
+class FunctionWizard;
+}
 namespace dataview{
 class NodeData;
 class LinkViewedNodes;
@@ -34,6 +37,7 @@ private:
     //widget where var are illustrated
     NodeData* data_view_;
     LinkViewedNodes* link_viewed_nodes_;
+    utilities::windows::FunctionWizard* wizard_window;
     bool state_initialized_ = false;
 
     virtual void __load_settings__() override;

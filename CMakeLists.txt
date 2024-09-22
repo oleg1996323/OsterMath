@@ -77,7 +77,7 @@ set(PROJECT_SOURCES ${PROJECT_SOURCES_UTILITIES}
     ${MENUWIDGETS_SOURCES_MODEL}
     ${DATAVIEW_SOURCES_MODEL})
 
-set(ARITHMTREE_DIR $ENV{HOME}/Electrolisys/arithmetictree)
+set(ARITHMTREE_DIR $ENV{HOME}/OsterMath-Backend/arithmetictree)
 find_library(ARITHMTREE_LIB NAMES libarithmetictree.a arithmetictree PATHS ${ARITHMTREE_DIR}/lib/ui/${CMAKE_BUILD_TYPE} REQUIRED)
 find_library(ARITHMTREE_EXC_LIB NAMES libexceptions.a exceptions PATHS ${ARITHMTREE_DIR}/lib/ui/${CMAKE_BUILD_TYPE} REQUIRED)
 find_library(ANTLR libantlr4-runtime.a PATHS ${ARITHMTREE_DIR}/grammar/lib REQUIRED)

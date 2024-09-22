@@ -5,18 +5,31 @@
 #include "dataview/expression_view.h"
 #include "icon_functions.h"
 #include "dataview/expression_text_edit.h"
+#include "kernel/application.h"
 
 namespace dataview{
 
-ExpressionButton::ExpressionButton(const QString& res_path,QWidget* parent):PushButton("",parent){
-    setContentsMargins(0,0,0,0);
-    setFixedSize(30,30);
+ExpressionButton::ExpressionButton(const QString& res_path,QWidget* parent):IconedButton("",parent), ObjectFromSettings(this){
+    setObjectName("expression_button");
+    set_size({30,30});
     setBorders(true);
     setRounded_borders(true);
     setBorder_radius(Themes::border_round_common);
     setIcon(QIcon(res_path));
-    setIconSize({width()-contentsMargins().left()-contentsMargins().right(),height()-contentsMargins().top()-contentsMargins().bottom()});
 }
+
+void ExpressionButton::__load_settings__(){}
+void ExpressionButton::__save_settings__(){}
+void ExpressionButton::__upload_fonts__(){
+
+}
+void ExpressionButton::__upload_style__(){
+    if(kernel::settings::Program::get_theme() == Themes::Dark)
+        setIcon(QIcon(":booktool/icons/expr_dark.png"));
+    else
+        setIcon(QIcon(":booktool/icons/expr_light.png"));
+}
+void ExpressionButton::__upload_language__(){}
 
 VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
     this->setContentsMargins(0,0,0,0);
@@ -25,12 +38,10 @@ VarExpressionView::VarExpressionView(QWidget* parent):QWidget(parent){
     layout_->setSpacing(0);
 
     expression_ = new ExpressionTextEdit(this);
-    formula_expl_ = new ExpressionButton(":booktool/icons/expr.png",this);
-    formula_expl_->setObjectName("formula_expl"+parent->objectName());
-
+    formula_expl_ = new ExpressionButton(kernel::settings::Program::get_theme() == Themes::Dark?":booktool/icons/expr_dark.png":":booktool/icons/expr_light.png",this);
     expand_collapse_expl_ = new CollapseButton(CollapseButtonState::COLLAPSED,":common/common/expandexpr.png",":common/common/collapseexpr.png",this);
-    expand_collapse_expl_->setObjectName("expand_collapse_expl"+parent->objectName());
-    expand_collapse_expl_->setFixedSize(30,30);
+    expand_collapse_expl_->setObjectName("expand_collapse_expl");
+    expand_collapse_expl_->set_size({30,30});
 
     layout_->addWidget(formula_expl_);
     layout_->addWidget(expression_);

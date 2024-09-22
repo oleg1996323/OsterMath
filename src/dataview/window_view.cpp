@@ -5,6 +5,7 @@
 #include "dataview/variable_list/dock.h"
 #include "dataview/model_data/nodedataview.h"
 #include "dataview/link_viewed_nodes.h"
+#include "utilities/windows/function_wizard_window.h"
 #include <QVBoxLayout>
 
 namespace dataview{
